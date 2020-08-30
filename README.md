@@ -1,9 +1,20 @@
 # 1.Team/project names
-  CtrlAltSpri4ng
-# 2.Team Members
+  CtrlAltSpri4ng/grammark
+
+# 2.Repo location URL
+  https://github.com/soft-eng-practicum/grammark
+
+# 3.Progress tracking tool and URL
+  TBA
+# 4.Communication tool
+    Discord    
+# 5.Team Members
   Josue Mayorga :)
   Francisco Pomaya Ramos ( ͡° ͜ʖ ͡°)
   Fawhn Hanlon :s
+  <br/> Nga Tran 👽 <br/>
+    * Primary role: Testing lead <br/>
+    * Secondary role: Code architecture <br/>
 
 Grammark
 ========
