@@ -9,8 +9,10 @@
 # 4.Communication tool
     Discord    
 # 5.Team Members
-  Josue Mayorga :)
-  Francisco Pomaya Ramos ( ͡° ͜ʖ ͡°)
+  <br/> Josue Mayorga :) <br/>
+  <br/> Francisco Pomaya Ramos ( ͡° ͜ʖ ͡°) <br/>
+    * Primary role: Data modeler <br/>
+    * Secondary role: Testing lead <br/> 
   Fawhn Hanlon :s
   <br/> Nga Tran 👽 <br/>
     * Primary role: Testing lead <br/>
