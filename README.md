@@ -18,7 +18,7 @@
   <li><br/> Nga Tran 👽 <br/></li>
     * Primary role: Testing lead <br/>
     * Secondary role: Code architecture <br/>
-<ol/>
+</ol>
 Grammark
 ========
 > A complete web application for identifying writing problems and offering suggestions.
