@@ -9,15 +9,16 @@
 # 4.Communication tool
     Discord    
 # 5.Team Members
-  <br/> Josue Mayorga :) <br/>
-  <br/> Francisco Pomaya Ramos ( ͡° ͜ʖ ͡°) <br/>
+<ol>
+  <li><br/> <b>Josue Mayorga</b> 👽:)</li> <br/>
+  <li><br/> Francisco Pomaya Ramos ( ͡° ͜ʖ ͡°)</li> <br/>
     * Primary role: Data modeler <br/>
-    * Secondary role: Code architecture/lead programmer <br/> 
-  Fawhn Hanlon :s
-  <br/> Nga Tran 👽 <br/>
+    * Secondary role: Code architecture/lead programmer <br/>
+<li>  Fawhn Hanlon :s</li>
+  <li><br/> Nga Tran 👽 <br/></li>
     * Primary role: Testing lead <br/>
     * Secondary role: Code architecture <br/>
-
+<ol/>
 Grammark
 ========
 > A complete web application for identifying writing problems and offering suggestions.
