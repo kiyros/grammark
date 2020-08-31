@@ -12,7 +12,7 @@
   <br/> Josue Mayorga :) <br/>
   <br/> Francisco Pomaya Ramos ( ͡° ͜ʖ ͡°) <br/>
     * Primary role: Data modeler <br/>
-    * Secondary role: Testing lead <br/> 
+    * Secondary role: Code architecture/lead programmer <br/> 
   Fawhn Hanlon :s
   <br/> Nga Tran 👽 <br/>
     * Primary role: Testing lead <br/>
