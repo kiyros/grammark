@@ -26,7 +26,7 @@
     <li>Secondary Role: Client Liason </li>
     <li>Tertiary Role: Team Manager </li>
   </ul>
-  </li> <b>Nga Tran </b>👽
+  <li> <b>Nga Tran </b>👽</li>
   <ul type="square">
     <li>Primary role: Testing lead </li>
     <li>Secondary role: Code architecture </li>
