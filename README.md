@@ -14,7 +14,12 @@
   <li> Francisco Pomaya Ramos ( ͡° ͜ʖ ͡°) </li> <br/>
     * Primary role: Data modeler <br/>
     * Secondary role: Code architecture/lead programmer <br/>
-<li>  Fawhn Hanlon :s</li> <br/>
+<li>  Fawhn Hanlon :snail:</li> <br/>
+<ul>
+    <li>Primary Role: Documentation Lead</li>
+    <li>Secondary Role: Client Liason </li>
+    <li>Tertiary Role: Team Manager </li>
+</ul>
   <li> Nga Tran 👽 <br/> </li>
     * Primary role: Testing lead <br/>
     * Secondary role: Code architecture <br/>
