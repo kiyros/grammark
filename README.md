@@ -20,7 +20,7 @@
     <li> Primary role: Data modeler</li>
     <li>Secondary role: Code architecture/lead programmer</li>
     </ul>
- <li>  <b>Fawhn Hanlon</b> :deer:</li>
+ <li>  <b>Fawhn Hanlon</b> :deer: :revolving_hearts: :hedgehog: :two_hearts:</li>
   <ul type="square">
     <li>Primary Role: Documentation Lead</li>
     <li>Secondary Role: Client Liason </li>
