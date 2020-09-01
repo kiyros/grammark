@@ -21,11 +21,11 @@
     <li>Secondary role: Code architecture/lead programmer</li> <br/>
     </ul>
  <li>  <b>Fawhn Hanlon</b> :deer:</li>
-    <ul type="square">
-        <ul>Primary Role: Documentation Lead</ul>
-        <ul>Secondary Role: Client Liason </ul>
-        <ul>Tertiary Role: Team Manager </ul>
-    </ul>
+  <ul type="square">
+    <li>Primary Role: Documentation Lead</li>
+    <li>Secondary Role: Client Liason </li>
+    <li>Tertiary Role: Team Manager </li>
+  </ul>
   <li> Nga Tran 👽 <br/> </li>
     * Primary role: Testing lead <br/>
     * Secondary role: Code architecture <br/>
