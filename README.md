@@ -10,15 +10,15 @@
     Discord    
 # 5.Team Members
 <ol>
-  <li> <b>Josue Mayorga</b> :dragon:👽:) </li>
-    <ul>
+  <li> <b>Josue Mayorga</b> :dragon:👽:snake::) </li>
+    <ul type="square">
       <li>UI/UX design</li>
       <li>Team Manager</li>
     </ul>
-  <li> Francisco Pomaya Ramos ( ͡° ͜ʖ ͡°) </li>
-    <ul>
-    <li> Primary role: Data modeler</li> <br/>
-    <li>Secondary role: Code architecture/lead programmer</li> <br/>
+  <li> <b>Francisco Pomaya Ramos ( ͡° ͜ʖ ͡°)</b> </li>
+    <ul type="square">
+    <li> Primary role: Data modeler</li>
+    <li>Secondary role: Code architecture/lead programmer</li>
     </ul>
  <li>  <b>Fawhn Hanlon</b> :deer:</li>
   <ul type="square">
@@ -26,10 +26,13 @@
     <li>Secondary Role: Client Liason </li>
     <li>Tertiary Role: Team Manager </li>
   </ul>
-  <li> Nga Tran 👽 <br/> </li>
-    * Primary role: Testing lead <br/>
-    * Secondary role: Code architecture <br/>
+  </li> <b>Nga Tran </b>👽
+  <ul type="square">
+    <li>Primary role: Testing lead </li>
+    <li>Secondary role: Code architecture </li>
+    </ul>
 </ol>
+
 Grammark
 ========
 > A complete web application for identifying writing problems and offering suggestions.
