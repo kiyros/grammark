@@ -10,16 +10,22 @@
     Discord    
 # 5.Team Members
 <ol>
-  <li> <b>Josue Mayorga</b> 👽:) </li> <br/>
-  <li> Francisco Pomaya Ramos ( ͡° ͜ʖ ͡°) </li> <br/>
-    * Primary role: Data modeler <br/>
-    * Secondary role: Code architecture/lead programmer <br/>
-<li>  <b>Fawhn Hanlon</b> :deer:</li>
-<ul type="square">
-    <ul>Primary Role: Documentation Lead</ul>
-    <ul>Secondary Role: Client Liason </ul>
-    <ul>Tertiary Role: Team Manager </ul>
-</ul>
+  <li> <b>Josue Mayorga</b> :dragon:👽:) </li>
+    <ul>
+      <li>UI/UX design</li>
+      <li>Team Manager</li>
+    </ul>
+  <li> Francisco Pomaya Ramos ( ͡° ͜ʖ ͡°) </li>
+    <ul>
+    <li> Primary role: Data modeler</li> <br/>
+    <li>Secondary role: Code architecture/lead programmer</li> <br/>
+    </ul>
+ <li>  <b>Fawhn Hanlon</b> :deer:</li>
+    <ul type="square">
+        <ul>Primary Role: Documentation Lead</ul>
+        <ul>Secondary Role: Client Liason </ul>
+        <ul>Tertiary Role: Team Manager </ul>
+    </ul>
   <li> Nga Tran 👽 <br/> </li>
     * Primary role: Testing lead <br/>
     * Secondary role: Code architecture <br/>
