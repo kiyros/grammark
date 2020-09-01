@@ -10,12 +10,12 @@
     Discord    
 # 5.Team Members
 <ol>
-  <li><br/> <b>Josue Mayorga</b> 👽:)</li> <br/>
-  <li><br/> Francisco Pomaya Ramos ( ͡° ͜ʖ ͡°)</li> <br/>
+  <li> <b>Josue Mayorga</b> 👽:) </li> <br/>
+  <li> Francisco Pomaya Ramos ( ͡° ͜ʖ ͡°) </li> <br/>
     * Primary role: Data modeler <br/>
     * Secondary role: Code architecture/lead programmer <br/>
-<li>  Fawhn Hanlon :s</li>
-  <li><br/> Nga Tran 👽 <br/></li>
+<li>  Fawhn Hanlon :s</li> <br/>
+  <li> Nga Tran 👽 <br/> </li>
     * Primary role: Testing lead <br/>
     * Secondary role: Code architecture <br/>
 </ol>
