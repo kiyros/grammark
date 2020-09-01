@@ -10,10 +10,16 @@
     Discord    
 # 5.Team Members
 <ol>
-  <li> <b>Josue Mayorga</b> 👽:) </li> <br/>
-  <li> Francisco Pomaya Ramos ( ͡° ͜ʖ ͡°) </li> <br/>
-    * Primary role: Data modeler <br/>
-    * Secondary role: Code architecture/lead programmer <br/>
+  <li> <b>Josue Mayorga</b> :dragon:👽:) </li>
+    <ul>
+      <li>UI/UX design</li>
+      <li>Team Manager</li>
+    </ul>
+  <li> Francisco Pomaya Ramos ( ͡° ͜ʖ ͡°) </li>
+    <ul>
+    <li> Primary role: Data modeler</li> <br/>
+    <li>Secondary role: Code architecture/lead programmer</li> <br/>
+    </ul>
 <li>  Fawhn Hanlon :snail:</li> <br/>
 <ul>
     <li>Primary Role: Documentation Lead</li>
