@@ -23,7 +23,7 @@
  <li>  <b>Fawhn Hanlon</b> :deer: :revolving_hearts: :hedgehog: :two_hearts:</li>
   <ul type="square">
     <li>Primary Role: Documentation Lead</li>
-    <li>Secondary Role: Client Liason </li>
+    <li>Secondary Role: Client Liaison </li>
     <li>Tertiary Role: Team Manager </li>
   </ul>
   <li> <b>Nga Tran </b>👽</li>
