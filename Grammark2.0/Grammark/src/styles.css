@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #eee;
+}
+
+nav {
+    width: 100%;
+    height: 100px;
+    background-color: #fff;
+}
+
+
+ul li {
+    list-style: none;
+    display: inline-block;
+
+    line-height: 100px;
+
+}
+
+ul li a {
+    text-decoration: none;
+    font-size: 14px;
+    font-family: arial;
+    color: #1e1e1e;
+    padding: 0 20xp;
+}
