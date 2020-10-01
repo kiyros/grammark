@@ -1,0 +1,11 @@
+.mat-toolbar.mat-primary {
+    background: #0e9743;
+    color: #fff;
+  }
+.navbar {
+    justify-content: space-between;
+}
+
+a{
+    padding-right: 1rem;
+}
