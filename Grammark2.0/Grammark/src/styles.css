@@ -14,24 +14,5 @@ nav {
     background-color: #fff;
 }
 
-
-ul li {
-    list-style: none;
-    display: inline-block;
-
-    line-height: 100px;
-
-    padding: 0 20px;
-
-}
-
-ul li a {
-    text-decoration: none;
-    font-size: 14px;
-    font-family: arial;
-    color: #1e1e1e;
-    padding: 0 10px;
-}
-
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
