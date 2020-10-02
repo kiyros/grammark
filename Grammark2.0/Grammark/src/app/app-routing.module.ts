@@ -7,7 +7,10 @@ import {DownloadComponent} from './download/download.component';
 import {ResourcesComponent} from './resources/resources.component';
 import {ContactComponent} from './contact/contact.component';
 
-
+import { WordinessComponent } from './resources/wordiness/wordiness.component';
+import { TransitionsComponent } from './resources/transitions/transitions.component';
+import { GrammarComponent } from './resources/grammar/grammar.component';
+import { EggcornsComponent } from './resources/eggcorns/eggcorns.component';
 
 const routes: Routes = [
   {
@@ -30,6 +33,22 @@ const routes: Routes = [
   {
     path:'contact',
     component:ContactComponent
+  },
+  {
+    path:'resources/wordiness',
+    component:WordinessComponent
+  },
+  {
+    path:'resources/transitions',
+    component:TransitionsComponent
+  },
+  {
+    path:'resources/grammar',
+    component:GrammarComponent
+  },
+  {
+    path:'resources/eggcorns',
+    component:EggcornsComponent
   }
 ];
 

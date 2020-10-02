@@ -12,6 +12,11 @@ import { DownloadComponent } from './download/download.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { ContactComponent } from './contact/contact.component';
 
+import { WordinessComponent } from './resources/wordiness/wordiness.component';
+import { TransitionsComponent } from './resources/transitions/transitions.component';
+import { GrammarComponent } from './resources/grammar/grammar.component';
+import { EggcornsComponent } from './resources/eggcorns/eggcorns.component';
+
 const material = [
   MatToolbarModule
 ];
@@ -23,7 +28,11 @@ const material = [
     AboutComponent,
     DownloadComponent,
     ResourcesComponent,
-    ContactComponent
+    ContactComponent,
+    WordinessComponent,
+    TransitionsComponent,
+    GrammarComponent,
+    EggcornsComponent
   ],
   imports: [
     BrowserModule,
