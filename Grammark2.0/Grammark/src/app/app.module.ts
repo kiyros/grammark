@@ -11,6 +11,7 @@ import { AboutComponent } from './about/about.component';
 import { DownloadComponent } from './download/download.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { ContactComponent } from './contact/contact.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const material = [
   MatToolbarModule
@@ -28,7 +29,8 @@ const material = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    material
+    material,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
