@@ -19,6 +19,10 @@
     color: black;
     text-decoration: none;
 }
+.grammark:hover{
+  color: lightpink;
+  
+  }
 
 .linkedpages {
   color: black;
