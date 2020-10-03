@@ -59,20 +59,21 @@
 }
 
 #submitbutton {
-  background-color: cyan;
+  background-color: lightskyblue;
   width: 100px;
   height: 50px;
   padding: 20px;
-  border-radius: 12px;
-  font-size: 16px;
+  border-radius: 14px;
+  font-size: 17px;
   font-weight: bold;
-  margin-left: 300px;
+  margin-left: 310px;
+  font-style: oblique;
 }
 
 #submitbutton:hover {
-  background-color: lightskyblue;
-  border-color: cyan;
-  color: rgb(255, 255, 255);
+  background-color: cyan;
+  border-color: gray;
+  color: lightpink;
 }
 
 ul {
