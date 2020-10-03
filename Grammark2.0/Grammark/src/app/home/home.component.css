@@ -3,6 +3,11 @@
   width: 50%;
   padding-bottom: 40px;
 }
+.column1 {
+  float: left;
+  width: 50%;
+  padding-bottom: 40px;
+}
 
 .column2 {
   float: left;
@@ -63,7 +68,7 @@
 
 #submitbutton:hover {
   background-color: lightskyblue;
-
+  border-color: cyan;
   color: rgb(255, 255, 255);
 }
 

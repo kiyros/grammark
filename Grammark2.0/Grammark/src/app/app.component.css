@@ -1,15 +1,16 @@
 .mat-toolbar.mat-primary {
-    background: cyan;
+    background: lightskyblue;
     color: #fff;
     border-left: black groove;
     border-right: black groove;
   }
 
-  .mat-toolbar.mat-primary:hover {
-    background-color: lightskyblue;
+  /*.mat-toolbar.mat-primary:hover {
+    background-color: lightblue;
   
     color: rgb(255, 255, 255);
   }
+*/
 .navbar {
     justify-content: space-between;
 }
@@ -27,7 +28,11 @@
   width: 135px;
   text-align: center;
 }
-
+.linkedpages:hover{
+  background-color: cyan;
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+}
 a:active {
   color: blue;
 }
