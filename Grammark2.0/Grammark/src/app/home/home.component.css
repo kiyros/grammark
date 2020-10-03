@@ -2,6 +2,7 @@
   float: left;
   width: 50%;
   padding-bottom: 40px;
+  
 }
 .column1 {
   float: left;
@@ -54,6 +55,7 @@
   min-height: 100px;
   width: 95%;
   resize: none;
+  border-width: thick;
 }
 
 #submitbutton {
@@ -64,6 +66,7 @@
   border-radius: 12px;
   font-size: 16px;
   font-weight: bold;
+  margin-left: 300px;
 }
 
 #submitbutton:hover {
