@@ -1,10 +1,15 @@
 .mat-toolbar.mat-primary {
-    background: #0e9743;
+    background: cyan;
     color: #fff;
     border-left: black groove;
     border-right: black groove;
   }
 
+  .mat-toolbar.mat-primary:hover {
+    background-color: lightskyblue;
+  
+    color: rgb(255, 255, 255);
+  }
 .navbar {
     justify-content: space-between;
 }
