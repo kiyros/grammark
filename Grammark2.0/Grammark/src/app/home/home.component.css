@@ -2,6 +2,12 @@
   float: left;
   width: 50%;
   padding-bottom: 40px;
+  
+}
+.column1 {
+  float: left;
+  width: 50%;
+  padding-bottom: 40px;
 }
 
 .column2 {
@@ -11,7 +17,7 @@
 }
 
 .c2 {
-  background-color: #f8f8ff;
+  background-color: #b1b1bd;
   border-color: black;
   border: groove;
   padding-left: 20px;
@@ -49,17 +55,25 @@
   min-height: 100px;
   width: 95%;
   resize: none;
+  border-width: thick;
 }
 
 #submitbutton {
-  background-color: #ADFF2F;
+  background-color: lightskyblue;
   width: 100px;
   height: 50px;
+  padding: 20px;
+  border-radius: 14px;
+  font-size: 17px;
+  font-weight: bold;
+  margin-left: 310px;
+  font-style: oblique;
 }
 
 #submitbutton:hover {
-  background-color: #008000;
-  color: white;
+  background-color: cyan;
+  border-color: gray;
+  color: lightpink;
 }
 
 ul {
