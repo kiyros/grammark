@@ -17,6 +17,11 @@ import { WordinessComponent } from './resources/wordiness/wordiness.component';
 import { TransitionsComponent } from './resources/transitions/transitions.component';
 import { GrammarComponent } from './resources/grammar/grammar.component';
 import { EggcornsComponent } from './resources/eggcorns/eggcorns.component';
+import { OverviewComponent } from './home/overview/overview.component';
+import { PassiveVoiceComponent } from './home/fixes/passive-voice/passive-voice.component';
+import { AcademicStyleComponent } from './home/fixes/academic-style/academic-style.component';
+import { NominalizationsComponent } from './home/fixes/nominalizations/nominalizations.component';
+import { SentencesComponent } from './home/fixes/sentences/sentences.component';
 
 const material = [
   MatToolbarModule
@@ -33,7 +38,12 @@ const material = [
     WordinessComponent,
     TransitionsComponent,
     GrammarComponent,
-    EggcornsComponent
+    EggcornsComponent,
+    OverviewComponent,
+    PassiveVoiceComponent,
+    AcademicStyleComponent,
+    NominalizationsComponent,
+    SentencesComponent
   ],
   imports: [
     BrowserModule,
