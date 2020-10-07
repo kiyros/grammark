@@ -5,9 +5,11 @@
   https://github.com/soft-eng-practicum/grammark
 
 # 3.Progress tracking tool and URL
-  TBA
+  Jira
+  https://jira.ggc.edu/projects/GCC/summary
 # 4.Communication tool
-    Discord    
+- Discord
+- Microsoft Teams
 # 5.Team Members
 <ol>
   <li> <b>Josue Mayorga</b> :dragon:👽:snake::) </li>
@@ -26,7 +28,7 @@
     <li>Secondary Role: Client Liaison </li>
     <li>Tertiary Role: Team Manager </li>
   </ul>
-  <li> <b>Nga Tran </b>👽</li>
+  <li> <b>Nga Tran </b>:alien:</li>
   <ul type="square">
     <li>Primary role: Testing lead </li>
     <li>Secondary role: Code architecture </li>
