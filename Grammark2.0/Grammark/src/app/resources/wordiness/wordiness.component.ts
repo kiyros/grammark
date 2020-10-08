@@ -7,7 +7,7 @@ import { Component, OnInit} from '@angular/core';
 })
 export class WordinessComponent implements OnInit {
 
-  title = 'wordiness';
+  title = 'Wordiness';
    // the words with an empty string as the fix will make the format of table look weird. Ex line 555
   values = {
 'absolutely essential':'essential',
