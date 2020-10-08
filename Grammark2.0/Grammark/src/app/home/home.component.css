@@ -2,7 +2,7 @@
   float: left;
   width: 50%;
   padding-bottom: 40px;
-  
+
 }
 .column1 {
   float: left;
@@ -62,12 +62,13 @@
   background-color: lightskyblue;
   width: 100px;
   height: 50px;
-  padding: 20px;
   border-radius: 14px;
   font-size: 17px;
   font-weight: bold;
-  margin-left: 310px;
+  margin-left: 40%;
   font-style: oblique;
+  display: table-cell;
+  vertical-align: middle;
 }
 
 #submitbutton:hover {

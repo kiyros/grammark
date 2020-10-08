@@ -1,1 +1,16 @@
-<p>grammar works!</p>
+<h1>{{title}}</h1>
+	<div class="grammarTable">
+		<!-- Don't know how to impliment this feature yet -->
+		<!-- <input type="text" ng-model="search" placeholder="Search word or phrase"> -->    
+		<table>
+			<thead>
+			<tr><td><b>Flag</b></td><td><b>Suggestion</b></td></tr>
+			</thead>
+			<td>
+				<tr *ngFor="let tableData of table.find">{{tableData}}</tr>
+			  </td>
+			  <td>
+				<tr *ngFor="let tableData of table.suggestion">{{tableData}}</tr>
+			</td>
+		</table>
+	</div>
