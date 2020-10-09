@@ -1,13 +1,14 @@
 <div class="homecolumns">
 
   <div class="column">
-    <textarea id="userinput" name="userinput" placeholder="Type or paste your writing here. It will not be stored or reused in any way."></textarea>
+    <textarea id="userinput" name="userinput" [(ngModel)]="message"
+      placeholder="Type or paste your writing here. It will not be stored or reused in any way.">{{message}}</textarea>
     <button id="submitbutton" (click)="submitClick()">Submit</button>
-
+    <!--input type="text" [(ngModel)]="message"-->
   </div>
 
   <div class="column1">
-    <div class ="homedescription">
+    <div class="homedescription">
       <h3><b>15-30 minutes:</b> time a teacher takes to correct 1 paper</h3>
       <h3><b>0.14 seconds:</b> time Grammark takes to search 6,239 errors</h3>
     </div>
@@ -16,7 +17,7 @@
 
     <div>
       <div class="column2">
-        <div class = "c2">
+        <div class="c2">
           <h2>Grammark helps with:</h2>
           <ul>
             <li>Academic Style</li>
@@ -30,27 +31,29 @@
             <li>Grammar traps</li>
           </ul>
 
-          <img src="../../assets/images/screenshot1.png" alt="Screenshot of Grammark Highlighting" width="250" height="250"/>
+          <img src="../../assets/images/screenshot1.png" alt="Screenshot of Grammark Highlighting" width="250"
+            height="250" />
 
         </div>
       </div>
 
       <div class="column2">
-        <div class ="c2">
-        <h2>Grammark does not fix:</h2>
-        <ul>
-          <li>Fragments/incomplete sentences</li>
-          <li>Comma splices</li>
-          <li>Tense shifts</li>
-          <li>Subject-verb agreement</li>
-          <li>Apostrophe errors</li>
-          <li>Idiotic ideas</li>
-        </ul>
+        <div class="c2">
+          <h2>Grammark does not fix:</h2>
+          <ul>
+            <li>Fragments/incomplete sentences</li>
+            <li>Comma splices</li>
+            <li>Tense shifts</li>
+            <li>Subject-verb agreement</li>
+            <li>Apostrophe errors</li>
+            <li>Idiotic ideas</li>
+          </ul>
         </div>
 
         <div class="c2">
           <h2>Customizable:</h2>
-        <img class="selfimage" src="../../assets/images/customize.png" alt="Screenshot of Customization" width="250" height="204"/>
+          <img class="selfimage" src="../../assets/images/customize.png" alt="Screenshot of Customization" width="250"
+            height="204" />
         </div>
       </div>
 

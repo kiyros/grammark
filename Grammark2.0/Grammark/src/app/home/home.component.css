@@ -2,8 +2,8 @@
   float: left;
   width: 50%;
   padding-bottom: 40px;
-
 }
+
 .column1 {
   float: left;
   width: 50%;
@@ -56,6 +56,8 @@
   width: 95%;
   resize: none;
   border-width: thick;
+  padding: 5px;
+  font-size: 14px;
 }
 
 #submitbutton {

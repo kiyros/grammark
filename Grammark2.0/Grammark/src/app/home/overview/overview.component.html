@@ -1,13 +1,126 @@
 <mat-toolbar color="white" class="navbar">
-    <a class="linkedpages" routerLink="../overview">Overview</a>
-    <a class="linkedpages" routerLink="../fixes/passive-voice-fix">Passive Voice</a>
-    <a class="linkedpages" routerLink="../fixes/wordiness-fix">Wordiness</a>
-    <a class="linkedpages" routerLink="../fixes/academic-style-fix">Academic Style</a>
-    <a class="linkedpages" routerLink="../fixes/grammar-fix">Grammar</a>
-    <a class="linkedpages" routerLink="../fixes/nominalizations-fix">Nominalizations</a>
-    <a class="linkedpages" routerLink="../fixes/sentences-fix">Sentences</a>
-    <a class="linkedpages" routerLink="../fixes/eggcorns-fix">Eggcorns</a>
-    <a class="linkedpages" routerLink="../fixes/transitions-fix">Transitions</a>
-    <a class="linkedpages" routerLink="../../">Start Over</a>
+  <a class="linkedpages" routerLink="../overview">Overview</a>
+  <a class="linkedpages" routerLink="../fixes/passive-voice-fix">Passive Voice</a>
+  <a class="linkedpages" routerLink="../fixes/wordiness-fix">Wordiness</a>
+  <a class="linkedpages" routerLink="../fixes/academic-style-fix">Academic Style</a>
+  <a class="linkedpages" routerLink="../fixes/grammar-fix">Grammar</a>
+  <a class="linkedpages" routerLink="../fixes/nominalizations-fix">Nominalizations</a>
+  <a class="linkedpages" routerLink="../fixes/sentences-fix">Sentences</a>
+  <a class="linkedpages" routerLink="../fixes/eggcorns-fix">Eggcorns</a>
+  <a class="linkedpages" routerLink="../fixes/transitions-fix">Transitions</a>
+  <a class="linkedpages" (click)="startOverClick()" routerLink="../../">Start Over</a>
 </mat-toolbar>
-Results here!
+
+<div class="columns">
+  <div class="column1">
+    <h1 class="resultdescription"><b>Woot! This Writing Looks Pretty Snazzy.</b></h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th class="tablehead">Category</th>
+          <th class="tablehead">Results</th>
+          <th class="tablehead">Goal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td><a class="tablerow" routerLink="../fixes/passive-voice-fix">Passive Voice</a></td>
+          <td>0(0%)</td>
+          <td>Less than 42%</td>
+        </tr>
+        <tr class="even">
+          <td><a class="tablerow" routerLink="../fixes/wordiness-fix">Wordiness</a></td>
+          <td>0(0%)</td>
+          <td>Less than 2%</td>
+        </tr>
+        <tr class="odd">
+          <td><a class="tablerow" routerLink="../fixes/academic-style-fix">Academic Style</a></td>
+          <td>0(0%)</td>
+          <td>Less than 2%</td>
+        </tr>
+        <tr class="even">
+          <td><a class="tablerow" routerLink="../fixes/grammar-fix">Grammar</a></td>
+          <td>0(0%)</td>
+          <td>Less than 10%</td>
+        </tr>
+        <tr class="odd">
+          <td><a class="tablerow" routerLink="../fixes/nominalizations-fix">Nominalizations</a></td>
+          <td>0(0%)</td>
+          <td>Less than 1%</td>
+        </tr>
+        <tr class="even">
+          <td><a class="tablerow" routerLink="../fixes/sentences-fix">Sentences</a></td>
+          <td>0(0%)</td>
+          <td>Less than 0%</td>
+        </tr>
+        <tr class="odd">
+          <td><a class="tablerow" routerLink="../fixes/eggcorns-fix">Eggcorns</a></td>
+          <td>0(0%)</td>
+          <td>Less than 6%</td>
+        </tr>
+        <tr class="even">
+          <td><a class="tablerow" routerLink="../fixes/transitions-fix">Transitions</a></td>
+          <td>0(0%)</td>
+          <td>Less than 0%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button class="startoverbutton" (click)="startOverClickButton()">Clear & Start Over</button>
+  </div>
+
+  <div class="column2">
+    <div class="c2">
+      <h3><b>Grading Criteria</b></h3>
+      <p>Adjust the target for each category.</p>
+      <h3><b>Presets</b></h3>
+
+      <div class="tinygroup">
+        <a class="tinybutton">Humanities</a>
+        <a class="tinybutton">Sciences</a>
+        <a class="tinybutton">Web</a>
+        <a class="tinybutton">Default</a>
+      </div>
+
+      <div>
+        <table class="tablecss">
+          <tbody>
+            <tr>
+              <td>Passive Voice</td>
+              <td><input type="range" min="0" max="100" step="1">0%</td>
+            </tr>
+            <tr>
+              <td>Wordiness</td>
+              <td><input type="range" min="0" max="100" step="1">0%</td>
+            </tr>
+            <tr>
+              <td>Sentences</td>
+              <td><input type="range" min="0" max="100" step="1">0%</td>
+            </tr>
+            <tr>
+              <td>Transitions</td>
+              <td><input type="range" min="0" max="100" step="1">0%</td>
+            </tr>
+            <tr>
+              <td>Academic Style</td>
+              <td><input type="range" min="0" max="100" step="1">0%</td>
+            </tr>
+            <tr>
+              <td>Grammar</td>
+              <td><input type="range" min="0" max="100" step="1">0%</td>
+            </tr>
+            <tr>
+              <td>Nominalizations</td>
+              <td><input type="range" min="0" max="100" step="1">0%</td>
+            </tr>
+            <tr>
+              <td>Eggcorns</td>
+              <td><input type="range" min="0" max="100" step="1">0%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

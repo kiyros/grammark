@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../../data.service';
 
 @Component({
   selector: 'app-passive-voice-fix',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PassiveVoiceFixComponent implements OnInit {
 
-  constructor() { }
+  message: string;
+
+  constructor(private data: DataService) { }
 
   ngOnInit(): void {
+    this.data.currentMessage.subscribe(message => this.message = message)
   }
 
 }
