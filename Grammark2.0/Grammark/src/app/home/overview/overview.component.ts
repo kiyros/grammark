@@ -9,9 +9,14 @@ import { DataService } from '../../data.service';
 })
 export class OverviewComponent implements OnInit {
 
+  // Vars
   message: string;
+  grade: number;
+  passiveVoice: number;
 
   constructor(private router : Router, private data: DataService) {}
+
+
 
   startOverClick() : void {
     this.data.changeMessage('');
@@ -23,7 +28,14 @@ export class OverviewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.data.currentMessage.subscribe(message => this.message = message)
+    // Input text
+    this.data.currentMessage.subscribe(message => this.message = message);
+    // Grade
+    this.data.currentGrade.subscribe(grade => this.grade = grade);
+    //
+    this.data.currentPassiveVoice.subscribe(passiveVoice => this.passiveVoice = passiveVoice);
+
   }
+
 
 }

@@ -62,6 +62,12 @@
     vertical-align: middle;
 }
 
+.rehighlight:hover {
+  background-color: cyan;
+  border-color: gray;
+  color: lightpink;
+}
+
 .feedback {
   font-size: 30px;
 }

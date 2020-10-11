@@ -18,11 +18,19 @@
 
 <div>
   <div class="column1">
-    <textarea id="userinput" name="userinput" [(ngModel)]="message">{{message}}</textarea>
-    <button class="rehighlight">Re-highlight</button>
+    <textarea id="userinput" name="userinput">{{ message }}</textarea>
+    <button (click)="reHighlight()" class="rehighlight">Re-highlight</button>
   </div>
 
   <div class="column2">
-    <h1 class="feedback"><b>Passive Voice Found</b></h1>
+    <h1 class="feedback"><b>Passive Voice Found</b></h1> {{ passiveVoice }}
+    <table>
+			<td>
+				<tr *ngFor="let tableData of passiveVoiceUserTable.find">{{tableData}}</tr>
+      </td>
+      <td>
+        <tr *ngFor="let tableData of passiveVoiceUserTable.suggestion">{{tableData}}</tr>
+      </td>
+		</table>
   </div>
 </div>

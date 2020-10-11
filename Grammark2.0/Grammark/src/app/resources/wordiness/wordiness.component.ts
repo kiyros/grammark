@@ -506,8 +506,8 @@ export class WordinessComponent implements OnInit {
 'at a rate of':'at',
 'at a speed of':'travelling',
 'at a standstill':'stopped',
-// 'at all costs':'',               
-'at all events':'regardless',       
+// 'at all costs':'',
+'at all events':'regardless',
 'at an advantage':'advantaged',
 // 'at any cost':'',
 // 'at any rate':'',
@@ -963,21 +963,18 @@ export class WordinessComponent implements OnInit {
 'do not like':'dislike'
   };
   table ={
-    find:[
-    ],
-    suggestion:[
-    ]
-  }
-  ;
+    find:[],
+    suggestion:[]
+  };
 
   constructor() { }
 
-  ngOnInit(): void 
+  ngOnInit(): void
   {
     for (var i in this.values) {
           this.table.find.push(i);
           this.table.suggestion.push(this.values[i]);
-      }
+    }
   }
 }
 
