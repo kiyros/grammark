@@ -22,6 +22,7 @@ import { NominalizationsFixComponent } from './home/fixes/nominalizations-fix/no
 import { SentencesFixComponent } from './home/fixes/sentences-fix/sentences-fix.component';
 import { EggcornsFixComponent } from './home/fixes/eggcorns-fix/eggcorns-fix.component';
 import { TransitionsFixComponent } from './home/fixes/transitions-fix/transitions-fix.component';
+import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_compiler';
 
 const routes: Routes = [
   { path:'', pathMatch: 'full', component:HomeComponent },
@@ -30,7 +31,7 @@ const routes: Routes = [
 
   { path:'download', component:DownloadComponent },
 
-  { path:'resources', component:ResourcesComponent },
+  { path:'resources',component:ResourcesComponent},
 
   { path:'contact', component:ContactComponent },
 
