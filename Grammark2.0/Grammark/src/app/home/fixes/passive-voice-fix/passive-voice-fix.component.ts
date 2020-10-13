@@ -1,6 +1,7 @@
 import { stringify } from '@angular/compiler/src/util';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { DataService } from '../../../data.service';
+import { PassivevoiceService } from '../../../services/passivevoice.service';
 
 @Component({
   selector: 'app-passive-voice-fix',
@@ -10,8 +11,9 @@ import { DataService } from '../../../data.service';
 export class PassiveVoiceFixComponent implements OnInit {
 
   message: string;
-  passiveVoice: number;
+  passiveVoiceNumber: number;
   passiveVoiceTable: any;
+  passiveVoiceHelperTable: any;
   passiveVoiceUserTable: any;
 
   title = 'Passive-Voice-Fix';
@@ -29,16 +31,17 @@ export class PassiveVoiceFixComponent implements OnInit {
   // table = { find:[], suggestion:[] };
   // textArray = { nostyle:[], style:[] };
 
-  constructor(private data: DataService) { }
+  constructor(private data: DataService, private passivevoice: PassivevoiceService) { }
 
-  reHighlight() : void {
+  reHighlight(): void {
 
     // Reset every time you hit re-highlight
-    this.data.changePassiveVoice(0);
+    // this.data.changePassiveVoice(0);
+    this.passivevoice.changePassiveVoiceNumber(0);
 
     // Clear -- Reset
     // this.table = { find:[], suggestion:[] };
-    this.passiveVoiceUserTable = { find:[], suggestion:[] };
+    this.passiveVoiceUserTable = { find: [], suggestion: [] };
     /*
     this.textArray = { nostyle:[], style:[] };
     var tempText = "";
@@ -53,11 +56,12 @@ export class PassiveVoiceFixComponent implements OnInit {
     */
 
     // variables
-    var userText = (document.getElementById('userinput') as HTMLTextAreaElement).value;
+    // tslint:disable-next-line: prefer-const
+    let userText = (document.getElementById('userinput') as HTMLTextAreaElement).value;
     let aLetter = false;
 
     // This function checks if there is at least one letter inputed
-    var validateChar = function() {
+    const validateChar = function () {
       if (/[a-zA-Z]/.test(userText)) {
         aLetter = true;
       }
@@ -75,51 +79,70 @@ export class PassiveVoiceFixComponent implements OnInit {
     }
     else {
       this.data.changeMessage(userText);
+
       // tslint:disable-next-line: forin
       for (const fix in this.passiveVoiceTable) {
-        if (userText.includes(fix)) {
 
-          this.data.changePassiveVoice(this.passiveVoice + 1);
+        let alreadyListed = false;
 
-          // If more than one more is found to be fixed
-          // Then store the previous indexes into new variables
-          /*
-          if (this.passiveVoice >= 2) {
-            moreThanOneWordFound = true;
+        // tslint:disable-next-line: forin
+        for (const helper in this.passiveVoiceHelperTable) {
+          // String
+          const compareString = helper + fix;
 
-            W2_initialIndex = W1_initialIndex;
-            W2_finalIndex = W2_finalIndex;
+          if (userText.includes(compareString)) {
+
+            // this.data.changePassiveVoice(this.passiveVoiceNumber + 1);
+            this.passivevoice.changePassiveVoiceNumber(this.passiveVoiceNumber + 1);
+
+            // If more than one more is found to be fixed
+            // Then store the previous indexes into new variables
+            /*
+            if (this.passiveVoice >= 2) {
+              moreThanOneWordFound = true;
+
+              W2_initialIndex = W1_initialIndex;
+              W2_finalIndex = W2_finalIndex;
+            }
+
+            W1_initialIndex = userText.indexOf(fix);
+            W1_finalIndex = userText.indexOf(fix) + fix.length-1;
+
+            // Found a word to fix
+            wordFound = true;
+            */
+
+            // this.table.find.push(fix);
+            // this.table.suggestion.push(this.passiveVoiceTable[fix]);
+
+            this.passiveVoiceUserTable.find.push(compareString);
+            this.passiveVoiceUserTable.suggestion.push(this.passiveVoiceTable[fix]);
+
+            alreadyListed = true;
           }
 
-          W1_initialIndex = userText.indexOf(fix);
-          W1_finalIndex = userText.indexOf(fix) + fix.length-1;
-
-          // Found a word to fix
-          wordFound = true;
+          // Separate text into parts
+          /*
+          if (wordFound === true && moreThanOneWordFound === false) {
+            this.textArray.nostyle.push(userText.substr(0, W1_initialIndex));
+            this.textArray.style.push(userText.substr(W1_initialIndex, W1_finalIndex - W1_initialIndex + 1));
+          }
+          else if (wordFound === true && moreThanOneWordFound === true) {
+            this.textArray.nostyle.push(userText.substr(W2_finalIndex - W1_initialIndex + 1, W1_initialIndex));
+            this.textArray.style.push(userText.substr(W1_initialIndex, W1_finalIndex - W1_initialIndex + 1));
+          }
+          else {
+            this.textArray.nostyle.push(userText.substr(W1_finalIndex + 1));
+            this.textArray.style.push('');
+          }
           */
+        }
 
-          // this.table.find.push(fix);
-          // this.table.suggestion.push(this.passiveVoiceTable[fix]);
-
+        if (userText.includes(fix) && alreadyListed === false) {
+          this.passivevoice.changePassiveVoiceNumber(this.passiveVoiceNumber + 1);
           this.passiveVoiceUserTable.find.push(fix);
           this.passiveVoiceUserTable.suggestion.push(this.passiveVoiceTable[fix]);
         }
-
-        // Separate text into parts
-        /*
-        if (wordFound === true && moreThanOneWordFound === false) {
-          this.textArray.nostyle.push(userText.substr(0, W1_initialIndex));
-          this.textArray.style.push(userText.substr(W1_initialIndex, W1_finalIndex - W1_initialIndex + 1));
-        }
-        else if (wordFound === true && moreThanOneWordFound === true) {
-          this.textArray.nostyle.push(userText.substr(W2_finalIndex - W1_initialIndex + 1, W1_initialIndex));
-          this.textArray.style.push(userText.substr(W1_initialIndex, W1_finalIndex - W1_initialIndex + 1));
-        }
-        else {
-          this.textArray.nostyle.push(userText.substr(W1_finalIndex + 1));
-          this.textArray.style.push('');
-        }
-        */
       }
     }
   }
@@ -127,11 +150,24 @@ export class PassiveVoiceFixComponent implements OnInit {
   ngOnInit(): void {
     this.data.currentMessage.subscribe(message => this.message = message);
 
-    this.data.currentPassiveVoice.subscribe(passiveVoice => this.passiveVoice = passiveVoice);
+    // this.data.currentPassiveVoice.subscribe(passiveVoiceNumber => this.passiveVoiceNumber = passiveVoiceNumber);
 
-    this.data.currentPassiveVoiceTable.subscribe(passiveVoiceTable => this.passiveVoiceTable = passiveVoiceTable);
+    // this.data.currentPassiveVoiceTable.subscribe(passiveVoiceTable => this.passiveVoiceTable = passiveVoiceTable);
 
-    this.data.currentPassiveVoiceUserTable.subscribe(passiveVoiceUserTable => this.passiveVoiceUserTable = passiveVoiceUserTable);
+    // this.data.currentPassiveVoiceUserTable.subscribe(passiveVoiceUserTable => this.passiveVoiceUserTable = passiveVoiceUserTable);
+
+    // Passive Voice Number of Errors
+    this.passivevoice.currentPassiveVoiceNumber.subscribe(passiveVoiceNumber => this.passiveVoiceNumber = passiveVoiceNumber);
+
+    // Passive Voice Table of Errors
+    this.passivevoice.currentPassiveVoiceTable.subscribe(passiveVoiceTable => this.passiveVoiceTable = passiveVoiceTable);
+
+    // Passive Voice Table of Helpers
+    // tslint:disable-next-line: max-line-length
+    this.passivevoice.currentPassiveVoiceHelperTable.subscribe(passiveVoiceHelperTable => this.passiveVoiceHelperTable = passiveVoiceHelperTable);
+
+    // Passive Voice Table of Current User Errors in Text (Feedback)
+    this.passivevoice.currentPassiveVoiceUserTable.subscribe(passiveVoiceUserTable => this.passiveVoiceUserTable = passiveVoiceUserTable);
+
   }
-
 }

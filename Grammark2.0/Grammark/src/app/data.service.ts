@@ -14,7 +14,9 @@ export class DataService {
   // Grade
   private gradeSource = new BehaviorSubject<number>(100);
   currentGrade = this.gradeSource.asObservable();
+  currentPassiveVoiceNumber: any;
 
+  /*
   // Passive Voice Errors Number
   private passiveVoiceSource = new BehaviorSubject<number>(0);
   currentPassiveVoice = this.passiveVoiceSource.asObservable();
@@ -32,20 +34,24 @@ export class DataService {
   // Passive Voice Current User Errors
   private passiveVoiceUserTableSource = new BehaviorSubject<any>({ });
   currentPassiveVoiceUserTable = this.passiveVoiceUserTableSource.asObservable();
+  */
 
   // Constructor
   constructor() { }
 
   // Changing variables
 
+  // tslint:disable-next-line: typedef
   changeMessage(message: string) {
     this.messageSource.next(message)
   }
 
+  // tslint:disable-next-line: typedef
   changeGrade(grade: number) {
     this.gradeSource.next(grade);
   }
 
+  /*
   changePassiveVoice(passiveVoice: number) {
     this.passiveVoiceSource.next(passiveVoice);
   }
@@ -57,4 +63,5 @@ export class DataService {
   changePassiveVoiceUserTable(passiveVoiceUserTable: any) {
     this.passiveVoiceUserTableSource.next(passiveVoiceUserTable);
   }
+  */
 }

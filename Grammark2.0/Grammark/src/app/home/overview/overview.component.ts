@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../../data.service';
+import { PassivevoiceService } from '../../services/passivevoice.service';
 
 @Component({
   selector: 'app-overview',
@@ -12,11 +13,9 @@ export class OverviewComponent implements OnInit {
   // Vars
   message: string;
   grade: number;
-  passiveVoice: number;
+  passiveVoiceNumber: number;
 
-  constructor(private router : Router, private data: DataService) {}
-
-
+  constructor(private router : Router, private data: DataService, private passivevoice: PassivevoiceService) {}
 
   startOverClick() : void {
     this.data.changeMessage('');
@@ -32,10 +31,8 @@ export class OverviewComponent implements OnInit {
     this.data.currentMessage.subscribe(message => this.message = message);
     // Grade
     this.data.currentGrade.subscribe(grade => this.grade = grade);
-    //
-    this.data.currentPassiveVoice.subscribe(passiveVoice => this.passiveVoice = passiveVoice);
+    // Passive Voice Number of Errors
+    this.passivevoice.currentPassiveVoiceNumber.subscribe(passiveVoiceNumber => this.passiveVoiceNumber = passiveVoiceNumber);
 
   }
-
-
 }
