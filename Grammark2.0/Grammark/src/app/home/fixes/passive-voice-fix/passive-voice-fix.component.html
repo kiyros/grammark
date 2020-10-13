@@ -24,7 +24,7 @@
   </div>
 
   <div class="column2">
-    <h1 class="feedback"><b>Passive Voice Found</b></h1> {{ passiveVoice }}
+    <h1 class="feedback"><b>Passive Voice Found - {{ passiveVoiceNumber }} error(s)</b></h1>
     <table>
 			<td>
 				<tr *ngFor="let tableData of passiveVoiceUserTable.find">{{tableData}}</tr>
