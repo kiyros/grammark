@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   grade: number;
   passiveVoiceNumber: number;
   passiveVoiceTable: any;
+  passiveVoiceHelperTable: any;
   passiveVoiceUserTable: any;
   passiveVoiceUserTable2: any;
 
@@ -58,18 +59,22 @@ export class HomeComponent implements OnInit {
       this.data.changeMessage(userText);
       this.router.navigate(['home/overview']);
 
+      // tslint:disable-next-line: forin
       for (const fix in this.passiveVoiceTable) {
-        if (userText.includes(fix)) {
 
-          this.passivevoice.changePassiveVoiceNumber(this.passiveVoiceNumber + 1);
+        // tslint:disable-next-line: forin
+        for (const helper in this.passiveVoiceHelperTable) {
+          // String
+          const compareString = helper + fix;
 
-          this.table.find.push(fix);
-          this.table.suggestion.push(this.passiveVoiceTable[fix]);
+          if (userText.includes(compareString)) {
 
-          this.passiveVoiceUserTable.find.push(fix);
-          this.passiveVoiceUserTable.suggestion.push(this.passiveVoiceTable[fix]);
-
-          this.passivevoice.changePassiveVoiceUserTable(this.passiveVoiceUserTable);
+            // this.data.changePassiveVoice(this.passiveVoiceNumber + 1);
+            this.passivevoice.changePassiveVoiceNumber(this.passiveVoiceNumber + 1);
+            this.passiveVoiceUserTable.find.push(compareString);
+            this.passiveVoiceUserTable.suggestion.push(this.passiveVoiceTable[fix]);
+            this.passivevoice.changePassiveVoiceUserTable(this.passiveVoiceUserTable);
+          }
         }
       }
     }
@@ -90,6 +95,10 @@ export class HomeComponent implements OnInit {
     this.passivevoice.currentPassiveVoiceNumber.subscribe(passiveVoiceNumber => this.passiveVoiceNumber = passiveVoiceNumber);
 
     this.passivevoice.currentPassiveVoiceTable.subscribe(passiveVoiceTable => this.passiveVoiceTable = passiveVoiceTable);
+
+    // Passive Voice Table of Helpers
+    // tslint:disable-next-line: max-line-length
+    this.passivevoice.currentPassiveVoiceHelperTable.subscribe(passiveVoiceHelperTable => this.passiveVoiceHelperTable = passiveVoiceHelperTable);
 
     this.passivevoice.currentPassiveVoiceUserTable.subscribe(passiveVoiceUserTable => this.passiveVoiceUserTable = passiveVoiceUserTable);
 

@@ -83,8 +83,6 @@ export class PassiveVoiceFixComponent implements OnInit {
       // tslint:disable-next-line: forin
       for (const fix in this.passiveVoiceTable) {
 
-        let alreadyListed = false;
-
         // tslint:disable-next-line: forin
         for (const helper in this.passiveVoiceHelperTable) {
           // String
@@ -117,8 +115,6 @@ export class PassiveVoiceFixComponent implements OnInit {
 
             this.passiveVoiceUserTable.find.push(compareString);
             this.passiveVoiceUserTable.suggestion.push(this.passiveVoiceTable[fix]);
-
-            alreadyListed = true;
           }
 
           // Separate text into parts
@@ -136,12 +132,6 @@ export class PassiveVoiceFixComponent implements OnInit {
             this.textArray.style.push('');
           }
           */
-        }
-
-        if (userText.includes(fix) && alreadyListed === false) {
-          this.passivevoice.changePassiveVoiceNumber(this.passiveVoiceNumber + 1);
-          this.passiveVoiceUserTable.find.push(fix);
-          this.passiveVoiceUserTable.suggestion.push(this.passiveVoiceTable[fix]);
         }
       }
     }
