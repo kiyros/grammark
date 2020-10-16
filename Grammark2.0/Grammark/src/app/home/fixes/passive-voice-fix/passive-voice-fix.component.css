@@ -62,6 +62,25 @@
     vertical-align: middle;
 }
 
+.rehighlight:hover {
+  background-color: cyan;
+  border-color: gray;
+  color: lightpink;
+}
+
 .feedback {
   font-size: 30px;
 }
+.linkedpages {
+  color: black;
+  text-decoration: none;
+  border-left: black groove;
+  display: inline-block;
+  width: 135px;
+  text-align: center;
+  }
+  .linkedpages:hover{
+  background-color: cyan;
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  }
