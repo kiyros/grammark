@@ -3,6 +3,7 @@ import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/cor
 import { NavigationExtras, Router, RouterLink } from '@angular/router';
 import { DataService } from '../data.service';
 import { PassivevoiceService } from '../services/passivevoice.service';
+import { TransitionsService} from '../services/transitions.service';
 
 @Component({
   selector: 'app-home',
@@ -19,20 +20,30 @@ export class HomeComponent implements OnInit {
   passiveVoiceUserTable: any;
   passiveVoiceUserTable2: any;
 
+  //var for transitions 
+  transitionsFeedback: string = " ";
+  transitionsScore: number;
+  totalSentences: number;
+  totalTransitions: number;
+  transitionsTable: any;
+  transitionsUserTable: any;
+
   title = 'OverView';
 
   table = { find:[], suggestion:[] };
 
-  constructor(private router : Router, private data: DataService, private passivevoice: PassivevoiceService) { }
+  constructor(private router : Router, private data: DataService, private passivevoice: PassivevoiceService, private transitions: TransitionsService) { }
 
   submitClick() : void {
     // Reset every time you hit re-highlight
     // this.data.changePassiveVoice(0);
     this.passivevoice.changePassiveVoiceNumber(0);
+    this.transitions.resetTransitionFix();
     // Clear -- Reset
     this.table = { find:[], suggestion:[] };
     this.passiveVoiceUserTable = { find:[], suggestion:[] };
     this.passiveVoiceUserTable2 = { find: [], suggestion: [] };
+    this.transitionsUserTable = { find: [], suggestion: [] };
 
     // variables
     var userText = ( document.getElementById('userinput') as HTMLTextAreaElement).value;
@@ -77,8 +88,14 @@ export class HomeComponent implements OnInit {
           }
         }
       }
-    }
+
+       //transition fix!!
+      this.transitionFix(userText);
+      console.log(this.totalSentences);/////////////////////////////////////////////////////
+      console.log(this.totalTransitions);////////////////////////////////////////////////////
+      console.log(this.transitionsScore);///////////////////////////////////////////////////
   }
+}
 
   ngOnInit(): void {
     // Input Text
@@ -104,5 +121,65 @@ export class HomeComponent implements OnInit {
 
     // tslint:disable-next-line: max-line-length
     this.passivevoice.currentPassiveVoiceUserTable2.subscribe(passiveVoiceUserTable2 => this.passiveVoiceUserTable2 = passiveVoiceUserTable2);
+    
+    //subscribe to transition service 
+    this.transitionService();
+  }
+
+  // subscribe to transition variables 
+  transitionService(){
+    //Feedback
+    this.transitions.currentTransitionsFeedback.subscribe(transitionsFeedback => this.transitionsFeedback = transitionsFeedback);
+
+    // Transitions score
+    this.transitions.currentTransitionsScore.subscribe(transitionsScore => this.transitionsScore = transitionsScore);
+
+    // Total number of sentences in the user input
+    this.transitions.currentTotalSentences.subscribe(totalSentences => this.totalSentences = totalSentences);
+
+    // Total number of transitions in the user input
+    this.transitions.currentTotalTransitions.subscribe(totalTransitions => this.totalTransitions = totalTransitions);
+
+    // Transition Table of all transitions
+    this.transitions.currentTransitionsTable.subscribe(transitionsTable => this.transitionsTable = transitionsTable);
+
+    // Transition Table of Current User Errors in Text 
+    this.transitions.currentTransitionsUserTable.subscribe(transitionsUserTable => this.transitionsUserTable = transitionsUserTable);
+  }
+
+  // this function will calculate the transition score
+  transitionFix(userText: string){
+    for (const fix in this.transitionsTable) {
+      if (userText.includes(fix)) {
+        this.transitions.changeTotalTransitions(this.totalTransitions + 1);
+
+
+        // add transition in user text into an array 
+        this.transitionsUserTable.find.push(fix);
+        this.transitionsUserTable.suggestion.push(this.transitionsUserTable[fix]);
+        this.transitions.changeTransitionsUserTable(this.transitionsUserTable);
+      }
+  }
+  //find total sentences in user text 
+  var endingSentencesTable = ['.', '!','?'];
+  for (let i = 0; i < userText.length; i++) {
+    for (let i = 0; i < userText.length; i++) {
+      if(userText.charAt(i)=== "." || userText.charAt(i)=== "!"|| userText.charAt(i)=== "?"){
+        this.transitions.changeTotalSentences(this.totalSentences + 1 );
+      } 
+    }
+  }
+  //calcutale score
+  this.transitionsScore = (this.totalTransitions/this.totalSentences)*100;
+  this.transitions.changeTransitionsScore(this.transitionsScore);
+
+  if(this.transitionsScore <= 69 || this.transitionsScore == 0 ){
+    this.transitionsFeedback = "The number of transition words in your writing seems low";
+  }else if(this.transitionsScore <= 80){
+    this.transitionsFeedback = "Woot! Your writing seems to have a good proportion of transitions";
+  }else{
+    this.transitionsFeedback ="Woot! Your writing seems to have a lot of transitions. Make sure you\'re not overusing transition words";
+  }
+  this.transitions.changeTransitionsFeedback(this.transitionsFeedback);
   }
 }

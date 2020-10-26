@@ -2,6 +2,7 @@ import { Component, Input, OnInit, ViewChild, AfterViewInit } from '@angular/cor
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../../data.service';
 import { PassivevoiceService } from '../../services/passivevoice.service';
+import { TransitionsService} from '../../services/transitions.service';
 
 @Component({
   selector: 'app-overview',
@@ -14,8 +15,10 @@ export class OverviewComponent implements OnInit {
   message: string;
   grade: number;
   passiveVoiceNumber: number;
+  totalTransitions: number;
+  transitionsScore: number;
 
-  constructor(private router : Router, private data: DataService, private passivevoice: PassivevoiceService) {}
+  constructor(private router : Router, private data: DataService, private passivevoice: PassivevoiceService, private transitions: TransitionsService) {}
 
   startOverClick() : void {
     this.data.changeMessage('');
@@ -34,5 +37,8 @@ export class OverviewComponent implements OnInit {
     // Passive Voice Number of Errors
     this.passivevoice.currentPassiveVoiceNumber.subscribe(passiveVoiceNumber => this.passiveVoiceNumber = passiveVoiceNumber);
 
+    this.transitions.currentTotalTransitions.subscribe(totalTransitions => this.totalTransitions = totalTransitions);
+
+    this.transitions.currentTransitionsScore.subscribe(transitionsScore => this.transitionsScore = transitionsScore);
   }
 }
