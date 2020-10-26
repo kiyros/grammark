@@ -91,9 +91,6 @@ export class HomeComponent implements OnInit {
 
        //transition fix!!
       this.transitionFix(userText);
-      console.log(this.totalSentences);/////////////////////////////////////////////////////
-      console.log(this.totalTransitions);////////////////////////////////////////////////////
-      console.log(this.transitionsScore);///////////////////////////////////////////////////
   }
 }
 
@@ -161,14 +158,11 @@ export class HomeComponent implements OnInit {
       }
   }
   //find total sentences in user text 
-  var endingSentencesTable = ['.', '!','?'];
-  for (let i = 0; i < userText.length; i++) {
     for (let i = 0; i < userText.length; i++) {
       if(userText.charAt(i)=== "." || userText.charAt(i)=== "!"|| userText.charAt(i)=== "?"){
         this.transitions.changeTotalSentences(this.totalSentences + 1 );
       } 
     }
-  }
   //calcutale score
   this.transitionsScore = (this.totalTransitions/this.totalSentences)*100;
   this.transitions.changeTransitionsScore(this.transitionsScore);

@@ -69,14 +69,12 @@ export class TransitionsFixComponent implements OnInit {
               }
           }
           //find total sentences in user text 
-          for (let i = 0; i < userText.length; i++) {
             for (let i = 0; i < userText.length; i++) {
               if(userText.charAt(i)=== "." || userText.charAt(i)=== "!"|| userText.charAt(i)=== "?"){
                 this.totalSentences ++;
                 this.transitions.changeTotalSentences(this.totalSentences);
               } 
             }
-          }
           //calcutale score
           this.transitionsScore = (this.totalTransitions/this.totalSentences)*100;
           this.transitions.changeTransitionsScore(this.transitionsScore);
