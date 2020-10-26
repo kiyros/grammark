@@ -3,6 +3,7 @@ import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/cor
 import { NavigationExtras, Router, RouterLink } from '@angular/router';
 import { DataService } from '../data.service';
 import { PassivevoiceService } from '../services/passivevoice.service';
+import { WordinessService } from '../services/wordiness.service';
 
 @Component({
   selector: 'app-home',
@@ -13,26 +14,29 @@ export class HomeComponent implements OnInit {
 
   message: string;
   grade: number;
+  // Passive Voice
   passiveVoiceNumber: number;
   passiveVoiceTable: any;
   passiveVoiceHelperTable: any;
   passiveVoiceUserTable: any;
-  passiveVoiceUserTable2: any;
+  // Wordiness
+  wordinessNumber: number;
+  wordinessTable: any;
+  wordinessUserTable: any;
 
   title = 'OverView';
 
-  table = { find:[], suggestion:[] };
-
-  constructor(private router : Router, private data: DataService, private passivevoice: PassivevoiceService) { }
+  constructor(private router : Router, private data: DataService, private passivevoice: PassivevoiceService,
+              private wordiness: WordinessService) { }
 
   submitClick() : void {
     // Reset every time you hit re-highlight
     // this.data.changePassiveVoice(0);
     this.passivevoice.changePassiveVoiceNumber(0);
+    this.wordiness.changeWordinessNumber(0);
     // Clear -- Reset
-    this.table = { find:[], suggestion:[] };
     this.passiveVoiceUserTable = { find:[], suggestion:[] };
-    this.passiveVoiceUserTable2 = { find: [], suggestion: [] };
+    this.wordinessUserTable = { find:[], suggestion:[] };
 
     // variables
     var userText = ( document.getElementById('userinput') as HTMLTextAreaElement).value;
@@ -77,6 +81,16 @@ export class HomeComponent implements OnInit {
           }
         }
       }
+
+      for (const fix in this.wordinessTable) {
+
+        if (userText.includes(fix)) {
+
+          this.wordiness.changeWordinessNumber(this.wordinessNumber + 1);
+          this.wordinessUserTable.find.push(fix);
+          this.wordiness.changeWordinessUserTable(this.wordinessUserTable);
+        }
+      }
     }
   }
 
@@ -85,24 +99,25 @@ export class HomeComponent implements OnInit {
     this.data.currentMessage.subscribe(message => this.message = message);
     // Grade
     this.data.currentGrade.subscribe(grade => this.grade = grade);
-    // Passive Voice
-    // this.data.currentPassiveVoice.subscribe(passiveVoice => this.passiveVoice = passiveVoice);
 
-    // this.data.currentPassiveVoiceTable.subscribe(passiveVoiceTable => this.passiveVoiceTable = passiveVoiceTable);
-
-    // this.data.currentPassiveVoiceUserTable.subscribe(passiveVoiceUserTable => this.passiveVoiceUserTable = this.passiveVoiceUserTable);
-
+    // ************************
+    // *                      *
+    // *     Passive Voice    *
+    // *                      *
+    // ************************
     this.passivevoice.currentPassiveVoiceNumber.subscribe(passiveVoiceNumber => this.passiveVoiceNumber = passiveVoiceNumber);
-
     this.passivevoice.currentPassiveVoiceTable.subscribe(passiveVoiceTable => this.passiveVoiceTable = passiveVoiceTable);
-
-    // Passive Voice Table of Helpers
     // tslint:disable-next-line: max-line-length
     this.passivevoice.currentPassiveVoiceHelperTable.subscribe(passiveVoiceHelperTable => this.passiveVoiceHelperTable = passiveVoiceHelperTable);
-
     this.passivevoice.currentPassiveVoiceUserTable.subscribe(passiveVoiceUserTable => this.passiveVoiceUserTable = passiveVoiceUserTable);
 
-    // tslint:disable-next-line: max-line-length
-    this.passivevoice.currentPassiveVoiceUserTable2.subscribe(passiveVoiceUserTable2 => this.passiveVoiceUserTable2 = passiveVoiceUserTable2);
+    // *********************
+    // *                   *
+    // *     Wordiness     *
+    // *                   *
+    // *********************
+    this.wordiness.currentWordinessNumber.subscribe(wordinessNumber => this.wordinessNumber = wordinessNumber);
+    this.wordiness.currentWordinessTable.subscribe(wordinessTable => this.wordinessTable = wordinessTable);
+    this.wordiness.currentWordinessUserTable.subscribe(wordinessUserTable => this.wordinessUserTable = wordinessUserTable);
   }
 }

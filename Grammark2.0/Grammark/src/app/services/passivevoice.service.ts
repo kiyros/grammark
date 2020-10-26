@@ -1035,11 +1035,6 @@ export class PassivevoiceService {
   private passiveVoiceUserTableSource = new BehaviorSubject<any>({});
   currentPassiveVoiceUserTable = this.passiveVoiceUserTableSource.asObservable();
 
-  // Table2
-  private passiveVoiceUserTable2Source = new BehaviorSubject<any>({});
-  currentPassiveVoiceUser2 = this.passiveVoiceUserTable2Source.asObservable();
-  currentPassiveVoiceUserTable2: any;
-
   constructor() { }
 
   // tslint:disable-next-line: typedef
@@ -1060,10 +1055,5 @@ export class PassivevoiceService {
   // tslint:disable-next-line: typedef
   changePassiveVoiceUserTable(passiveVoiceUserTable: any) {
     this.passiveVoiceUserTableSource.next(passiveVoiceUserTable);
-  }
-
-  // tslint:disable-next-line: typedef
-  changePassiveVoiceUserTable2(passiveVoiceUserTable2: any) {
-    this.passiveVoiceUserTable2Source.next(passiveVoiceUserTable2);
   }
 }
