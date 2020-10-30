@@ -12,8 +12,15 @@
 </mat-toolbar>
 
 <mat-toolbar color="white" class="category">
+  
   <mat-toolbar-row class="title"><b>Transitions</b></mat-toolbar-row>
   <mat-toolbar-row class="description">{{transitionsFeedback}}</mat-toolbar-row>
+
+  <div class="alert-box" [style.background-color]="transitionsAlertColor">
+    <h5>{{ totalTransitions }} instances ({{ transitionsScore }}% of sentences)</h5>
+    <b>Goal: </b>
+  </div>
+  
 </mat-toolbar>
 
 <div>

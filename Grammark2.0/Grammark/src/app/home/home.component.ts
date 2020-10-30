@@ -3,11 +3,8 @@ import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/cor
 import { NavigationExtras, Router, RouterLink } from '@angular/router';
 import { DataService } from '../data.service';
 import { PassivevoiceService } from '../services/passivevoice.service';
-<<<<<<< HEAD
 import { WordinessService } from '../services/wordiness.service';
-=======
 import { TransitionsService} from '../services/transitions.service';
->>>>>>> cb94305b543fb4f528909be785d5ca879b92875d
 
 @Component({
   selector: 'app-home',
@@ -35,35 +32,24 @@ export class HomeComponent implements OnInit {
   totalTransitions: number;
   transitionsTable: any;
   transitionsUserTable: any;
+  transitionsAlertColor: any;
 
   title = 'OverView';
 
-<<<<<<< HEAD
   constructor(private router : Router, private data: DataService, private passivevoice: PassivevoiceService,
-              private wordiness: WordinessService) { }
-=======
+              private wordiness: WordinessService, private transitions: TransitionsService) { }
   table = { find:[], suggestion:[] };
-
-  constructor(private router : Router, private data: DataService, private passivevoice: PassivevoiceService, private transitions: TransitionsService) { }
->>>>>>> cb94305b543fb4f528909be785d5ca879b92875d
 
   submitClick() : void {
     // Reset every time you hit re-highlight
     // this.data.changePassiveVoice(0);
     this.passivevoice.changePassiveVoiceNumber(0);
-<<<<<<< HEAD
     this.wordiness.changeWordinessNumber(0);
-=======
     this.transitions.resetTransitionFix();
->>>>>>> cb94305b543fb4f528909be785d5ca879b92875d
     // Clear -- Reset
     this.passiveVoiceUserTable = { find:[], suggestion:[] };
-<<<<<<< HEAD
     this.wordinessUserTable = { find:[], suggestion:[] };
-=======
-    this.passiveVoiceUserTable2 = { find: [], suggestion: [] };
     this.transitionsUserTable = { find: [], suggestion: [] };
->>>>>>> cb94305b543fb4f528909be785d5ca879b92875d
 
     // variables
     var userText = ( document.getElementById('userinput') as HTMLTextAreaElement).value;
@@ -109,7 +95,6 @@ export class HomeComponent implements OnInit {
         }
       }
 
-<<<<<<< HEAD
       for (const fix in this.wordinessTable) {
 
         if (userText.includes(fix)) {
@@ -120,12 +105,10 @@ export class HomeComponent implements OnInit {
         }
       }
     }
-=======
        //transition fix!!
       this.transitionFix(userText);
->>>>>>> cb94305b543fb4f528909be785d5ca879b92875d
   }
-}
+
 
   ngOnInit(): void {
     // Input Text
@@ -144,7 +127,6 @@ export class HomeComponent implements OnInit {
     this.passivevoice.currentPassiveVoiceHelperTable.subscribe(passiveVoiceHelperTable => this.passiveVoiceHelperTable = passiveVoiceHelperTable);
     this.passivevoice.currentPassiveVoiceUserTable.subscribe(passiveVoiceUserTable => this.passiveVoiceUserTable = passiveVoiceUserTable);
 
-<<<<<<< HEAD
     // *********************
     // *                   *
     // *     Wordiness     *
@@ -153,16 +135,23 @@ export class HomeComponent implements OnInit {
     this.wordiness.currentWordinessNumber.subscribe(wordinessNumber => this.wordinessNumber = wordinessNumber);
     this.wordiness.currentWordinessTable.subscribe(wordinessTable => this.wordinessTable = wordinessTable);
     this.wordiness.currentWordinessUserTable.subscribe(wordinessUserTable => this.wordinessUserTable = wordinessUserTable);
-=======
     // tslint:disable-next-line: max-line-length
     // this.passivevoice.currentPassiveVoiceUserTable2.subscribe(passiveVoiceUserTable2 => this.passiveVoiceUserTable2 = passiveVoiceUserTable2);
     
+    // *********************
+    // *                   *
+    // *    Transitions    *
+    // *                   *
+    // *********************
     //subscribe to transition service 
     this.transitionService();
   }
 
   // subscribe to transition variables 
   transitionService(){
+    //result color 
+    this.transitions.currentTransitionsAlertColor.subscribe(transitionsAlertColor => this.transitionsAlertColor = transitionsAlertColor);
+
     //Feedback
     this.transitions.currentTransitionsFeedback.subscribe(transitionsFeedback => this.transitionsFeedback = transitionsFeedback);
 
@@ -185,9 +174,9 @@ export class HomeComponent implements OnInit {
   // this function will calculate the transition score
   transitionFix(userText: string){
     for (const fix in this.transitionsTable) {
-      if (userText.includes(fix)) {
+      // changing user text to lower Case to match with transitionsTable
+      if (userText.toLocaleLowerCase().includes(fix)) {
         this.transitions.changeTotalTransitions(this.totalTransitions + 1);
-
 
         // add transition in user text into an array 
         this.transitionsUserTable.find.push(fix);
@@ -203,16 +192,28 @@ export class HomeComponent implements OnInit {
     }
   //calcutale score
   this.transitionsScore = (this.totalTransitions/this.totalSentences)*100;
-  this.transitions.changeTransitionsScore(this.transitionsScore);
+  if(isNaN(this.transitionsScore)  || this.transitionsScore === Infinity){
+    this.transitionsScore = 0;
+  }
+  // round to whole number
+  this.transitions.changeTransitionsScore(Math.round(this.transitionsScore));
+  // this.transitions.changeTransitionsScore(this.transitionsScore);
 
-  if(this.transitionsScore <= 69 || this.transitionsScore == 0 ){
+  if(this.transitionsScore == 0 ){
+    this.transitionsAlertColor = "red";
+    this.transitionsFeedback = "Your writing seems to have no transition word";
+  }else if (this.transitionsScore <= 10){
     this.transitionsFeedback = "The number of transition words in your writing seems low";
+    this.transitionsAlertColor = "orange";
   }else if(this.transitionsScore <= 80){
     this.transitionsFeedback = "Woot! Your writing seems to have a good proportion of transitions";
+    this.transitionsAlertColor = "green";
   }else{
     this.transitionsFeedback ="Woot! Your writing seems to have a lot of transitions. Make sure you\'re not overusing transition words";
+    this.transitionsAlertColor = "green";
   }
   this.transitions.changeTransitionsFeedback(this.transitionsFeedback);
->>>>>>> cb94305b543fb4f528909be785d5ca879b92875d
+  this.transitions.changeTransitionsAlertColor(this.transitionsAlertColor);
   }
 }
+

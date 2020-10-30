@@ -84,3 +84,12 @@
   border-radius: 10px;
   color: rgb(255, 255, 255);
   }
+  .alert-box{
+    background-color: rgb(231, 33, 33);
+    min-width: 300px;
+    margin-left: 850px;
+    text-align: left;
+    padding: 10px;
+    position: relative;
+    border-radius: 10px;
+  }

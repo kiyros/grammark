@@ -7,6 +7,9 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 export class TransitionsService {
 
   //variables for transistions score
+  private transitionsAlertColor = new BehaviorSubject<string>(" ");
+  currentTransitionsAlertColor = this.transitionsAlertColor.asObservable();
+
   private transitionsFeedback = new BehaviorSubject<string>(" ");
   currentTransitionsFeedback = this.transitionsFeedback.asObservable();
 
@@ -240,6 +243,10 @@ export class TransitionsService {
 
   changeTransitionsFeedback(transitionsFeedback: string){
     this.transitionsFeedback.next(transitionsFeedback);
+  }
+
+  changeTransitionsAlertColor(transitionsAlertColor: string){
+    this.transitionsAlertColor.next(transitionsAlertColor);
   }
 
   resetTransitionFix(){
