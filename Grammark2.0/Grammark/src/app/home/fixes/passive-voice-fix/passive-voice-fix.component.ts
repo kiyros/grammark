@@ -33,6 +33,8 @@ export class PassiveVoiceFixComponent implements OnInit {
 
   constructor(private data: DataService, private passivevoice: PassivevoiceService) { }
 
+
+
   reHighlight(): void {
 
     // Reset every time you hit re-highlight
@@ -112,7 +114,6 @@ export class PassiveVoiceFixComponent implements OnInit {
 
             // this.table.find.push(fix);
             // this.table.suggestion.push(this.passiveVoiceTable[fix]);
-
             this.passiveVoiceUserTable.find.push(compareString);
             this.passiveVoiceUserTable.suggestion.push(this.passiveVoiceTable[fix]);
           }
@@ -158,6 +159,5 @@ export class PassiveVoiceFixComponent implements OnInit {
 
     // Passive Voice Table of Current User Errors in Text (Feedback)
     this.passivevoice.currentPassiveVoiceUserTable.subscribe(passiveVoiceUserTable => this.passiveVoiceUserTable = passiveVoiceUserTable);
-
   }
 }

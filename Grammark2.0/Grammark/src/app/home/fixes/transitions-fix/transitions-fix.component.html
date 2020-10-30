@@ -10,4 +10,27 @@
   <a class="linkedpages" routerLink="../transitions-fix">Transitions</a>
   <a class="linkedpages" routerLink="">Start Over</a>
 </mat-toolbar>
-Transitions works!
+
+<mat-toolbar color="white" class="category">
+  <mat-toolbar-row class="title"><b>Transitions</b></mat-toolbar-row>
+  <mat-toolbar-row class="description">{{transitionsFeedback}}</mat-toolbar-row>
+</mat-toolbar>
+
+<div>
+  <div class="column1">
+    <textarea id="userinput" name="userinput">{{ message }}</textarea>
+    <button (click)="reHighlight()" class="rehighlight">Re-highlight</button>
+  </div>
+
+  <div class="column2">
+    <h1 class="feedback"><b>Transitions Found - {{totalTransitions}} instance(s)</b></h1>
+    <table> 
+			<td>
+				<tr *ngFor="let tableData of transitionsUserTable.find"><li>{{tableData}}</li></tr>
+      </td>
+      <td>
+        <tr *ngFor="let tableData of transitionsUserTable.suggestion">{{tableData}}</tr>
+      </td>
+		</table>
+  </div>
+</div>

@@ -10,4 +10,27 @@
   <a class="linkedpages" routerLink="../transitions-fix">Transitions</a>
   <a class="linkedpages" routerLink="">Start Over</a>
 </mat-toolbar>
-Wordiness works!
+
+<mat-toolbar color="white" class="category">
+  <mat-toolbar-row class="title"><b>Wordiness</b></mat-toolbar-row>
+  <mat-toolbar-row class="description">Woohoo! Your writing seems concise, precise, and snappy. George Orwell would be proud.</mat-toolbar-row>
+</mat-toolbar>
+
+<div>
+  <div class="column1">
+    <textarea id="userinput" name="userinput">{{ message }} </textarea>
+    <button (click)="reHighlight()" class="rehighlight">Re-highlight</button>
+  </div>
+
+  <div class="column2">
+    <h1 class="feedback"><b>Passive Voice Found - {{ wordinessNumber }} error(s)</b></h1>
+    <table>
+			<td>
+				<tr *ngFor="let tableData of wordinessUserTable.find">{{tableData}}</tr>
+      </td>
+      <td>
+        <tr *ngFor="let tableData of wordinessUserTable.suggestion">{{tableData}}</tr>
+      </td>
+		</table>
+  </div>
+</div>
