@@ -5,6 +5,7 @@ import { DataService } from '../data.service';
 import { PassivevoiceService } from '../services/passivevoice.service';
 import { WordinessService } from '../services/wordiness.service';
 import { TransitionsService} from '../services/transitions.service';
+import { GrammarService} from '../services/grammar.service';
 
 @Component({
   selector: 'app-home',
@@ -34,10 +35,17 @@ export class HomeComponent implements OnInit {
   transitionsUserTable: any;
   transitionsAlertColor: any;
 
+  //grammar
+  grammarFeedback: string = " ";
+  totalGrammar: number;
+  grammarTable: any;
+  grammarUserTable: any;
+  grammarAlertColor: any;
+
   title = 'OverView';
 
   constructor(private router : Router, private data: DataService, private passivevoice: PassivevoiceService,
-              private wordiness: WordinessService, private transitions: TransitionsService) { }
+              private wordiness: WordinessService, private transitions: TransitionsService, private grammar: GrammarService) { }
   table = { find:[], suggestion:[] };
 
   submitClick() : void {
@@ -46,10 +54,12 @@ export class HomeComponent implements OnInit {
     this.passivevoice.changePassiveVoiceNumber(0);
     this.wordiness.changeWordinessNumber(0);
     this.transitions.resetTransitionFix();
+    this.grammar.resetGrammarFix();
     // Clear -- Reset
     this.passiveVoiceUserTable = { find:[], suggestion:[] };
     this.wordinessUserTable = { find:[], suggestion:[] };
     this.transitionsUserTable = { find: [], suggestion: [] };
+    this.grammarUserTable = { find: [], suggestion: [] };
 
     // variables
     var userText = ( document.getElementById('userinput') as HTMLTextAreaElement).value;
@@ -107,6 +117,9 @@ export class HomeComponent implements OnInit {
     }
        //transition fix!!
       this.transitionFix(userText);
+
+      //grammar fix!
+      this.grammarFix(userText);
   }
 
 
@@ -144,32 +157,26 @@ export class HomeComponent implements OnInit {
     // *                   *
     // *********************
     //subscribe to transition service 
-    this.transitionService();
-  }
-
-  // subscribe to transition variables 
-  transitionService(){
-    //result color 
     this.transitions.currentTransitionsAlertColor.subscribe(transitionsAlertColor => this.transitionsAlertColor = transitionsAlertColor);
-
-    //Feedback
     this.transitions.currentTransitionsFeedback.subscribe(transitionsFeedback => this.transitionsFeedback = transitionsFeedback);
-
-    // Transitions score
     this.transitions.currentTransitionsScore.subscribe(transitionsScore => this.transitionsScore = transitionsScore);
-
-    // Total number of sentences in the user input
     this.transitions.currentTotalSentences.subscribe(totalSentences => this.totalSentences = totalSentences);
-
-    // Total number of transitions in the user input
     this.transitions.currentTotalTransitions.subscribe(totalTransitions => this.totalTransitions = totalTransitions);
-
-    // Transition Table of all transitions
     this.transitions.currentTransitionsTable.subscribe(transitionsTable => this.transitionsTable = transitionsTable);
-
-    // Transition Table of Current User Errors in Text 
     this.transitions.currentTransitionsUserTable.subscribe(transitionsUserTable => this.transitionsUserTable = transitionsUserTable);
+    
+    // *********************
+    // *                   *
+    // *    Grammar        *
+    // *                   *
+    // *********************
+    this.grammar.currentGrammarAlertColor.subscribe(grammarAlertColor => this.grammarAlertColor = grammarAlertColor);
+    this.grammar.currentGrammarFeedback.subscribe(grammarFeedback => this.grammarFeedback = grammarFeedback);
+    this.grammar.currentTotalGrammar.subscribe(totalGrammar => this.totalGrammar = totalGrammar);
+    this.grammar.currentGrammarTable.subscribe(grammarTable => this.grammarTable = grammarTable);
+    this.grammar.currentGrammarUserTable.subscribe(grammarUserTable => this.grammarUserTable = grammarUserTable);
   }
+
 
   // this function will calculate the transition score
   transitionFix(userText: string){
@@ -180,7 +187,7 @@ export class HomeComponent implements OnInit {
 
         // add transition in user text into an array 
         this.transitionsUserTable.find.push(fix);
-        this.transitionsUserTable.suggestion.push(this.transitionsUserTable[fix]);
+        this.transitionsUserTable.suggestion.push(this.transitionsTable[fix]);
         this.transitions.changeTransitionsUserTable(this.transitionsUserTable);
       }
   }
@@ -214,6 +221,34 @@ export class HomeComponent implements OnInit {
   }
   this.transitions.changeTransitionsFeedback(this.transitionsFeedback);
   this.transitions.changeTransitionsAlertColor(this.transitionsAlertColor);
+  }
+
+  // this function will calculate the total grammar traps
+  grammarFix(userText: string){
+    for (const fix in this.grammarTable) {
+      // changing user text to lower Case to match with grammarTable
+      if (userText.toLocaleLowerCase().includes(fix)) {
+        this.totalGrammar ++;
+        this.grammar.changeTotalGrammar(this.totalGrammar);
+
+        // add grammar traps in user text into an array 
+        this.grammarUserTable.find.push(fix);
+        this.grammarUserTable.suggestion.push(this.grammarTable[fix]);
+        this.grammar.changeGrammarUserTable(this.grammarUserTable);
+      }
+  }
+
+  if(this.totalGrammar  == 0 ){
+    this.grammarAlertColor = "green";
+    this.grammarFeedback = "Woohoo! We didn't find any obvious grammark errors. However, " +
+     "beware: Grammark does not check for fragments, comma splices, subject-verb errors, "+ 
+     "number and pronoun problems. What's the best way to find grammar errors? Read your writing aloud.";
+  }else if (this.totalGrammar > 0){
+    this.grammarAlertColor = "orange";
+    this.grammarFeedback = "Your writing includes words or phrases usually considered to be grammar errors";
+  }
+  this.grammar.changeGrammarFeedback(this.grammarFeedback);
+  this.grammar.changeGrammarAlertColor(this.grammarAlertColor);
   }
 }
 

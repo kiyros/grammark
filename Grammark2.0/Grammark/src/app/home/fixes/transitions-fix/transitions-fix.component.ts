@@ -61,20 +61,17 @@ export class TransitionsFixComponent implements OnInit {
           for (const fix in this.transitionsTable) {
               // changing user text to lower Case to match with transitionsTable
               if (userText.toLocaleLowerCase().includes(fix)) {
-                this.totalTransitions ++;
-                this.transitions.changeTotalTransitions(this.totalTransitions);
+                this.transitions.changeTotalTransitions(this.totalTransitions + 1);
 
                 // add transition in user text into an array 
                 this.transitionsUserTable.find.push(fix);
-                this.transitionsUserTable.suggestion.push(this.transitionsUserTable[fix]);
                 this.transitions.changeTransitionsUserTable(this.transitionsUserTable);
               }
           }
           //find total sentences in user text 
             for (let i = 0; i < userText.length; i++) { 
               if(userText.charAt(i)=== "." || userText.charAt(i)=== "!"|| userText.charAt(i)=== "?"){
-                this.totalSentences ++;
-                this.transitions.changeTotalSentences(this.totalSentences);
+                this.transitions.changeTotalSentences(this.totalSentences + 1);
               } 
             }
           //calcutale score
@@ -112,9 +109,6 @@ export class TransitionsFixComponent implements OnInit {
     //Feedback
     this.transitions.currentTransitionsFeedback.subscribe(transitionsFeedback => this.transitionsFeedback = transitionsFeedback);
 
-    // Transitions score
-    this.transitions.currentTransitionsScore.subscribe(transitionsScore => this.transitionsScore = transitionsScore);
-
     // Total number of sentences in the user input
     this.transitions.currentTotalSentences.subscribe(totalSentences => this.totalSentences = totalSentences);
 
@@ -126,5 +120,8 @@ export class TransitionsFixComponent implements OnInit {
 
     // Transition Table of Current User Errors in Text 
     this.transitions.currentTransitionsUserTable.subscribe(transitionsUserTable => this.transitionsUserTable = transitionsUserTable);
+
+    // Transitions score
+    this.transitions.currentTransitionsScore.subscribe(transitionsScore => this.transitionsScore = transitionsScore);
   } 
 }

@@ -10,4 +10,34 @@
   <a class="linkedpages" routerLink="../transitions-fix">Transitions</a>
   <a class="linkedpages" routerLink="">Start Over</a>
 </mat-toolbar>
-Grammar works!
+
+<mat-toolbar color="white" class="category">
+  
+  <mat-toolbar-row class="title"><b>Grammar</b></mat-toolbar-row>
+  <mat-toolbar-row class="description">{{grammarFeedback}}</mat-toolbar-row>
+
+  <div class="alert-box" [style.background-color]="grammarAlertColor">
+    <h5>{{ totalGrammar }} instances </h5>
+    <b>Goal: 0 errors </b>
+  </div>
+  
+</mat-toolbar>
+
+<div>
+  <div class="column1">
+    <textarea id="userinput" name="userinput">{{ message }}</textarea>
+    <button (click)="reHighlight()" class="rehighlight">Re-highlight</button>
+  </div>
+
+  <div class="column2">
+    <h1 class="feedback"><b>Grammar Traps Found - {{totalGrammar}} instance(s)</b></h1>
+    <table> 
+			<td>
+				<tr *ngFor="let tableData of grammarUserTable.find"><li>{{tableData}}</li></tr>
+      </td>
+      <td>
+        <tr *ngFor="let tableData of grammarUserTable.suggestion">{{tableData}}</tr>
+      </td>
+		</table>
+  </div>
+</div>

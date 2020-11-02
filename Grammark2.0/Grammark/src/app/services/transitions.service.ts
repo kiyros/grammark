@@ -254,6 +254,5 @@ export class TransitionsService {
     this.transitionsScore.next(0);
     this.totalSentences.next(0);
     this.totalTransitions.next(0);
-    this.transitionsUserTable.next({ find: [], suggestion: [] });
   }
 }

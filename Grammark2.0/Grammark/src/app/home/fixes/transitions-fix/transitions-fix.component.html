@@ -18,7 +18,7 @@
 
   <div class="alert-box" [style.background-color]="transitionsAlertColor">
     <h5>{{ totalTransitions }} instances ({{ transitionsScore }}% of sentences)</h5>
-    <b>Goal: </b>
+    <b>Goal: 10% or more </b>
   </div>
   
 </mat-toolbar>
@@ -33,7 +33,7 @@
     <h1 class="feedback"><b>Transitions Found - {{totalTransitions}} instance(s)</b></h1>
     <table> 
 			<td>
-				<tr *ngFor="let tableData of transitionsUserTable.find"><li>{{tableData}}</li></tr>
+				<tr *ngFor="let tableData of transitionsUserTable.find "><li>{{tableData}}</li></tr>
       </td>
       <td>
         <tr *ngFor="let tableData of transitionsUserTable.suggestion">{{tableData}}</tr>

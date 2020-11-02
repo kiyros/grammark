@@ -4,6 +4,7 @@ import { DataService } from '../../data.service';
 import { PassivevoiceService } from '../../services/passivevoice.service';
 import { WordinessService } from '../../services/wordiness.service';
 import { TransitionsService} from '../../services/transitions.service';
+import { GrammarService} from '../../services/grammar.service';
 
 @Component({
   selector: 'app-overview',
@@ -19,11 +20,15 @@ export class OverviewComponent implements OnInit {
   passiveVoiceNumber: number;
   // Wordiness
   wordinessNumber: number;
-
-  constructor(private router: Router, private data: DataService, private passivevoice: PassivevoiceService,
-              private wordiness: WordinessService, private transitions: TransitionsService) {}
+  //transition 
   totalTransitions: number;
   transitionsScore: number;
+  //grammar
+  totalGrammar: number;
+
+  constructor(private router: Router, private data: DataService, private passivevoice: PassivevoiceService,
+              private wordiness: WordinessService, private transitions: TransitionsService, private grammar: GrammarService) {}
+ 
 
   startOverClick() : void {
     this.data.changeMessage('');
@@ -60,5 +65,13 @@ export class OverviewComponent implements OnInit {
     // *                   *
     // *********************
     this.transitions.currentTransitionsScore.subscribe(transitionsScore => this.transitionsScore = transitionsScore);
+    this.transitions.currentTotalTransitions.subscribe(totalTransitions => this.totalTransitions = totalTransitions);
+    
+    // *********************
+    // *                   *
+    // *    Grammar        *
+    // *                   *
+    // *********************
+    this.grammar.currentTotalGrammar.subscribe(totalGrammar => this.totalGrammar = totalGrammar);
   }
 }
