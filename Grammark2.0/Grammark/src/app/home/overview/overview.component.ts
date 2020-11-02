@@ -4,7 +4,7 @@ import { DataService } from '../../data.service';
 import { PassivevoiceService } from '../../services/passivevoice.service';
 import { WordinessService } from '../../services/wordiness.service';
 import { TransitionsService} from '../../services/transitions.service';
-
+import {EggcornService} from '../../services/eggcorns.service';
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
@@ -19,11 +19,16 @@ export class OverviewComponent implements OnInit {
   passiveVoiceNumber: number;
   // Wordiness
   wordinessNumber: number;
+  // Eggcorns
+  eggcornNumber: number;
 
   constructor(private router: Router, private data: DataService, private passivevoice: PassivevoiceService,
-              private wordiness: WordinessService, private transitions: TransitionsService) {}
+              private wordiness: WordinessService, private transitions: TransitionsService, private eggcorns: EggcornService) {}
   totalTransitions: number;
   transitionsScore: number;
+
+  totalEggcorns: number;
+  eggcornsScore: number;
 
   startOverClick() : void {
     this.data.changeMessage('');
@@ -52,6 +57,7 @@ export class OverviewComponent implements OnInit {
     // *                   *
     // *********************
     this.wordiness.currentWordinessNumber.subscribe(wordinessNumber => this.wordinessNumber = wordinessNumber);
+
     this.transitions.currentTotalTransitions.subscribe(totalTransitions => this.totalTransitions = totalTransitions);
 
     // *********************
@@ -60,5 +66,13 @@ export class OverviewComponent implements OnInit {
     // *                   *
     // *********************
     this.transitions.currentTransitionsScore.subscribe(transitionsScore => this.transitionsScore = transitionsScore);
+
+    this.eggcorns.currentTotalEggcorns.subscribe(totalEggcorns => this.totalEggcorns = this.totalEggcorns);
+    // *********************
+    // *                   *
+    // *     Eggcorns      *
+    // *                   *
+    // *********************
+    this.eggcorns.currentEggcornsScore.subscribe(eggcornsScore => this.eggcornsScore = this.eggcornsScore);
   }
 }

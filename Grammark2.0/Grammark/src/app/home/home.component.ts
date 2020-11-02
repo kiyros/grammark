@@ -5,6 +5,7 @@ import { DataService } from '../data.service';
 import { PassivevoiceService } from '../services/passivevoice.service';
 import { WordinessService } from '../services/wordiness.service';
 import { TransitionsService} from '../services/transitions.service';
+import { EggcornService} from '../services/eggcorns.service';
 
 @Component({
   selector: 'app-home',
@@ -34,10 +35,18 @@ export class HomeComponent implements OnInit {
   transitionsUserTable: any;
   transitionsAlertColor: any;
 
+  //Eggcorns
+  eggcornsFeedback: string = " ";
+  eggcornsScore: number;
+  totalEggcorns: number;
+  eggcornsTable: any;
+  eggcornsUserTable: any;
+  eggcornsAlertColor: any;
+
   title = 'OverView';
 
   constructor(private router : Router, private data: DataService, private passivevoice: PassivevoiceService,
-              private wordiness: WordinessService, private transitions: TransitionsService) { }
+              private wordiness: WordinessService, private transitions: TransitionsService,private eggcorns: EggcornService) { }
   table = { find:[], suggestion:[] };
 
   submitClick() : void {
@@ -46,11 +55,12 @@ export class HomeComponent implements OnInit {
     this.passivevoice.changePassiveVoiceNumber(0);
     this.wordiness.changeWordinessNumber(0);
     this.transitions.resetTransitionFix();
+    this.eggcorns.resetEggcornFix();
     // Clear -- Reset
     this.passiveVoiceUserTable = { find:[], suggestion:[] };
     this.wordinessUserTable = { find:[], suggestion:[] };
     this.transitionsUserTable = { find: [], suggestion: [] };
-
+    this.eggcornsUserTable = {find: [], suggestion: [] };
     // variables
     var userText = ( document.getElementById('userinput') as HTMLTextAreaElement).value;
     let aLetter = false;
@@ -107,6 +117,8 @@ export class HomeComponent implements OnInit {
     }
        //transition fix!!
       this.transitionFix(userText);
+
+      this.eggcornFix(userText);
   }
 
 
@@ -214,6 +226,88 @@ export class HomeComponent implements OnInit {
   }
   this.transitions.changeTransitionsFeedback(this.transitionsFeedback);
   this.transitions.changeTransitionsAlertColor(this.transitionsAlertColor);
+  
+
+ //Eggcorns
+
+    // *********************
+    // *                   *
+    // *    Eggcorns       *
+    // *                   *
+    // *********************
+    //subscribe to eggcorn service 
+    this.eggcornService();
   }
+
+  // subscribe to eggcorn variables 
+  eggcornService(){
+    //result color 
+    this.eggcorns.currentEggcornsAlertColor.subscribe(eggcornsAlertColor => this.eggcornsAlertColor = eggcornsAlertColor);
+
+    //Feedback
+    this.eggcorns.currentEggcornsFeedback.subscribe(eggcornsFeedback => this.eggcornsFeedback = eggcornsFeedback);
+
+    // eggcorn score
+    this.eggcorns.currentEggcornsScore.subscribe(eggcornsScore => this.eggcornsScore = eggcornsScore);
+
+    // Total number of sentences in the user input
+    this.eggcorns.currentTotalSentences.subscribe(totalSentences => this.totalSentences = totalSentences);
+
+    // Total number of eggcorns in the user input
+    this.eggcorns.currentTotalEggcorns.subscribe(totalEggcorns => this.totalEggcorns = totalEggcorns);
+
+    // Eggcorn Table of all eggcorns
+    this.eggcorns.currentEggcornsTable.subscribe(eggcornsTable => this.eggcornsTable = eggcornsTable);
+
+    // Eggcorn Table of Current User Errors in Text 
+    this.eggcorns.currentEggcornsUserTable.subscribe(eggcornsUserTable => this.eggcornsUserTable = eggcornsUserTable);
+  }
+
+  // this function will calculate the eggcorn score
+  eggcornFix(userText: string){
+    for (const fix in this.eggcornsTable) {
+      // changing user text to lower Case to match with transitionsTable
+      if (userText.toLocaleLowerCase().includes(fix)) {
+        this.eggcorns.changeTotalEggcorns(this.totalEggcorns + 1);
+
+        // add transition in user text into an array 
+        this.eggcornsUserTable.find.push(fix);
+        this.eggcornsUserTable.suggestion.push(this.eggcornsUserTable[fix]);
+        this.eggcorns.changeEggcornsUserTable(this.eggcornsUserTable);
+      }
+  }
+  //find total sentences in user text 
+    for (let i = 0; i < userText.length; i++) {
+      if(userText.charAt(i)=== "." || userText.charAt(i)=== "!"|| userText.charAt(i)=== "?"){
+        this.eggcorns.changeTotalSentences(this.totalSentences + 1 );
+      } 
+    }
+  //calcutale score
+  this.eggcornsScore = (this.totalEggcorns/this.totalSentences)*100;
+  if(isNaN(this.eggcornsScore)  || this.eggcornsScore === Infinity){
+    this.eggcornsScore = 0;
+  }
+  // round to whole number
+  this.eggcorns.changeEggcornsScore(Math.round(this.eggcornsScore));
+  // this.transitions.changeTransitionsScore(this.transitionsScore);
+
+  if(this.eggcornsScore == 0 ){
+    this.eggcornsAlertColor = "red";
+    this.eggcornsFeedback = "Your writing seems to have Eggcorns";
+  }else if (this.eggcornsScore <= 10){
+    this.eggcornsFeedback = " Good job the number of Eggcorns words in your writing seems low";
+    this.eggcornsAlertColor = "orange";
+  }else if(this.transitionsScore <= 80){
+    this.eggcornsFeedback = "Your writing seems to have alot of eggcorns";
+    this.eggcornsAlertColor = "green";
+  }else{
+    this.eggcornsFeedback ="Woot! Your writing seems to have a lot of eggconss. Make sure you\'re not overusing eggcorns";
+    this.eggcornsAlertColor = "green";
+  }
+  this.eggcorns.changeEggcornsFeedback(this.transitionsFeedback);
+  this.eggcorns.changeEggcornsAlertColor(this.transitionsAlertColor);
+  }
+
 }
+
 
