@@ -266,11 +266,11 @@ export class HomeComponent implements OnInit {
   // this function will calculate the eggcorn score
   eggcornFix(userText: string){
     for (const fix in this.eggcornsTable) {
-      // changing user text to lower Case to match with transitionsTable
+      // changing user text to lower Case to match with eggcornsTable
       if (userText.toLocaleLowerCase().includes(fix)) {
         this.eggcorns.changeTotalEggcorns(this.totalEggcorns + 1);
 
-        // add transition in user text into an array 
+        // add eggcorns in user text into an array 
         this.eggcornsUserTable.find.push(fix);
         this.eggcornsUserTable.suggestion.push(this.eggcornsUserTable[fix]);
         this.eggcorns.changeEggcornsUserTable(this.eggcornsUserTable);
@@ -289,23 +289,23 @@ export class HomeComponent implements OnInit {
   }
   // round to whole number
   this.eggcorns.changeEggcornsScore(Math.round(this.eggcornsScore));
-  // this.transitions.changeTransitionsScore(this.transitionsScore);
+ 
 
   if(this.eggcornsScore == 0 ){
-    this.eggcornsAlertColor = "red";
-    this.eggcornsFeedback = "Your writing seems to have Eggcorns";
-  }else if (this.eggcornsScore <= 10){
+    this.eggcornsAlertColor = "green";
+    this.eggcornsFeedback = "Great job Your writing seems to have no Eggcorns";
+  }else if (this.eggcornsScore <= 5){
     this.eggcornsFeedback = " Good job the number of Eggcorns words in your writing seems low";
     this.eggcornsAlertColor = "orange";
-  }else if(this.transitionsScore <= 80){
+  }else if(this.eggcornsScore <= 10){
     this.eggcornsFeedback = "Your writing seems to have alot of eggcorns";
-    this.eggcornsAlertColor = "green";
+    this.eggcornsAlertColor = "red";
   }else{
-    this.eggcornsFeedback ="Woot! Your writing seems to have a lot of eggconss. Make sure you\'re not overusing eggcorns";
-    this.eggcornsAlertColor = "green";
+    this.eggcornsFeedback ="Your writing seems to have a many eggcorns. Make sure you\'re not using eggcorns";
+    this.eggcornsAlertColor = "red";
   }
-  this.eggcorns.changeEggcornsFeedback(this.transitionsFeedback);
-  this.eggcorns.changeEggcornsAlertColor(this.transitionsAlertColor);
+  this.eggcorns.changeEggcornsFeedback(this.eggcornsFeedback);
+  this.eggcorns.changeEggcornsAlertColor(this.eggcornsAlertColor);
   }
 
 }
