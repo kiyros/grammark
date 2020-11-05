@@ -3,11 +3,8 @@ import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/cor
 import { NavigationExtras, Router, RouterLink } from '@angular/router';
 import { DataService } from '../data.service';
 import { PassivevoiceService } from '../services/passivevoice.service';
-<<<<<<< HEAD
 import { WordinessService } from '../services/wordiness.service';
-=======
-import { TransitionsService} from '../services/transitions.service';
->>>>>>> cb94305b543fb4f528909be785d5ca879b92875d
+import { TransitionsService } from '../services/transitions.service';
 
 @Component({
   selector: 'app-home',
@@ -28,7 +25,7 @@ export class HomeComponent implements OnInit {
   wordinessTable: any;
   wordinessUserTable: any;
 
-  //var for transitions 
+  //var for transitions
   transitionsFeedback: string = " ";
   transitionsScore: number;
   totalSentences: number;
@@ -38,39 +35,26 @@ export class HomeComponent implements OnInit {
 
   title = 'OverView';
 
-<<<<<<< HEAD
-  constructor(private router : Router, private data: DataService, private passivevoice: PassivevoiceService,
-              private wordiness: WordinessService) { }
-=======
-  table = { find:[], suggestion:[] };
+  constructor(private router: Router, private data: DataService, private passivevoice: PassivevoiceService,
+    private wordiness: WordinessService, private transitions: TransitionsService) { }
 
-  constructor(private router : Router, private data: DataService, private passivevoice: PassivevoiceService, private transitions: TransitionsService) { }
->>>>>>> cb94305b543fb4f528909be785d5ca879b92875d
-
-  submitClick() : void {
+  submitClick(): void {
     // Reset every time you hit re-highlight
     // this.data.changePassiveVoice(0);
     this.passivevoice.changePassiveVoiceNumber(0);
-<<<<<<< HEAD
     this.wordiness.changeWordinessNumber(0);
-=======
     this.transitions.resetTransitionFix();
->>>>>>> cb94305b543fb4f528909be785d5ca879b92875d
     // Clear -- Reset
-    this.passiveVoiceUserTable = { find:[], suggestion:[] };
-<<<<<<< HEAD
-    this.wordinessUserTable = { find:[], suggestion:[] };
-=======
-    this.passiveVoiceUserTable2 = { find: [], suggestion: [] };
+    this.passiveVoiceUserTable = { find: [], suggestion: [] };
+    this.wordinessUserTable = { find: [], suggestion: [] };
     this.transitionsUserTable = { find: [], suggestion: [] };
->>>>>>> cb94305b543fb4f528909be785d5ca879b92875d
 
     // variables
-    var userText = ( document.getElementById('userinput') as HTMLTextAreaElement).value;
+    var userText = (document.getElementById('userinput') as HTMLTextAreaElement).value;
     let aLetter = false;
 
     // This function checks if there is at least one letter inputed
-    var validateChar = function() {
+    var validateChar = function () {
       if (/[a-zA-Z]/.test(userText)) {
         aLetter = true;
       }
@@ -109,7 +93,6 @@ export class HomeComponent implements OnInit {
         }
       }
 
-<<<<<<< HEAD
       for (const fix in this.wordinessTable) {
 
         if (userText.includes(fix)) {
@@ -120,12 +103,9 @@ export class HomeComponent implements OnInit {
         }
       }
     }
-=======
-       //transition fix!!
-      this.transitionFix(userText);
->>>>>>> cb94305b543fb4f528909be785d5ca879b92875d
+    // transition fix!!
+    this.transitionFix(userText);
   }
-}
 
   ngOnInit(): void {
     // Input Text
@@ -144,7 +124,6 @@ export class HomeComponent implements OnInit {
     this.passivevoice.currentPassiveVoiceHelperTable.subscribe(passiveVoiceHelperTable => this.passiveVoiceHelperTable = passiveVoiceHelperTable);
     this.passivevoice.currentPassiveVoiceUserTable.subscribe(passiveVoiceUserTable => this.passiveVoiceUserTable = passiveVoiceUserTable);
 
-<<<<<<< HEAD
     // *********************
     // *                   *
     // *     Wordiness     *
@@ -153,17 +132,16 @@ export class HomeComponent implements OnInit {
     this.wordiness.currentWordinessNumber.subscribe(wordinessNumber => this.wordinessNumber = wordinessNumber);
     this.wordiness.currentWordinessTable.subscribe(wordinessTable => this.wordinessTable = wordinessTable);
     this.wordiness.currentWordinessUserTable.subscribe(wordinessUserTable => this.wordinessUserTable = wordinessUserTable);
-=======
     // tslint:disable-next-line: max-line-length
     // this.passivevoice.currentPassiveVoiceUserTable2.subscribe(passiveVoiceUserTable2 => this.passiveVoiceUserTable2 = passiveVoiceUserTable2);
-    
-    //subscribe to transition service 
+
+    // subscribe to transition service
     this.transitionService();
   }
 
-  // subscribe to transition variables 
-  transitionService(){
-    //Feedback
+  // subscribe to transition variables
+  transitionService() {
+    // Feedback
     this.transitions.currentTransitionsFeedback.subscribe(transitionsFeedback => this.transitionsFeedback = transitionsFeedback);
 
     // Transitions score
@@ -178,41 +156,40 @@ export class HomeComponent implements OnInit {
     // Transition Table of all transitions
     this.transitions.currentTransitionsTable.subscribe(transitionsTable => this.transitionsTable = transitionsTable);
 
-    // Transition Table of Current User Errors in Text 
+    // Transition Table of Current User Errors in Text
     this.transitions.currentTransitionsUserTable.subscribe(transitionsUserTable => this.transitionsUserTable = transitionsUserTable);
   }
 
   // this function will calculate the transition score
-  transitionFix(userText: string){
+  transitionFix(userText: string) {
     for (const fix in this.transitionsTable) {
       if (userText.includes(fix)) {
         this.transitions.changeTotalTransitions(this.totalTransitions + 1);
 
 
-        // add transition in user text into an array 
+        // add transition in user text into an array
         this.transitionsUserTable.find.push(fix);
         this.transitionsUserTable.suggestion.push(this.transitionsUserTable[fix]);
         this.transitions.changeTransitionsUserTable(this.transitionsUserTable);
       }
-  }
-  //find total sentences in user text 
-    for (let i = 0; i < userText.length; i++) {
-      if(userText.charAt(i)=== "." || userText.charAt(i)=== "!"|| userText.charAt(i)=== "?"){
-        this.transitions.changeTotalSentences(this.totalSentences + 1 );
-      } 
     }
-  //calcutale score
-  this.transitionsScore = (this.totalTransitions/this.totalSentences)*100;
-  this.transitions.changeTransitionsScore(this.transitionsScore);
+    // find total sentences in user text
+    for (let i = 0; i < userText.length; i++) {
+      if (userText.charAt(i) === "." || userText.charAt(i) === "!" || userText.charAt(i) === "?") {
+        this.transitions.changeTotalSentences(this.totalSentences + 1);
+      }
+    }
+    // calcutale score
+    this.transitionsScore = (this.totalTransitions / this.totalSentences) * 100;
+    this.transitions.changeTransitionsScore(this.transitionsScore);
 
-  if(this.transitionsScore <= 69 || this.transitionsScore == 0 ){
-    this.transitionsFeedback = "The number of transition words in your writing seems low";
-  }else if(this.transitionsScore <= 80){
-    this.transitionsFeedback = "Woot! Your writing seems to have a good proportion of transitions";
-  }else{
-    this.transitionsFeedback ="Woot! Your writing seems to have a lot of transitions. Make sure you\'re not overusing transition words";
-  }
-  this.transitions.changeTransitionsFeedback(this.transitionsFeedback);
->>>>>>> cb94305b543fb4f528909be785d5ca879b92875d
+    if (this.transitionsScore <= 69 || this.transitionsScore == 0) {
+      this.transitionsFeedback = "The number of transition words in your writing seems low";
+    } else if (this.transitionsScore <= 80) {
+      this.transitionsFeedback = "Woot! Your writing seems to have a good proportion of transitions";
+    } else {
+      this.transitionsFeedback = "Woot! Your writing seems to have a lot of transitions. Make sure you\'re not overusing transition words";
+    }
+    this.transitions.changeTransitionsFeedback(this.transitionsFeedback);
   }
 }
