@@ -5,6 +5,7 @@ import { PassivevoiceService } from '../../services/passivevoice.service';
 import { WordinessService } from '../../services/wordiness.service';
 import { TransitionsService} from '../../services/transitions.service';
 import { GrammarService} from '../../services/grammar.service';
+import { AcademicStyleService} from '../../services/academicstyle.service';
 
 @Component({
   selector: 'app-overview',
@@ -20,6 +21,9 @@ export class OverviewComponent implements OnInit {
   passiveVoiceNumber: number;
   // Wordiness
   wordinessNumber: number;
+  //academic style
+  nonAcademicStyleScore: number;
+  totalNonAcademic: number;
   //transition 
   totalTransitions: number;
   transitionsScore: number;
@@ -27,7 +31,8 @@ export class OverviewComponent implements OnInit {
   totalGrammar: number;
 
   constructor(private router: Router, private data: DataService, private passivevoice: PassivevoiceService,
-              private wordiness: WordinessService, private transitions: TransitionsService, private grammar: GrammarService) {}
+              private wordiness: WordinessService, private transitions: TransitionsService, 
+              private grammar: GrammarService, private nonAcademicStyle: AcademicStyleService) {}
  
 
   startOverClick() : void {
@@ -58,6 +63,14 @@ export class OverviewComponent implements OnInit {
     // *********************
     this.wordiness.currentWordinessNumber.subscribe(wordinessNumber => this.wordinessNumber = wordinessNumber);
     this.transitions.currentTotalTransitions.subscribe(totalTransitions => this.totalTransitions = totalTransitions);
+
+    // *********************
+    // *                   *
+    // *    AcademicStyle  *
+    // *                   *
+    // *********************
+    this.nonAcademicStyle.currentTotalNonAcademic.subscribe(totalNonAcademic=> this.totalNonAcademic = totalNonAcademic);
+    this.nonAcademicStyle.currentNonAcademicStyleScore.subscribe(nonAcademicStyleScore => this.nonAcademicStyleScore = nonAcademicStyleScore);
 
     // *********************
     // *                   *
