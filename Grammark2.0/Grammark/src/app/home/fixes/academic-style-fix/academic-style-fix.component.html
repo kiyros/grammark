@@ -10,4 +10,31 @@
   <a class="linkedpages" routerLink="../transitions-fix">Transitions</a>
   <a class="linkedpages" routerLink="">Start Over</a>
 </mat-toolbar>
-Academic Style works!
+<mat-toolbar color="white" class="category">
+  <mat-toolbar-row class="title"><b>Academic Style</b></mat-toolbar-row>
+  <mat-toolbar-row class="description">{{nonAcademicStyleFeedback}}</mat-toolbar-row>
+
+  <div class="alert-box" [style.background-color]="nonAcademicStyleAlertColor">
+    <h5>{{ totalNonAcademic }} instances ({{ nonAcademicStyleScore }}% of sentences)</h5>
+    <b>Goal: 1% or less </b>
+  </div>
+</mat-toolbar>
+
+<div>
+  <div class="column1">
+    <textarea id="userinput" name="userinput">{{ message }} </textarea>
+    <button (click)="reHighlight()" class="rehighlight">Re-highlight</button>
+  </div>
+
+  <div class="column2">
+    <h1 class="feedback"><b>Instances of Non Academic Style Found - {{ nonAcademicStyleScore }} error(s)</b></h1>
+    <table>
+			<td>
+				<tr *ngFor="let tableData of nonAcademicStyleUserTable.find">{{tableData}}</tr>
+      </td>
+      <td>
+        <tr *ngFor="let tableData of nonAcademicStyleUserTable.suggestion">{{tableData}}</tr>
+      </td>
+		</table>
+  </div>
+</div>
