@@ -284,7 +284,7 @@ export class HomeComponent implements OnInit {
     }
   //calcutale score
   this.eggcornsScore = (this.totalEggcorns/this.totalSentences)*100;
-  if(isNaN(this.eggcornsScore)  || this.eggcornsScore === Infinity){
+  if(isNaN(this.eggcornsScore)){
     this.eggcornsScore = 0;
   }
   // round to whole number

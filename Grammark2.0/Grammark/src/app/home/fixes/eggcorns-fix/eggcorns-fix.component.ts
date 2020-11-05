@@ -78,29 +78,28 @@ export class EggcornsFixComponent implements OnInit {
               }
             //calcutale score
             this.eggcornsScore = (this.totalEggcorns/this.totalSentences)*100;
-            if(this.eggcornsScore === NaN || this.eggcornsScore === Infinity){
+            if(this.eggcornsScore === NaN){
               this.eggcornsScore = 0;
             }
             // round to whole number
             this.eggcorns.changeEggcornsScore(Math.round(this.eggcornsScore));
             // this.eggcorns.changeeggcornsScore(this.eggcornsScore);
-  
             if(this.eggcornsScore == 0 ){
               this.eggcornsAlertColor = "green";
-              this.eggcornsFeedback = "YES!! Your writing seems to have no eggcorns";
-            }else if (this.eggcornsScore <= 3){
-              this.eggcornsFeedback = "There are some eggcorns in your writing";
+              this.eggcornsFeedback = "Great job Your writing seems to have no Eggcorns";
+            }else if (this.eggcornsScore <= 5){
+              this.eggcornsFeedback = " Good job the number of Eggcorns words in your writing seems low";
               this.eggcornsAlertColor = "orange";
-            }else if(this.eggcornsScore >= 10){
-              this.eggcornsFeedback = "Your writing seems to have a lot of eggcorns";
+            }else if(this.eggcornsScore <= 10){
+              this.eggcornsFeedback = "Your writing seems to have alot of eggcorns";
               this.eggcornsAlertColor = "red";
             }else{
-              this.eggcornsFeedback ="Woa! Your writing seems to have a lot of eggcorns. Make sure you\'re watching out for them";
+              this.eggcornsFeedback ="Your writing seems to have a many eggcorns. Make sure you\'re not using eggcorns";
               this.eggcornsAlertColor = "red";
             }
             this.eggcorns.changeEggcornsFeedback(this.eggcornsFeedback);
             this.eggcorns.changeEggcornsAlertColor(this.eggcornsAlertColor);
-      }
+            }
     }
   
     ngOnInit(): void {
