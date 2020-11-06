@@ -8,7 +8,6 @@ import { TransitionsService} from '../services/transitions.service';
 import { GrammarService} from '../services/grammar.service';
 import { EggcornService} from '../services/eggcorns.service';
 import { AcademicStyleService } from '../services/academicstyle.service';
-import { AcademicStyleFixComponent } from './fixes/academic-style-fix/academic-style-fix.component';
 
 @Component({
   selector: 'app-home',
