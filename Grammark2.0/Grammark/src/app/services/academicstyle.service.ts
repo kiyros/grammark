@@ -6,24 +6,24 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 })
 export class AcademicStyleService {
 
-    //variables for non academic style scoring
-    private nonAcademicStyleAlertColor = new BehaviorSubject<string>(" ");
-    currentNonAcademicStyleAlertColor = this.nonAcademicStyleAlertColor.asObservable();
+  //variables for non academic style scoring
+  private academicStyleAlertColor = new BehaviorSubject<string>(" ");
+  currentAcademicStyleAlertColor = this.academicStyleAlertColor.asObservable();
   
-    private nonAcademicStyleFeedback = new BehaviorSubject<string>(" ");
-    currentNonAcademicStyleFeedback = this.nonAcademicStyleFeedback.asObservable();
+  private academicStyleFeedback = new BehaviorSubject<string>(" ");
+  currentAcademicStyleFeedback = this.academicStyleFeedback.asObservable();
   
-    private nonAcademicStyleScore = new BehaviorSubject<number>(0);
-    currentNonAcademicStyleScore = this.nonAcademicStyleScore.asObservable();
+  private academicStyleScore = new BehaviorSubject<number>(0);
+  currentAcademicStyleScore = this.academicStyleScore.asObservable();
   
-    private totalSentences = new BehaviorSubject<number>(0);
-    currentTotalSentences = this.totalSentences.asObservable();
+  private sentences = new BehaviorSubject<number>(0);
+  currentTotalSentences = this.sentences.asObservable();
   
-    private totalNonAcademic = new BehaviorSubject<number>(0);
-    currentTotalNonAcademic = this.totalNonAcademic.asObservable();
+  private totalNonAcademic = new BehaviorSubject<number>(0);
+  currentTotalNonAcademic = this.totalNonAcademic.asObservable();
 
   // Non Academic Style Error List
-  private nonAcademicStyleTableSource = new BehaviorSubject<any>({
+  private academicStyleTableSource = new BehaviorSubject<any>({
     // casual language & feedback
   'plenty of':'a great deal of /numerous/ several',
   'loads of':'a great deal of /numerous/ several',
@@ -149,20 +149,20 @@ export class AcademicStyleService {
   'kind of':'Vague. Generally try to avoid.',
   'sort of':'Vague. Generally try to avoid.',
   });
-  currentNonAcademicStyleTable = this.nonAcademicStyleTableSource.asObservable();
+  currentAcademicStyleTable = this.academicStyleTableSource.asObservable();
 
   // nonAcademic Style Current User Errors
-  private nonAcademicStyleUserTableSource = new BehaviorSubject<any>({});
-  currentNonAcademicStyleUserTable = this.nonAcademicStyleUserTableSource.asObservable();
+  private academicStyleUserTableSource = new BehaviorSubject<any>({});
+  currentAcademicStyleUserTable = this.academicStyleUserTableSource.asObservable();
 
   constructor() { }
 
-  changeNonAcademicStyleScore(nonAcademicStyleScore: number) {
-    this.nonAcademicStyleScore.next(nonAcademicStyleScore);
+  changeAcademicStyleScore(academicStyleScore: number) {
+    this.academicStyleScore.next(academicStyleScore);
   }
 
   changeTotalSentences(totalSentences: number) {
-    this.totalSentences.next(totalSentences);
+    this.sentences.next(totalSentences);
   }
 
   changeTotalNonAcademic(totalNonAcademic: number) {
@@ -170,27 +170,27 @@ export class AcademicStyleService {
   }
 
   // tslint:disable-next-line: typedef
-  changeNonAcademicStyleTable(nonAcademicStyleTable: any) {
-    this.nonAcademicStyleTableSource.next(nonAcademicStyleTable);
+  changeAcademicStyleTable(academicStyleTable: any) {
+    this.academicStyleTableSource.next(academicStyleTable);
   }
 
   // tslint:disable-next-line: typedef
-  changeNonAcademicStyleUserTable(nonAcademicStyleUserTable: any) {
-    this.nonAcademicStyleUserTableSource.next(nonAcademicStyleUserTable);
+  changeAcademicStyleUserTable(academicStyleUserTable: any) {
+    this.academicStyleUserTableSource.next(academicStyleUserTable);
   }
 
-  changeNonAcademicStyleFeedback(nonAcademicStyleFeedback: string){
-    this.nonAcademicStyleFeedback.next(nonAcademicStyleFeedback);
+  changeAcademicStyleFeedback(academicStyleFeedback: string){
+    this.academicStyleFeedback.next(academicStyleFeedback);
   }
 
-  changeNonAcademicStyleAlertColor(nonAcademicStyleAlertColor: string){
-    this.nonAcademicStyleAlertColor.next(nonAcademicStyleAlertColor);
+  changeAcademicStyleAlertColor(academicStyleAlertColor: string){
+    this.academicStyleAlertColor.next(academicStyleAlertColor);
   }
 
   resetAcademicStyleFix(){
-    this.nonAcademicStyleFeedback.next(" ");
-    this.nonAcademicStyleScore.next(0);
-    this.totalSentences.next(0);
+    this.academicStyleFeedback.next(" ");
+    this.academicStyleScore.next(0);
+    this.sentences.next(0);
     this.totalNonAcademic.next(0);
   }
 }

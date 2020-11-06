@@ -78,14 +78,15 @@ export class TransitionsFixComponent implements OnInit {
 
           //find transition in user text
           for (const fix in this.transitionsTable) {
-            // changing user text to lower Case to match with transitionsTable
-            if (userText.toLocaleLowerCase().includes(fix)) {
-              this.transitions.changeTotalTransitions(this.totalTransitions + 1);
+              // changing user text to lower Case to match with transitionsTable
+              if (userText.toLocaleLowerCase().includes(fix)) {
+                this.transitions.changeTotalTransitions(this.totalTransitions + 1);
 
-              // add transition in user text into an array
-              this.transitionsUserTable.find.push(fix);
-              this.transitions.changeTransitionsUserTable(this.transitionsUserTable);
-            }
+                // add transition in user text into an array
+                this.transitionsUserTable.find.push(fix);
+                this.transitions.changeTransitionsUserTable(this.transitionsUserTable);
+                //this.transitionsUserTable.suggestion.push(this.transitionsTable[fix]);
+              }
           }
           //find total sentences in user text
           for (let i = 0; i < userText.length; i++) {
