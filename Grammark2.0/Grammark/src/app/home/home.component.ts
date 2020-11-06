@@ -285,7 +285,6 @@ export class HomeComponent implements OnInit {
   // round to whole number
   this.transitions.changeTransitionsScore(Math.round(this.transitionsScore));
   // this.transitions.changeTransitionsScore(this.transitionsScore);
-
   if(this.transitionsScore == 0 ){
     this.transitionsAlertColor = "red";
     this.transitionsFeedback = "Your writing seems to have no transition word";
@@ -349,6 +348,7 @@ eggcornFix(userText: string){
   this.eggcorns.changeEggcornsAlertColor(this.eggcornsAlertColor);
 }
 
+  
   // this function will calculate the total grammar traps
   grammarFix(userText: string){
   for (const fix in this.grammarTable) {
@@ -363,7 +363,6 @@ eggcornFix(userText: string){
       this.grammar.changeGrammarUserTable(this.grammarUserTable);
     }
   }
-
   if(this.totalGrammar  == 0 ){
     this.grammarAlertColor = "green";
     this.grammarFeedback = "Woohoo! We didn't find any obvious grammark errors. However, " +
