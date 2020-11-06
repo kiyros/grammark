@@ -7,6 +7,8 @@ import { WordinessService } from '../services/wordiness.service';
 import { TransitionsService} from '../services/transitions.service';
 import { GrammarService} from '../services/grammar.service';
 import { EggcornService} from '../services/eggcorns.service';
+import { AcademicStyleService } from '../services/academicstyle.service';
+import { AcademicStyleFixComponent } from './fixes/academic-style-fix/academic-style-fix.component';
 
 @Component({
   selector: 'app-home',
@@ -26,6 +28,15 @@ export class HomeComponent implements OnInit {
   wordinessNumber: number;
   wordinessTable: any;
   wordinessUserTable: any;
+
+  //academic style variables and such
+  academicStyleFeedback: string = " ";
+  academicStyleScore: number;
+  sentences: number;
+  totalNonAcademic: number;
+  academicStyleTable: any;
+  academicStyleUserTable: any;
+  academicStyleAlertColor: any;
 
   //var for transitions 
   transitionsFeedback: string = " ";
@@ -52,8 +63,13 @@ export class HomeComponent implements OnInit {
 
   title = 'OverView';
 
-  constructor(private router : Router, private data: DataService, private passivevoice: PassivevoiceService,
-              private wordiness: WordinessService, private transitions: TransitionsService, private grammar: GrammarService,private eggcorns: EggcornService) { }
+  constructor(private router : Router, private data: DataService, 
+              private passivevoice: PassivevoiceService,
+              private wordiness: WordinessService, 
+              private transitions: TransitionsService, 
+              private grammar: GrammarService, 
+              private eggcorns: EggcornService, 
+              private academic: AcademicStyleService) { }
   table = { find:[], suggestion:[] };
 
   submitClick() : void {
@@ -64,12 +80,14 @@ export class HomeComponent implements OnInit {
     this.transitions.resetTransitionFix();
     this.grammar.resetGrammarFix();
     this.eggcorns.resetEggcornFix();
+    this.academic.resetAcademicStyleFix();
     // Clear -- Reset
     this.passiveVoiceUserTable = { find:[], suggestion:[] };
     this.wordinessUserTable = { find:[], suggestion:[] };
     this.transitionsUserTable = { find: [], suggestion: [] };
     this.grammarUserTable = { find: [], suggestion: [] };
     this.eggcornsUserTable = {find: [], suggestion: [] };
+    this.academicStyleUserTable = { find: [], suggestion: []};
     // variables
     var userText = ( document.getElementById('userinput') as HTMLTextAreaElement).value;
     let aLetter = false;
@@ -129,9 +147,14 @@ export class HomeComponent implements OnInit {
 
       //grammar fix!
       this.grammarFix(userText);
+
       //eggcorn fix
       this.eggcornFix(userText);
-  }
+
+      //academic style fix
+      this.academicStyleFix(userText);  
+    
+    }
 
 
   ngOnInit(): void {
@@ -164,6 +187,20 @@ export class HomeComponent implements OnInit {
     
     // *********************
     // *                   *
+    // *  Academic Style   *
+    // *                   *
+    // *********************
+    //subscribe to academic style service 
+    this.academic.currentAcademicStyleAlertColor.subscribe(academicStyleAlertColor => this.academicStyleAlertColor = academicStyleAlertColor);
+    this.academic.currentAcademicStyleFeedback.subscribe(academicStyleFeedback => this.academicStyleFeedback = academicStyleFeedback);
+    this.academic.currentAcademicStyleScore.subscribe(nonAcademicStyleScore => this.academicStyleScore = nonAcademicStyleScore);
+    this.academic.currentTotalSentences.subscribe(totalSentences => this.totalSentences = totalSentences);
+    this.academic.currentTotalNonAcademic.subscribe(totalNonAcademic => this.totalNonAcademic = totalNonAcademic);
+    this.academic.currentAcademicStyleTable.subscribe(academicStyleTable => this.academicStyleTable = academicStyleTable);
+
+
+    // *********************
+    // *                   *
     // *    Transitions    *
     // *                   *
     // *********************
@@ -186,6 +223,39 @@ export class HomeComponent implements OnInit {
     this.grammar.currentTotalGrammar.subscribe(totalGrammar => this.totalGrammar = totalGrammar);
     this.grammar.currentGrammarTable.subscribe(grammarTable => this.grammarTable = grammarTable);
     this.grammar.currentGrammarUserTable.subscribe(grammarUserTable => this.grammarUserTable = grammarUserTable);
+
+    //Eggcorns
+
+    // *********************
+    // *                   *
+    // *    Eggcorns       *
+    // *                   *
+    // *********************
+    //subscribe to eggcorn service 
+    //this.eggcornService();
+
+  // subscribe to eggcorn variables 
+  //eggcornService(){
+    //result color 
+    this.eggcorns.currentEggcornsAlertColor.subscribe(eggcornsAlertColor => this.eggcornsAlertColor = eggcornsAlertColor);
+
+    //Feedback
+    this.eggcorns.currentEggcornsFeedback.subscribe(eggcornsFeedback => this.eggcornsFeedback = eggcornsFeedback);
+
+    // eggcorn score
+    this.eggcorns.currentEggcornsScore.subscribe(eggcornsScore => this.eggcornsScore = eggcornsScore);
+
+    // Total number of sentences in the user input
+    this.eggcorns.currentTotalSentences.subscribe(totalSentences => this.totalSentences = totalSentences);
+
+    // Total number of eggcorns in the user input
+    this.eggcorns.currentTotalEggcorns.subscribe(totalEggcorns => this.totalEggcorns = totalEggcorns);
+
+    // Eggcorn Table of all eggcorns
+    this.eggcorns.currentEggcornsTable.subscribe(eggcornsTable => this.eggcornsTable = eggcornsTable);
+
+    // Eggcorn Table of Current User Errors in Text 
+    this.eggcorns.currentEggcornsUserTable.subscribe(eggcornsUserTable => this.eggcornsUserTable = eggcornsUserTable);
   }
 
 
@@ -233,61 +303,27 @@ export class HomeComponent implements OnInit {
   this.transitions.changeTransitionsFeedback(this.transitionsFeedback);
   this.transitions.changeTransitionsAlertColor(this.transitionsAlertColor);
   
+}
 
- //Eggcorns
-
-    // *********************
-    // *                   *
-    // *    Eggcorns       *
-    // *                   *
-    // *********************
-    //subscribe to eggcorn service 
-    this.eggcornService();
-  }
-
-  // subscribe to eggcorn variables 
-  eggcornService(){
-    //result color 
-    this.eggcorns.currentEggcornsAlertColor.subscribe(eggcornsAlertColor => this.eggcornsAlertColor = eggcornsAlertColor);
-
-    //Feedback
-    this.eggcorns.currentEggcornsFeedback.subscribe(eggcornsFeedback => this.eggcornsFeedback = eggcornsFeedback);
-
-    // eggcorn score
-    this.eggcorns.currentEggcornsScore.subscribe(eggcornsScore => this.eggcornsScore = eggcornsScore);
-
-    // Total number of sentences in the user input
-    this.eggcorns.currentTotalSentences.subscribe(totalSentences => this.totalSentences = totalSentences);
-
-    // Total number of eggcorns in the user input
-    this.eggcorns.currentTotalEggcorns.subscribe(totalEggcorns => this.totalEggcorns = totalEggcorns);
-
-    // Eggcorn Table of all eggcorns
-    this.eggcorns.currentEggcornsTable.subscribe(eggcornsTable => this.eggcornsTable = eggcornsTable);
-
-    // Eggcorn Table of Current User Errors in Text 
-    this.eggcorns.currentEggcornsUserTable.subscribe(eggcornsUserTable => this.eggcornsUserTable = eggcornsUserTable);
-  }
-
-  // this function will calculate the eggcorn score
-  eggcornFix(userText: string){
-    for (const fix in this.eggcornsTable) {
-      // changing user text to lower Case to match with eggcornsTable
-      if (userText.toLocaleLowerCase().includes(fix)) {
+// this function will calculate the eggcorn score
+eggcornFix(userText: string){
+  for (const fix in this.eggcornsTable) {
+  // changing user text to lower Case to match with eggcornsTable
+    if (userText.toLocaleLowerCase().includes(fix)) {
         this.eggcorns.changeTotalEggcorns(this.totalEggcorns + 1);
 
         // add eggcorns in user text into an array 
         this.eggcornsUserTable.find.push(fix);
         this.eggcornsUserTable.suggestion.push(this.eggcornsUserTable[fix]);
         this.eggcorns.changeEggcornsUserTable(this.eggcornsUserTable);
-      }
+    }
   }
   //find total sentences in user text 
-    for (let i = 0; i < userText.length; i++) {
-      if(userText.charAt(i)=== "." || userText.charAt(i)=== "!"|| userText.charAt(i)=== "?"){
+  for (let i = 0; i < userText.length; i++) {
+    if(userText.charAt(i)=== "." || userText.charAt(i)=== "!"|| userText.charAt(i)=== "?"){
         this.eggcorns.changeTotalSentences(this.totalSentences + 1 );
-      } 
-    }
+    } 
+  }
   //calcutale score
   this.eggcornsScore = (this.totalEggcorns/this.totalSentences)*100;
   if(isNaN(this.eggcornsScore)){
@@ -312,20 +348,21 @@ export class HomeComponent implements OnInit {
   }
   this.eggcorns.changeEggcornsFeedback(this.eggcornsFeedback);
   this.eggcorns.changeEggcornsAlertColor(this.eggcornsAlertColor);
-  }
-   // this function will calculate the total grammar traps
-   grammarFix(userText: string){
-    for (const fix in this.grammarTable) {
-      // changing user text to lower Case to match with grammarTable
-      if (userText.toLocaleLowerCase().includes(fix)) {
-        this.totalGrammar ++;
-        this.grammar.changeTotalGrammar(this.totalGrammar);
+}
 
-        // add grammar traps in user text into an array 
-        this.grammarUserTable.find.push(fix);
-        this.grammarUserTable.suggestion.push(this.grammarTable[fix]);
-        this.grammar.changeGrammarUserTable(this.grammarUserTable);
-      }
+  // this function will calculate the total grammar traps
+  grammarFix(userText: string){
+  for (const fix in this.grammarTable) {
+    // changing user text to lower Case to match with grammarTable
+    if (userText.toLocaleLowerCase().includes(fix)) {
+      this.totalGrammar ++;
+      this.grammar.changeTotalGrammar(this.totalGrammar);
+
+      // add grammar traps in user text into an array 
+      this.grammarUserTable.find.push(fix);
+      this.grammarUserTable.suggestion.push(this.grammarTable[fix]);
+      this.grammar.changeGrammarUserTable(this.grammarUserTable);
+    }
   }
 
   if(this.totalGrammar  == 0 ){
@@ -341,6 +378,45 @@ export class HomeComponent implements OnInit {
   this.grammar.changeGrammarAlertColor(this.grammarAlertColor);
   }
 
+  academicStyleFix(userText: string){
+  //find instance of non academic style in user text
+  for (const fix in this.academicStyleTable) {
+    // changing user text to lower Case to match with academicStyleTable
+    if (userText.includes(fix)) {
+      this.academic.changeTotalNonAcademic(this.totalNonAcademic + 1);
+
+      // add instance of non academic style in user text into an array 
+      this.academicStyleUserTable.find.push(fix);
+      this.academic.changeAcademicStyleUserTable(this.academicStyleUserTable);
+    }
+  }
+  //find total sentences in user text 
+  for (let i = 0; i < userText.length; i++) { 
+    if(userText.charAt(i)=== "." || userText.charAt(i)=== "!"|| userText.charAt(i)=== "?"){
+      this.academic.changeTotalSentences(this.sentences + 1);
+    } 
+  }
+  
+  //calcutale score
+  this.academicStyleScore = (this.totalNonAcademic/this.sentences)*100;
+  if(this.academicStyleScore === NaN || this.academicStyleScore === Infinity){
+    this.academicStyleScore = 0;
+  }
+  
+  // round to whole number
+  this.academic.changeAcademicStyleScore(Math.round(this.academicStyleScore));
+
+  if(this.academicStyleScore != 0 ){
+    this.academicStyleAlertColor = "green";
+    this.academicStyleFeedback = "Your writing has a low percentage of casual and/or extreme language. This makes it more acceptable for academic style.";
+  }
+  else{
+    this.academicStyleFeedback ="Your writing may contain language that is either too casual or too extreme for academic discourse.";
+    this.academicStyleAlertColor = "red";
+  }
+  this.academic.changeAcademicStyleFeedback(this.academicStyleFeedback);
+  this.academic.changeAcademicStyleAlertColor(this.academicStyleAlertColor);
+}
 }
 
 
