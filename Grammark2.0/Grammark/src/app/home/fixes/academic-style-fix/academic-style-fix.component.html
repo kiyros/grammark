@@ -27,10 +27,10 @@
   </div>
 
   <div class="column2">
-    <h1 class="feedback"><b>Instances of Non Academic Style Found - {{ academicStyleScore }} error(s)</b></h1>
+    <h1 class="feedback"><b>Non Academic Style Found - {{ totalNonAcademic }} instance(s)</b></h1>
     <table>
 			<td>
-				<tr *ngFor="let tableData of academicStyleUserTable.find">{{tableData}}</tr>
+				<tr *ngFor="let tableData of academicStyleUserTable.find"><li>{{tableData}}</li></tr>
       </td>
       <td>
         <tr *ngFor="let tableData of academicStyleUserTable.suggestion">{{tableData}}</tr>

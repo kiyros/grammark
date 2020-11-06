@@ -6,8 +6,8 @@ import { WordinessService } from '../../services/wordiness.service';
 import { TransitionsService} from '../../services/transitions.service';
 import { GrammarService} from '../../services/grammar.service';
 import { AcademicStyleService} from '../../services/academicstyle.service';
-
 import {EggcornService} from '../../services/eggcorns.service';
+
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
@@ -23,25 +23,26 @@ export class OverviewComponent implements OnInit {
   // Wordiness
   wordinessNumber: number;
   //academic style
-  nonAcademicStyleScore: number;
+  academicStyleScore: number;
   totalNonAcademic: number;
-  //transition 
-  // Eggcorns
-  eggcornNumber: number;
- 
-
+  //transition
   totalTransitions: number;
   transitionsScore: number;
+  // Eggcorns
+  eggcornNumber: number;
+  totalEggcorns: number;
+  eggcornsScore: number;
   //grammar
   totalGrammar: number;
 
-  constructor(private router: Router, private data: DataService, private passivevoice: PassivevoiceService,
-              private wordiness: WordinessService, private transitions: TransitionsService, 
-              private grammar: GrammarService, private nonAcademicStyle: AcademicStyleService, private eggcorns: EggcornService) {}
- 
+  constructor(private router: Router, private data: DataService, 
+              private passivevoice: PassivevoiceService,
+              private wordiness: WordinessService, 
+              private transitions: TransitionsService, 
+              private grammar: GrammarService, 
+              private academic: AcademicStyleService, 
+              private eggcorns: EggcornService) {}
 
-  totalEggcorns: number;
-  eggcornsScore: number;
 
   startOverClick() : void {
     this.data.changeMessage('');
@@ -70,7 +71,6 @@ export class OverviewComponent implements OnInit {
     // *                   *
     // *********************
     this.wordiness.currentWordinessNumber.subscribe(wordinessNumber => this.wordinessNumber = wordinessNumber);
-
     this.transitions.currentTotalTransitions.subscribe(totalTransitions => this.totalTransitions = totalTransitions);
 
     // *********************
@@ -78,8 +78,8 @@ export class OverviewComponent implements OnInit {
     // *    AcademicStyle  *
     // *                   *
     // *********************
-    this.nonAcademicStyle.currentTotalNonAcademic.subscribe(totalNonAcademic=> this.totalNonAcademic = totalNonAcademic);
-    this.nonAcademicStyle.currentAcademicStyleScore.subscribe(nonAcademicStyleScore => this.nonAcademicStyleScore = nonAcademicStyleScore);
+    this.academic.currentTotalNonAcademic.subscribe(totalNonAcademic=> this.totalNonAcademic = totalNonAcademic);
+    this.academic.currentAcademicStyleScore.subscribe(academicStyleScore => this.academicStyleScore = academicStyleScore);
 
     // *********************
     // *                   *
@@ -95,7 +95,6 @@ export class OverviewComponent implements OnInit {
     // *                   *
     // *********************
     this.grammar.currentTotalGrammar.subscribe(totalGrammar => this.totalGrammar = totalGrammar);
-
     this.eggcorns.currentTotalEggcorns.subscribe(totalEggcorns => this.totalEggcorns = this.totalEggcorns);
     // *********************
     // *                   *

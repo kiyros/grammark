@@ -6,21 +6,21 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 })
 export class AcademicStyleService {
 
-    //variables for non academic style scoring
-    private academicStyleAlertColor = new BehaviorSubject<string>(" ");
-    currentAcademicStyleAlertColor = this.academicStyleAlertColor.asObservable();
+  //variables for non academic style scoring
+  private academicStyleAlertColor = new BehaviorSubject<string>(" ");
+  currentAcademicStyleAlertColor = this.academicStyleAlertColor.asObservable();
   
-    private academicStyleFeedback = new BehaviorSubject<string>(" ");
-    currentAcademicStyleFeedback = this.academicStyleFeedback.asObservable();
+  private academicStyleFeedback = new BehaviorSubject<string>(" ");
+  currentAcademicStyleFeedback = this.academicStyleFeedback.asObservable();
   
-    private academicStyleScore = new BehaviorSubject<number>(0);
-    currentAcademicStyleScore = this.academicStyleScore.asObservable();
+  private academicStyleScore = new BehaviorSubject<number>(0);
+  currentAcademicStyleScore = this.academicStyleScore.asObservable();
   
-    private sentences = new BehaviorSubject<number>(0);
-    currentTotalSentences = this.sentences.asObservable();
+  private sentences = new BehaviorSubject<number>(0);
+  currentTotalSentences = this.sentences.asObservable();
   
-    private totalNonAcademic = new BehaviorSubject<number>(0);
-    currentTotalNonAcademic = this.totalNonAcademic.asObservable();
+  private totalNonAcademic = new BehaviorSubject<number>(0);
+  currentTotalNonAcademic = this.totalNonAcademic.asObservable();
 
   // Non Academic Style Error List
   private academicStyleTableSource = new BehaviorSubject<any>({

@@ -192,7 +192,7 @@ export class HomeComponent implements OnInit {
     //subscribe to academic style service 
     this.academic.currentAcademicStyleAlertColor.subscribe(academicStyleAlertColor => this.academicStyleAlertColor = academicStyleAlertColor);
     this.academic.currentAcademicStyleFeedback.subscribe(academicStyleFeedback => this.academicStyleFeedback = academicStyleFeedback);
-    this.academic.currentAcademicStyleScore.subscribe(nonAcademicStyleScore => this.academicStyleScore = nonAcademicStyleScore);
+    this.academic.currentAcademicStyleScore.subscribe(academicStyleScore => this.academicStyleScore = academicStyleScore);
     this.academic.currentTotalSentences.subscribe(totalSentences => this.totalSentences = totalSentences);
     this.academic.currentTotalNonAcademic.subscribe(totalNonAcademic => this.totalNonAcademic = totalNonAcademic);
     this.academic.currentAcademicStyleTable.subscribe(academicStyleTable => this.academicStyleTable = academicStyleTable);
