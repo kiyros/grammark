@@ -74,8 +74,8 @@ export class AcademicStyleFixComponent implements OnInit {
     }
     //calculate academic style score
     this.academicStyleScore = (this.totalNonAcademic/this.sentences)*100;
-    if(this.academicStyleScore === NaN || this.academicStyleScore === Infinity){
-      this.academicStyleScore = 0;
+    if (isNaN(this.academicStyleScore) || this.academicStyleScore === Infinity) {
+      this.academicStyleScore= 0;
     }
     // round to whole number
     this.academic.changeAcademicStyleScore(Math.round(this.academicStyleScore));

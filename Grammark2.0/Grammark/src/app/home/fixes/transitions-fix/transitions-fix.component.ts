@@ -77,7 +77,7 @@ export class TransitionsFixComponent implements OnInit {
       }
       //calcutale score
       this.transitionsScore = (this.totalTransitions / this.totalSentences) * 100;
-      if (this.transitionsScore === NaN || this.transitionsScore === Infinity) {
+      if (isNaN(this.transitionsScore) || this.transitionsScore === Infinity) {
         this.transitionsScore = 0;
       }
       // round to whole number

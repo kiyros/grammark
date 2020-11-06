@@ -115,6 +115,9 @@ export class PassiveVoiceFixComponent implements OnInit {
       }
     }
     this.passiveVoiceScore = (this.passiveVoiceNumber / this.totalSentences) * 100;
+    if (isNaN(this.passiveVoiceScore) || this.passiveVoiceScore === Infinity) {
+      this.passiveVoiceScore = 0;
+    }
     try {
       if (this.passiveVoiceScore > 10) {
         this.passiveVoiceFeedback = "Generally, writing is clearer in active voice.";

@@ -106,6 +106,9 @@ export class WordinessFixComponent implements OnInit {
       }
     }
     this.wordinessScore = (this.wordinessNumber / this.totalSentences) * 100;
+    if (isNaN(this.wordinessScore)|| this.wordinessScore === Infinity) {
+      this.wordinessScore = 0;
+    }
     try {
       if (this.wordinessScore > 2) {
         this.wordinessFeedback = "Your writing seems too wordy. Why use 3 words when you can say it with 1?";

@@ -78,8 +78,8 @@ export class EggcornsFixComponent implements OnInit {
               }
             //calcutale score
             this.eggcornsScore = (this.totalEggcorns/this.totalSentences)*100;
-            if(this.eggcornsScore === NaN){
-              this.eggcornsScore = 0;
+            if (isNaN(this.eggcornsScore) || this.eggcornsScore === Infinity) {
+              this.eggcornsScore= 0;
             }
             // round to whole number
             this.eggcorns.changeEggcornsScore(Math.round(this.eggcornsScore));

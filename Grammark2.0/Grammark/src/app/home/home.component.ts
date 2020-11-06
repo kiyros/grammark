@@ -199,7 +199,7 @@ export class HomeComponent implements OnInit {
       }
     }
     this.wordinessScore = (this.wordinessNumber / this.totalSentences) * 100;
-    if (this.wordinessScore === NaN || this.wordinessScore === Infinity) {
+    if (isNaN(this.wordinessScore)|| this.wordinessScore === Infinity) {
       this.wordinessScore = 0;
     }
     try {
@@ -251,7 +251,7 @@ export class HomeComponent implements OnInit {
       }
     }
     this.passiveVoiceScore = (this.passiveVoiceNumber / this.totalSentences) * 100;
-    if (this.passiveVoiceScore === NaN || this.passiveVoiceScore === Infinity) {
+    if (isNaN(this.passiveVoiceScore) || this.passiveVoiceScore === Infinity) {
       this.passiveVoiceScore = 0;
     }
     try {
@@ -297,7 +297,7 @@ export class HomeComponent implements OnInit {
       }
     }
     this.transitionsScore = (this.totalTransitions / this.totalSentences) * 100;
-    if (this.transitionsScore === NaN || this.transitionsScore === Infinity) {
+    if (isNaN(this.transitionsScore) || this.transitionsScore === Infinity) {
       this.transitionsScore = 0;
     }
     try {
@@ -347,7 +347,7 @@ export class HomeComponent implements OnInit {
       }
     }
     this.academicStyleScore = (this.totalNonAcademic / this.totalSentences) * 100;
-    if (this.academicStyleScore === NaN || this.academicStyleScore === Infinity) {
+    if (isNaN(this.academicStyleScore) || this.academicStyleScore === Infinity) {
       this.academicStyleScore= 0;
     }
     try {
@@ -390,7 +390,7 @@ export class HomeComponent implements OnInit {
       }
     }
     this.grammarScore = (this.totalGrammar / this.totalSentences) * 100;
-    if (this.grammarScore === NaN || this.grammarScore === Infinity) {
+    if (isNaN(this.grammarScore)|| this.grammarScore === Infinity) {
       this.grammarScore = 0;
     }
     try {
@@ -434,7 +434,7 @@ export class HomeComponent implements OnInit {
       }
     }
     this.eggcornsScore = (this.totalEggcorns / this.totalSentences) * 100;
-    if (this.eggcornsScore === NaN || this.eggcornsScore === Infinity) {
+    if (isNaN(this.eggcornsScore) || this.eggcornsScore === Infinity) {
       this.eggcornsScore= 0;
     }
     try {
@@ -495,7 +495,7 @@ export class HomeComponent implements OnInit {
       }
     }
     this.nominalizationsScore = (this.nominalizationsNumber / wordCounter) * 100;
-    if (this.nominalizationsScore === NaN || this.nominalizationsScore === Infinity) {
+    if (isNaN(this.nominalizationsScore) || this.nominalizationsScore === Infinity) {
       this.nominalizationsScore = 0;
     }
     try {
