@@ -57,7 +57,6 @@ export class AcademicStyleFixComponent implements OnInit {
 
     //find non academic word in user text
     for (const fix in this.academicStyleTable) {
-      // changing user text to lower Case to match with academicStyleTable
       if (userText.includes(fix)) {
         this.academic.changeTotalNonAcademic(this.totalNonAcademic + 1);
 
