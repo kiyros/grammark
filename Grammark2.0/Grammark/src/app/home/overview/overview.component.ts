@@ -79,7 +79,7 @@ export class OverviewComponent implements OnInit {
     // *                   *
     // *********************
     this.nonAcademicStyle.currentTotalNonAcademic.subscribe(totalNonAcademic=> this.totalNonAcademic = totalNonAcademic);
-    this.nonAcademicStyle.currentNonAcademicStyleScore.subscribe(nonAcademicStyleScore => this.nonAcademicStyleScore = nonAcademicStyleScore);
+    this.nonAcademicStyle.currentAcademicStyleScore.subscribe(nonAcademicStyleScore => this.nonAcademicStyleScore = nonAcademicStyleScore);
 
     // *********************
     // *                   *
