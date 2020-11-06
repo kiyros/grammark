@@ -4,10 +4,13 @@ import { NavigationExtras, Router, RouterLink } from '@angular/router';
 import { DataService } from '../data.service';
 import { PassivevoiceService } from '../services/passivevoice.service';
 import { WordinessService } from '../services/wordiness.service';
-import { TransitionsService} from '../services/transitions.service';
-import { GrammarService} from '../services/grammar.service';
-import { EggcornService} from '../services/eggcorns.service';
+import { TransitionsService } from '../services/transitions.service';
+import { GrammarService } from '../services/grammar.service';
+import { EggcornService } from '../services/eggcorns.service';
 import { AcademicStyleService } from '../services/academicstyle.service';
+import { NominalizationsService } from '../services/nominalizations.service';
+import { SentencesService } from '../services/sentences.service';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-home',
@@ -16,8 +19,10 @@ import { AcademicStyleService } from '../services/academicstyle.service';
 })
 export class HomeComponent implements OnInit {
 
+  // Global global
   message: string;
   grade: number;
+  totalSentences: number;
 
   // Passive Voice
   passiveVoiceNumber: number;
@@ -27,7 +32,6 @@ export class HomeComponent implements OnInit {
   passiveVoiceFeedback: string;
   passiveVoiceAlertColor: string;
   passiveVoiceScore: number;
-
   // Wordiness
   wordinessFeedback: string = " ";
   wordinessAlertColor: string = " ";
@@ -35,70 +39,87 @@ export class HomeComponent implements OnInit {
   wordinessNumber: number;
   wordinessTable: any;
   wordinessUserTable: any;
-
-  //academic style variables and such
+  // academic style variables and such
   academicStyleFeedback: string = " ";
   academicStyleScore: number;
-  sentences: number;
+  // sentences: number;
   totalNonAcademic: number;
   academicStyleTable: any;
   academicStyleUserTable: any;
   academicStyleAlertColor: any;
-
-  //var for transitions
+  // var for transitions
   transitionsFeedback: string = " ";
   transitionsScore: number;
-  totalSentences: number;
+  // totalSentences: number;
   totalTransitions: number;
   transitionsTable: any;
   transitionsUserTable: any;
   transitionsAlertColor: any;
-
-  //grammar
+  // Grammar
   grammarFeedback: string = " ";
   totalGrammar: number;
   grammarTable: any;
   grammarUserTable: any;
   grammarAlertColor: any;
-  //Eggcorns
+  grammarScore: any;
+  // Eggcorns
   eggcornsFeedback: string = " ";
   eggcornsScore: number;
   totalEggcorns: number;
   eggcornsTable: any;
   eggcornsUserTable: any;
   eggcornsAlertColor: any;
-
-  // For all fix types
-  totalSentencesInText: number;
+  // Nominalizations
+  nominalizationsNumber: number;
+  nominalizationsTable: any;
+  nominalizationsUserTable: any;
+  nominalizationsAlertColor: string;
+  nominalizationsFeedback: string;
+  nominalizationsScore: number;
+  // Sentences
+  sentencesNumber: number;
+  sentencesTable: any;
+  sentencesUserTable: any;
+  sentencesAlertColor: string;
+  sentencesFeedback = ' ';
+  sentencesScore: number;
 
   title = 'OverView';
 
-  constructor(private router : Router, private data: DataService,
+  constructor(private router: Router, private data: DataService,
               private passivevoice: PassivevoiceService,
               private wordiness: WordinessService,
               private transitions: TransitionsService,
               private grammar: GrammarService,
               private eggcorns: EggcornService,
-              private academic: AcademicStyleService) { }
-
-  table = { find: [], suggestion: [] };
+              private academic: AcademicStyleService,
+              private nominalizations: NominalizationsService,
+              private sentences: SentencesService) { }
 
   submitClick(): void {
     // Reset every time you hit re-highlight
     this.data.changeTotalSentences(0);
     this.passivevoice.changePassiveVoiceNumber(0);
     this.wordiness.changeWordinessNumber(0);
-    this.transitions.resetTransitionFix();
-    this.grammar.resetGrammarFix();
-    this.eggcorns.resetEggcornFix();
-    this.academic.resetAcademicStyleFix();
+    this.transitions.changeTotalTransitions(0);
+    this.academic.changeTotalNonAcademic(0);
+    this.grammar.changeTotalGrammar(0);
+    this.eggcorns.changeTotalEggcorns(0);
+    this.nominalizations.changeNominalizationsNumber(0);
+    this.sentences.changeSentencesNumber(0);
+    // this.transitions.resetTransitionFix();
+    // this.grammar.resetGrammarFix();
+    // this.eggcorns.resetEggcornFix();
+    // this.academic.resetAcademicStyleFix();
     // Clear -- Reset
     this.passiveVoiceUserTable = { find: [], suggestion: [] };
     this.wordinessUserTable = { find: [], suggestion: [] };
     this.transitionsUserTable = { find: [], suggestion: [] };
     this.grammarUserTable = { find: [], suggestion: [] };
-    this.eggcornsUserTable = {find: [], suggestion: [] };
-    this.academicStyleUserTable = { find: [], suggestion: []};
+    this.eggcornsUserTable = { find: [], suggestion: [] };
+    this.academicStyleUserTable = { find: [], suggestion: [] };
+    this.nominalizationsUserTable = { find: [], suggestion: [] };
+    this.sentencesUserTable = { find: [], suggestion: [] };
     // variables
     var userText = (document.getElementById('userinput') as HTMLTextAreaElement).value;
     let aLetter = false;
@@ -136,13 +157,10 @@ export class HomeComponent implements OnInit {
       this.wordinessFix(userText);
       this.transitionFix(userText);
       this.grammarFix(userText);
-
-      //eggcorn fix
       this.eggcornFix(userText);
-
-      //academic style fix
       this.academicStyleFix(userText);
-
+      this.nominalizationsFix(userText);
+      this.sentencesFix(userText);
     }
   }
 
@@ -157,8 +175,19 @@ export class HomeComponent implements OnInit {
     this.wordinessService();
     // Subscribe to Transition Service
     this.transitionService();
+    // Academic Style
+    this.academicStyleService();
+    // Grammar
+    this.grammarService();
+    // EggCorns
+    this.eggcornsService();
+    // Nominalizations
+    this.nominalizationsService();
+    // sentences
+    this.sentencesService();
   }
 
+  // This Function will Calculate the Wordiness Score
   wordinessFix(userText: string) {
     // tslint:disable-next-line: forin
     for (const fix in this.wordinessTable) {
@@ -200,6 +229,7 @@ export class HomeComponent implements OnInit {
     this.wordiness.currentWordinessScore.subscribe(wordinessScore => this.wordinessScore = wordinessScore);
   }
 
+  // This Function will Calculate the Passive Voice Score
   passiveVoiceFix(userText: string) {
     // tslint:disable-next-line: forin
     for (const fix in this.passiveVoiceTable) {
@@ -248,243 +278,312 @@ export class HomeComponent implements OnInit {
     this.passivevoice.currentPassiveVoiceScore.subscribe(passiveVoiceScore => this.passiveVoiceScore = passiveVoiceScore);
   }
 
-  // subscribe to transition variables
-  transitionService() {
-    // Feedback
-
-    // *********************
-    // *                   *
-    // *  Academic Style   *
-    // *                   *
-    // *********************
-    //subscribe to academic style service
-    this.academic.currentAcademicStyleAlertColor.subscribe(academicStyleAlertColor => this.academicStyleAlertColor = academicStyleAlertColor);
-    this.academic.currentAcademicStyleFeedback.subscribe(academicStyleFeedback => this.academicStyleFeedback = academicStyleFeedback);
-    this.academic.currentAcademicStyleScore.subscribe(academicStyleScore => this.academicStyleScore = academicStyleScore);
-    this.academic.currentTotalSentences.subscribe(totalSentences => this.totalSentences = totalSentences);
-    this.academic.currentTotalNonAcademic.subscribe(totalNonAcademic => this.totalNonAcademic = totalNonAcademic);
-    this.academic.currentAcademicStyleTable.subscribe(academicStyleTable => this.academicStyleTable = academicStyleTable);
-
-
-    // *********************
-    // *                   *
-    // *    Transitions    *
-    // *                   *
-    // *********************
-    //subscribe to transition service
-    this.transitions.currentTransitionsAlertColor.subscribe(transitionsAlertColor => this.transitionsAlertColor = transitionsAlertColor);
-    this.transitions.currentTransitionsFeedback.subscribe(transitionsFeedback => this.transitionsFeedback = transitionsFeedback);
-    this.transitions.currentTransitionsScore.subscribe(transitionsScore => this.transitionsScore = transitionsScore);
-    this.transitions.currentTotalSentences.subscribe(totalSentences => this.totalSentences = totalSentences);
-    this.transitions.currentTotalTransitions.subscribe(totalTransitions => this.totalTransitions = totalTransitions);
-    this.transitions.currentTransitionsTable.subscribe(transitionsTable => this.transitionsTable = transitionsTable);
-
-    // Transition Table of Current User Errors in Text
-    this.transitions.currentTransitionsUserTable.subscribe(transitionsUserTable => this.transitionsUserTable = transitionsUserTable);
-
-    // *********************
-    // *                   *
-    // *    Grammar        *
-    // *                   *
-    // *********************
-    this.grammar.currentGrammarAlertColor.subscribe(grammarAlertColor => this.grammarAlertColor = grammarAlertColor);
-    this.grammar.currentGrammarFeedback.subscribe(grammarFeedback => this.grammarFeedback = grammarFeedback);
-    this.grammar.currentTotalGrammar.subscribe(totalGrammar => this.totalGrammar = totalGrammar);
-    this.grammar.currentGrammarTable.subscribe(grammarTable => this.grammarTable = grammarTable);
-    this.grammar.currentGrammarUserTable.subscribe(grammarUserTable => this.grammarUserTable = grammarUserTable);
-
-    //Eggcorns
-
-    // *********************
-    // *                   *
-    // *    Eggcorns       *
-    // *                   *
-    // *********************
-    //subscribe to eggcorn service
-    //this.eggcornService();
-
-  // subscribe to eggcorn variables
-  //eggcornService(){
-    //result color
-    this.eggcorns.currentEggcornsAlertColor.subscribe(eggcornsAlertColor => this.eggcornsAlertColor = eggcornsAlertColor);
-
-    //Feedback
-    this.eggcorns.currentEggcornsFeedback.subscribe(eggcornsFeedback => this.eggcornsFeedback = eggcornsFeedback);
-
-    // eggcorn score
-    this.eggcorns.currentEggcornsScore.subscribe(eggcornsScore => this.eggcornsScore = eggcornsScore);
-
-    // Total number of sentences in the user input
-    this.eggcorns.currentTotalSentences.subscribe(totalSentences => this.totalSentences = totalSentences);
-
-    // Total number of eggcorns in the user input
-    this.eggcorns.currentTotalEggcorns.subscribe(totalEggcorns => this.totalEggcorns = totalEggcorns);
-
-    // Eggcorn Table of all eggcorns
-    this.eggcorns.currentEggcornsTable.subscribe(eggcornsTable => this.eggcornsTable = eggcornsTable);
-
-    // Eggcorn Table of Current User Errors in Text
-    this.eggcorns.currentEggcornsUserTable.subscribe(eggcornsUserTable => this.eggcornsUserTable = eggcornsUserTable);
-  }
-
-  // this function will calculate the transition score
+  // This Function will Calculate the Transition Score
   transitionFix(userText: string) {
     for (const fix in this.transitionsTable) {
       // changing user text to lower Case to match with transitionsTable
       if (userText.toLocaleLowerCase().includes(fix)) {
         this.transitions.changeTotalTransitions(this.totalTransitions + 1);
-
-        // add transition in user text into an array
         // add transition in user text into an array
         this.transitionsUserTable.find.push(fix);
         this.transitionsUserTable.suggestion.push(this.transitionsTable[fix]);
         this.transitions.changeTransitionsUserTable(this.transitionsUserTable);
       }
     }
-    // find total sentences in user text
-    for (let i = 0; i < userText.length; i++) {
-      if (userText.charAt(i) === "." || userText.charAt(i) === "!" || userText.charAt(i) === "?") {
-        this.transitions.changeTotalSentences(this.totalSentences + 1);
+    this.transitionsScore = (this.totalTransitions / this.totalSentences) * 100;
+    try {
+      if (this.transitionsScore == 0) {
+        this.transitionsAlertColor = "red";
+        this.transitionsFeedback = "Your writing seems to have no transition word";
+      } else if (this.transitionsScore <= 10) {
+        this.transitionsFeedback = "The number of transition words in your writing seems low";
+        this.transitionsAlertColor = "orange";
+      } else if (this.transitionsScore <= 80) {
+        this.transitionsFeedback = "Woot! Your writing seems to have a good proportion of transitions";
+        this.transitionsAlertColor = "green";
+      } else {
+        this.transitionsFeedback = "Woot! Your writing seems to have a lot of transitions. Make sure you\'re not overusing transition words";
+        this.transitionsAlertColor = "green";
       }
     }
-  //calcutale score
-  this.transitionsScore = (this.totalTransitions/this.totalSentences)*100;
-  if(isNaN(this.transitionsScore)  || this.transitionsScore === Infinity){
-    this.transitionsScore = 0;
+    catch (e) {
+      this.transitionsFeedback = "Make sure you enter at least one sentence.";
+      this.transitionsAlertColor = "orange";
+      this.transitionsScore = 0;
+    }
+    this.transitions.changeTransitionsScore(Math.round(this.transitionsScore));
+    this.transitions.changeTransitionsFeedback(this.transitionsFeedback);
+    this.transitions.changeTransitionsAlertColor(this.transitionsAlertColor);
   }
-  // round to whole number
-  this.transitions.changeTransitionsScore(Math.round(this.transitionsScore));
-  // this.transitions.changeTransitionsScore(this.transitionsScore);
-  if(this.transitionsScore == 0 ){
-    this.transitionsAlertColor = "red";
-    this.transitionsFeedback = "Your writing seems to have no transition word";
-  }else if (this.transitionsScore <= 10){
-    this.transitionsFeedback = "The number of transition words in your writing seems low";
-    this.transitionsAlertColor = "orange";
-  }else if(this.transitionsScore <= 80){
-    this.transitionsFeedback = "Woot! Your writing seems to have a good proportion of transitions";
-    this.transitionsAlertColor = "green";
-  }else{
-    this.transitionsFeedback ="Woot! Your writing seems to have a lot of transitions. Make sure you\'re not overusing transition words";
-    this.transitionsAlertColor = "green";
+
+  transitionService() {
+    this.transitions.currentTransitionsAlertColor.subscribe(transitionsAlertColor => this.transitionsAlertColor = transitionsAlertColor);
+    this.transitions.currentTransitionsFeedback.subscribe(transitionsFeedback => this.transitionsFeedback = transitionsFeedback);
+    this.transitions.currentTransitionsScore.subscribe(transitionsScore => this.transitionsScore = transitionsScore);
+    this.transitions.currentTotalTransitions.subscribe(totalTransitions => this.totalTransitions = totalTransitions);
+    this.transitions.currentTransitionsTable.subscribe(transitionsTable => this.transitionsTable = transitionsTable);
+    this.transitions.currentTransitionsUserTable.subscribe(transitionsUserTable => this.transitionsUserTable = transitionsUserTable);
   }
-  this.transitions.changeTransitionsFeedback(this.transitionsFeedback);
-  this.transitions.changeTransitionsAlertColor(this.transitionsAlertColor);
 
-}
+  // This Function will Calculate the Academic Style Score
+  academicStyleFix(userText: string) {
+    // find instance of non academic style in user text
+    for (const fix in this.academicStyleTable) {
+      // changing user text to lower Case to match with academicStyleTable
+      if (userText.includes(fix)) {
+        this.academic.changeTotalNonAcademic(this.totalNonAcademic + 1);
+        this.academicStyleUserTable.find.push(fix);
+        this.academicStyleUserTable.suggestion.push(this.academicStyleTable[fix]);
+        this.academic.changeAcademicStyleUserTable(this.academicStyleUserTable);
+      }
+    }
+    this.academicStyleScore = (this.totalNonAcademic / this.totalSentences) * 100;
+    try {
+      if (this.academicStyleScore <= 1) {
+        this.academicStyleAlertColor = "green";
+        this.academicStyleFeedback = "Your writing has a low percentage of casual and/or extreme language. This makes it more acceptable for academic style.";
+      }
+      else {
+        this.academicStyleFeedback = "Your writing may contain language that is either too casual or too extreme for academic discourse.";
+        this.academicStyleAlertColor = "red";
+      }
+    }
+    catch (e) {
+      this.academicStyleFeedback = "Make sure you enter at least one sentence.";
+      this.academicStyleAlertColor = "orange";
+      this.academicStyleScore = 0;
+    }
+    this.academic.changeAcademicStyleScore(Math.round(this.academicStyleScore));
+    this.academic.changeAcademicStyleFeedback(this.academicStyleFeedback);
+    this.academic.changeAcademicStyleAlertColor(this.academicStyleAlertColor);
+  }
 
-// this function will calculate the eggcorn score
-eggcornFix(userText: string){
-  for (const fix in this.eggcornsTable) {
-  // changing user text to lower Case to match with eggcornsTable
-    if (userText.toLocaleLowerCase().includes(fix)) {
+  academicStyleService() {
+    this.academic.currentAcademicStyleAlertColor.subscribe(academicStyleAlertColor => this.academicStyleAlertColor = academicStyleAlertColor);
+    this.academic.currentAcademicStyleFeedback.subscribe(academicStyleFeedback => this.academicStyleFeedback = academicStyleFeedback);
+    this.academic.currentAcademicStyleScore.subscribe(academicStyleScore => this.academicStyleScore = academicStyleScore);
+    // this.academic.currentTotalSentences.subscribe(totalSentences => this.totalSentences = totalSentences);
+    this.academic.currentTotalNonAcademic.subscribe(totalNonAcademic => this.totalNonAcademic = totalNonAcademic);
+    this.academic.currentAcademicStyleTable.subscribe(academicStyleTable => this.academicStyleTable = academicStyleTable);
+  }
+
+  // This Function will Calculate the Total Grammar Traps
+  grammarFix(userText: string) {
+    for (const fix in this.grammarTable) {
+      if (userText.toLocaleLowerCase().includes(fix)) {
+        this.grammar.changeTotalGrammar(this.totalGrammar + 1);
+        this.grammarUserTable.find.push(fix);
+        this.grammarUserTable.suggestion.push(this.grammarTable[fix]);
+        this.grammar.changeGrammarUserTable(this.grammarUserTable);
+      }
+    }
+    this.grammarScore = (this.totalGrammar / this.totalSentences) * 100;
+    try {
+      if (this.grammarScore == 0) {
+        this.grammarAlertColor = "green";
+        this.grammarFeedback = "Woohoo! We didn't find any obvious grammark errors. However, " +
+          "beware: Grammark does not check for fragments, comma splices, subject-verb errors, " +
+          "number and pronoun problems. What's the best way to find grammar errors? Read your writing aloud.";
+      } else if (this.grammarScore > 0) {
+        this.grammarAlertColor = "red";
+        this.grammarFeedback = "Your writing includes words or phrases usually considered to be grammar errors";
+      }
+    }
+    catch (e) {
+      this.grammarFeedback = "Make sure you enter at least one sentence.";
+      this.grammarAlertColor = "orange";
+      this.grammarScore = 0;
+    }
+    this.grammar.changeGrammarScore(Math.round(this.grammarScore));
+    this.grammar.changeGrammarFeedback(this.grammarFeedback);
+    this.grammar.changeGrammarAlertColor(this.grammarAlertColor);
+  }
+
+  grammarService() {
+    this.grammar.currentGrammarAlertColor.subscribe(grammarAlertColor => this.grammarAlertColor = grammarAlertColor);
+    this.grammar.currentGrammarFeedback.subscribe(grammarFeedback => this.grammarFeedback = grammarFeedback);
+    this.grammar.currentTotalGrammar.subscribe(totalGrammar => this.totalGrammar = totalGrammar);
+    this.grammar.currentGrammarTable.subscribe(grammarTable => this.grammarTable = grammarTable);
+    this.grammar.currentGrammarUserTable.subscribe(grammarUserTable => this.grammarUserTable = grammarUserTable);
+    this.grammar.currentGrammarScore.subscribe(grammarScore => this.grammarScore = grammarScore);
+  }
+
+  // This Function will Calculate the Eggcorn Score
+  eggcornFix(userText: string) {
+    for (const fix in this.eggcornsTable) {
+      if (userText.toLocaleLowerCase().includes(fix)) {
         this.eggcorns.changeTotalEggcorns(this.totalEggcorns + 1);
-
-        // add eggcorns in user text into an array
         this.eggcornsUserTable.find.push(fix);
         this.eggcornsUserTable.suggestion.push(this.eggcornsUserTable[fix]);
         this.eggcorns.changeEggcornsUserTable(this.eggcornsUserTable);
+      }
     }
-  }
-  //find total sentences in user text
-  for (let i = 0; i < userText.length; i++) {
-    if(userText.charAt(i)=== "." || userText.charAt(i)=== "!"|| userText.charAt(i)=== "?"){
-        this.eggcorns.changeTotalSentences(this.totalSentences + 1 );
+    this.eggcornsScore = (this.totalEggcorns / this.totalSentences) * 100;
+    try {
+      if (this.eggcornsScore == 0) {
+        this.eggcornsAlertColor = "green";
+        this.eggcornsFeedback = "Great job Your writing seems to have no Eggcorns";
+      } else if (this.eggcornsScore <= 5) {
+        this.eggcornsFeedback = " Good job the number of Eggcorns words in your writing seems low";
+        this.eggcornsAlertColor = "orange";
+      } else if (this.eggcornsScore <= 10) {
+        this.eggcornsFeedback = "Your writing seems to have alot of eggcorns";
+        this.eggcornsAlertColor = "red";
+      } else {
+        this.eggcornsFeedback = "Your writing seems to have a many eggcorns. Make sure you\'re not using eggcorns";
+        this.eggcornsAlertColor = "red";
+      }
     }
-  }
-  //calcutale score
-  this.eggcornsScore = (this.totalEggcorns/this.totalSentences)*100;
-  if(isNaN(this.eggcornsScore)){
-    this.eggcornsScore = 0;
-  }
-  // round to whole number
-  this.eggcorns.changeEggcornsScore(Math.round(this.eggcornsScore));
-
-
-  if(this.eggcornsScore == 0 ){
-    this.eggcornsAlertColor = "green";
-    this.eggcornsFeedback = "Great job Your writing seems to have no Eggcorns";
-  }else if (this.eggcornsScore <= 5){
-    this.eggcornsFeedback = " Good job the number of Eggcorns words in your writing seems low";
-    this.eggcornsAlertColor = "orange";
-  }else if(this.eggcornsScore <= 10){
-    this.eggcornsFeedback = "Your writing seems to have alot of eggcorns";
-    this.eggcornsAlertColor = "red";
-  }else{
-    this.eggcornsFeedback ="Your writing seems to have a many eggcorns. Make sure you\'re not using eggcorns";
-    this.eggcornsAlertColor = "red";
-  }
-  this.eggcorns.changeEggcornsFeedback(this.eggcornsFeedback);
-  this.eggcorns.changeEggcornsAlertColor(this.eggcornsAlertColor);
-}
-
-
-  // this function will calculate the total grammar traps
-  grammarFix(userText: string){
-  for (const fix in this.grammarTable) {
-    // changing user text to lower Case to match with grammarTable
-    if (userText.toLocaleLowerCase().includes(fix)) {
-      this.totalGrammar ++;
-      this.grammar.changeTotalGrammar(this.totalGrammar);
-
-      // add grammar traps in user text into an array
-      this.grammarUserTable.find.push(fix);
-      this.grammarUserTable.suggestion.push(this.grammarTable[fix]);
-      this.grammar.changeGrammarUserTable(this.grammarUserTable);
+    catch (e) {
+      this.eggcornsFeedback = "Make sure you enter at least one sentence.";
+      this.eggcornsAlertColor = "orange";
+      this.eggcornsScore = 0;
     }
-  }
-  if(this.totalGrammar  == 0 ){
-    this.grammarAlertColor = "green";
-    this.grammarFeedback = "Woohoo! We didn't find any obvious grammark errors. However, " +
-     "beware: Grammark does not check for fragments, comma splices, subject-verb errors, "+
-     "number and pronoun problems. What's the best way to find grammar errors? Read your writing aloud.";
-  }else if (this.totalGrammar > 0){
-    this.grammarAlertColor = "orange";
-    this.grammarFeedback = "Your writing includes words or phrases usually considered to be grammar errors";
-  }
-  this.grammar.changeGrammarFeedback(this.grammarFeedback);
-  this.grammar.changeGrammarAlertColor(this.grammarAlertColor);
+    this.eggcorns.changeEggcornsScore(Math.round(this.eggcornsScore));
+    this.eggcorns.changeEggcornsFeedback(this.eggcornsFeedback);
+    this.eggcorns.changeEggcornsAlertColor(this.eggcornsAlertColor);
   }
 
-  academicStyleFix(userText: string){
-  //find instance of non academic style in user text
-  for (const fix in this.academicStyleTable) {
-    // changing user text to lower Case to match with academicStyleTable
-    if (userText.includes(fix)) {
-      this.academic.changeTotalNonAcademic(this.totalNonAcademic + 1);
+  eggcornsService() {
+    this.eggcorns.currentEggcornsAlertColor.subscribe(eggcornsAlertColor => this.eggcornsAlertColor = eggcornsAlertColor);
+    this.eggcorns.currentEggcornsFeedback.subscribe(eggcornsFeedback => this.eggcornsFeedback = eggcornsFeedback);
+    this.eggcorns.currentEggcornsScore.subscribe(eggcornsScore => this.eggcornsScore = eggcornsScore);
+    // this.eggcorns.currentTotalSentences.subscribe(totalSentences => this.totalSentences = totalSentences);
+    this.eggcorns.currentTotalEggcorns.subscribe(totalEggcorns => this.totalEggcorns = totalEggcorns);
+    this.eggcorns.currentEggcornsTable.subscribe(eggcornsTable => this.eggcornsTable = eggcornsTable);
+    this.eggcorns.currentEggcornsUserTable.subscribe(eggcornsUserTable => this.eggcornsUserTable = eggcornsUserTable);
+  }
 
-      // add instance of non academic style in user text into an array
-      this.academicStyleUserTable.find.push(fix);
-      this.academic.changeAcademicStyleUserTable(this.academicStyleUserTable);
+  nominalizationsFix(userText: string) {
+    let word;
+    word="";
+    let wordCounter = 0;
+    // tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < userText.length; i++) {
+
+      if(/[a-zA-Z]/.test(userText[i]) || userText[i] === '\’' || userText[i] === '\'') {
+        word += userText[i];
+      }
+      else {
+        for (const fix in this.nominalizationsTable) {
+          if (word.length > 7 && word.includes(fix)) {
+            this.nominalizationsUserTable.find.push("• " + word);
+            this.nominalizations.changeNominalizationsNumber(this.nominalizationsNumber + 1);
+            this.nominalizations.changeNominalizationsUserTable(this.nominalizationsUserTable);
+          }
+        }
+        word = "";
+        wordCounter++;
+      }
     }
-  }
-  //find total sentences in user text
-  for (let i = 0; i < userText.length; i++) {
-    if(userText.charAt(i)=== "." || userText.charAt(i)=== "!"|| userText.charAt(i)=== "?"){
-      this.academic.changeTotalSentences(this.sentences + 1);
+    this.nominalizationsScore = (this.nominalizationsNumber / wordCounter) * 100;
+    try {
+      if (this.nominalizationsScore <= 6) {
+        this.nominalizationsFeedback = "Rock on. Your writing has a reasonable number of \"nominalized\" word forms, highlighted below. You probably don't need to reduce these any further.";
+        this.nominalizationsAlertColor = "green";
+      }
+      else {
+        this.nominalizationsFeedback = "Most of the words below are perfectly acceptable. However, you use many of these \"nominalized\" (non root-form) words. They bog down writing and decrease readability.";
+        this.nominalizationsAlertColor = "red";
+      }
     }
+    catch(e) {
+      this.nominalizationsFeedback = "Make sure you enter at least one sentence.";
+      this.nominalizationsAlertColor = "orange";
+      this.nominalizationsScore = 0;
+    }
+    this.nominalizations.changeNominalizationsFeedback(this.nominalizationsFeedback);
+    this.nominalizations.changeNominalizationsScore(Math.round(this.nominalizationsScore));
+    this.nominalizations.changeNominalizationsAlertColor(this.nominalizationsAlertColor);
   }
 
-  //calcutale score
-  this.academicStyleScore = (this.totalNonAcademic/this.sentences)*100;
-  if(this.academicStyleScore === NaN || this.academicStyleScore === Infinity){
-    this.academicStyleScore = 0;
+  nominalizationsService() {
+    this.nominalizations.currentNominalizationsAlertColor.subscribe(nominalizationsAlertColor => this.nominalizationsAlertColor = nominalizationsAlertColor);
+    this.nominalizations.currentNominalizationsFeedback.subscribe(nominalizationsFeedback => this.nominalizationsFeedback = nominalizationsFeedback);
+    this.nominalizations.currentNominalizationsScore.subscribe(nominalizationsScore => this.nominalizationsScore = nominalizationsScore);
+    this.nominalizations.currentNominalizationsNumber.subscribe(nominalizationsNumber => this.nominalizationsNumber = nominalizationsNumber);
+    this.nominalizations.currentNominalizationsUserTable.subscribe(nominalizationsUserTable => this.nominalizationsUserTable = nominalizationsUserTable);
+    this.nominalizations.currentNominalizationsTable.subscribe(nominalizationsTable => this.nominalizationsTable = nominalizationsTable);
   }
 
-  // round to whole number
-  this.academic.changeAcademicStyleScore(Math.round(this.academicStyleScore));
+  sentencesFix(userText: string) {
+    let word;
+    word = '';
+    let sentence;
+    sentence = '';
+    let sentence2;
+    sentence2 = '';
+    let errorFound = false;
+    let wordCounter = 0;
+    // tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < userText.length; i++) {
+      if (/[a-zA-Z]/.test(userText[i]) || userText[i] === '\’' || userText[i] === '\'') {
+        word += userText[i];
+      }
+      else {
+        for (const fix in this.sentencesTable) {
+          if (word.includes(fix)) {
+            sentence += word;
+            errorFound = true;
+          }
+        }
+        word = '';
+        wordCounter++;
+      }
+      // Sentence Fragment
+      if (errorFound === true) {
+        if (/[a-zA-Z]/.test(userText[i]) || userText[i] === '\’' || userText[i] === '\'' || userText[i] === ' ') {
+          sentence += userText[i];
+        }
+        else {
+          this.sentences.changeSentencesNumber(this.sentencesNumber + 1);
+          this.sentencesUserTable.find.push("• Potential Fragment → \"" + sentence + "...\"");
+          errorFound = false;
+          sentence = '';
+        }
+      }
+      // Sentence length
+      if (userText[i] === '!' || userText[i] === '?' || userText[i] === '.') {
+        if (wordCounter > 50) {
+          this.sentences.changeSentencesNumber(this.sentencesNumber + 1);
+          this.sentencesUserTable.find.push("• Long Sentence → \"" + sentence2 + "...\"");
+        }
+        sentence2 = '';
+        wordCounter = 0;
+      }
+      else {
+        sentence2 += userText[i];
+      }
+    }
+    this.sentencesScore = (this.sentencesNumber / this.totalSentences) * 100;
+    try {
+      if (this.sentencesScore > 2) {
+        this.sentencesFeedback = "Hmmm. Your writing may have some sentence-level issues. Check the list below for potential fragments or run-ons.";
+        this.sentencesAlertColor = "red";
+      }
+      else {
+        this.sentencesFeedback = "Bueno! Your sentences don't show any glaring errors.";
+        this.sentencesAlertColor = "green";
+      }
+    }
+    catch(e) {
+      this.sentencesFeedback = "Make sure you enter at least one sentence.";
+      this.sentencesAlertColor = "orange";
+      this.sentencesScore = 0;
+    }
+    this.sentences.changeSentencesFeedback(this.sentencesFeedback);
+    this.sentences.changeSentencesScore(Math.round(this.sentencesScore));
+    this.sentences.changeSentencesAlertColor(this.sentencesAlertColor);
+  }
 
-  if(this.academicStyleScore != 0 ){
-    this.academicStyleAlertColor = "green";
-    this.academicStyleFeedback = "Your writing has a low percentage of casual and/or extreme language. This makes it more acceptable for academic style.";
+  sentencesService() {
+    this.sentences.currentSentencesNumber.subscribe(sentencesNumber => this.sentencesNumber = sentencesNumber);
+    this.sentences.currentSentencesTable.subscribe(sentencesTable => this.sentencesTable = sentencesTable);
+    this.sentences.currentSentencesUserTable.subscribe(sentencesUserTable => this.sentencesUserTable = sentencesUserTable);
+    this.sentences.currentSentencesAlertColor.subscribe(sentencesAlertColor => this.sentencesAlertColor = sentencesAlertColor);
+    this.sentences.currentSentencesFeedback.subscribe(sentencesFeedback => this.sentencesFeedback = sentencesFeedback);
+    this.sentences.currentSentencesScore.subscribe(sentencesScore => this.sentencesScore = sentencesScore);
   }
-  else{
-    this.academicStyleFeedback ="Your writing may contain language that is either too casual or too extreme for academic discourse.";
-    this.academicStyleAlertColor = "red";
-  }
-  this.academic.changeAcademicStyleFeedback(this.academicStyleFeedback);
-  this.academic.changeAcademicStyleAlertColor(this.academicStyleAlertColor);
-}
 }
 
 

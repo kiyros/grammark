@@ -10,4 +10,32 @@
   <a class="linkedpages" routerLink="../transitions-fix">Transitions</a>
   <a class="linkedpages" routerLink="">Start Over</a>
 </mat-toolbar>
-Nominalizations works!
+
+<div class="alert-box" [style.background-color]="nominalizationsAlertColor">
+  <h5 class="box">{{ nominalizationsNumber }} instances ({{ nominalizationsScore }}% of words)</h5>
+    <b class="box">Goal: 6% or less </b>
+</div>
+
+<mat-toolbar color="white" class="category">
+  <mat-toolbar-row class="title"><b>Nominalizations</b></mat-toolbar-row>
+  <mat-toolbar-row class="description">{{nominalizationsFeedback}}</mat-toolbar-row>
+</mat-toolbar>
+
+<div>
+  <div class="column1">
+    <textarea id="userinput" name="userinput">{{ message }} </textarea>
+    <button (click)="reHighlight()" class="rehighlight">Re-highlight</button>
+  </div>
+
+  <div class="column2">
+    <h1 class="feedback"><b>Nominalizations Found - {{ nominalizationsNumber }} error(s)</b></h1>
+    <table>
+			<td>
+				<tr *ngFor="let tableData of nominalizationsUserTable.find">{{tableData}}</tr>
+      </td>
+      <td>
+        <tr *ngFor="let tableData of nominalizationsUserTable.suggestion">{{tableData}}</tr>
+      </td>
+		</table>
+  </div>
+</div>

@@ -39,7 +39,7 @@ th, td {
 .tablerow {
   text-decoration: none;
   color: black;
-  font-size: 18px;
+  font-size: 21px;
 }
 
 .tablecss {
@@ -54,10 +54,14 @@ th, td {
   border-radius: 14px;
   font-size: 17px;
   font-weight: bold;
-  margin-left: 70px;
+  margin-left: 25%;
   font-style: oblique;
   display: table-cell;
   vertical-align: middle;
+}
+
+.tablediv {
+  padding-left: 18%;
 }
 
 .columns {
@@ -66,15 +70,14 @@ th, td {
 
 .column1 {
   float: left;
-  width: 55%;
+  width: 50%;
   padding-bottom: 40px;
 }
 
 .column2 {
   float: left;
-  width: 500px;
+  width: 49%;
   padding: 20px 0px;
-  background-color: #E0E0E0;
 }
 
 .tinybutton {
@@ -122,20 +125,27 @@ border-radius: 10px;
 color: rgb(255, 255, 255);
 }
 
-.label {
-  font-size: 16px;
+.passiveVoiceCircle, .wordinessCircle, .academicStyleCircle, .grammarCircle {
+  height: 100px;
+    width: 100px;
+    padding: 50px;
+    text-align: center;
+    display:table-cell;
+    vertical-align:middle;
 }
 
-.fixCircle {
-  margin-left: 30%;
-  margin-top: 20%;
+.transitionsCircle, .eggcornsCircle, .nominalizationsCircle, .sentencesCircle {
+  height: 100px;
+    width: 100px;
+    padding: 50px;
+    text-align: center;
+    display: inline-block;
 }
 
 .circular{
   height: 100px;
   width: 100px;
   position: relative;
-  margin-left:35%;
 }
 .circular .inner, .circular .outer, .circular .circle{
   position: absolute;

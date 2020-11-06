@@ -13,6 +13,9 @@ export class GrammarService {
   private grammarFeedback = new BehaviorSubject<string>(" ");
   currentGrammarFeedback = this.grammarFeedback.asObservable();
 
+  private grammarScore = new BehaviorSubject<number>(0);
+  currentGrammarScore = this.grammarScore.asObservable();
+
   private totalGrammar = new BehaviorSubject<number>(0);
   currentTotalGrammar = this.totalGrammar.asObservable();
 
@@ -1331,7 +1334,7 @@ export class GrammarService {
   });
   currentGrammarTable = this.grammarTable.asObservable();
 
-  // this table will contain the user's grammartrap words 
+  // this table will contain the user's grammartrap words
   private grammarUserTable = new BehaviorSubject<any>({});
   currentGrammarUserTable = this.grammarUserTable.asObservable();
 
@@ -1357,10 +1360,14 @@ export class GrammarService {
     this.grammarAlertColor.next(grammarAlertColor);
   }
 
+  changeGrammarScore(grammarScore: number) {
+    this.grammarScore.next(grammarScore);
+  }
+
   resetGrammarFix(){
     this.grammarFeedback.next(" ");
     this.totalGrammar.next(0);
     this.grammarUserTable.next({ find: [], suggestion: [] });
   }
 }
- 
+

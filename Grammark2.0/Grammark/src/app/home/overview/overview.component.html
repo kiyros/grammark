@@ -14,76 +14,224 @@
 <div class="columns">
   <div class="column1">
     <h1 class="resultdescription"><b>Nice! This Writing Looks Pretty Snazzy.</b></h1>
-
+<div class="tablediv">
     <table>
       <thead>
         <tr>
           <th class="tablehead">Category</th>
           <th class="tablehead">Results</th>
+          <th class="tablehead">Goal</th>
         </tr>
       </thead>
       <tbody>
-        <tr class="odd">
+        <tr class="odd" [style.background-color]="passiveVoiceAlertColor">
           <td><a class="tablerow" routerLink="../fixes/passive-voice-fix">Passive Voice</a></td>
-          <td>{{ passiveVoiceNumber }}({{passiveVoiceNumber}}%)</td>
+          <td>{{ passiveVoiceNumber }}({{passiveVoiceScore}}%)</td>
+          <td>10% or fewer</td>
 
         </tr>
-        <tr class="even">
+        <tr class="even" [style.background-color]="wordinessAlertColor">
           <td><a class="tablerow" routerLink="../fixes/wordiness-fix">Wordiness</a></td>
           <td>{{ wordinessNumber }}({{wordinessScore}}%)</td>
+          <td>2% or fewer</td>
 
         </tr>
-        <tr class="odd">
+        <tr class="odd" [style.background-color]="academicStyleAlertColor">
           <td><a class="tablerow" routerLink="../fixes/academic-style-fix">Academic Style</a></td>
           <td>{{ totalNonAcademic }}({{ academicStyleScore }}%)</td>
+          <td>1% or fewer</td>
 
         </tr>
-        <tr class="even">
+        <tr class="even" [style.background-color]="grammarAlertColor">
           <td><a class="tablerow" routerLink="../fixes/grammar-fix">Grammar</a></td>
-          <td>{{ totalGrammar }}</td>
+          <td>{{ totalGrammar }} ({{grammarScore}}%)</td>
+          <td>0 errors</td>
 
         </tr>
-        <tr class="odd">
+        <tr class="odd" [style.background-color]="nominalizationsAlertColor">
           <td><a class="tablerow" routerLink="../fixes/nominalizations-fix">Nominalizations</a></td>
-          <td>0(0%)</td>
+          <td>{{nominalizationsNumber}}({{nominalizationsScore}}%)</td>
+          <td>6% or fewer</td>
 
         </tr>
-        <tr class="even">
+        <tr class="even" [style.background-color]="sentencesAlertColor">
           <td><a class="tablerow" routerLink="../fixes/sentences-fix">Sentences</a></td>
-          <td>0(0%)</td>
+          <td>{{sentencesNumber}}({{sentencesScore}}%)</td>
+          <td>2% or fewer</td>
 
         </tr>
-        <tr class="odd">
+        <tr class="odd" [style.background-color]="eggcornsAlertColor">
           <td><a class="tablerow" routerLink="../fixes/eggcorns-fix">Eggcorns</a></td>
-          <td>0(0%)</td>
+          <td>{{totalEggcorns}}({{eggcornsScore}}%)</td>
+          <td>0 errors</td>
 
         </tr>
-        <tr class="even">
+        <tr class="even" [style.background-color]="transitionsAlertColor">
           <td><a class="tablerow" routerLink="../fixes/transitions-fix">Transitions</a></td>
           <td>{{ totalTransitions }}({{ transitionsScore }}%)</td>
+          <td>10% or more</td>
 
         </tr>
       </tbody>
     </table>
+  </div>
 
     <button class="startoverbutton" (click)="startOverClickButton()">Clear & Start Over</button>
   </div>
 
-  <div class="fixCircle"><p class="label">Wordiness</p>
-    <div class="circular">
-      <div class="inner"></div>
-      <div class="outer"></div>
-      <div class="numb">{{wordinessScore}}%</div>
-      <div class="circle">
-        <div class="dot">
-          <span></span>
-        </div>
-        <div class="bar left">
-          <div class="progress"></div>
-        </div>
-        <div class="bar right">
-          <div class="progress"></div>
+  <div class="column2">
+
+    <div class="wordinessCircle"><a class="tablerow" routerLink="../fixes/wordiness-fix">Wordiness</a>
+      <div class="circular">
+        <div class="inner"></div>
+        <div class="outer"></div>
+        <div class="numb">{{wordinessScore}}%</div>
+        <div class="circle">
+          <div class="dot">
+            <span></span>
+          </div>
+          <div class="bar left">
+            <div class="progress"></div>
+          </div>
+          <div class="bar right">
+            <div class="progress"></div>
+          </div>
         </div>
       </div>
     </div>
+
+    <div class="passiveVoiceCircle"><a class="tablerow" routerLink="../fixes/passive-voice-fix">Passive Voice</a>
+      <div class="circular">
+        <div class="inner"></div>
+        <div class="outer"></div>
+        <div class="numb">{{passiveVoiceScore}}%</div>
+        <div class="circle">
+          <div class="dot">
+            <span></span>
+          </div>
+          <div class="bar left">
+            <div class="progress"></div>
+          </div>
+          <div class="bar right">
+            <div class="progress"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="academicStyleCircle"><a class="tablerow" routerLink="../fixes/academic-style-fix">Academic Style</a>
+      <div class="circular">
+        <div class="inner"></div>
+        <div class="outer"></div>
+        <div class="numb">{{academicStyleScore}}%</div>
+        <div class="circle">
+          <div class="dot">
+            <span></span>
+          </div>
+          <div class="bar left">
+            <div class="progress"></div>
+          </div>
+          <div class="bar right">
+            <div class="progress"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grammarCircle"><a class="tablerow" routerLink="../fixes/grammar-fix">Grammar</a>
+      <div class="circular">
+        <div class="inner"></div>
+        <div class="outer"></div>
+        <div class="numb">{{grammarScore}}%</div>
+        <div class="circle">
+          <div class="dot">
+            <span></span>
+          </div>
+          <div class="bar left">
+            <div class="progress"></div>
+          </div>
+          <div class="bar right">
+            <div class="progress"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="transitionsCircle"><a class="tablerow" routerLink="../fixes/transitions-fix">Transitions</a>
+      <div class="circular">
+        <div class="inner"></div>
+        <div class="outer"></div>
+        <div class="numb">{{transitionsScore}}%</div>
+        <div class="circle">
+          <div class="dot">
+            <span></span>
+          </div>
+          <div class="bar left">
+            <div class="progress"></div>
+          </div>
+          <div class="bar right">
+            <div class="progress"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="eggcornsCircle"><a class="tablerow" routerLink="../fixes/eggcorns-fix">Eggcorns</a>
+      <div class="circular">
+        <div class="inner"></div>
+        <div class="outer"></div>
+        <div class="numb">{{eggcornsScore}}%</div>
+        <div class="circle">
+          <div class="dot">
+            <span></span>
+          </div>
+          <div class="bar left">
+            <div class="progress"></div>
+          </div>
+          <div class="bar right">
+            <div class="progress"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nominalizationsCircle"><a class="tablerow" routerLink="../fixes/nominalizations-fix">Nominalizations</a>
+      <div class="circular">
+        <div class="inner"></div>
+        <div class="outer"></div>
+        <div class="numb">{{nominalizationsScore}}%</div>
+        <div class="circle">
+          <div class="dot">
+            <span></span>
+          </div>
+          <div class="bar left">
+            <div class="progress"></div>
+          </div>
+          <div class="bar right">
+            <div class="progress"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sentencesCircle"><a class="tablerow" routerLink="../fixes/sentences-fix">Sentences</a>
+      <div class="circular">
+        <div class="inner"></div>
+        <div class="outer"></div>
+        <div class="numb">{{sentencesScore}}%</div>
+        <div class="circle">
+          <div class="dot">
+            <span></span>
+          </div>
+          <div class="bar left">
+            <div class="progress"></div>
+          </div>
+          <div class="bar right">
+            <div class="progress"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
+</div>

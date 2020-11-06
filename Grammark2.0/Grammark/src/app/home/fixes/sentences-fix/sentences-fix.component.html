@@ -11,4 +11,33 @@
   <a class="linkedpages" routerLink="../transitions-fix">Transitions</a>
   <a class="linkedpages" routerLink="">Start Over</a>
 </mat-toolbar>
-Sentences works!
+
+<div class="alert-box" [style.background-color]="sentencesAlertColor">
+  <h5 class="box">{{ sentencesNumber }} instances ({{ sentencesScore }}% of sentences)</h5>
+    <b class="box">Goal: 2% or less </b>
+</div>
+
+<mat-toolbar color="white" class="category">
+  <mat-toolbar-row class="title"><b>Sentences</b></mat-toolbar-row>
+  <mat-toolbar-row class="description">{{sentencesFeedback}}</mat-toolbar-row>
+</mat-toolbar>
+
+<div>
+  <div class="column1">
+    <textarea id="userinput" name="userinput">{{ message }} </textarea>
+    <button (click)="reHighlight()" class="rehighlight">Re-highlight</button>
+  </div>
+
+  <div class="column2">
+    <h1 class="feedback"><b>Instances of Sentences Found - {{ sentencesNumber }} error(s)</b></h1>
+    <table>
+			<td>
+				<tr *ngFor="let tableData of sentencesUserTable.find">{{tableData}}</tr>
+      </td>
+      <td>
+        <tr *ngFor="let tableData of sentencesUserTable.suggestion">{{tableData}}</tr>
+      </td>
+		</table>
+  </div>
+</div>
+

@@ -33,7 +33,9 @@ export class PassiveVoiceFixComponent implements OnInit {
 
   title = 'Passive-Voice-Fix';
 
-  constructor(private data: DataService, private passivevoice: PassivevoiceService, private wordiness: WordinessService) { }
+  constructor(private data: DataService,
+              private passivevoice: PassivevoiceService,
+              private wordiness: WordinessService) { }
 
   startOverClick() : void {
     this.data.changeMessage('');
