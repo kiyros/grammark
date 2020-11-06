@@ -205,7 +205,6 @@ export class HomeComponent implements OnInit {
   // round to whole number
   this.transitions.changeTransitionsScore(Math.round(this.transitionsScore));
   // this.transitions.changeTransitionsScore(this.transitionsScore);
-
   if(this.transitionsScore == 0 ){
     this.transitionsAlertColor = "red";
     this.transitionsFeedback = "Your writing seems to have no transition word";
@@ -223,6 +222,7 @@ export class HomeComponent implements OnInit {
   this.transitions.changeTransitionsAlertColor(this.transitionsAlertColor);
   }
 
+  
   // this function will calculate the total grammar traps
   grammarFix(userText: string){
     for (const fix in this.grammarTable) {
@@ -237,7 +237,6 @@ export class HomeComponent implements OnInit {
         this.grammar.changeGrammarUserTable(this.grammarUserTable);
       }
   }
-
   if(this.totalGrammar  == 0 ){
     this.grammarAlertColor = "green";
     this.grammarFeedback = "Woohoo! We didn't find any obvious grammark errors. However, " +
