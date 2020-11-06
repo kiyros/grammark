@@ -13,25 +13,25 @@ export class AcademicStyleFixComponent implements OnInit {
 
   // var
   message: string;
-  nonAcademicStyleFeedback: string = " ";
-  nonAcademicStyleScore: number;
-  totalSentences: number;
+  academicStyleFeedback: string = " ";
+  academicStyleScore: number;
+  sentences: number;
   totalNonAcademic: number;
-  nonAcademicStyleTable: any;
-  nonAcademicStyleUserTable: any;
-  nonAcademicStyleAlertColor: any;
+  academicStyleTable: any;
+  academicStyleUserTable: any;
+  academicStyleAlertColor: any;
   
   
 
-  constructor(private data: DataService, private nonAcademicStyle: AcademicStyleService) { }
+  constructor(private data: DataService, private academic: AcademicStyleService) { }
 
   reHighlight(): void {
 
     // Reset every time you hit re-highlight
-    this.nonAcademicStyle.resetAcademicStyleFix();
+    this.academic.resetAcademicStyleFix();
 
     // Clear -- Reset
-    this.nonAcademicStyleUserTable = { find: [], suggestion: [] };
+    this.academicStyleUserTable = { find: [], suggestion: [] };
 
     // variables
     // tslint:disable-next-line: prefer-const
@@ -58,63 +58,63 @@ export class AcademicStyleFixComponent implements OnInit {
           this.data.changeMessage(userText);
 
           //find transition in user text
-          for (const fix in this.nonAcademicStyleTable) {
+          for (const fix in this.academicStyleTable) {
               // changing user text to lower Case to match with transitionsTable
               if (userText.includes(fix)) {
-                this.nonAcademicStyle.changeTotalNonAcademic(this.totalNonAcademic + 1);
+                this.academic.changeTotalNonAcademic(this.totalNonAcademic + 1);
 
                 // add transition in user text into an array 
-                this.nonAcademicStyleUserTable.find.push(fix);
-                this.nonAcademicStyle.changeNonAcademicStyleUserTable(this.nonAcademicStyleUserTable);
+                this.academicStyleUserTable.find.push(fix);
+                this.academic.changeAcademicStyleUserTable(this.academicStyleUserTable);
               }
           }
           //find total sentences in user text 
             for (let i = 0; i < userText.length; i++) { 
               if(userText.charAt(i)=== "." || userText.charAt(i)=== "!"|| userText.charAt(i)=== "?"){
-                this.nonAcademicStyle.changeTotalSentences(this.totalSentences + 1);
+                this.academic.changeTotalSentences(this.sentences + 1);
               } 
             }
           //calcutale score
-          this.nonAcademicStyleScore = (this.totalNonAcademic/this.totalSentences)*100;
-          if(this.nonAcademicStyleScore === NaN || this.nonAcademicStyleScore === Infinity){
-            this.nonAcademicStyleScore = 0;
+          this.academicStyleScore = (this.totalNonAcademic/this.sentences)*100;
+          if(this.academicStyleScore === NaN || this.academicStyleScore === Infinity){
+            this.academicStyleScore = 0;
           }
           // round to whole number
-          this.nonAcademicStyle.changeNonAcademicStyleScore(Math.round(this.nonAcademicStyleScore));
+          this.academic.changeAcademicStyleScore(Math.round(this.academicStyleScore));
 
-          if(this.nonAcademicStyleScore != 0 ){
-            this.nonAcademicStyleAlertColor = "green";
-            this.nonAcademicStyleFeedback = "Your writing has a low percentage of casual and/or extreme language. This makes it more acceptable for academic style.";
+          if(this.academicStyleScore != 0 ){
+            this.academicStyleAlertColor = "green";
+            this.academicStyleFeedback = "Your writing has a low percentage of casual and/or extreme language. This makes it more acceptable for academic style.";
           }else{
-            this.nonAcademicStyleFeedback ="Your writing may contain language that is either too casual or too extreme for academic discourse.";
-            this.nonAcademicStyleAlertColor = "red";
+            this.academicStyleFeedback ="Your writing may contain language that is either too casual or too extreme for academic discourse.";
+            this.academicStyleAlertColor = "red";
           }
-          this.nonAcademicStyle.changeNonAcademicStyleFeedback(this.nonAcademicStyleFeedback);
-          this.nonAcademicStyle.changeNonAcademicStyleAlertColor(this.nonAcademicStyleAlertColor);
+          this.academic.changeAcademicStyleFeedback(this.academicStyleFeedback);
+          this.academic.changeAcademicStyleAlertColor(this.academicStyleAlertColor);
     }
   }
 
   ngOnInit(): void {
     this.data.currentMessage.subscribe(message => this.message = message);
     //result color 
-    this.nonAcademicStyle.currentNonAcademicStyleAlertColor.subscribe(nonAcademicStyleAlertColor => this.nonAcademicStyleAlertColor = nonAcademicStyleAlertColor);
+    this.academic.currentAcademicStyleAlertColor.subscribe(academicStyleAlertColor => this.academicStyleAlertColor = academicStyleAlertColor);
 
     //Feedback
-    this.nonAcademicStyle.currentNonAcademicStyleFeedback.subscribe(nonAcademicStyleFeedback => this.nonAcademicStyleFeedback = nonAcademicStyleFeedback);
+    this.academic.currentAcademicStyleFeedback.subscribe(academicStyleFeedback => this.academicStyleFeedback = academicStyleFeedback);
 
     // Total number of sentences in the user input
-    this.nonAcademicStyle.currentTotalSentences.subscribe(totalSentences => this.totalSentences = totalSentences);
+    this.academic.currentTotalSentences.subscribe(totalSentences => this.sentences = totalSentences);
 
     // Total number of non academic style instances in the user input
-    this.nonAcademicStyle.currentTotalNonAcademic.subscribe(totalNonAcademic=> this.totalNonAcademic = totalNonAcademic);
+    this.academic.currentTotalNonAcademic.subscribe(totalNonAcademic=> this.totalNonAcademic = totalNonAcademic);
 
     // academic style table
-    this.nonAcademicStyle.currentNonAcademicStyleTable.subscribe(nonAcademicStyleTable => this.nonAcademicStyleTable = nonAcademicStyleTable);
+    this.academic.currentAcademicStyleTable.subscribe(academicStyleTable => this.academicStyleTable = academicStyleTable);
 
     // non academic style table of Current User Errors in Text 
-    this.nonAcademicStyle.currentNonAcademicStyleUserTable.subscribe(nonAcademicStyleUserTable => this.nonAcademicStyleUserTable = nonAcademicStyleUserTable);
+    this.academic.currentAcademicStyleUserTable.subscribe(academicStyleUserTable => this.academicStyleUserTable = academicStyleUserTable);
 
     // non academic style score
-    this.nonAcademicStyle.currentNonAcademicStyleScore.subscribe(nonAcademicStyleScore => this.nonAcademicStyleScore = nonAcademicStyleScore);
+    this.academic.currentAcademicStyleScore.subscribe(academicStyleScore => this.academicStyleScore = academicStyleScore);
   } 
 }

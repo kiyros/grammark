@@ -7,6 +7,7 @@ import { TransitionsService} from '../../services/transitions.service';
 import { GrammarService} from '../../services/grammar.service';
 import { AcademicStyleService} from '../../services/academicstyle.service';
 
+import {EggcornService} from '../../services/eggcorns.service';
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
@@ -25,6 +26,10 @@ export class OverviewComponent implements OnInit {
   nonAcademicStyleScore: number;
   totalNonAcademic: number;
   //transition 
+  // Eggcorns
+  eggcornNumber: number;
+ 
+
   totalTransitions: number;
   transitionsScore: number;
   //grammar
@@ -32,8 +37,11 @@ export class OverviewComponent implements OnInit {
 
   constructor(private router: Router, private data: DataService, private passivevoice: PassivevoiceService,
               private wordiness: WordinessService, private transitions: TransitionsService, 
-              private grammar: GrammarService, private nonAcademicStyle: AcademicStyleService) {}
+              private grammar: GrammarService, private nonAcademicStyle: AcademicStyleService, private eggcorns: EggcornService) {}
  
+
+  totalEggcorns: number;
+  eggcornsScore: number;
 
   startOverClick() : void {
     this.data.changeMessage('');
@@ -62,6 +70,7 @@ export class OverviewComponent implements OnInit {
     // *                   *
     // *********************
     this.wordiness.currentWordinessNumber.subscribe(wordinessNumber => this.wordinessNumber = wordinessNumber);
+
     this.transitions.currentTotalTransitions.subscribe(totalTransitions => this.totalTransitions = totalTransitions);
 
     // *********************
@@ -70,7 +79,7 @@ export class OverviewComponent implements OnInit {
     // *                   *
     // *********************
     this.nonAcademicStyle.currentTotalNonAcademic.subscribe(totalNonAcademic=> this.totalNonAcademic = totalNonAcademic);
-    this.nonAcademicStyle.currentNonAcademicStyleScore.subscribe(nonAcademicStyleScore => this.nonAcademicStyleScore = nonAcademicStyleScore);
+    this.nonAcademicStyle.currentAcademicStyleScore.subscribe(nonAcademicStyleScore => this.nonAcademicStyleScore = nonAcademicStyleScore);
 
     // *********************
     // *                   *
@@ -86,5 +95,13 @@ export class OverviewComponent implements OnInit {
     // *                   *
     // *********************
     this.grammar.currentTotalGrammar.subscribe(totalGrammar => this.totalGrammar = totalGrammar);
+
+    this.eggcorns.currentTotalEggcorns.subscribe(totalEggcorns => this.totalEggcorns = this.totalEggcorns);
+    // *********************
+    // *                   *
+    // *     Eggcorns      *
+    // *                   *
+    // *********************
+    this.eggcorns.currentEggcornsScore.subscribe(eggcornsScore => this.eggcornsScore = this.eggcornsScore);
   }
 }
