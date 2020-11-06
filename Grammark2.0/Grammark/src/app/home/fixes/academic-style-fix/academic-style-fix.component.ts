@@ -76,16 +76,16 @@ export class AcademicStyleFixComponent implements OnInit {
     //calculate academic style score
     this.academicStyleScore = (this.totalNonAcademic/this.sentences)*100;
     if(this.academicStyleScore === NaN || this.academicStyleScore === Infinity){
-      this.academic.changeAcademicStyleScore(this.academicStyleScore = 0);
+      this.academicStyleScore = 0;
     }
     // round to whole number
     this.academic.changeAcademicStyleScore(Math.round(this.academicStyleScore));
 
-    if(this.academicStyleScore == 0 ){
+    if(this.academicStyleScore >= 0 ){
       this.academicStyleAlertColor = "red";
       this.academicStyleFeedback = "Your writing may contain language that is either too casual or too extreme for academic discourse.";
     }
-    if(this.academicStyleScore != 0){
+    else{
       this.academicStyleAlertColor = "green";
       this.academicStyleFeedback = "Your writing has a low percentage of casual and/or extreme language. This makes it more acceptable for academic style.";
     }

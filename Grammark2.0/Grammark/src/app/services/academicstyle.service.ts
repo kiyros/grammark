@@ -169,12 +169,10 @@ export class AcademicStyleService {
     this.totalNonAcademic.next(totalNonAcademic);
   }
 
-  // tslint:disable-next-line: typedef
   changeAcademicStyleTable(academicStyleTable: any) {
     this.academicStyleTableSource.next(academicStyleTable);
   }
 
-  // tslint:disable-next-line: typedef
   changeAcademicStyleUserTable(academicStyleUserTable: any) {
     this.academicStyleUserTableSource.next(academicStyleUserTable);
   }
