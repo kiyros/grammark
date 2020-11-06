@@ -1,6 +1,7 @@
 import { stringify } from '@angular/compiler/src/util';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { DataService } from '../../../data.service';
+import { WordinessService } from '../../../services/wordiness.service';
 import { PassivevoiceService } from '../../../services/passivevoice.service';
 
 @Component({
@@ -11,51 +12,43 @@ import { PassivevoiceService } from '../../../services/passivevoice.service';
 export class PassiveVoiceFixComponent implements OnInit {
 
   message: string;
+  totalSentences: number;
+
+  // Wordiness
+  wordinessNumber: number;
+  wordinessTable: any;
+  wordinessUserTable: any;
+  wordinessAlertColor: string;
+  wordinessFeedback: string = " ";
+  wordinessScore: number;
+
+  // Passive Voice
   passiveVoiceNumber: number;
   passiveVoiceTable: any;
   passiveVoiceHelperTable: any;
   passiveVoiceUserTable: any;
+  passiveVoiceFeedback: string;
+  passiveVoiceAlertColor: string;
+  passiveVoiceScore: number;
 
   title = 'Passive-Voice-Fix';
 
-  /*
-  corrections = {
-    'arisen':'feedback1',
-    'babysat':'feedback2',
-    'been':'feedback3',
-    'beaten':'feedback4',
-    'become':'feedback5',
-  };
-  */
+  constructor(private data: DataService, private passivevoice: PassivevoiceService, private wordiness: WordinessService) { }
 
-  // table = { find:[], suggestion:[] };
-  // textArray = { nostyle:[], style:[] };
-
-  constructor(private data: DataService, private passivevoice: PassivevoiceService) { }
-
-
+  startOverClick() : void {
+    this.data.changeMessage('');
+  }
 
   reHighlight(): void {
-
-    // Reset every time you hit re-highlight
-    // this.data.changePassiveVoice(0);
+    // Reset
+    this.data.changeTotalSentences(0);
+    this.wordiness.changeWordinessNumber(0);
     this.passivevoice.changePassiveVoiceNumber(0);
 
     // Clear -- Reset
     // this.table = { find:[], suggestion:[] };
+    this.wordinessUserTable = { find: [], suggestion: [] };
     this.passiveVoiceUserTable = { find: [], suggestion: [] };
-    /*
-    this.textArray = { nostyle:[], style:[] };
-    var tempText = "";
-    var tempNoStyle = "";
-    var tempStyle = "";
-    var wordFound = false;
-    var moreThanOneWordFound = false;
-    var W1_initialIndex = 0;
-    var W1_finalIndex = 0;
-    var W2_initialIndex = 0;
-    var W2_finalIndex = 0;
-    */
 
     // variables
     // tslint:disable-next-line: prefer-const
@@ -82,82 +75,112 @@ export class PassiveVoiceFixComponent implements OnInit {
     else {
       this.data.changeMessage(userText);
 
-      // tslint:disable-next-line: forin
-      for (const fix in this.passiveVoiceTable) {
-
-        // tslint:disable-next-line: forin
-        for (const helper in this.passiveVoiceHelperTable) {
-          // String
-          const compareString = helper + fix;
-
-          if (userText.includes(compareString)) {
-
-            // this.data.changePassiveVoice(this.passiveVoiceNumber + 1);
-            this.passivevoice.changePassiveVoiceNumber(this.passiveVoiceNumber + 1);
-
-            // If more than one more is found to be fixed
-            // Then store the previous indexes into new variables
-            /*
-            if (this.passiveVoice >= 2) {
-              moreThanOneWordFound = true;
-
-              W2_initialIndex = W1_initialIndex;
-              W2_finalIndex = W2_finalIndex;
-            }
-
-            W1_initialIndex = userText.indexOf(fix);
-            W1_finalIndex = userText.indexOf(fix) + fix.length-1;
-
-            // Found a word to fix
-            wordFound = true;
-            */
-
-            // this.table.find.push(fix);
-            // this.table.suggestion.push(this.passiveVoiceTable[fix]);
-            this.passiveVoiceUserTable.find.push(compareString);
-            this.passiveVoiceUserTable.suggestion.push(this.passiveVoiceTable[fix]);
-          }
-
-          // Separate text into parts
-          /*
-          if (wordFound === true && moreThanOneWordFound === false) {
-            this.textArray.nostyle.push(userText.substr(0, W1_initialIndex));
-            this.textArray.style.push(userText.substr(W1_initialIndex, W1_finalIndex - W1_initialIndex + 1));
-          }
-          else if (wordFound === true && moreThanOneWordFound === true) {
-            this.textArray.nostyle.push(userText.substr(W2_finalIndex - W1_initialIndex + 1, W1_initialIndex));
-            this.textArray.style.push(userText.substr(W1_initialIndex, W1_finalIndex - W1_initialIndex + 1));
-          }
-          else {
-            this.textArray.nostyle.push(userText.substr(W1_finalIndex + 1));
-            this.textArray.style.push('');
-          }
-          */
+      // Find total sentences in text
+      for (let i = 0; i < userText.length; i++) {
+        if (userText.charAt(i) === "." || userText.charAt(i) === "!" || userText.charAt(i) === "?") {
+          this.data.changeTotalSentences(this.totalSentences + 1);
         }
       }
+
+      this.wordinessFix(userText);
+      this.passiveVoiceFix(userText);
     }
   }
 
   ngOnInit(): void {
     this.data.currentMessage.subscribe(message => this.message = message);
+    this.data.currentTotalSentences.subscribe(totalSentences => this.totalSentences = totalSentences);
 
-    // this.data.currentPassiveVoice.subscribe(passiveVoiceNumber => this.passiveVoiceNumber = passiveVoiceNumber);
+    this.wordinessService();
+    this.passiveVoiceService();
+  }
 
-    // this.data.currentPassiveVoiceTable.subscribe(passiveVoiceTable => this.passiveVoiceTable = passiveVoiceTable);
+  passiveVoiceFix(userText: string) {
+    // tslint:disable-next-line: forin
+    for (const fix in this.passiveVoiceTable) {
 
-    // this.data.currentPassiveVoiceUserTable.subscribe(passiveVoiceUserTable => this.passiveVoiceUserTable = passiveVoiceUserTable);
+      // tslint:disable-next-line: forin
+      for (const helper in this.passiveVoiceHelperTable) {
+        // String
+        const compareString = helper + fix;
 
-    // Passive Voice Number of Errors
+        if (userText.includes(compareString)) {
+          this.passivevoice.changePassiveVoiceNumber(this.passiveVoiceNumber + 1);
+          this.passiveVoiceUserTable.find.push("• " + compareString);
+          this.passiveVoiceUserTable.suggestion.push("→ " + this.passiveVoiceTable[fix]);
+          this.passivevoice.changePassiveVoiceUserTable(this.passiveVoiceUserTable);
+        }
+      }
+    }
+    this.passiveVoiceScore = (this.passiveVoiceNumber / this.totalSentences) * 100;
+    try {
+      if (this.passiveVoiceScore > 10) {
+        this.passiveVoiceFeedback = "Generally, writing is clearer in active voice.";
+        this.passiveVoiceAlertColor = "red";
+      }
+      else {
+        this.passiveVoiceFeedback = "Your writing passed the criterion for passive sentences. Congrats!";
+        this.passiveVoiceAlertColor = "green";
+      }
+    }
+    catch (e) {
+      this.passiveVoiceFeedback = "Make sure you enter at least one sentence.";
+      this.passiveVoiceAlertColor = "orange";
+      this.passiveVoiceScore = 0;
+    }
+    this.passivevoice.changePassiveVoiceFeedback(this.passiveVoiceFeedback);
+    this.passivevoice.changePassiveVoiceScore(Math.round(this.passiveVoiceScore));
+    this.passivevoice.changePassiveVoiceAlertColor(this.passiveVoiceAlertColor);
+  }
+
+  passiveVoiceService() {
     this.passivevoice.currentPassiveVoiceNumber.subscribe(passiveVoiceNumber => this.passiveVoiceNumber = passiveVoiceNumber);
-
-    // Passive Voice Table of Errors
     this.passivevoice.currentPassiveVoiceTable.subscribe(passiveVoiceTable => this.passiveVoiceTable = passiveVoiceTable);
-
-    // Passive Voice Table of Helpers
-    // tslint:disable-next-line: max-line-length
     this.passivevoice.currentPassiveVoiceHelperTable.subscribe(passiveVoiceHelperTable => this.passiveVoiceHelperTable = passiveVoiceHelperTable);
-
-    // Passive Voice Table of Current User Errors in Text (Feedback)
     this.passivevoice.currentPassiveVoiceUserTable.subscribe(passiveVoiceUserTable => this.passiveVoiceUserTable = passiveVoiceUserTable);
+    this.passivevoice.currentPassiveVoiceAlertColor.subscribe(passiveVoiceAlertColor => this.passiveVoiceAlertColor = passiveVoiceAlertColor);
+    this.passivevoice.currentPassiveVoiceFeedback.subscribe(passiveVoiceFeedback => this.passiveVoiceFeedback = passiveVoiceFeedback);
+    this.passivevoice.currentPassiveVoiceScore.subscribe(passiveVoiceScore => this.passiveVoiceScore = passiveVoiceScore);
+  }
+
+  wordinessFix(userText: string) {
+    // tslint:disable-next-line: forin
+    for (const fix in this.wordinessTable) {
+      if (userText.includes(fix)) {
+        this.wordiness.changeWordinessNumber(this.wordinessNumber + 1);
+        this.wordinessUserTable.find.push("• " + fix);
+        this.wordinessUserTable.suggestion.push("→ " + this.wordinessTable[fix]);
+        this.wordiness.changeWordinessUserTable(this.wordinessUserTable);
+      }
+    }
+    this.wordinessScore = (this.wordinessNumber / this.totalSentences) * 100;
+    try {
+      if (this.wordinessScore > 2) {
+        this.wordinessFeedback = "Your writing seems too wordy. Why use 3 words when you can say it with 1?";
+        this.wordinessAlertColor = "red";
+      }
+      else {
+        this.wordinessFeedback = "Woohoo! Your writing seems concise, precise, and snappy. George Orwell would be proud.";
+        this.wordinessAlertColor = "green";
+      }
+    }
+    catch (e) {
+      this.wordinessFeedback = "Make sure you enter at least one sentence.";
+      this.wordinessAlertColor = "orange";
+      this.wordinessScore = 0;
+    }
+    this.wordiness.changeWordinessFeedback(this.wordinessFeedback);
+    this.wordiness.changeWordinessScore(Math.round(this.wordinessScore));
+    this.wordiness.changeWordinessAlertColor(this.wordinessAlertColor);
+
+  }
+
+  wordinessService() {
+    this.wordiness.currentWordinessNumber.subscribe(wordinessNumber => this.wordinessNumber = wordinessNumber);
+    this.wordiness.currentWordinessTable.subscribe(wordinessTable => this.wordinessTable = wordinessTable);
+    this.wordiness.currentWordinessUserTable.subscribe(wordinessUserTable => this.wordinessUserTable = wordinessUserTable);
+    this.wordiness.currentWordinessAlertColor.subscribe(wordinessAlertColor => this.wordinessAlertColor = wordinessAlertColor);
+    this.wordiness.currentWordinessFeedback.subscribe(wordinessFeedback => this.wordinessFeedback = wordinessFeedback);
+    this.wordiness.currentWordinessScore.subscribe(wordinessScore => this.wordinessScore = wordinessScore);
   }
 }

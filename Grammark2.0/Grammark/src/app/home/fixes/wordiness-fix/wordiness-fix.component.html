@@ -8,12 +8,17 @@
   <a class="linkedpages" routerLink="../sentences-fix">Sentences</a>
   <a class="linkedpages" routerLink="../eggcorns-fix">Eggcorns</a>
   <a class="linkedpages" routerLink="../transitions-fix">Transitions</a>
-  <a class="linkedpages" routerLink="">Start Over</a>
+  <a class="linkedpages" (click)="startOverClick()" routerLink="">Start Over</a>
 </mat-toolbar>
+
+<div class="alert-box" [style.background-color]="wordinessAlertColor">
+  <h5 class="box">{{ wordinessNumber }} instances ({{ wordinessScore }}% of sentences)</h5>
+    <b class="box">Goal: 2% or less </b>
+</div>
 
 <mat-toolbar color="white" class="category">
   <mat-toolbar-row class="title"><b>Wordiness</b></mat-toolbar-row>
-  <mat-toolbar-row class="description">Woohoo! Your writing seems concise, precise, and snappy. George Orwell would be proud.</mat-toolbar-row>
+  <mat-toolbar-row class="description">{{wordinessFeedback}}</mat-toolbar-row>
 </mat-toolbar>
 
 <div>
@@ -23,11 +28,7 @@
   </div>
 
   <div class="column2">
-<<<<<<< HEAD
-    <h1 class="feedback"><b>Wordiness Found - {{ wordinessNumber }} error(s)</b></h1>
-=======
     <h1 class="feedback"><b>Instances of Wordiness Found - {{ wordinessNumber }} error(s)</b></h1>
->>>>>>> 511c1a3a96bb0cb3dcd3e6847d34611a7f7f6048
     <table>
 			<td>
 				<tr *ngFor="let tableData of wordinessUserTable.find">{{tableData}}</tr>

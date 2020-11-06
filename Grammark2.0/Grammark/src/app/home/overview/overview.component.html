@@ -25,12 +25,12 @@
       <tbody>
         <tr class="odd">
           <td><a class="tablerow" routerLink="../fixes/passive-voice-fix">Passive Voice</a></td>
-          <td>{{ passiveVoiceNumber }}</td>
+          <td>{{ passiveVoiceNumber }}({{passiveVoiceNumber}}%)</td>
 
         </tr>
         <tr class="even">
           <td><a class="tablerow" routerLink="../fixes/wordiness-fix">Wordiness</a></td>
-          <td>{{ wordinessNumber }}</td>
+          <td>{{ wordinessNumber }}({{wordinessScore}}%)</td>
 
         </tr>
         <tr class="odd">
@@ -67,4 +67,23 @@
     </table>
 
     <button class="startoverbutton" (click)="startOverClickButton()">Clear & Start Over</button>
+  </div>
+
+  <div class="fixCircle"><p class="label">Wordiness</p>
+    <div class="circular">
+      <div class="inner"></div>
+      <div class="outer"></div>
+      <div class="numb">{{wordinessScore}}%</div>
+      <div class="circle">
+        <div class="dot">
+          <span></span>
+        </div>
+        <div class="bar left">
+          <div class="progress"></div>
+        </div>
+        <div class="bar right">
+          <div class="progress"></div>
+        </div>
+      </div>
+    </div>
   </div>

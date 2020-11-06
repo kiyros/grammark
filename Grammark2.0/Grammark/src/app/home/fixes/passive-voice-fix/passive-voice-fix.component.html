@@ -9,12 +9,17 @@
   <a class="linkedpages" routerLink="../sentences-fix">Sentences</a>
   <a class="linkedpages" routerLink="../eggcorns-fix">Eggcorns</a>
   <a class="linkedpages" routerLink="../transitions-fix">Transitions</a>
-  <a class="linkedpages" routerLink="">Start Over</a>
+  <a class="linkedpages" (click)="startOverClick()" routerLink="">Start Over</a>
 </mat-toolbar>
+
+<div class="alert-box" [style.background-color]="passiveVoiceAlertColor">
+  <h5 class="box">{{ passiveVoiceNumber }} instances ({{ passiveVoiceScore }}% of sentences)</h5>
+    <b class="box">Goal: 10% or less </b>
+</div>
 
 <mat-toolbar color="white" class="category">
   <mat-toolbar-row class="title"><b>Passive Voice</b></mat-toolbar-row>
-  <mat-toolbar-row class="description">Your writing passed the criterion for passive sentences. Congrats!</mat-toolbar-row>
+  <mat-toolbar-row class="description">{{passiveVoiceFeedback}}</mat-toolbar-row>
 </mat-toolbar>
 
 <div>

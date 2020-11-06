@@ -6,6 +6,15 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 })
 export class PassivevoiceService {
 
+  private passiveVoiceAlertColorSource = new BehaviorSubject<string>(" ");
+  currentPassiveVoiceAlertColor = this.passiveVoiceAlertColorSource.asObservable();
+
+  private passiveVoiceFeedbackSource = new BehaviorSubject<string>(" ");
+  currentPassiveVoiceFeedback = this.passiveVoiceFeedbackSource.asObservable();
+
+  private passiveVoiceScoreSource = new BehaviorSubject<number>(0);
+  currentPassiveVoiceScore = this.passiveVoiceScoreSource.asObservable();
+
   // Passive Voice Number of Errors
   private passiveVoiceNumberSource = new BehaviorSubject<number>(0);
   currentPassiveVoiceNumber = this.passiveVoiceNumberSource.asObservable();
@@ -1036,6 +1045,18 @@ export class PassivevoiceService {
   currentPassiveVoiceUserTable = this.passiveVoiceUserTableSource.asObservable();
 
   constructor() { }
+
+  changePassiveVoiceAlertColor(passiveVoiceAlertColor: string) {
+    this.passiveVoiceAlertColorSource.next(passiveVoiceAlertColor);
+  }
+
+  changePassiveVoiceFeedback(passiveVoiceFeedback: string) {
+    this.passiveVoiceFeedbackSource.next(passiveVoiceFeedback);
+  }
+
+  changePassiveVoiceScore(passiveVoiceScore: number) {
+    this.passiveVoiceScoreSource.next(passiveVoiceScore);
+  }
 
   // tslint:disable-next-line: typedef
   changePassiveVoiceNumber(passiveVoiceNumber: number) {

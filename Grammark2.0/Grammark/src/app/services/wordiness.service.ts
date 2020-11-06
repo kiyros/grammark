@@ -6,6 +6,15 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 })
 export class WordinessService {
 
+  private wordinessAlertColorSource = new BehaviorSubject<string>(" ");
+  currentWordinessAlertColor = this.wordinessAlertColorSource.asObservable();
+
+  private wordinessFeedbackSource = new BehaviorSubject<string>(" ");
+  currentWordinessFeedback = this.wordinessFeedbackSource.asObservable();
+
+  private wordinessScoreSource = new BehaviorSubject<number>(0);
+  currentWordinessScore = this.wordinessScoreSource.asObservable();
+
   // Wordiness Number of Errors
   private wordinessNumberSource = new BehaviorSubject<number>(0);
   currentWordinessNumber = this.wordinessNumberSource.asObservable();
@@ -971,6 +980,21 @@ export class WordinessService {
   currentWordinessUserTable = this.wordinessUserTableSource.asObservable();
 
   constructor() { }
+
+  // tslint:disable-next-line: typedef
+  changeWordinessAlertColor(wordinessAlertColor: string) {
+    this.wordinessAlertColorSource.next(wordinessAlertColor);
+  }
+
+  // tslint:disable-next-line: typedef
+  changeWordinessFeedback(wordinessFeedback: string) {
+    this.wordinessFeedbackSource.next(wordinessFeedback);
+  }
+
+  // tslint:disable-next-line: typedef
+  changeWordinessScore(wordinessScore: number) {
+    this.wordinessScoreSource.next(wordinessScore);
+  }
 
   // tslint:disable-next-line: typedef
   changeWordinessNumber(wordinessNumber: number) {
