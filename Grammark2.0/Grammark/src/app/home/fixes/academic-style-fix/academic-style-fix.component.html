@@ -12,10 +12,10 @@
 </mat-toolbar>
 <mat-toolbar color="white" class="category">
   <mat-toolbar-row class="title"><b>Academic Style</b></mat-toolbar-row>
-  <mat-toolbar-row class="description">{{nonAcademicStyleFeedback}}</mat-toolbar-row>
+  <mat-toolbar-row class="description">{{academicStyleFeedback}}</mat-toolbar-row>
 
-  <div class="alert-box" [style.background-color]="nonAcademicStyleAlertColor">
-    <h5>{{ totalNonAcademic }} instances ({{ nonAcademicStyleScore }}% of sentences)</h5>
+  <div class="alert-box" [style.background-color]="academicStyleAlertColor">
+    <h5>{{ totalNonAcademic }} instances ({{ academicStyleScore }}% of sentences)</h5>
     <b>Goal: 1% or less </b>
   </div>
 </mat-toolbar>
@@ -27,13 +27,13 @@
   </div>
 
   <div class="column2">
-    <h1 class="feedback"><b>Instances of Non Academic Style Found - {{ nonAcademicStyleScore }} error(s)</b></h1>
+    <h1 class="feedback"><b>Instances of Non Academic Style Found - {{ academicStyleScore }} error(s)</b></h1>
     <table>
 			<td>
-				<tr *ngFor="let tableData of nonAcademicStyleUserTable.find">{{tableData}}</tr>
+				<tr *ngFor="let tableData of academicStyleUserTable.find">{{tableData}}</tr>
       </td>
       <td>
-        <tr *ngFor="let tableData of nonAcademicStyleUserTable.suggestion">{{tableData}}</tr>
+        <tr *ngFor="let tableData of academicStyleUserTable.suggestion">{{tableData}}</tr>
       </td>
 		</table>
   </div>
