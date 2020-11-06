@@ -224,6 +224,7 @@ export class HomeComponent implements OnInit {
     this.wordiness.currentWordinessNumber.subscribe(wordinessNumber => this.wordinessNumber = wordinessNumber);
     this.wordiness.currentWordinessTable.subscribe(wordinessTable => this.wordinessTable = wordinessTable);
     this.wordiness.currentWordinessUserTable.subscribe(wordinessUserTable => this.wordinessUserTable = wordinessUserTable);
+<<<<<<< HEAD
     this.wordiness.currentWordinessAlertColor.subscribe(wordinessAlertColor => this.wordinessAlertColor = wordinessAlertColor);
     this.wordiness.currentWordinessFeedback.subscribe(wordinessFeedback => this.wordinessFeedback = wordinessFeedback);
     this.wordiness.currentWordinessScore.subscribe(wordinessScore => this.wordinessScore = wordinessScore);
@@ -267,6 +268,23 @@ export class HomeComponent implements OnInit {
     this.passivevoice.changePassiveVoiceScore(Math.round(this.passiveVoiceScore));
     this.passivevoice.changePassiveVoiceAlertColor(this.passiveVoiceAlertColor);
   }
+=======
+    // tslint:disable-next-line: max-line-length
+    // this.passivevoice.currentPassiveVoiceUserTable2.subscribe(passiveVoiceUserTable2 => this.passiveVoiceUserTable2 = passiveVoiceUserTable2);
+    
+    // *********************
+    // *                   *
+    // *  Academic Style   *
+    // *                   *
+    // *********************
+    //subscribe to academic style service 
+    this.academic.currentAcademicStyleAlertColor.subscribe(academicStyleAlertColor => this.academicStyleAlertColor = academicStyleAlertColor);
+    this.academic.currentAcademicStyleFeedback.subscribe(academicStyleFeedback => this.academicStyleFeedback = academicStyleFeedback);
+    this.academic.currentAcademicStyleScore.subscribe(academicStyleScore => this.academicStyleScore = academicStyleScore);
+    this.academic.currentTotalSentences.subscribe(totalSentences => this.sentences = totalSentences);
+    this.academic.currentTotalNonAcademic.subscribe(totalNonAcademic => this.totalNonAcademic = totalNonAcademic);
+    this.academic.currentAcademicStyleTable.subscribe(academicStyleTable => this.academicStyleTable = academicStyleTable);
+>>>>>>> f7029ce9ad624dd0de31eb51416fcfc2979a7c03
 
   passiveVoiceService() {
     this.passivevoice.currentPassiveVoiceNumber.subscribe(passiveVoiceNumber => this.passiveVoiceNumber = passiveVoiceNumber);
