@@ -89,7 +89,17 @@
     min-width: 300px;
     margin-left: 850px;
     text-align: left;
+    margin-bottom: -92px;
     padding: 10px;
     position: relative;
     border-radius: 10px;
+    margin-top: 20px;
+  }
+
+  td {
+    padding-right: 10px;
+  }
+
+  .box {
+    font-size: 20px;
   }

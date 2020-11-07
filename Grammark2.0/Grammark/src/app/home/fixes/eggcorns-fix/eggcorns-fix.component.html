@@ -11,16 +11,14 @@
   <a class="linkedpages" routerLink="">Start Over</a>
 </mat-toolbar>
 
+<div class="alert-box" [style.background-color]="eggcornsAlertColor">
+  <h5 class="box">{{ totalEggcorns }} instances ({{ eggcornsScore }}% of sentences)</h5>
+    <b class="box">Goal: 0 errors </b>
+</div>
+
 <mat-toolbar color="white" class="category">
-  
   <mat-toolbar-row class="title"><b>Eggcorns</b></mat-toolbar-row>
   <mat-toolbar-row class="description">{{eggcornsFeedback}}</mat-toolbar-row>
-
-  <div class="alert-box" [style.background-color]="eggcornsAlertColor">
-    <h5>{{ totalEggcorns }} instances ({{ eggcornsScore }}% of sentences)</h5>
-    <b>Goal: </b>
-  </div>
-  
 </mat-toolbar>
 
 <div>
@@ -31,9 +29,9 @@
 
   <div class="column2">
     <h1 class="feedback"><b>Eggcorns Found - {{totalEggcorns}} instance(s)</b></h1>
-    <table> 
+    <table>
 			<td>
-				<tr *ngFor="let tableData of eggcornsUserTable.find"><li>{{tableData}}</li></tr>
+				<tr *ngFor="let tableData of eggcornsUserTable.find">{{tableData}}</tr>
       </td>
       <td>
         <tr *ngFor="let tableData of eggcornsUserTable.suggestion">{{tableData}}</tr>

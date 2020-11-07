@@ -23,7 +23,7 @@ export class SentencesFixComponent implements OnInit {
   sentencesScore: number;
 
   constructor(private data: DataService,
-    private sentences: SentencesService) { }
+              private sentences: SentencesService) { }
 
   startOverClick(): void {
     this.data.changeMessage('');
@@ -77,9 +77,11 @@ export class SentencesFixComponent implements OnInit {
     this.data.currentMessage.subscribe(message => this.message = message);
     this.data.currentTotalSentences.subscribe(totalSentences => this.totalSentences = totalSentences);
 
+    // Services
     this.sentencesService();
   }
 
+  // tslint:disable-next-line: typedef
   sentencesFix(userText: string) {
     let word;
     word = '';
@@ -111,7 +113,7 @@ export class SentencesFixComponent implements OnInit {
         }
         else {
           this.sentences.changeSentencesNumber(this.sentencesNumber + 1);
-          this.sentencesUserTable.find.push("• Potential Fragment → \"" + sentence + "...\"");
+          this.sentencesUserTable.find.push('• Potential Fragment ⟶ "' + sentence + "...\"");
           errorFound = false;
           sentence = '';
         }
@@ -120,7 +122,7 @@ export class SentencesFixComponent implements OnInit {
       if (userText[i] === '!' || userText[i] === '?' || userText[i] === '.') {
         if (wordCounter > 50) {
           this.sentences.changeSentencesNumber(this.sentencesNumber + 1);
-          this.sentencesUserTable.find.push("• Long Sentence → \"" + sentence2 + "...\"");
+          this.sentencesUserTable.find.push('• Long Sentence ⟶ "' + sentence2 + "...\"");
         }
         sentence2 = '';
         wordCounter = 0;
@@ -132,17 +134,20 @@ export class SentencesFixComponent implements OnInit {
     this.sentencesScore = (this.sentencesNumber / this.totalSentences) * 100;
     try {
       if (this.sentencesScore > 2) {
-        this.sentencesFeedback = "Hmmm. Your writing may have some sentence-level issues. Check the list below for potential fragments or run-ons.";
-        this.sentencesAlertColor = "red";
+        this.sentencesFeedback = 'Hmmm. Your writing may have some sentence-level issues. Check the list below for potential fragments or run-ons.';
+        this.sentencesAlertColor = 'red';
       }
       else {
-        this.sentencesFeedback = "Bueno! Your sentences don't show any glaring errors.";
-        this.sentencesAlertColor = "green";
+        this.sentencesFeedback = 'Bueno! Your sentences don\'t show any glaring errors.';
+        this.sentencesAlertColor = 'green';
+      }
+      if (this.totalSentences === 0) {
+        throw new Error('');
       }
     }
     catch(e) {
-      this.sentencesFeedback = "Make sure you enter at least one sentence.";
-      this.sentencesAlertColor = "orange";
+      this.sentencesFeedback = 'Make sure you enter at least one sentence.';
+      this.sentencesAlertColor = 'orange';
       this.sentencesScore = 0;
     }
     this.sentences.changeSentencesFeedback(this.sentencesFeedback);
@@ -150,6 +155,7 @@ export class SentencesFixComponent implements OnInit {
     this.sentences.changeSentencesAlertColor(this.sentencesAlertColor);
   }
 
+  // tslint:disable-next-line: typedef
   sentencesService() {
     this.sentences.currentSentencesNumber.subscribe(sentencesNumber => this.sentencesNumber = sentencesNumber);
     this.sentences.currentSentencesTable.subscribe(sentencesTable => this.sentencesTable = sentencesTable);

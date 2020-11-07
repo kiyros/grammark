@@ -10,7 +10,6 @@ import { EggcornService } from '../services/eggcorns.service';
 import { AcademicStyleService } from '../services/academicstyle.service';
 import { NominalizationsService } from '../services/nominalizations.service';
 import { SentencesService } from '../services/sentences.service';
-import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +17,8 @@ import { ThrowStmt } from '@angular/compiler';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  title = 'OverView';
 
   // Global global
   message: string;
@@ -39,7 +40,7 @@ export class HomeComponent implements OnInit {
   wordinessNumber: number;
   wordinessTable: any;
   wordinessUserTable: any;
-  // academic style variables and such
+  // Academic Style
   academicStyleFeedback: string = " ";
   academicStyleScore: number;
   // sentences: number;
@@ -47,7 +48,7 @@ export class HomeComponent implements OnInit {
   academicStyleTable: any;
   academicStyleUserTable: any;
   academicStyleAlertColor: any;
-  // var for transitions
+  // Transitions
   transitionsFeedback: string = " ";
   transitionsScore: number;
   // totalSentences: number;
@@ -84,9 +85,8 @@ export class HomeComponent implements OnInit {
   sentencesFeedback = ' ';
   sentencesScore: number;
 
-  title = 'OverView';
-
-  constructor(private router: Router, private data: DataService,
+  constructor(private router: Router,
+              private data: DataService,
               private passivevoice: PassivevoiceService,
               private wordiness: WordinessService,
               private transitions: TransitionsService,
@@ -155,9 +155,9 @@ export class HomeComponent implements OnInit {
       // fixes
       this.passiveVoiceFix(userText);
       this.wordinessFix(userText);
-      this.transitionFix(userText);
+      this.transitionsFix(userText);
       this.grammarFix(userText);
-      this.eggcornFix(userText);
+      this.eggcornsFix(userText);
       this.academicStyleFix(userText);
       this.nominalizationsFix(userText);
       this.sentencesFix(userText);
@@ -174,7 +174,7 @@ export class HomeComponent implements OnInit {
     // Wordiness
     this.wordinessService();
     // Subscribe to Transition Service
-    this.transitionService();
+    this.transitionsService();
     // Academic Style
     this.academicStyleService();
     // Grammar
@@ -193,8 +193,8 @@ export class HomeComponent implements OnInit {
     for (const fix in this.wordinessTable) {
       if (userText.includes(fix)) {
         this.wordiness.changeWordinessNumber(this.wordinessNumber + 1);
-        this.wordinessUserTable.find.push("• " + fix);
-        this.wordinessUserTable.suggestion.push("→ " + this.wordinessTable[fix]);
+        this.wordinessUserTable.find.push("• " + fix + " ⟶ " + this.wordinessTable[fix]);
+        // this.wordinessUserTable.suggestion.push(" ⟶ " + this.wordinessTable[fix]);
         this.wordiness.changeWordinessUserTable(this.wordinessUserTable);
       }
     }
@@ -207,6 +207,9 @@ export class HomeComponent implements OnInit {
       else {
         this.wordinessFeedback = "Woohoo! Your writing seems concise, precise, and snappy. George Orwell would be proud.";
         this.wordinessAlertColor = "green";
+      }
+      if (this.totalSentences === 0) {
+        throw new Error("");
       }
     }
     catch (e) {
@@ -224,7 +227,6 @@ export class HomeComponent implements OnInit {
     this.wordiness.currentWordinessNumber.subscribe(wordinessNumber => this.wordinessNumber = wordinessNumber);
     this.wordiness.currentWordinessTable.subscribe(wordinessTable => this.wordinessTable = wordinessTable);
     this.wordiness.currentWordinessUserTable.subscribe(wordinessUserTable => this.wordinessUserTable = wordinessUserTable);
-<<<<<<< HEAD
     this.wordiness.currentWordinessAlertColor.subscribe(wordinessAlertColor => this.wordinessAlertColor = wordinessAlertColor);
     this.wordiness.currentWordinessFeedback.subscribe(wordinessFeedback => this.wordinessFeedback = wordinessFeedback);
     this.wordiness.currentWordinessScore.subscribe(wordinessScore => this.wordinessScore = wordinessScore);
@@ -242,8 +244,8 @@ export class HomeComponent implements OnInit {
 
         if (userText.includes(compareString)) {
           this.passivevoice.changePassiveVoiceNumber(this.passiveVoiceNumber + 1);
-          this.passiveVoiceUserTable.find.push("• " + compareString);
-          this.passiveVoiceUserTable.suggestion.push("→ " + this.passiveVoiceTable[fix]);
+          this.passiveVoiceUserTable.find.push("• " + compareString + " ⟶ " + this.passiveVoiceTable[fix]);
+          // this.passiveVoiceUserTable.suggestion.push(" ⟶ " + this.passiveVoiceTable[fix]);
           this.passivevoice.changePassiveVoiceUserTable(this.passiveVoiceUserTable);
         }
       }
@@ -258,6 +260,9 @@ export class HomeComponent implements OnInit {
         this.passiveVoiceFeedback = "Your writing passed the criterion for passive sentences. Congrats!";
         this.passiveVoiceAlertColor = "green";
       }
+      if (this.totalSentences === 0) {
+        throw new Error("");
+      }
     }
     catch (e) {
       this.passiveVoiceFeedback = "Make sure you enter at least one sentence.";
@@ -268,23 +273,6 @@ export class HomeComponent implements OnInit {
     this.passivevoice.changePassiveVoiceScore(Math.round(this.passiveVoiceScore));
     this.passivevoice.changePassiveVoiceAlertColor(this.passiveVoiceAlertColor);
   }
-=======
-    // tslint:disable-next-line: max-line-length
-    // this.passivevoice.currentPassiveVoiceUserTable2.subscribe(passiveVoiceUserTable2 => this.passiveVoiceUserTable2 = passiveVoiceUserTable2);
-    
-    // *********************
-    // *                   *
-    // *  Academic Style   *
-    // *                   *
-    // *********************
-    //subscribe to academic style service 
-    this.academic.currentAcademicStyleAlertColor.subscribe(academicStyleAlertColor => this.academicStyleAlertColor = academicStyleAlertColor);
-    this.academic.currentAcademicStyleFeedback.subscribe(academicStyleFeedback => this.academicStyleFeedback = academicStyleFeedback);
-    this.academic.currentAcademicStyleScore.subscribe(academicStyleScore => this.academicStyleScore = academicStyleScore);
-    this.academic.currentTotalSentences.subscribe(totalSentences => this.sentences = totalSentences);
-    this.academic.currentTotalNonAcademic.subscribe(totalNonAcademic => this.totalNonAcademic = totalNonAcademic);
-    this.academic.currentAcademicStyleTable.subscribe(academicStyleTable => this.academicStyleTable = academicStyleTable);
->>>>>>> f7029ce9ad624dd0de31eb51416fcfc2979a7c03
 
   passiveVoiceService() {
     this.passivevoice.currentPassiveVoiceNumber.subscribe(passiveVoiceNumber => this.passiveVoiceNumber = passiveVoiceNumber);
@@ -297,15 +285,15 @@ export class HomeComponent implements OnInit {
   }
 
   // This Function will Calculate the Transition Score
-  transitionFix(userText: string) {
+  transitionsFix(userText: string) {
     for (const fix in this.transitionsTable) {
       // changing user text to lower Case to match with transitionsTable
       if (userText.toLocaleLowerCase().includes(fix)) {
         this.transitions.changeTotalTransitions(this.totalTransitions + 1);
         // add transition in user text into an array
-        this.transitionsUserTable.find.push(fix);
-        this.transitionsUserTable.suggestion.push(this.transitionsTable[fix]);
+        this.transitionsUserTable.find.push("• " + fix + " ⟶ " + this.transitionsTable[fix]);
         this.transitions.changeTransitionsUserTable(this.transitionsUserTable);
+        // this.transitionsUserTable.suggestion.push(" ⟶ " + this.transitionsTable[fix]);
       }
     }
     this.transitionsScore = (this.totalTransitions / this.totalSentences) * 100;
@@ -323,6 +311,9 @@ export class HomeComponent implements OnInit {
         this.transitionsFeedback = "Woot! Your writing seems to have a lot of transitions. Make sure you\'re not overusing transition words";
         this.transitionsAlertColor = "green";
       }
+      if (this.totalSentences === 0) {
+        throw new Error("");
+      }
     }
     catch (e) {
       this.transitionsFeedback = "Make sure you enter at least one sentence.";
@@ -334,7 +325,7 @@ export class HomeComponent implements OnInit {
     this.transitions.changeTransitionsAlertColor(this.transitionsAlertColor);
   }
 
-  transitionService() {
+  transitionsService() {
     this.transitions.currentTransitionsAlertColor.subscribe(transitionsAlertColor => this.transitionsAlertColor = transitionsAlertColor);
     this.transitions.currentTransitionsFeedback.subscribe(transitionsFeedback => this.transitionsFeedback = transitionsFeedback);
     this.transitions.currentTransitionsScore.subscribe(transitionsScore => this.transitionsScore = transitionsScore);
@@ -350,9 +341,9 @@ export class HomeComponent implements OnInit {
       // changing user text to lower Case to match with academicStyleTable
       if (userText.includes(fix)) {
         this.academic.changeTotalNonAcademic(this.totalNonAcademic + 1);
-        this.academicStyleUserTable.find.push(fix);
-        this.academicStyleUserTable.suggestion.push(this.academicStyleTable[fix]);
+        this.academicStyleUserTable.find.push("• " + fix + " ⟶ " + this.academicStyleTable[fix]);
         this.academic.changeAcademicStyleUserTable(this.academicStyleUserTable);
+        // this.academicStyleUserTable.suggestion.push("→ " + this.academicStyleTable[fix]);
       }
     }
     this.academicStyleScore = (this.totalNonAcademic / this.totalSentences) * 100;
@@ -364,6 +355,9 @@ export class HomeComponent implements OnInit {
       else {
         this.academicStyleFeedback = "Your writing may contain language that is either too casual or too extreme for academic discourse.";
         this.academicStyleAlertColor = "red";
+      }
+      if (this.totalSentences === 0) {
+        throw new Error("");
       }
     }
     catch (e) {
@@ -406,6 +400,9 @@ export class HomeComponent implements OnInit {
         this.grammarAlertColor = "red";
         this.grammarFeedback = "Your writing includes words or phrases usually considered to be grammar errors";
       }
+      if (this.totalSentences === 0) {
+        throw new Error("");
+      }
     }
     catch (e) {
       this.grammarFeedback = "Make sure you enter at least one sentence.";
@@ -427,12 +424,12 @@ export class HomeComponent implements OnInit {
   }
 
   // This Function will Calculate the Eggcorn Score
-  eggcornFix(userText: string) {
+  eggcornsFix(userText: string) {
     for (const fix in this.eggcornsTable) {
       if (userText.toLocaleLowerCase().includes(fix)) {
         this.eggcorns.changeTotalEggcorns(this.totalEggcorns + 1);
-        this.eggcornsUserTable.find.push(fix);
-        this.eggcornsUserTable.suggestion.push(this.eggcornsUserTable[fix]);
+        this.eggcornsUserTable.find.push("• " + fix + " ⟶ " + this.eggcornsTable[fix]);
+        // this.eggcornsUserTable.suggestion.push(" ⟶ " + this.eggcornsTable[fix]);
         this.eggcorns.changeEggcornsUserTable(this.eggcornsUserTable);
       }
     }
@@ -450,6 +447,9 @@ export class HomeComponent implements OnInit {
       } else {
         this.eggcornsFeedback = "Your writing seems to have a many eggcorns. Make sure you\'re not using eggcorns";
         this.eggcornsAlertColor = "red";
+      }
+      if (this.totalSentences === 0) {
+        throw new Error("");
       }
     }
     catch (e) {
@@ -485,7 +485,7 @@ export class HomeComponent implements OnInit {
       else {
         for (const fix in this.nominalizationsTable) {
           if (word.length > 7 && word.includes(fix)) {
-            this.nominalizationsUserTable.find.push("• " + word);
+            this.nominalizationsUserTable.find.push("• " + word + ' ⟶ ' + this.nominalizationsTable[fix]);
             this.nominalizations.changeNominalizationsNumber(this.nominalizationsNumber + 1);
             this.nominalizations.changeNominalizationsUserTable(this.nominalizationsUserTable);
           }
@@ -503,6 +503,9 @@ export class HomeComponent implements OnInit {
       else {
         this.nominalizationsFeedback = "Most of the words below are perfectly acceptable. However, you use many of these \"nominalized\" (non root-form) words. They bog down writing and decrease readability.";
         this.nominalizationsAlertColor = "red";
+      }
+      if (this.totalSentences === 0) {
+        throw new Error("");
       }
     }
     catch(e) {
@@ -556,6 +559,7 @@ export class HomeComponent implements OnInit {
         else {
           this.sentences.changeSentencesNumber(this.sentencesNumber + 1);
           this.sentencesUserTable.find.push("• Potential Fragment → \"" + sentence + "...\"");
+          this.sentences.changeSentencesUserTable(this.sentencesUserTable);
           errorFound = false;
           sentence = '';
         }
@@ -565,6 +569,7 @@ export class HomeComponent implements OnInit {
         if (wordCounter > 50) {
           this.sentences.changeSentencesNumber(this.sentencesNumber + 1);
           this.sentencesUserTable.find.push("• Long Sentence → \"" + sentence2 + "...\"");
+          this.sentences.changeSentencesUserTable(this.sentencesUserTable);
         }
         sentence2 = '';
         wordCounter = 0;
@@ -582,6 +587,9 @@ export class HomeComponent implements OnInit {
       else {
         this.sentencesFeedback = "Bueno! Your sentences don't show any glaring errors.";
         this.sentencesAlertColor = "green";
+      }
+      if (this.totalSentences === 0) {
+        throw new Error("");
       }
     }
     catch(e) {
@@ -603,5 +611,3 @@ export class HomeComponent implements OnInit {
     this.sentences.currentSentencesScore.subscribe(sentencesScore => this.sentencesScore = sentencesScore);
   }
 }
-
-

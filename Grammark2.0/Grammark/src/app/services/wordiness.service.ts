@@ -981,32 +981,26 @@ export class WordinessService {
 
   constructor() { }
 
-  // tslint:disable-next-line: typedef
   changeWordinessAlertColor(wordinessAlertColor: string) {
     this.wordinessAlertColorSource.next(wordinessAlertColor);
   }
 
-  // tslint:disable-next-line: typedef
   changeWordinessFeedback(wordinessFeedback: string) {
     this.wordinessFeedbackSource.next(wordinessFeedback);
   }
 
-  // tslint:disable-next-line: typedef
   changeWordinessScore(wordinessScore: number) {
     this.wordinessScoreSource.next(wordinessScore);
   }
 
-  // tslint:disable-next-line: typedef
   changeWordinessNumber(wordinessNumber: number) {
     this.wordinessNumberSource.next(wordinessNumber);
   }
 
-  // tslint:disable-next-line: typedef
   changeWordinessTable(wordinessTable: any) {
     this.wordinessTableSource.next(wordinessTable);
   }
 
-  // tslint:disable-next-line: typedef
   changeWordinessUserTable(wordinessUserTable: any) {
     this.wordinessUserTableSource.next(wordinessUserTable);
   }

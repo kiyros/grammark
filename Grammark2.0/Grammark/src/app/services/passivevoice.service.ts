@@ -1058,22 +1058,18 @@ export class PassivevoiceService {
     this.passiveVoiceScoreSource.next(passiveVoiceScore);
   }
 
-  // tslint:disable-next-line: typedef
   changePassiveVoiceNumber(passiveVoiceNumber: number) {
     this.passiveVoiceNumberSource.next(passiveVoiceNumber);
   }
 
-  // tslint:disable-next-line: typedef
   changePassiveVoiceTable(passiveVoiceTable: any) {
     this.passiveVoiceTableSource.next(passiveVoiceTable);
   }
 
-  // tslint:disable-next-line: typedef
   changePassiveVoiceHelperTable(passiveVoiceHelperTable: any) {
     this.passiveVoiceHelperTableSource.next(passiveVoiceHelperTable);
   }
 
-  // tslint:disable-next-line: typedef
   changePassiveVoiceUserTable(passiveVoiceUserTable: any) {
     this.passiveVoiceUserTableSource.next(passiveVoiceUserTable);
   }
