@@ -22,9 +22,9 @@ export class SentencesService {
   currentSentencesUserTable = this.sentencesUserTableSource.asObservable();
 
   private sentencesTableSource = new BehaviorSubject<any>({
-    'And': '',
-    'But': '',
-    'Or': '',
+    And: '',
+    But: '',
+    Or: '',
   });
   currentSentencesTable = this.sentencesTableSource.asObservable();
 

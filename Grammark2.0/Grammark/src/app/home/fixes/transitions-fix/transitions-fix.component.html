@@ -11,16 +11,14 @@
   <a class="linkedpages" routerLink="">Start Over</a>
 </mat-toolbar>
 
-<mat-toolbar color="white" class="category">
+<div class="alert-box" [style.background-color]="transitionsAlertColor">
+  <h5 class="box">{{ totalTransitions }} instances ({{ transitionsScore }}% of sentences)</h5>
+  <b class="box">Goal: 10% or more </b>
+</div>
 
+<mat-toolbar color="white" class="category">
   <mat-toolbar-row class="title"><b>Transitions</b></mat-toolbar-row>
   <mat-toolbar-row class="description">{{transitionsFeedback}}</mat-toolbar-row>
-
-  <div class="alert-box" [style.background-color]="transitionsAlertColor">
-    <h5>{{ totalTransitions }} instances ({{ transitionsScore }}% of sentences)</h5>
-    <b>Goal: 10% or more </b>
-  </div>
-
 </mat-toolbar>
 
 <div>

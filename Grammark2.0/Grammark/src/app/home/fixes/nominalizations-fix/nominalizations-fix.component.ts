@@ -83,7 +83,7 @@ export class NominalizationsFixComponent implements OnInit {
 
   nominalizationsFix(userText: string) {
     let word;
-    word="";
+    word = "";
     let wordCounter = 0;
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < userText.length; i++) {
@@ -94,7 +94,7 @@ export class NominalizationsFixComponent implements OnInit {
       else {
         for (const fix in this.nominalizationsTable) {
           if (word.length > 7 && word.includes(fix)) {
-            this.nominalizationsUserTable.find.push("• " + word);
+            this.nominalizationsUserTable.find.push("• " + word + " ⟶ " + this.nominalizationsTable[fix]);
             this.nominalizations.changeNominalizationsNumber(this.nominalizationsNumber + 1);
           }
         }
@@ -114,6 +114,9 @@ export class NominalizationsFixComponent implements OnInit {
       else {
         this.nominalizationsFeedback = "Most of the words below are perfectly acceptable. However, you use many of these \"nominalized\" (non root-form) words. They bog down writing and decrease readability.";
         this.nominalizationsAlertColor = "red";
+      }
+      if (this.totalSentences === 0) {
+        throw new Error("");
       }
     }
     catch(e) {

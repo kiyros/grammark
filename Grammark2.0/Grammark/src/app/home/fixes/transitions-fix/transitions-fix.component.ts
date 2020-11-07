@@ -11,24 +11,25 @@ export class TransitionsFixComponent implements OnInit {
 
   title = 'Tranistions-Fix';
 
-  // var
   message: string;
+  totalSentences: number;
+
+  // Transitions
   transitionsFeedback: string = " ";
   transitionsScore: number;
-  totalSentences: number;
   totalTransitions: number;
   transitionsTable: any;
   transitionsUserTable: any;
   transitionsAlertColor: any;
 
-
-
-  constructor(private data: DataService, private transitions: TransitionsService) { }
+  constructor(private data: DataService,
+              private transitions: TransitionsService) { }
 
   reHighlight(): void {
-
     // Reset every time you hit re-highlight
-    this.transitions.resetTransitionFix();
+    this.data.changeTotalSentences(0);
+    this.transitions.changeTotalTransitions(0);
+    // this.transitions.resetTransitionFix();
 
     // Clear -- Reset
     this.transitionsUserTable = { find: [], suggestion: [] };
@@ -57,22 +58,10 @@ export class TransitionsFixComponent implements OnInit {
     else {
       this.data.changeMessage(userText);
 
-      //find transition in user text
-      for (const fix in this.transitionsTable) {
-        // changing user text to lower Case to match with transitionsTable
-        if (userText.toLocaleLowerCase().includes(fix)) {
-          this.transitions.changeTotalTransitions(this.totalTransitions + 1);
-
-          // add transition in user text into an array
-          this.transitionsUserTable.find.push(fix);
-          this.transitions.changeTransitionsUserTable(this.transitionsUserTable);
-          //this.transitionsUserTable.suggestion.push(this.transitionsTable[fix]);
-        }
-      }
-      //find total sentences in user text
+      // Find total sentences in text
       for (let i = 0; i < userText.length; i++) {
         if (userText.charAt(i) === "." || userText.charAt(i) === "!" || userText.charAt(i) === "?") {
-          this.transitions.changeTotalSentences(this.totalSentences + 1);
+          this.data.changeTotalSentences(this.totalSentences + 1);
         }
       }
       //calcutale score
@@ -84,45 +73,97 @@ export class TransitionsFixComponent implements OnInit {
       this.transitions.changeTransitionsScore(Math.round(this.transitionsScore));
       // this.transitions.changeTransitionsScore(this.transitionsScore);
 
-      if (this.transitionsScore == 0) {
-        this.transitionsAlertColor = "red";
-        this.transitionsFeedback = "Your writing seems to have no transition word";
-      } else if (this.transitionsScore <= 10) {
-        this.transitionsFeedback = "The number of transition words in your writing seems low";
-        this.transitionsAlertColor = "orange";
-      } else if (this.transitionsScore <= 80) {
-        this.transitionsFeedback = "Woot! Your writing seems to have a good proportion of transitions";
-        this.transitionsAlertColor = "green";
-      } else {
-        this.transitionsFeedback = "Woot! Your writing seems to have a lot of transitions. Make sure you\'re not overusing transition words";
-        this.transitionsAlertColor = "green";
-      }
-      this.transitions.changeTransitionsFeedback(this.transitionsFeedback);
-      this.transitions.changeTransitionsAlertColor(this.transitionsAlertColor);
+      // fixes
+      this.transitionsFix(userText);
     }
   }
 
   ngOnInit(): void {
     this.data.currentMessage.subscribe(message => this.message = message);
+    this.data.currentTotalSentences.subscribe(totalSentences => this.totalSentences = totalSentences);
+
+    this.transitionsService();
+  }
+
+  transitionsFix(userText: string) {
+    //find transition in user text
+    for (const fix in this.transitionsTable) {
+      // changing user text to lower Case to match with transitionsTable
+      if (userText.toLocaleLowerCase().includes(fix)) {
+        this.transitions.changeTotalTransitions(this.totalTransitions + 1);
+        // add transition in user text into an array
+        this.transitionsUserTable.find.push("• " + fix + " ⟶ " + this.transitionsTable[fix]);
+        this.transitions.changeTransitionsUserTable(this.transitionsUserTable);
+        // this.transitionsUserTable.suggestion.push(" ⟶ " + this.transitionsTable[fix]);
+      }
+    }
+    //calcutale score
+    this.transitionsScore = (this.totalTransitions / this.totalSentences) * 100;
+    // if (this.transitionsScore === NaN || this.transitionsScore === Infinity) {
+    //  this.transitionsScore = 0;
+    // }
+    // round to whole number
+    // this.transitions.changeTransitionsScore(Math.round(this.transitionsScore));
+    // this.transitions.changeTransitionsScore(this.transitionsScore);
+    try {
+      if (this.transitionsScore == 0) {
+        this.transitionsAlertColor = "red";
+        this.transitionsFeedback = "Your writing seems to have no transition word";
+      }
+      else if (this.transitionsScore <= 10) {
+        this.transitionsFeedback = "The number of transition words in your writing seems low";
+        this.transitionsAlertColor = "orange";
+      }
+      else if (this.transitionsScore <= 80) {
+        this.transitionsFeedback = "Woot! Your writing seems to have a good proportion of transitions";
+        this.transitionsAlertColor = "green";
+      }
+      else {
+        this.transitionsFeedback = "Woot! Your writing seems to have a lot of transitions. Make sure you\'re not overusing transition words";
+        this.transitionsAlertColor = "green";
+      }
+      if (this.totalSentences === 0) {
+        throw new Error("");
+      }
+    }
+    catch(e) {
+      this.transitionsFeedback = "Make sure you enter at least one sentence.";
+      this.transitionsAlertColor = "orange";
+      this.transitionsScore = 0;
+    }
+    // if (this.transitionsScore == 0) {
+    //  this.transitionsAlertColor = "red";
+    //  this.transitionsFeedback = "Your writing seems to have no transition word";
+    // } else if (this.transitionsScore <= 10) {
+    //  this.transitionsFeedback = "The number of transition words in your writing seems low";
+    //  this.transitionsAlertColor = "orange";
+    // } else if (this.transitionsScore <= 80) {
+    //  this.transitionsFeedback = "Woot! Your writing seems to have a good proportion of transitions";
+    //  this.transitionsAlertColor = "green";
+    // } else {
+    //  this.transitionsFeedback = "Woot! Your writing seems to have a lot of transitions. Make sure you\'re not overusing transition words";
+    //  this.transitionsAlertColor = "green";
+    //}
+    this.transitions.changeTransitionsScore(Math.round(this.transitionsScore));
+    this.transitions.changeTransitionsFeedback(this.transitionsFeedback);
+    this.transitions.changeTransitionsAlertColor(this.transitionsAlertColor);
+  }
+
+  transitionsService() {
     //result color
     this.transitions.currentTransitionsAlertColor.subscribe(transitionsAlertColor => this.transitionsAlertColor = transitionsAlertColor);
-
     //Feedback
     this.transitions.currentTransitionsFeedback.subscribe(transitionsFeedback => this.transitionsFeedback = transitionsFeedback);
-
     // Total number of sentences in the user input
-    this.transitions.currentTotalSentences.subscribe(totalSentences => this.totalSentences = totalSentences);
-
+    // this.transitions.currentTotalSentences.subscribe(totalSentences => this.totalSentences = totalSentences);
     // Total number of transitions in the user input
     this.transitions.currentTotalTransitions.subscribe(totalTransitions => this.totalTransitions = totalTransitions);
-
     // Transition Table of all transitions
     this.transitions.currentTransitionsTable.subscribe(transitionsTable => this.transitionsTable = transitionsTable);
-
     // Transition Table of Current User Errors in Text
     this.transitions.currentTransitionsUserTable.subscribe(transitionsUserTable => this.transitionsUserTable = transitionsUserTable);
-
     // Transitions score
     this.transitions.currentTransitionsScore.subscribe(transitionsScore => this.transitionsScore = transitionsScore);
+
   }
 }

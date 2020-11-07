@@ -84,6 +84,7 @@ export class PassiveVoiceFixComponent implements OnInit {
         }
       }
 
+      // fixes
       this.wordinessFix(userText);
       this.passiveVoiceFix(userText);
     }
@@ -93,6 +94,7 @@ export class PassiveVoiceFixComponent implements OnInit {
     this.data.currentMessage.subscribe(message => this.message = message);
     this.data.currentTotalSentences.subscribe(totalSentences => this.totalSentences = totalSentences);
 
+    // Services
     this.wordinessService();
     this.passiveVoiceService();
   }
@@ -108,8 +110,8 @@ export class PassiveVoiceFixComponent implements OnInit {
 
         if (userText.includes(compareString)) {
           this.passivevoice.changePassiveVoiceNumber(this.passiveVoiceNumber + 1);
-          this.passiveVoiceUserTable.find.push("• " + compareString);
-          this.passiveVoiceUserTable.suggestion.push("→ " + this.passiveVoiceTable[fix]);
+          this.passiveVoiceUserTable.find.push("• " + compareString + " ⟶ " + this.passiveVoiceTable[fix]);
+          // this.passiveVoiceUserTable.suggestion.push(" ⟶ " + this.passiveVoiceTable[fix]);
           this.passivevoice.changePassiveVoiceUserTable(this.passiveVoiceUserTable);
         }
       }
@@ -126,6 +128,9 @@ export class PassiveVoiceFixComponent implements OnInit {
       else {
         this.passiveVoiceFeedback = "Your writing passed the criterion for passive sentences. Congrats!";
         this.passiveVoiceAlertColor = "green";
+      }
+      if (this.totalSentences === 0) {
+        throw new Error("");
       }
     }
     catch (e) {

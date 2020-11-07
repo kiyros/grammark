@@ -33,7 +33,9 @@ export class WordinessFixComponent implements OnInit {
   passiveVoiceAlertColor: string;
   passiveVoiceScore: number;
 
-  constructor(private data: DataService, private wordiness: WordinessService, private passivevoice: PassivevoiceService) { }
+  constructor(private data: DataService,
+              private wordiness: WordinessService,
+              private passivevoice: PassivevoiceService) { }
 
   startOverClick() : void {
     this.data.changeMessage('');
@@ -45,7 +47,7 @@ export class WordinessFixComponent implements OnInit {
     this.wordiness.changeWordinessNumber(0);
     this.passivevoice.changePassiveVoiceNumber(0);
 
-    //
+    // Reset tables
     this.wordinessUserTable = { find: [], suggestion: [] };
     this.passiveVoiceUserTable = { find: [], suggestion: [] };
 
@@ -100,8 +102,8 @@ export class WordinessFixComponent implements OnInit {
     for (const fix in this.wordinessTable) {
       if (userText.includes(fix)) {
         this.wordiness.changeWordinessNumber(this.wordinessNumber + 1);
-        this.wordinessUserTable.find.push("• " + fix);
-        this.wordinessUserTable.suggestion.push("→ " + this.wordinessTable[fix]);
+        this.wordinessUserTable.find.push("• " + fix + " ⟶ " + this.wordinessTable[fix]);
+        // this.wordinessUserTable.suggestion.push("→ " + this.wordinessTable[fix]);
         this.wordiness.changeWordinessUserTable(this.wordinessUserTable);
       }
     }
@@ -118,6 +120,9 @@ export class WordinessFixComponent implements OnInit {
         this.wordinessFeedback = "Woohoo! Your writing seems concise, precise, and snappy. George Orwell would be proud.";
         this.wordinessAlertColor = "green";
       }
+      if (this.totalSentences === 0) {
+        throw new Error("");
+      }
     }
     catch (e) {
       this.wordinessFeedback = "Make sure you enter at least one sentence.";
@@ -127,7 +132,6 @@ export class WordinessFixComponent implements OnInit {
     this.wordiness.changeWordinessFeedback(this.wordinessFeedback);
     this.wordiness.changeWordinessScore(Math.round(this.wordinessScore));
     this.wordiness.changeWordinessAlertColor(this.wordinessAlertColor);
-
   }
 
   wordinessService() {
@@ -165,6 +169,9 @@ export class WordinessFixComponent implements OnInit {
       else {
         this.passiveVoiceFeedback = "Your writing passed the criterion for passive sentences. Congrats!";
         this.passiveVoiceAlertColor = "green";
+      }
+      if (this.totalSentences === 0) {
+        throw new Error("");
       }
     }
     catch (e) {
