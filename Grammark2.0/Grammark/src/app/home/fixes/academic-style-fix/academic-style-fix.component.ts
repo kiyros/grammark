@@ -221,6 +221,9 @@ export class AcademicStyleFixComponent implements OnInit {
       this.academicStyleAlertColor = "orange";
       this.academicStyleScore = 0;
     }
+    if (isNaN(this.academicStyleScore) || this.academicStyleScore === Infinity) {
+      this.academicStyleScore= 0;
+    }
     this.academic.changeAcademicStyleScore(Math.round(this.academicStyleScore));
     this.academic.changeAcademicStyleFeedback(this.academicStyleFeedback);
     this.academic.changeAcademicStyleAlertColor(this.academicStyleAlertColor);

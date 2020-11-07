@@ -64,6 +64,14 @@ export class TransitionsFixComponent implements OnInit {
           this.data.changeTotalSentences(this.totalSentences + 1);
         }
       }
+      //calcutale score
+      this.transitionsScore = (this.totalTransitions / this.totalSentences) * 100;
+      if (isNaN(this.transitionsScore) || this.transitionsScore === Infinity) {
+        this.transitionsScore = 0;
+      }
+      // round to whole number
+      this.transitions.changeTransitionsScore(Math.round(this.transitionsScore));
+      // this.transitions.changeTransitionsScore(this.transitionsScore);
 
       // fixes
       this.transitionsFix(userText);

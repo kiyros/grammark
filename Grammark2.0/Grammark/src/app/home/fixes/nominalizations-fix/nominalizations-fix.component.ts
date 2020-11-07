@@ -103,6 +103,9 @@ export class NominalizationsFixComponent implements OnInit {
       }
     }
     this.nominalizationsScore = (this.nominalizationsNumber / wordCounter) * 100;
+    if (isNaN(this.nominalizationsScore) || this.nominalizationsScore === Infinity) {
+      this.nominalizationsScore = 0;
+    }
     try {
       if (this.nominalizationsScore <= 6) {
         this.nominalizationsFeedback = "Rock on. Your writing has a reasonable number of \"nominalized\" word forms, highlighted below. You probably don't need to reduce these any further.";
