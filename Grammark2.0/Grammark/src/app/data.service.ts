@@ -18,6 +18,15 @@ export class DataService {
   private totalSentencesSource = new BehaviorSubject<number>(0);
   currentTotalSentences = this.totalSentencesSource.asObservable();
 
+  private totalErrorsSource = new BehaviorSubject<string>('');
+  currentTotalErrors = this.totalErrorsSource.asObservable();
+
+  private gradeAlertColorSource = new BehaviorSubject<string>('');
+  currentGradeAlertColor = this.gradeAlertColorSource.asObservable();
+
+  private gradeFeedbackSource = new BehaviorSubject<string>('');
+  currentGradeFeedback = this.gradeFeedbackSource.asObservable();
+
   // Constructor
   constructor() { }
 
@@ -36,5 +45,19 @@ export class DataService {
   // tslint:disable-next-line: typedef
   changeTotalSentences(totalSentences: number) {
     this.totalSentencesSource.next(totalSentences);
+  }
+
+  changeTotalErrors(totalErrors: string) {
+    this.totalErrorsSource.next(totalErrors);
+  }
+
+  // tslint:disable-next-line: typedef
+  changeGradeAlertColor(gradeAlertColor: string) {
+    this.gradeAlertColorSource.next(gradeAlertColor);
+  }
+
+  // tslint:disable-next-line: typedef
+  changeGradeFeedback(gradeFeedback: string) {
+    this.gradeFeedbackSource.next(gradeFeedback);
   }
 }

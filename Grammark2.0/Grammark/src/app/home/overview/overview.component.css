@@ -15,7 +15,7 @@
 }
 
 .resultdescription {
-  font-size: 46px;
+  font-size: 36px;
   padding: 10px 0px;
 }
 
@@ -119,16 +119,37 @@ display: inline-block;
 width: 135px;
 text-align: center;
 }
+
 .linkedpages:hover{
 background-color: cyan;
 border-radius: 10px;
 color: rgb(255, 255, 255);
 }
 
+.gradeCircle {
+  height: 150px;
+  width: 100px;
+  padding: 30px;
+  text-align: center;
+  display: inline-block;
+}
+
+.gradeFeedback {
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.gradeFeedbackText {
+  padding-top: 120px;
+  font-size: 20px;
+}
+
 .passiveVoiceCircle, .wordinessCircle, .academicStyleCircle, .grammarCircle {
   height: 100px;
     width: 100px;
-    padding: 50px;
+    padding: 30px;
     text-align: center;
     display:table-cell;
     vertical-align:middle;
@@ -137,7 +158,7 @@ color: rgb(255, 255, 255);
 .transitionsCircle, .eggcornsCircle, .nominalizationsCircle, .sentencesCircle {
   height: 100px;
     width: 100px;
-    padding: 50px;
+    padding: 30px;
     text-align: center;
     display: inline-block;
 }
@@ -147,6 +168,7 @@ color: rgb(255, 255, 255);
   width: 100px;
   position: relative;
 }
+
 .circular .inner, .circular .outer, .circular .circle{
   position: absolute;
   z-index: 6;
@@ -155,6 +177,7 @@ color: rgb(255, 255, 255);
   border-radius: 100%;
   box-shadow: inset 0 1px 0 rgba(0,0,0,0.2);
 }
+
 .circular .inner{
   top: 50%;
   left: 50%;
@@ -165,10 +188,12 @@ color: rgb(255, 255, 255);
   border-radius: 100%;
   box-shadow: 0 1px 0 rgba(0,0,0,0.2);
 }
+
 .circular .circle{
   z-index: 1;
   box-shadow: none;
 }
+
 .circular .numb{
   position: absolute;
   top: 50%;
@@ -179,6 +204,7 @@ color: rgb(255, 255, 255);
   font-weight: 500;
   color: #4158d0;
 }
+
 .circular .bar{
   position: absolute;
   height: 100%;
@@ -187,6 +213,7 @@ color: rgb(255, 255, 255);
   border-radius: 100%;
   clip: rect(0px, 100px, 100px, 50px);
 }
+
 .circle .bar .progress{
   position: absolute;
   height: 100%;
@@ -194,31 +221,38 @@ color: rgb(255, 255, 255);
   border-radius: 100%;
   clip: rect(0px, 50px, 100px, 0px);
 }
+
 .circle .bar .progress, .dot span{
   background: #4158d0;
 }
+
 .circle .left .progress{
   z-index: 1;
   animation: left 4s linear both;
 }
+
 @keyframes left {
   100%{
     transform: rotate(180deg);
   }
 }
+
 .circle .right{
   z-index: 3;
   transform: rotate(180deg);
 }
+
 .circle .right .progress{
   animation: right 4s linear both;
   animation-delay: 4s;
 }
+
 @keyframes right {
   100%{
     transform: rotate(180deg);
   }
 }
+
 .circle .dot{
   z-index: 2;
   position: absolute;
@@ -230,6 +264,7 @@ color: rgb(255, 255, 255);
   animation: dot 8s linear both;
   transform-origin: 0% 50%;
 }
+
 .circle .dot span {
   position: absolute;
   right: 0;
@@ -237,6 +272,7 @@ color: rgb(255, 255, 255);
   height: 10px;
   border-radius: 100%;
 }
+
 @keyframes dot{
   0% {
     transform: rotate(-90deg);

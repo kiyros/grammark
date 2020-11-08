@@ -21,6 +21,10 @@ export class OverviewComponent implements OnInit {
   // Vars
   message: string;
   grade: number;
+  gradeAlertColor: string;
+  gradeFeedback: string;
+  totalSentences: number;
+  totalErrors: string;
   // Passive Voice
   passiveVoiceNumber: number;
   passiveVoiceScore: number;
@@ -78,6 +82,11 @@ export class OverviewComponent implements OnInit {
     // Input text
     this.data.currentMessage.subscribe(message => this.message = message);
     this.data.currentGrade.subscribe(grade => this.grade = grade);
+    this.data.currentTotalSentences.subscribe(totalSentences => this.totalSentences = totalSentences);
+    this.data.currentTotalErrors.subscribe(totalErrors => this.totalErrors = totalErrors);
+    this.data.currentGradeAlertColor.subscribe(gradeAlertColor => this.gradeAlertColor = gradeAlertColor);
+    this.data.currentGradeFeedback.subscribe(gradeFeedback => this.gradeFeedback = gradeFeedback);
+
     // ************************
     // *                      *
     // *     Passive Voice    *

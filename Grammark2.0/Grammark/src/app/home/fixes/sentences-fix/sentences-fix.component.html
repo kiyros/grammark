@@ -9,7 +9,7 @@
   <a class="linkedpages" routerLink="../sentences-fix">Sentences</a>
   <a class="linkedpages" routerLink="../eggcorns-fix">Eggcorns</a>
   <a class="linkedpages" routerLink="../transitions-fix">Transitions</a>
-  <a class="linkedpages" routerLink="">Start Over</a>
+  <a class="linkedpages" (click)="startOverClick()" routerLink="">Start Over</a>
 </mat-toolbar>
 
 <div class="alert-box" [style.background-color]="sentencesAlertColor">
@@ -24,7 +24,7 @@
 
 <div>
   <div class="column1">
-    <textarea id="userinput" name="userinput">{{ message }} </textarea>
+    <textarea id="userinput" name="userinput">{{ message }}</textarea>
     <button (click)="reHighlight()" class="rehighlight">Re-highlight</button>
   </div>
 

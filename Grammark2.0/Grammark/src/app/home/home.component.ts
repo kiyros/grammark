@@ -23,7 +23,10 @@ export class HomeComponent implements OnInit {
   // Global global
   message: string;
   grade: number;
+  gradeAlertColor: string;
+  gradeFeedback: string;
   totalSentences: number;
+  totalErrors: string;
 
   // Passive Voice
   passiveVoiceNumber: number;
@@ -161,6 +164,10 @@ export class HomeComponent implements OnInit {
       this.academicStyleFix(userText);
       this.nominalizationsFix(userText);
       this.sentencesFix(userText);
+      // calculate grade
+      this.calculateGrade();
+      // calculate errors
+      this.calculateErrors();
     }
   }
 
@@ -168,6 +175,9 @@ export class HomeComponent implements OnInit {
     this.data.currentMessage.subscribe(message => this.message = message);
     this.data.currentGrade.subscribe(grade => this.grade = grade);
     this.data.currentTotalSentences.subscribe(totalSentences => this.totalSentences = totalSentences);
+    this.data.currentTotalErrors.subscribe(totalErrors => this.totalErrors = totalErrors);
+    this.data.currentGradeAlertColor.subscribe(gradeAlertColor => this.gradeAlertColor = gradeAlertColor);
+    this.data.currentGradeFeedback.subscribe(gradeFeedback => this.gradeFeedback = gradeFeedback);
 
     // Passive Voice
     this.passiveVoiceService();
@@ -185,6 +195,69 @@ export class HomeComponent implements OnInit {
     this.nominalizationsService();
     // sentences
     this.sentencesService();
+  }
+
+  calculateErrors() {
+    let nErrors = 0;
+    nErrors = this.passiveVoiceNumber + this.wordinessNumber + this.totalNonAcademic + this.totalGrammar +
+              this.nominalizationsNumber + this.sentencesNumber + this.totalEggcorns + this.totalTransitions;
+
+    if (nErrors > 0) {
+      this.totalErrors = "Potential Problems: " + nErrors;
+    }
+    else {
+      this.totalErrors = "Nice! This Writing Looks Pretty Snazzy.";
+    }
+    this.data.changeTotalErrors(this.totalErrors);
+  }
+
+  calculateGrade() {
+    // Because transitions Score is 10% or more, this uses a different formula
+    let tScore = 0;
+    if (this.transitionsScore >= 10) {
+      tScore = 0;
+    }
+    else {
+      tScore = 10 - this.transitionsScore;
+    }
+
+    this.grade = 100 - (
+                 Math.round((this.passiveVoiceScore    / 10) * 10 ) / 10 +
+                 Math.round((this.wordinessScore       /  2) * 10 ) / 10 +
+                 Math.round((this.academicStyleScore   /  1) * 10 ) / 10 +
+                 Math.round((this.grammarScore         /  1) * 10 ) / 10 +
+                 Math.round((this.nominalizationsScore /  6) * 10 ) / 10 +
+                 Math.round((this.sentencesScore       /  2) * 10 ) / 10 +
+                 Math.round((this.eggcornsScore        /  1) * 10 ) / 10 +
+                 Math.round((tScore                        ) * 10 ) / 10);
+
+    if (this.totalSentences <= 4) {
+      this.grade = 0;
+      this.gradeFeedback = 'You must enter at least 5 sentences to get a grade';
+      this.gradeAlertColor = 'red';
+    }
+    else {
+      if (this.grade < 70) {
+        this.gradeFeedback = 'Your writing seems to have many grammar errors';
+        this.gradeAlertColor = 'red';
+      }
+      else if (this.grade < 80) {
+        this.gradeFeedback = 'Your writing seems to have a lot of grammar errors';
+        this.gradeAlertColor = 'orange';
+      }
+      else if (this.grade < 90) {
+        this.gradeFeedback = 'Good Job! The number of grammar errors seems low';
+        this.gradeAlertColor = 'orange';
+      }
+      else {
+        this.gradeFeedback = 'Great Job!';
+        this.gradeAlertColor = 'green';
+      }
+    }
+
+    this.data.changeGrade(this.grade);
+    this.data.changeGradeAlertColor(this.gradeAlertColor);
+    this.data.changeGradeFeedback(this.gradeFeedback);
   }
 
   // This Function will Calculate the Wordiness Score
@@ -221,7 +294,7 @@ export class HomeComponent implements OnInit {
       this.wordinessScore = 0;
     }
     this.wordiness.changeWordinessFeedback(this.wordinessFeedback);
-    this.wordiness.changeWordinessScore(Math.round(this.wordinessScore));
+    this.wordiness.changeWordinessScore(Math.round(this.wordinessScore * 10) / 10);
     this.wordiness.changeWordinessAlertColor(this.wordinessAlertColor);
 
   }
@@ -239,7 +312,6 @@ export class HomeComponent implements OnInit {
   passiveVoiceFix(userText: string) {
     // tslint:disable-next-line: forin
     for (const fix in this.passiveVoiceTable) {
-
       // tslint:disable-next-line: forin
       for (const helper in this.passiveVoiceHelperTable) {
         // String
@@ -276,7 +348,7 @@ export class HomeComponent implements OnInit {
       this.passiveVoiceScore = 0;
     }
     this.passivevoice.changePassiveVoiceFeedback(this.passiveVoiceFeedback);
-    this.passivevoice.changePassiveVoiceScore(Math.round(this.passiveVoiceScore));
+    this.passivevoice.changePassiveVoiceScore(Math.round(this.passiveVoiceScore * 10) / 10);
     this.passivevoice.changePassiveVoiceAlertColor(this.passiveVoiceAlertColor);
   }
 
@@ -329,7 +401,7 @@ export class HomeComponent implements OnInit {
       this.transitionsAlertColor = "orange";
       this.transitionsScore = 0;
     }
-    this.transitions.changeTransitionsScore(Math.round(this.transitionsScore));
+    this.transitions.changeTransitionsScore(Math.round(this.transitionsScore * 10) / 10);
     this.transitions.changeTransitionsFeedback(this.transitionsFeedback);
     this.transitions.changeTransitionsAlertColor(this.transitionsAlertColor);
   }
@@ -345,9 +417,8 @@ export class HomeComponent implements OnInit {
 
   // This Function will Calculate the Academic Style Score
   academicStyleFix(userText: string) {
-    // find instance of non academic style in user text
+    //find non academic word in user text
     for (const fix in this.academicStyleTable) {
-      // changing user text to lower Case to match with academicStyleTable
       if (userText.includes(fix)) {
         this.academic.changeTotalNonAcademic(this.totalNonAcademic + 1);
         this.academicStyleUserTable.find.push("• " + fix + " ⟶ " + this.academicStyleTable[fix]);
@@ -355,29 +426,46 @@ export class HomeComponent implements OnInit {
         // this.academicStyleUserTable.suggestion.push("→ " + this.academicStyleTable[fix]);
       }
     }
-    this.academicStyleScore = (this.totalNonAcademic / this.totalSentences) * 100;
+    let word;
+    word = "";
+    var wordCounter = 0;
+    // tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < userText.length; i++) {
+      if(/[a-zA-Z]/.test(userText[i]) || userText[i] === '\’' || userText[i] === '\'') {
+        word += userText[i];
+      }
+      else {
+        word = "";
+        wordCounter++;
+      }
+    }
+    //calculate academic style score
+    this.academicStyleScore = (this.totalNonAcademic / wordCounter) * 100;
     if (isNaN(this.academicStyleScore) || this.academicStyleScore === Infinity) {
       this.academicStyleScore= 0;
     }
     try {
-      if (this.academicStyleScore <= 1) {
-        this.academicStyleAlertColor = "green";
-        this.academicStyleFeedback = "Your writing has a low percentage of casual and/or extreme language. This makes it more acceptable for academic style.";
+      if (this.academicStyleScore > 1) {
+        this.academicStyleAlertColor = "red";
+        this.academicStyleFeedback = "Your writing may contain language that is either too casual or too extreme for academic discourse.";
       }
       else {
-        this.academicStyleFeedback = "Your writing may contain language that is either too casual or too extreme for academic discourse.";
-        this.academicStyleAlertColor = "red";
+        this.academicStyleAlertColor = "green";
+        this.academicStyleFeedback = "Your writing has a low percentage of casual and/or extreme language. This makes it more acceptable for academic style.";
       }
       if (this.totalSentences === 0) {
         throw new Error("");
       }
     }
-    catch (e) {
+    catch(e) {
       this.academicStyleFeedback = "Make sure you enter at least one sentence.";
       this.academicStyleAlertColor = "orange";
       this.academicStyleScore = 0;
     }
-    this.academic.changeAcademicStyleScore(Math.round(this.academicStyleScore));
+    if (isNaN(this.academicStyleScore) || this.academicStyleScore === Infinity) {
+      this.academicStyleScore= 0;
+    }
+    this.academic.changeAcademicStyleScore(Math.round(this.academicStyleScore * 10) / 10);
     this.academic.changeAcademicStyleFeedback(this.academicStyleFeedback);
     this.academic.changeAcademicStyleAlertColor(this.academicStyleAlertColor);
   }
@@ -396,8 +484,8 @@ export class HomeComponent implements OnInit {
     for (const fix in this.grammarTable) {
       if (userText.toLocaleLowerCase().includes(fix)) {
         this.grammar.changeTotalGrammar(this.totalGrammar + 1);
-        this.grammarUserTable.find.push(fix);
-        this.grammarUserTable.suggestion.push(this.grammarTable[fix]);
+        this.grammarUserTable.find.push("• " + fix + " ⟶ " + this.grammarTable[fix]);
+        // this.grammarUserTable.suggestion.push(" ⟶ " + this.grammarTable[fix]);
         this.grammar.changeGrammarUserTable(this.grammarUserTable);
       }
     }
@@ -424,7 +512,7 @@ export class HomeComponent implements OnInit {
       this.grammarAlertColor = "orange";
       this.grammarScore = 0;
     }
-    this.grammar.changeGrammarScore(Math.round(this.grammarScore));
+    this.grammar.changeGrammarScore(Math.round(this.grammarScore * 10) / 10);
     this.grammar.changeGrammarFeedback(this.grammarFeedback);
     this.grammar.changeGrammarAlertColor(this.grammarAlertColor);
   }
@@ -455,15 +543,15 @@ export class HomeComponent implements OnInit {
     try {
       if (this.eggcornsScore == 0) {
         this.eggcornsAlertColor = "green";
-        this.eggcornsFeedback = "Great job Your writing seems to have no Eggcorns";
+        this.eggcornsFeedback = "Great job Your writing seems to have no Eggcorns.";
       } else if (this.eggcornsScore <= 5) {
-        this.eggcornsFeedback = " Good job the number of Eggcorns words in your writing seems low";
+        this.eggcornsFeedback = " Good job the number of Eggcorns words in your writing seems low.";
         this.eggcornsAlertColor = "orange";
       } else if (this.eggcornsScore <= 10) {
-        this.eggcornsFeedback = "Your writing seems to have alot of eggcorns";
+        this.eggcornsFeedback = "Your writing seems to have a lot of eggcorns.";
         this.eggcornsAlertColor = "red";
       } else {
-        this.eggcornsFeedback = "Your writing seems to have a many eggcorns. Make sure you\'re not using eggcorns";
+        this.eggcornsFeedback = "Your writing seems to have many eggcorns. Make sure you\'re not using eggcorns.";
         this.eggcornsAlertColor = "red";
       }
       if (this.totalSentences === 0) {
@@ -475,7 +563,7 @@ export class HomeComponent implements OnInit {
       this.eggcornsAlertColor = "orange";
       this.eggcornsScore = 0;
     }
-    this.eggcorns.changeEggcornsScore(Math.round(this.eggcornsScore));
+    this.eggcorns.changeEggcornsScore(Math.round(this.eggcornsScore * 10) / 10);
     this.eggcorns.changeEggcornsFeedback(this.eggcornsFeedback);
     this.eggcorns.changeEggcornsAlertColor(this.eggcornsAlertColor);
   }
@@ -535,7 +623,7 @@ export class HomeComponent implements OnInit {
       this.nominalizationsScore = 0;
     }
     this.nominalizations.changeNominalizationsFeedback(this.nominalizationsFeedback);
-    this.nominalizations.changeNominalizationsScore(Math.round(this.nominalizationsScore));
+    this.nominalizations.changeNominalizationsScore(Math.round(this.nominalizationsScore * 10) / 10);
     this.nominalizations.changeNominalizationsAlertColor(this.nominalizationsAlertColor);
   }
 
@@ -622,7 +710,7 @@ export class HomeComponent implements OnInit {
       this.sentencesScore = 0;
     }
     this.sentences.changeSentencesFeedback(this.sentencesFeedback);
-    this.sentences.changeSentencesScore(Math.round(this.sentencesScore));
+    this.sentences.changeSentencesScore(Math.round(this.sentencesScore * 10) / 10);
     this.sentences.changeSentencesAlertColor(this.sentencesAlertColor);
   }
 
