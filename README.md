@@ -1,44 +1,51 @@
 # 1.Team/project names
-  CtrlAltSpri4ng/grammark
+  Gramular/grammark
 
 # 2.Repo location URL
-  https://github.com/soft-eng-practicum/grammark
+  https://github.com/kiyros/grammark
 
 # 3.Progress tracking tool and URL
   Jira
   https://jira.ggc.edu/projects/GCC/summary
+  
 # 4.Communication tool
 - Discord
 - Microsoft Teams
+- Trello
+
 # 5.Team Members
 <ol>
-  <li> <b>Josue Mayorga</b> :dragon:👽:snake::) </li>
+  <li> <b>Chris Hernandez</b> </li>
     <ul type="square">
-      <li>UI/UX design</li>
-      <li>Team Manager</li>
+    <li> Primary role: Data modeler </li>
+    <li> Secondary role: Documentation</li>
     </ul>
-  <li> <b>Francisco Pomaya Ramos ( ͡° ͜ʖ ͡°)</b> </li>
+  <li> <b>Jawwad Qureshi </b> </li>
     <ul type="square">
-    <li> Primary role: Data modeler</li>
-    <li>Secondary role: Code architecture/lead programmer</li>
+    <li> Primary role: Team Manager/ Client Liaison </li>
+    <li>Secondary role: UI/UX</li>
     </ul>
- <li>  <b>Fawhn Hanlon</b> :deer: :revolving_hearts: :hedgehog: :two_hearts:</li>
+ <li>  <b>Joseph Ongchangco</b></li>
   <ul type="square">
-    <li>Primary Role: Documentation Lead</li>
-    <li>Secondary Role: Client Liaison </li>
-    <li>Tertiary Role: Team Manager </li>
+    <li>Primary role: Testing Lead </li>
+    <li>Secondary role: Code Architecture </li>
   </ul>
-  <li> <b>Nga Tran </b>:alien:</li>
+  <li> <b>Sydney Harrell</b></li>
   <ul type="square">
-    <li>Primary role: Testing lead </li>
-    <li>Secondary role: Code architecture </li>
+    <li>Primary role: UI/UX </li>
+    <li>Secondary role: Documentation </li>
+    </ul>
+  <li> <b>Wilmer Batista</b></li>
+  <ul type="square">
+    <li>Primary role: Lead Programmer </li>
+    <li>Secondary role: Data modeler </li>
     </ul>
 </ol>
 
 Grammark
 ========
 > A complete web application for identifying writing problems and offering suggestions.
-<img src="https://github.com/markfullmer/grammark/raw/master/app/images/screenshot.png" />
+
 
 Requirements
 ============
