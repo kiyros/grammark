@@ -76,7 +76,7 @@ To facilitate easy development, install `yo`, `grunt-cli`, `bower`, `generator-a
 npm install -g grunt-cli bower yo generator-karma generator-angular
 ```
 You can then use the following for local development:
-open the terminal to the grammark 2.0 grammark
+open the terminal to the `Grammark2.0` -> `Grammark` to run `ng serve`
 Serve the project locally
 ```
 ng serve
