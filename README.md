@@ -68,7 +68,8 @@ Developer Installation
 ======================
 1. Clone the master branch of this repository:
 ```
-git clone git@github.com:markfullmer/grammark.git .
+git clone git@github.com:kiyros/grammark.git .
+
 ```
 2. Grammark is built on the [yeoman angular scaffolding](https://github.com/yeoman/generator-angular)
 To facilitate easy development, install `yo`, `grunt-cli`, `bower`, `generator-angular` and `generator-karma`:
@@ -76,14 +77,14 @@ To facilitate easy development, install `yo`, `grunt-cli`, `bower`, `generator-a
 npm install -g grunt-cli bower yo generator-karma generator-angular
 ```
 You can then use the following for local development:
-
+open the terminal to the grammark 2.0 grammark
 Serve the project locally
 ```
-grunt serve
+ng serve
 ```
 Build the distribution
 ```
-grunt build
+ng build
 ```
 
 License
