@@ -69,7 +69,6 @@ Developer Installation
 1. Clone the master branch of this repository:
 ```
 git clone git@github.com:kiyros/grammark.git .
-
 ```
 2. Grammark is built on the [yeoman angular scaffolding](https://github.com/yeoman/generator-angular)
 To facilitate easy development, install `yo`, `grunt-cli`, `bower`, `generator-angular` and `generator-karma`:
