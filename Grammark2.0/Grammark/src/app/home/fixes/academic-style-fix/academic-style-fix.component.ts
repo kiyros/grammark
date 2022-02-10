@@ -92,14 +92,14 @@ export class AcademicStyleFixComponent implements OnInit {
   transitionsAlertColor: any;
 
   constructor(private data: DataService,
-              private academic: AcademicStyleService,
-              private eggcorns: EggcornService,
-              private grammar: GrammarService,
-              private nominalizations: NominalizationsService,
-              private passivevoice: PassivevoiceService,
-              private wordiness: WordinessService,
-              private sentences: SentencesService,
-              private transitions: TransitionsService) { }
+    private academic: AcademicStyleService,
+    private eggcorns: EggcornService,
+    private grammar: GrammarService,
+    private nominalizations: NominalizationsService,
+    private passivevoice: PassivevoiceService,
+    private wordiness: WordinessService,
+    private sentences: SentencesService,
+    private transitions: TransitionsService) { }
 
   startOverClick(): void {
     this.data.changeMessage('');
@@ -124,7 +124,7 @@ export class AcademicStyleFixComponent implements OnInit {
     this.transitionsUserTable = { find: [], suggestion: [] };
     this.grammarUserTable = { find: [], suggestion: [] };
     this.eggcornsUserTable = { find: [], suggestion: [] };
-    this.academicStyleUserTable = { find: [], suggestion: [] };
+    this.academicStyleUserTable = [];
     this.nominalizationsUserTable = { find: [], suggestion: [] };
     this.sentencesUserTable = { find: [], suggestion: [] };
 
@@ -202,14 +202,14 @@ export class AcademicStyleFixComponent implements OnInit {
     }
 
     this.grade = 100 - (
-                 Math.round((this.passiveVoiceScore    / 10) * 10 ) / 10 +
-                 Math.round((this.wordinessScore       /  2) * 10 ) / 10 +
-                 Math.round((this.academicStyleScore   /  1) * 10 ) / 10 +
-                 Math.round((this.grammarScore         /  1) * 10 ) / 10 +
-                 Math.round((this.nominalizationsScore /  6) * 10 ) / 10 +
-                 Math.round((this.sentencesScore       /  2) * 10 ) / 10 +
-                 Math.round((this.eggcornsScore        /  1) * 10 ) / 10 +
-                 Math.round((tScore                        ) * 10 ) / 10);
+      Math.round((this.passiveVoiceScore / 10) * 10) / 10 +
+      Math.round((this.wordinessScore / 2) * 10) / 10 +
+      Math.round((this.academicStyleScore / 1) * 10) / 10 +
+      Math.round((this.grammarScore / 1) * 10) / 10 +
+      Math.round((this.nominalizationsScore / 6) * 10) / 10 +
+      Math.round((this.sentencesScore / 2) * 10) / 10 +
+      Math.round((this.eggcornsScore / 1) * 10) / 10 +
+      Math.round((tScore) * 10) / 10);
 
     if (this.totalSentences <= 4) {
       this.grade = 0;
@@ -242,20 +242,24 @@ export class AcademicStyleFixComponent implements OnInit {
 
   academicStyleFix(userText: string) {
     //find non academic word in user text
+    let testidng = 1
     for (const fix in this.academicStyleTable) {
       if (userText.includes(fix)) {
         this.academic.changeTotalNonAcademic(this.totalNonAcademic + 1);
-        this.academicStyleUserTable.find.push("• " + fix + " ⟶ " + this.academicStyleTable[fix]);
-        this.academic.changeAcademicStyleUserTable(this.academicStyleUserTable);
+        this.academicStyleUserTable.push("• " + testidng + " " + fix + " ⟶ " + this.academicStyleTable[fix]);
+        testidng++;
         // this.academicStyleUserTable.suggestion.push("→ " + this.academicStyleTable[fix]);
       }
     }
+    this.academicStyleUserTable.find = this.academicStyleUserTable.reverse();
+    this.academic.changeAcademicStyleUserTable(this.academicStyleUserTable);
+
     let word;
     word = "";
     let wordCounter = 0;
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < userText.length; i++) {
-      if(/[a-zA-Z]/.test(userText[i]) || userText[i] === '\’' || userText[i] === '\'') {
+      if (/[a-zA-Z]/.test(userText[i]) || userText[i] === '\’' || userText[i] === '\'') {
         word += userText[i];
       }
       else {
@@ -266,7 +270,7 @@ export class AcademicStyleFixComponent implements OnInit {
     //calculate academic style score
     this.academicStyleScore = (this.totalNonAcademic / wordCounter) * 100;
     if (isNaN(this.academicStyleScore) || this.academicStyleScore === Infinity) {
-      this.academicStyleScore= 0;
+      this.academicStyleScore = 0;
     }
     try {
       if (this.academicStyleScore > 1) {
@@ -281,13 +285,13 @@ export class AcademicStyleFixComponent implements OnInit {
         throw new Error("");
       }
     }
-    catch(e) {
+    catch (e) {
       this.academicStyleFeedback = "Make sure you enter at least one sentence.";
       this.academicStyleAlertColor = "orange";
       this.academicStyleScore = 0;
     }
     if (isNaN(this.academicStyleScore) || this.academicStyleScore === Infinity) {
-      this.academicStyleScore= 0;
+      this.academicStyleScore = 0;
     }
     this.academic.changeAcademicStyleScore(Math.round(this.academicStyleScore * 10) / 10);
     this.academic.changeAcademicStyleFeedback(this.academicStyleFeedback);
@@ -322,7 +326,7 @@ export class AcademicStyleFixComponent implements OnInit {
     }
     this.eggcornsScore = (this.totalEggcorns / this.totalSentences) * 100;
     if (isNaN(this.eggcornsScore) || this.eggcornsScore === Infinity) {
-      this.eggcornsScore= 0;
+      this.eggcornsScore = 0;
     }
     try {
       if (this.eggcornsScore == 0) {
@@ -345,7 +349,7 @@ export class AcademicStyleFixComponent implements OnInit {
         throw new Error("");
       }
     }
-    catch(e) {
+    catch (e) {
       this.eggcornsFeedback = "Make sure you enter at least one sentence.";
       this.eggcornsAlertColor = "orange";
       this.eggcornsScore = 0;
@@ -376,7 +380,7 @@ export class AcademicStyleFixComponent implements OnInit {
       }
     }
     this.grammarScore = (this.totalGrammar / this.totalSentences) * 100;
-    if (isNaN(this.grammarScore)|| this.grammarScore === Infinity) {
+    if (isNaN(this.grammarScore) || this.grammarScore === Infinity) {
       this.grammarScore = 0;
     }
     try {
@@ -394,7 +398,7 @@ export class AcademicStyleFixComponent implements OnInit {
         throw new Error("");
       }
     }
-    catch(e) {
+    catch (e) {
       this.grammarFeedback = "Make sure you enter at least one sentence.";
       this.grammarAlertColor = "orange";
       this.grammarScore = 0;
@@ -421,7 +425,7 @@ export class AcademicStyleFixComponent implements OnInit {
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < userText.length; i++) {
 
-      if(/[a-zA-Z]/.test(userText[i]) || userText[i] === '\’' || userText[i] === '\'') {
+      if (/[a-zA-Z]/.test(userText[i]) || userText[i] === '\’' || userText[i] === '\'') {
         word += userText[i];
       }
       else {
@@ -453,7 +457,7 @@ export class AcademicStyleFixComponent implements OnInit {
         throw new Error('');
       }
     }
-    catch(e) {
+    catch (e) {
       this.nominalizationsFeedback = 'Make sure you enter at least one sentence.';
       this.nominalizationsAlertColor = 'orange';
       this.nominalizationsScore = 0;
@@ -541,7 +545,7 @@ export class AcademicStyleFixComponent implements OnInit {
       }
     }
     this.wordinessScore = (this.wordinessNumber / this.totalSentences) * 100;
-    if (isNaN(this.wordinessScore)|| this.wordinessScore === Infinity) {
+    if (isNaN(this.wordinessScore) || this.wordinessScore === Infinity) {
       this.wordinessScore = 0;
     }
     try {
@@ -645,7 +649,7 @@ export class AcademicStyleFixComponent implements OnInit {
         throw new Error('');
       }
     }
-    catch(e) {
+    catch (e) {
       this.sentencesFeedback = 'Make sure you enter at least one sentence.';
       this.sentencesAlertColor = 'orange';
       this.sentencesScore = 0;
@@ -709,7 +713,7 @@ export class AcademicStyleFixComponent implements OnInit {
         throw new Error("");
       }
     }
-    catch(e) {
+    catch (e) {
       this.transitionsFeedback = "Make sure you enter at least one sentence.";
       this.transitionsAlertColor = "orange";
       this.transitionsScore = 0;
