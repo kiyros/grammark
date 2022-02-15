@@ -242,17 +242,44 @@ export class AcademicStyleFixComponent implements OnInit {
 
   academicStyleFix(userText: string) {
     //find non academic word in user text
-    let testidng = 1
+    const errorHolder = new Map();
     for (const fix in this.academicStyleTable) {
       if (userText.includes(fix)) {
+        errorHolder.set(userText.indexOf(fix), "• " + fix + " ⟶ " + this.academicStyleTable[fix]);
         this.academic.changeTotalNonAcademic(this.totalNonAcademic + 1);
-        this.academicStyleUserTable.push("• " + testidng + " " + fix + " ⟶ " + this.academicStyleTable[fix]);
-        testidng++;
+        // this.academicStyleUserTable.push(errorHolder.get(47) + " testing" + userText.indexOf(fix));
         // this.academicStyleUserTable.suggestion.push("→ " + this.academicStyleTable[fix]);
       }
     }
-    this.academicStyleUserTable.find = this.academicStyleUserTable.reverse();
-    this.academic.changeAcademicStyleUserTable(this.academicStyleUserTable);
+
+    // sort by value; in order of when they appear in the text
+    const sortedErrors = new Map(
+      [...errorHolder.entries()]
+        .sort(([a], [b]) => a - b)
+    );
+    this.academicStyleUserTable = Array.from(sortedErrors.values());
+    console.log(sortedErrors)
+
+    // const userSentenceArray = userText.split(".");
+    // for (const sentence in userSentenceArray) {
+    //   this.academicStyleUserTable.push("------" + userSentenceArray[sentence]);
+    //   const errorHolder = new Map();
+
+    //   for (const fix in this.academicStyleTable) {
+    //     if (userSentenceArray[sentence].includes(fix)) {
+    //       this.academic.changeTotalNonAcademic(this.totalNonAcademic + 1);
+
+    //       errorHolder.set(userSentenceArray[sentence].indexOf(fix), "");
+
+    //       this.academicStyleUserTable.push("• " + "index of: " + userSentenceArray[sentence].indexOf(fix) + "    " + fix + " ⟶ " + this.academicStyleTable[fix]);
+    //     }
+    //   }
+    // }
+
+
+
+    this.academicStyleUserTable.find = this.academicStyleUserTable;
+    this.academic.changeAcademicStyleUserTable(this.academicStyleUserTable.find);
 
     let word;
     word = "";
