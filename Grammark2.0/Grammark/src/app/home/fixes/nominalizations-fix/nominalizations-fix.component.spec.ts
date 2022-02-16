@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NominalizationsFixComponent } from './nominalizations-fix.component';
 
@@ -6,7 +6,7 @@ describe('NominalizationsFixComponent', () => {
   let component: NominalizationsFixComponent;
   let fixture: ComponentFixture<NominalizationsFixComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ NominalizationsFixComponent ]
     })

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -31,7 +31,7 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it("should take in the same input the user entered", async (() => {
+  it("should take in the same input the user entered", waitForAsync (() => {
     let input = fixture.debugElement.query(By.css('#userinput'));
       let el = input.nativeElement;
 

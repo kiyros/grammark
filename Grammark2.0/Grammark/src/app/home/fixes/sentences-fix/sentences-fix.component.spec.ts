@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SentencesFixComponent } from './sentences-fix.component';
 
@@ -6,7 +6,7 @@ describe('SentencesFixComponent', () => {
   let component: SentencesFixComponent;
   let fixture: ComponentFixture<SentencesFixComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ SentencesFixComponent ]
     })
