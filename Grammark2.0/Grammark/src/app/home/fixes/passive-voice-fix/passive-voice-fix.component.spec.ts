@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { PassiveVoiceFixComponent } from './passive-voice-fix.component';
 
@@ -6,7 +6,7 @@ describe('PassiveVoiceFixComponent', () => {
   let component: PassiveVoiceFixComponent;
   let fixture: ComponentFixture<PassiveVoiceFixComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ PassiveVoiceFixComponent ]
     })
