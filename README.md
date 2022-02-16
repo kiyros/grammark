@@ -11,7 +11,7 @@
 # 4.Communication tool
 - Discord
 - Microsoft Teams
-- Trello
+- JIRA
 
 # 5.Team Members
 <ol>
