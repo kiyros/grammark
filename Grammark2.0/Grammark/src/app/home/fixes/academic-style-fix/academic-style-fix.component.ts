@@ -258,7 +258,7 @@ export class AcademicStyleFixComponent implements OnInit {
         .sort(([a], [b]) => a - b)
     );
     this.academicStyleUserTable = Array.from(sortedErrors.values());
-    console.log(sortedErrors)
+    
 
     // const userSentenceArray = userText.split(".");
     // for (const sentence in userSentenceArray) {
