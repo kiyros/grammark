@@ -105,6 +105,11 @@ export class AcademicStyleFixComponent implements OnInit {
     this.data.changeMessage('');
   }
 
+  //returns the element that is displayed in the html 
+   getContent() {
+    return document.getElementById("userinput").innerHTML;
+}
+
   reHighlight(): void {
     // Reset every time you hit re-highlight
     this.data.changeTotalSentences(0);
@@ -129,8 +134,8 @@ export class AcademicStyleFixComponent implements OnInit {
     this.sentencesUserTable = { find: [], suggestion: [] };
 
     // variables
-    // tslint:disable-next-line: prefer-const
-    let userText = (document.getElementById('userinput') as HTMLTextAreaElement).value;
+    // user text = paragraph from the html file
+    let userText = this.getContent();
     let aLetter = false;
 
     // This function checks if there is at least one letter inputed
@@ -790,9 +795,9 @@ export class AcademicStyleFixComponent implements OnInit {
     var innerHTML = inputText.innerHTML;
     var index = innerHTML.indexOf(text);
     if (index >= 0) { 
-     innerHTML = innerHTML.substring(0,index) + "*" + innerHTML.substring(index,index+text.length) + "*" + innerHTML.substring(index + text.length);
+     innerHTML = innerHTML.substring(0,index) + "<mark>" + innerHTML.substring(index,index+text.length) + "</mark>" + innerHTML.substring(index + text.length);
      inputText.innerHTML = innerHTML;
     }
   }
-
+  
 }
