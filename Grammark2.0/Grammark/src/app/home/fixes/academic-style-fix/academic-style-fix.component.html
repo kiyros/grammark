@@ -21,10 +21,10 @@
   <mat-toolbar-row class="description">{{academicStyleFeedback}}</mat-toolbar-row>
 </mat-toolbar>
 
-<div>
+<div >
   <div class="column1">
     <textarea id="userinput" name="userinput">{{ message }}</textarea>
-    <button (click)="reHighlight()" class="rehighlight">Re-highlight</button>
+    <button (click)="reHighlight(); " class="rehighlight">Re-highlight</button>
   </div>
 
   <div class="column2">

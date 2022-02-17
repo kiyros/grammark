@@ -239,6 +239,7 @@ export class AcademicStyleFixComponent implements OnInit {
     this.data.changeGradeAlertColor(this.gradeAlertColor);
     this.data.changeGradeFeedback(this.gradeFeedback);
   }
+  
 
   academicStyleFix(userText: string) {
     //find non academic word in user text
@@ -246,6 +247,7 @@ export class AcademicStyleFixComponent implements OnInit {
     for (const fix in this.academicStyleTable) {
       if (userText.includes(fix)) {
         errorHolder.set(userText.indexOf(fix), "• " + fix + " ⟶ " + this.academicStyleTable[fix]);
+        this.highlight(fix)
         this.academic.changeTotalNonAcademic(this.totalNonAcademic + 1);
         // this.academicStyleUserTable.push(errorHolder.get(47) + " testing" + userText.indexOf(fix));
         // this.academicStyleUserTable.suggestion.push("→ " + this.academicStyleTable[fix]);
@@ -779,5 +781,18 @@ export class AcademicStyleFixComponent implements OnInit {
     // Transitions score
     this.transitions.currentTransitionsScore.subscribe(transitionsScore => this.transitionsScore = transitionsScore);
 
+
   }
+
+   highlight(text) {
+     console.log(text)
+    var inputText = document.getElementById("userinput");
+    var innerHTML = inputText.innerHTML;
+    var index = innerHTML.indexOf(text);
+    if (index >= 0) { 
+     innerHTML = innerHTML.substring(0,index) + "*" + innerHTML.substring(index,index+text.length) + "*" + innerHTML.substring(index + text.length);
+     inputText.innerHTML = innerHTML;
+    }
+  }
+
 }
