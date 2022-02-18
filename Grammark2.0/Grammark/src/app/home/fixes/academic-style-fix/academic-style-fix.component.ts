@@ -790,12 +790,11 @@ export class AcademicStyleFixComponent implements OnInit {
   }
 
    highlight(text) {
-     console.log(text)
     var inputText = document.getElementById("userinput");
     var innerHTML = inputText.innerHTML;
     var index = innerHTML.indexOf(text);
     if (index >= 0) { 
-     innerHTML = innerHTML.substring(0,index) + "<mark>" + innerHTML.substring(index,index+text.length) + "</mark>" + innerHTML.substring(index + text.length);
+     innerHTML = innerHTML.substring(0,index) + '<mark style="background-color: #c0ffc8; padding: 0.1em, 0.2em;">' + innerHTML.substring(index,index+text.length) + '</mark>' + innerHTML.substring(index + text.length);
      inputText.innerHTML = innerHTML;
     }
   }

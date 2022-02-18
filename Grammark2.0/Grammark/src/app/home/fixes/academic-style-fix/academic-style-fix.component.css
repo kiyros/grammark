@@ -47,7 +47,8 @@
   resize: none;
   border-width: thick;
   padding: 5px;
-  font-size: 14px;
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .rehighlight {
@@ -115,6 +116,4 @@
     font-size: 20px;
   }
 
- .highlight {
-    background-color: yellow;
-  }
+

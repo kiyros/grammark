@@ -8,8 +8,7 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 export class DataService {
 
   // Input text
-  private messageSource = new BehaviorSubject<string>('I enjoy soft music to help clam my nerves when i am stressed out.'+ 
-  'To me, the piano is the most calming instrument I’ve ever heard. ');
+  private messageSource = new BehaviorSubject<string>('');
   currentMessage = this.messageSource.asObservable();
 
   // Grade
