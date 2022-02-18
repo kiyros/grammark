@@ -15,6 +15,10 @@
     justify-content: space-between;
 }
 
+.highlight {
+  background-color: #EEF43B;
+}
+
 .grammark{
     color: black;
     text-decoration: none;

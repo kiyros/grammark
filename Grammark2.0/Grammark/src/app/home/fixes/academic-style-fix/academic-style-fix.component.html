@@ -10,7 +10,6 @@
   <a class="linkedpages" routerLink="../transitions-fix">Transitions</a>
   <a class="linkedpages" (click)="startOverClick()" routerLink="">Start Over</a>
 </mat-toolbar>
-
 <div class="alert-box" [style.background-color]="academicStyleAlertColor">
   <h5 class="box">{{ totalNonAcademic }} instances ({{ academicStyleScore }}% of sentences)</h5>
   <b class="box"> Goal: 1% or less </b>
@@ -21,10 +20,11 @@
   <mat-toolbar-row class="description">{{academicStyleFeedback}}</mat-toolbar-row>
 </mat-toolbar>
 
-<div>
-  <div class="column1">
-    <textarea id="userinput" name="userinput">{{ message }}</textarea>
-    <button (click)="reHighlight()" class="rehighlight">Re-highlight</button>
+<div >
+  <div class="column1" >
+    <p id="userinput" name="userinput">{{ message }}</p>
+    <br>
+    <button (click)="reHighlight();" class="rehighlight">Re-highlight</button>
   </div>
 
   <div class="column2">
@@ -34,7 +34,7 @@
 				<tr *ngFor="let tableData of academicStyleUserTable.find">{{tableData}}</tr>
       </td>
       <td>
-        <tr *ngFor="let tableData of academicStyleUserTable.suggestion">{{tableData}}</tr>
+        <tr  *ngFor="let tableData of academicStyleUserTable.suggestion">{{tableData}}</tr>
       </td>
 		</table>
   </div>
