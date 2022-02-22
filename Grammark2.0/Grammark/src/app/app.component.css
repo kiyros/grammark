@@ -1,5 +1,5 @@
 .mat-toolbar.mat-primary {
-    background: lightskyblue;
+    background: #00704a;
     color: #fff;
     border-left: black groove;
     border-right: black groove;
@@ -13,6 +13,10 @@
 */
 .navbar {
     justify-content: space-between;
+}
+
+.highlight {
+  background-color: #EEF43B;
 }
 
 .grammark{
