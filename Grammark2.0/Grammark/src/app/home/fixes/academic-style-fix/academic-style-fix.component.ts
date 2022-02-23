@@ -286,10 +286,10 @@ export class AcademicStyleFixComponent implements OnInit {
     }
 
     // sort by value; in order of when they appear in the text
-    const sortedErrors = new Map(
+    const sortedErrors = Array.from(new Map(
       [...errorHolder.entries()].sort(([a], [b]) => a - b)
-    );
-    this.academicStyleUserTable = Array.from(sortedErrors.values());
+    ).values());
+    this.academicStyleUserTable = sortedErrors;
 
     // const userSentenceArray = userText.split(".");
     // for (const sentence in userSentenceArray) {
