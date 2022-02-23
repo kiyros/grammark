@@ -13,10 +13,9 @@ import { TransitionsService } from '../../../services/transitions.service';
 @Component({
   selector: 'app-academic-style-fix',
   templateUrl: './academic-style-fix.component.html',
-  styleUrls: ['./academic-style-fix.component.css']
+  styleUrls: ['./academic-style-fix.component.css'],
 })
 export class AcademicStyleFixComponent implements OnInit {
-
   title = 'Academic-Style-Fix';
 
   // Global global
@@ -27,7 +26,7 @@ export class AcademicStyleFixComponent implements OnInit {
   totalSentences: number;
 
   // Academic Style
-  academicStyleFeedback: string = " ";
+  academicStyleFeedback: string = ' ';
   academicStyleScore: number;
   totalNonAcademic: number;
   academicStyleTable: any;
@@ -35,7 +34,7 @@ export class AcademicStyleFixComponent implements OnInit {
   academicStyleAlertColor: any;
 
   // Eggcorns
-  eggcornsFeedback: string = " ";
+  eggcornsFeedback: string = ' ';
   eggcornsScore: number;
   totalEggcorns: number;
   eggcornsTable: any;
@@ -43,7 +42,7 @@ export class AcademicStyleFixComponent implements OnInit {
   eggcornsAlertColor: any;
 
   // Grammar
-  grammarFeedback: string = " ";
+  grammarFeedback: string = ' ';
   totalGrammar: number;
   grammarTable: any;
   grammarUserTable: any;
@@ -63,7 +62,7 @@ export class AcademicStyleFixComponent implements OnInit {
   wordinessTable: any;
   wordinessUserTable: any;
   wordinessAlertColor: string;
-  wordinessFeedback: string = " ";
+  wordinessFeedback: string = ' ';
   wordinessScore: number;
 
   // Passive Voice
@@ -84,14 +83,15 @@ export class AcademicStyleFixComponent implements OnInit {
   sentencesScore: number;
 
   // Transitions
-  transitionsFeedback: string = " ";
+  transitionsFeedback: string = ' ';
   transitionsScore: number;
   totalTransitions: number;
   transitionsTable: any;
   transitionsUserTable: any;
   transitionsAlertColor: any;
 
-  constructor(private data: DataService,
+  constructor(
+    private data: DataService,
     private academic: AcademicStyleService,
     private eggcorns: EggcornService,
     private grammar: GrammarService,
@@ -99,16 +99,17 @@ export class AcademicStyleFixComponent implements OnInit {
     private passivevoice: PassivevoiceService,
     private wordiness: WordinessService,
     private sentences: SentencesService,
-    private transitions: TransitionsService) { }
+    private transitions: TransitionsService
+  ) {}
 
   startOverClick(): void {
     this.data.changeMessage('');
   }
 
-  //returns the element that is displayed in the html 
-   getContent() {
-    return document.getElementById("userinput").innerHTML;
-}
+  //returns the element that is displayed in the html
+  getContent() {
+    return document.getElementById('userinput').innerHTML;
+  }
 
   reHighlight(): void {
     // Reset every time you hit re-highlight
@@ -143,23 +144,25 @@ export class AcademicStyleFixComponent implements OnInit {
       if (/[a-zA-Z]/.test(userText)) {
         aLetter = true;
       }
-    }
+    };
     // calling function - checker
     validateChar();
 
     // alters! or proceed to overview
     if (userText === '') {
       alert('Please fill out the text area');
-    }
-    else if (aLetter === false) {
+    } else if (aLetter === false) {
       alert('Please enter at least one letter');
-    }
-    else {
+    } else {
       this.data.changeMessage(userText);
 
       // Find total sentences in text
       for (let i = 0; i < userText.length; i++) {
-        if (userText.charAt(i) === "." || userText.charAt(i) === "!" || userText.charAt(i) === "?") {
+        if (
+          userText.charAt(i) === '.' ||
+          userText.charAt(i) === '!' ||
+          userText.charAt(i) === '?'
+        ) {
           this.data.changeTotalSentences(this.totalSentences + 1);
         }
       }
@@ -179,11 +182,19 @@ export class AcademicStyleFixComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.data.currentMessage.subscribe(message => this.message = message);
-    this.data.currentTotalSentences.subscribe(totalSentences => this.totalSentences = totalSentences);
-    this.data.currentTotalSentences.subscribe(totalSentences => this.totalSentences = totalSentences);
-    this.data.currentGradeAlertColor.subscribe(gradeAlertColor => this.gradeAlertColor = gradeAlertColor);
-    this.data.currentGradeFeedback.subscribe(gradeFeedback => this.gradeFeedback = gradeFeedback);
+    this.data.currentMessage.subscribe((message) => (this.message = message));
+    this.data.currentTotalSentences.subscribe(
+      (totalSentences) => (this.totalSentences = totalSentences)
+    );
+    this.data.currentTotalSentences.subscribe(
+      (totalSentences) => (this.totalSentences = totalSentences)
+    );
+    this.data.currentGradeAlertColor.subscribe(
+      (gradeAlertColor) => (this.gradeAlertColor = gradeAlertColor)
+    );
+    this.data.currentGradeFeedback.subscribe(
+      (gradeFeedback) => (this.gradeFeedback = gradeFeedback)
+    );
 
     // Services
     this.academicStyleService();
@@ -201,40 +212,37 @@ export class AcademicStyleFixComponent implements OnInit {
     let tScore = 0;
     if (this.transitionsScore >= 10) {
       tScore = 0;
-    }
-    else {
+    } else {
       tScore = 10 - this.transitionsScore;
     }
 
-    this.grade = 100 - (
-      Math.round((this.passiveVoiceScore / 10) * 10) / 10 +
-      Math.round((this.wordinessScore / 2) * 10) / 10 +
-      Math.round((this.academicStyleScore / 1) * 10) / 10 +
-      Math.round((this.grammarScore / 1) * 10) / 10 +
-      Math.round((this.nominalizationsScore / 6) * 10) / 10 +
-      Math.round((this.sentencesScore / 2) * 10) / 10 +
-      Math.round((this.eggcornsScore / 1) * 10) / 10 +
-      Math.round((tScore) * 10) / 10);
+    this.grade =
+      100 -
+      (Math.round((this.passiveVoiceScore / 10) * 10) / 10 +
+        Math.round((this.wordinessScore / 2) * 10) / 10 +
+        Math.round((this.academicStyleScore / 1) * 10) / 10 +
+        Math.round((this.grammarScore / 1) * 10) / 10 +
+        Math.round((this.nominalizationsScore / 6) * 10) / 10 +
+        Math.round((this.sentencesScore / 2) * 10) / 10 +
+        Math.round((this.eggcornsScore / 1) * 10) / 10 +
+        Math.round(tScore * 10) / 10);
 
     if (this.totalSentences <= 4) {
       this.grade = 0;
       this.gradeFeedback = 'You must enter at least 5 sentences to get a grade';
       this.gradeAlertColor = 'red';
-    }
-    else {
+    } else {
       if (this.grade < 70) {
         this.gradeFeedback = 'Your writing seems to have many grammar errors';
         this.gradeAlertColor = 'red';
-      }
-      else if (this.grade < 80) {
-        this.gradeFeedback = 'Your writing seems to have a lot of grammar errors';
+      } else if (this.grade < 80) {
+        this.gradeFeedback =
+          'Your writing seems to have a lot of grammar errors';
         this.gradeAlertColor = 'orange';
-      }
-      else if (this.grade < 90) {
+      } else if (this.grade < 90) {
         this.gradeFeedback = 'Good Job! The number of grammar errors seems low';
         this.gradeAlertColor = 'orange';
-      }
-      else {
+      } else {
         this.gradeFeedback = 'Great Job!';
         this.gradeAlertColor = 'green';
       }
@@ -244,16 +252,34 @@ export class AcademicStyleFixComponent implements OnInit {
     this.data.changeGradeAlertColor(this.gradeAlertColor);
     this.data.changeGradeFeedback(this.gradeFeedback);
   }
-  
 
   academicStyleFix(userText: string) {
     //find non academic word in user text
     const errorHolder = new Map();
     for (const fix in this.academicStyleTable) {
       if (userText.includes(fix)) {
-        errorHolder.set(userText.indexOf(fix), "• " + fix + " ⟶ " + this.academicStyleTable[fix]);
-        this.highlight(fix)
+        let errorIndex = userText.indexOf(fix);
+        errorHolder.set(
+          errorIndex,
+          '• ' + fix + ' ⟶ ' + this.academicStyleTable[fix]
+        );
         this.academic.changeTotalNonAcademic(this.totalNonAcademic + 1);
+
+        //highlights the error
+        this.willFind(fix);
+
+        while (userText.indexOf(fix, errorIndex + 1) > errorIndex) {
+          // console.log(errorIndex, "• " + fix + " ⟶ " + this.academicStyleTable[fix])
+          errorIndex = userText.indexOf(fix, errorIndex + 1);
+          errorHolder.set(
+            errorIndex,
+            '• ' + fix + ' ⟶ ' + this.academicStyleTable[fix]
+            
+          );
+          // console.log(errorIndex + " • " + fix + " ⟶ " + this.academicStyleTable[fix]);
+            
+          this.academic.changeTotalNonAcademic(this.totalNonAcademic + 1);
+        }
         // this.academicStyleUserTable.push(errorHolder.get(47) + " testing" + userText.indexOf(fix));
         // this.academicStyleUserTable.suggestion.push("→ " + this.academicStyleTable[fix]);
       }
@@ -261,11 +287,9 @@ export class AcademicStyleFixComponent implements OnInit {
 
     // sort by value; in order of when they appear in the text
     const sortedErrors = new Map(
-      [...errorHolder.entries()]
-        .sort(([a], [b]) => a - b)
+      [...errorHolder.entries()].sort(([a], [b]) => a - b)
     );
     this.academicStyleUserTable = Array.from(sortedErrors.values());
-    
 
     // const userSentenceArray = userText.split(".");
     // for (const sentence in userSentenceArray) {
@@ -283,77 +307,105 @@ export class AcademicStyleFixComponent implements OnInit {
     //   }
     // }
 
-
-
     this.academicStyleUserTable.find = this.academicStyleUserTable;
-    this.academic.changeAcademicStyleUserTable(this.academicStyleUserTable.find);
+    this.academic.changeAcademicStyleUserTable(
+      this.academicStyleUserTable.find
+    );
 
     let word;
-    word = "";
+    word = '';
     let wordCounter = 0;
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < userText.length; i++) {
-      if (/[a-zA-Z]/.test(userText[i]) || userText[i] === '\’' || userText[i] === '\'') {
+      if (
+        /[a-zA-Z]/.test(userText[i]) ||
+        userText[i] === '’' ||
+        userText[i] === "'"
+      ) {
         word += userText[i];
-      }
-      else {
-        word = "";
+      } else {
+        word = '';
         wordCounter++;
       }
     }
     //calculate academic style score
     this.academicStyleScore = (this.totalNonAcademic / wordCounter) * 100;
-    if (isNaN(this.academicStyleScore) || this.academicStyleScore === Infinity) {
+    if (
+      isNaN(this.academicStyleScore) ||
+      this.academicStyleScore === Infinity
+    ) {
       this.academicStyleScore = 0;
     }
     try {
       if (this.academicStyleScore > 1) {
-        this.academicStyleAlertColor = "red";
-        this.academicStyleFeedback = "Your writing may contain language that is either too casual or too extreme for academic discourse.";
-      }
-      else {
-        this.academicStyleAlertColor = "green";
-        this.academicStyleFeedback = "Your writing has a low percentage of casual and/or extreme language. This makes it more acceptable for academic style.";
+        this.academicStyleAlertColor = 'red';
+        this.academicStyleFeedback =
+          'Your writing may contain language that is either too casual or too extreme for academic discourse.';
+      } else {
+        this.academicStyleAlertColor = 'green';
+        this.academicStyleFeedback =
+          'Your writing has a low percentage of casual and/or extreme language. This makes it more acceptable for academic style.';
       }
       if (this.totalSentences === 0) {
-        throw new Error("");
+        throw new Error('');
       }
-    }
-    catch (e) {
-      this.academicStyleFeedback = "Make sure you enter at least one sentence.";
-      this.academicStyleAlertColor = "orange";
+    } catch (e) {
+      this.academicStyleFeedback = 'Make sure you enter at least one sentence.';
+      this.academicStyleAlertColor = 'orange';
       this.academicStyleScore = 0;
     }
-    if (isNaN(this.academicStyleScore) || this.academicStyleScore === Infinity) {
+    if (
+      isNaN(this.academicStyleScore) ||
+      this.academicStyleScore === Infinity
+    ) {
       this.academicStyleScore = 0;
     }
-    this.academic.changeAcademicStyleScore(Math.round(this.academicStyleScore * 10) / 10);
+    this.academic.changeAcademicStyleScore(
+      Math.round(this.academicStyleScore * 10) / 10
+    );
     this.academic.changeAcademicStyleFeedback(this.academicStyleFeedback);
     this.academic.changeAcademicStyleAlertColor(this.academicStyleAlertColor);
   }
 
   academicStyleService() {
     //result color
-    this.academic.currentAcademicStyleAlertColor.subscribe(academicStyleAlertColor => this.academicStyleAlertColor = academicStyleAlertColor);
+    this.academic.currentAcademicStyleAlertColor.subscribe(
+      (academicStyleAlertColor) =>
+        (this.academicStyleAlertColor = academicStyleAlertColor)
+    );
     //Feedback
-    this.academic.currentAcademicStyleFeedback.subscribe(academicStyleFeedback => this.academicStyleFeedback = academicStyleFeedback);
+    this.academic.currentAcademicStyleFeedback.subscribe(
+      (academicStyleFeedback) =>
+        (this.academicStyleFeedback = academicStyleFeedback)
+    );
     // Total number of sentences in the user input
     // this.academic.currentTotalSentences.subscribe(totalSentences => this.sentences = totalSentences);
     // Total number of non academic style instances in the user input
-    this.academic.currentTotalNonAcademic.subscribe(totalNonAcademic => this.totalNonAcademic = totalNonAcademic);
+    this.academic.currentTotalNonAcademic.subscribe(
+      (totalNonAcademic) => (this.totalNonAcademic = totalNonAcademic)
+    );
     // academic style table
-    this.academic.currentAcademicStyleTable.subscribe(academicStyleTable => this.academicStyleTable = academicStyleTable);
+    this.academic.currentAcademicStyleTable.subscribe(
+      (academicStyleTable) => (this.academicStyleTable = academicStyleTable)
+    );
     // non academic style table of Current User Errors in Text
-    this.academic.currentAcademicStyleUserTable.subscribe(academicStyleUserTable => this.academicStyleUserTable = academicStyleUserTable);
+    this.academic.currentAcademicStyleUserTable.subscribe(
+      (academicStyleUserTable) =>
+        (this.academicStyleUserTable = academicStyleUserTable)
+    );
     // non academic style score
-    this.academic.currentAcademicStyleScore.subscribe(academicStyleScore => this.academicStyleScore = academicStyleScore);
+    this.academic.currentAcademicStyleScore.subscribe(
+      (academicStyleScore) => (this.academicStyleScore = academicStyleScore)
+    );
   }
 
   eggcornsFix(userText: string) {
     for (const fix in this.eggcornsTable) {
       if (userText.toLocaleLowerCase().includes(fix)) {
         this.eggcorns.changeTotalEggcorns(this.totalEggcorns + 1);
-        this.eggcornsUserTable.find.push("• " + fix + " ⟶ " + this.eggcornsTable[fix]);
+        this.eggcornsUserTable.find.push(
+          '• ' + fix + ' ⟶ ' + this.eggcornsTable[fix]
+        );
         // this.eggcornsUserTable.suggestion.push(" ⟶ " + this.eggcornsTable[fix]);
         this.eggcorns.changeEggcornsUserTable(this.eggcornsUserTable);
       }
@@ -364,28 +416,27 @@ export class AcademicStyleFixComponent implements OnInit {
     }
     try {
       if (this.eggcornsScore == 0) {
-        this.eggcornsAlertColor = "green";
-        this.eggcornsFeedback = "Great job! Your writing seems to have no Eggcorns.";
-      }
-      else if (this.eggcornsScore <= 5) {
-        this.eggcornsFeedback = " Good job, the number of Eggcorns words in your writing seems low";
-        this.eggcornsAlertColor = "orange";
-      }
-      else if (this.eggcornsScore <= 10) {
-        this.eggcornsFeedback = "Your writing seems to have a lot of eggcorns";
-        this.eggcornsAlertColor = "red";
-      }
-      else {
-        this.eggcornsFeedback = "Your writing seems to have a many eggcorns. Make sure you\'re not using eggcorns";
-        this.eggcornsAlertColor = "red";
+        this.eggcornsAlertColor = 'green';
+        this.eggcornsFeedback =
+          'Great job! Your writing seems to have no Eggcorns.';
+      } else if (this.eggcornsScore <= 5) {
+        this.eggcornsFeedback =
+          ' Good job, the number of Eggcorns words in your writing seems low';
+        this.eggcornsAlertColor = 'orange';
+      } else if (this.eggcornsScore <= 10) {
+        this.eggcornsFeedback = 'Your writing seems to have a lot of eggcorns';
+        this.eggcornsAlertColor = 'red';
+      } else {
+        this.eggcornsFeedback =
+          "Your writing seems to have a many eggcorns. Make sure you're not using eggcorns";
+        this.eggcornsAlertColor = 'red';
       }
       if (this.totalSentences === 0) {
-        throw new Error("");
+        throw new Error('');
       }
-    }
-    catch (e) {
-      this.eggcornsFeedback = "Make sure you enter at least one sentence.";
-      this.eggcornsAlertColor = "orange";
+    } catch (e) {
+      this.eggcornsFeedback = 'Make sure you enter at least one sentence.';
+      this.eggcornsAlertColor = 'orange';
       this.eggcornsScore = 0;
     }
     this.eggcorns.changeEggcornsScore(Math.round(this.eggcornsScore * 10) / 10);
@@ -394,12 +445,24 @@ export class AcademicStyleFixComponent implements OnInit {
   }
 
   eggcornnsService() {
-    this.eggcorns.currentEggcornsAlertColor.subscribe(eggcornsAlertColor => this.eggcornsAlertColor = eggcornsAlertColor);
-    this.eggcorns.currentEggcornsFeedback.subscribe(eggcornsFeedback => this.eggcornsFeedback = eggcornsFeedback);
-    this.eggcorns.currentEggcornsScore.subscribe(eggcornsScore => this.eggcornsScore = eggcornsScore);
-    this.eggcorns.currentTotalEggcorns.subscribe(totalEggcorns => this.totalEggcorns = totalEggcorns);
-    this.eggcorns.currentEggcornsTable.subscribe(eggcornsTable => this.eggcornsTable = eggcornsTable);
-    this.eggcorns.currentEggcornsUserTable.subscribe(eggcornsUserTable => this.eggcornsUserTable = eggcornsUserTable);
+    this.eggcorns.currentEggcornsAlertColor.subscribe(
+      (eggcornsAlertColor) => (this.eggcornsAlertColor = eggcornsAlertColor)
+    );
+    this.eggcorns.currentEggcornsFeedback.subscribe(
+      (eggcornsFeedback) => (this.eggcornsFeedback = eggcornsFeedback)
+    );
+    this.eggcorns.currentEggcornsScore.subscribe(
+      (eggcornsScore) => (this.eggcornsScore = eggcornsScore)
+    );
+    this.eggcorns.currentTotalEggcorns.subscribe(
+      (totalEggcorns) => (this.totalEggcorns = totalEggcorns)
+    );
+    this.eggcorns.currentEggcornsTable.subscribe(
+      (eggcornsTable) => (this.eggcornsTable = eggcornsTable)
+    );
+    this.eggcorns.currentEggcornsUserTable.subscribe(
+      (eggcornsUserTable) => (this.eggcornsUserTable = eggcornsUserTable)
+    );
   }
 
   grammarFix(userText: string) {
@@ -408,7 +471,9 @@ export class AcademicStyleFixComponent implements OnInit {
       // changing user text to lower Case to match with grammarTable
       if (userText.toLocaleLowerCase().includes(fix)) {
         this.grammar.changeTotalGrammar(this.totalGrammar + 1);
-        this.grammarUserTable.find.push("• " + fix + " ⟶ " + this.grammarTable[fix]);
+        this.grammarUserTable.find.push(
+          '• ' + fix + ' ⟶ ' + this.grammarTable[fix]
+        );
         // this.grammarUserTable.suggestion.push(" ⟶ " + this.grammarTable[fix]);
         this.grammar.changeGrammarUserTable(this.grammarUserTable);
       }
@@ -419,22 +484,22 @@ export class AcademicStyleFixComponent implements OnInit {
     }
     try {
       if (this.totalGrammar == 0) {
-        this.grammarAlertColor = "green";
-        this.grammarFeedback = "Woohoo! We didn't find any obvious grammark errors. However, " +
-          "beware: Grammark does not check for fragments, comma splices, subject-verb errors, " +
+        this.grammarAlertColor = 'green';
+        this.grammarFeedback =
+          "Woohoo! We didn't find any obvious grammark errors. However, " +
+          'beware: Grammark does not check for fragments, comma splices, subject-verb errors, ' +
           "number and pronoun problems. What's the best way to find grammar errors? Read your writing aloud.";
-      }
-      else if (this.totalGrammar > 0) {
-        this.grammarAlertColor = "red";
-        this.grammarFeedback = "Your writing includes words or phrases usually considered to be grammar errors.";
+      } else if (this.totalGrammar > 0) {
+        this.grammarAlertColor = 'red';
+        this.grammarFeedback =
+          'Your writing includes words or phrases usually considered to be grammar errors.';
       }
       if (this.totalSentences === 0) {
-        throw new Error("");
+        throw new Error('');
       }
-    }
-    catch (e) {
-      this.grammarFeedback = "Make sure you enter at least one sentence.";
-      this.grammarAlertColor = "orange";
+    } catch (e) {
+      this.grammarFeedback = 'Make sure you enter at least one sentence.';
+      this.grammarAlertColor = 'orange';
       this.grammarScore = 0;
     }
     this.grammar.changeGrammarScore(Math.round(this.grammarScore * 10) / 10);
@@ -443,12 +508,24 @@ export class AcademicStyleFixComponent implements OnInit {
   }
 
   grammarService() {
-    this.grammar.currentGrammarAlertColor.subscribe(grammarAlertColor => this.grammarAlertColor = grammarAlertColor);
-    this.grammar.currentGrammarFeedback.subscribe(grammarFeedback => this.grammarFeedback = grammarFeedback);
-    this.grammar.currentTotalGrammar.subscribe(totalGrammar => this.totalGrammar = totalGrammar);
-    this.grammar.currentGrammarTable.subscribe(grammarTable => this.grammarTable = grammarTable);
-    this.grammar.currentGrammarUserTable.subscribe(grammarUserTable => this.grammarUserTable = grammarUserTable);
-    this.grammar.currentGrammarScore.subscribe(grammarScore => this.grammarScore = grammarScore);
+    this.grammar.currentGrammarAlertColor.subscribe(
+      (grammarAlertColor) => (this.grammarAlertColor = grammarAlertColor)
+    );
+    this.grammar.currentGrammarFeedback.subscribe(
+      (grammarFeedback) => (this.grammarFeedback = grammarFeedback)
+    );
+    this.grammar.currentTotalGrammar.subscribe(
+      (totalGrammar) => (this.totalGrammar = totalGrammar)
+    );
+    this.grammar.currentGrammarTable.subscribe(
+      (grammarTable) => (this.grammarTable = grammarTable)
+    );
+    this.grammar.currentGrammarUserTable.subscribe(
+      (grammarUserTable) => (this.grammarUserTable = grammarUserTable)
+    );
+    this.grammar.currentGrammarScore.subscribe(
+      (grammarScore) => (this.grammarScore = grammarScore)
+    );
   }
 
   // tslint:disable-next-line: typedef
@@ -458,61 +535,98 @@ export class AcademicStyleFixComponent implements OnInit {
     let wordCounter = 0;
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < userText.length; i++) {
-
-      if (/[a-zA-Z]/.test(userText[i]) || userText[i] === '\’' || userText[i] === '\'') {
+      if (
+        /[a-zA-Z]/.test(userText[i]) ||
+        userText[i] === '’' ||
+        userText[i] === "'"
+      ) {
         word += userText[i];
-      }
-      else {
+      } else {
         for (const fix in this.nominalizationsTable) {
           if (word.length > 7 && word.includes(fix)) {
-            this.nominalizationsUserTable.find.push('• ' + word + ' ⟶ ' + this.nominalizationsTable[fix]);
-            this.nominalizations.changeNominalizationsNumber(this.nominalizationsNumber + 1);
-            this.nominalizations.changeNominalizationsUserTable(this.nominalizationsUserTable);
+            this.nominalizationsUserTable.find.push(
+              '• ' + word + ' ⟶ ' + this.nominalizationsTable[fix]
+            );
+            this.nominalizations.changeNominalizationsNumber(
+              this.nominalizationsNumber + 1
+            );
+            this.nominalizations.changeNominalizationsUserTable(
+              this.nominalizationsUserTable
+            );
           }
         }
-        word = "";
+        word = '';
         wordCounter++;
       }
     }
-    this.nominalizationsScore = (this.nominalizationsNumber / wordCounter) * 100;
-    if (isNaN(this.nominalizationsScore) || this.nominalizationsScore === Infinity) {
+    this.nominalizationsScore =
+      (this.nominalizationsNumber / wordCounter) * 100;
+    if (
+      isNaN(this.nominalizationsScore) ||
+      this.nominalizationsScore === Infinity
+    ) {
       this.nominalizationsScore = 0;
     }
     try {
       if (this.nominalizationsScore <= 6) {
-        this.nominalizationsFeedback = 'Rock on. Your writing has a reasonable number of "nominalized" word forms, highlighted below. You probably don\'t need to reduce these any further.';
+        this.nominalizationsFeedback =
+          'Rock on. Your writing has a reasonable number of "nominalized" word forms, highlighted below. You probably don\'t need to reduce these any further.';
         this.nominalizationsAlertColor = 'green';
-      }
-      else {
-        this.nominalizationsFeedback = 'Most of the words below are perfectly acceptable. However, you use many of these "nominalized" (non root-form) words. They bog down writing and decrease readability.';
+      } else {
+        this.nominalizationsFeedback =
+          'Most of the words below are perfectly acceptable. However, you use many of these "nominalized" (non root-form) words. They bog down writing and decrease readability.';
         this.nominalizationsAlertColor = 'red';
       }
       if (this.totalSentences === 0) {
         throw new Error('');
       }
-    }
-    catch (e) {
-      this.nominalizationsFeedback = 'Make sure you enter at least one sentence.';
+    } catch (e) {
+      this.nominalizationsFeedback =
+        'Make sure you enter at least one sentence.';
       this.nominalizationsAlertColor = 'orange';
       this.nominalizationsScore = 0;
     }
-    this.nominalizations.changeNominalizationsFeedback(this.nominalizationsFeedback);
-    this.nominalizations.changeNominalizationsScore(Math.round(this.nominalizationsScore * 10) / 10);
-    this.nominalizations.changeNominalizationsAlertColor(this.nominalizationsAlertColor);
+    this.nominalizations.changeNominalizationsFeedback(
+      this.nominalizationsFeedback
+    );
+    this.nominalizations.changeNominalizationsScore(
+      Math.round(this.nominalizationsScore * 10) / 10
+    );
+    this.nominalizations.changeNominalizationsAlertColor(
+      this.nominalizationsAlertColor
+    );
   }
 
   // tslint:disable-next-line: typedef
   nominalizationsService() {
     // tslint:disable-next-line: max-line-length
-    this.nominalizations.currentNominalizationsAlertColor.subscribe(nominalizationsAlertColor => this.nominalizationsAlertColor = nominalizationsAlertColor);
+    this.nominalizations.currentNominalizationsAlertColor.subscribe(
+      (nominalizationsAlertColor) =>
+        (this.nominalizationsAlertColor = nominalizationsAlertColor)
+    );
     // tslint:disable-next-line: max-line-length
-    this.nominalizations.currentNominalizationsFeedback.subscribe(nominalizationsFeedback => this.nominalizationsFeedback = nominalizationsFeedback);
-    this.nominalizations.currentNominalizationsScore.subscribe(nominalizationsScore => this.nominalizationsScore = nominalizationsScore);
+    this.nominalizations.currentNominalizationsFeedback.subscribe(
+      (nominalizationsFeedback) =>
+        (this.nominalizationsFeedback = nominalizationsFeedback)
+    );
+    this.nominalizations.currentNominalizationsScore.subscribe(
+      (nominalizationsScore) =>
+        (this.nominalizationsScore = nominalizationsScore)
+    );
     // tslint:disable-next-line: max-line-length
-    this.nominalizations.currentNominalizationsNumber.subscribe(nominalizationsNumber => this.nominalizationsNumber = nominalizationsNumber);
+    this.nominalizations.currentNominalizationsNumber.subscribe(
+      (nominalizationsNumber) =>
+        (this.nominalizationsNumber = nominalizationsNumber)
+    );
     // tslint:disable-next-line: max-line-length
-    this.nominalizations.currentNominalizationsUserTable.subscribe(nominalizationsUserTable => this.nominalizationsUserTable = nominalizationsUserTable);
-    this.nominalizations.currentNominalizationsTable.subscribe(nominalizationsTable => this.nominalizationsTable = nominalizationsTable);
+    this.nominalizations.currentNominalizationsUserTable.subscribe(
+      (nominalizationsUserTable) =>
+        (this.nominalizationsUserTable = nominalizationsUserTable)
+    );
+    this.nominalizations.currentNominalizationsTable.subscribe(
+      (nominalizationsTable) =>
+        (this.nominalizationsTable = nominalizationsTable)
+    );
   }
 
   passiveVoiceFix(userText: string) {
@@ -524,48 +638,75 @@ export class AcademicStyleFixComponent implements OnInit {
         const compareString = helper + fix;
 
         if (userText.includes(compareString)) {
-          this.passivevoice.changePassiveVoiceNumber(this.passiveVoiceNumber + 1);
-          this.passiveVoiceUserTable.find.push("• " + compareString + " ⟶ " + this.passiveVoiceTable[fix]);
+          this.passivevoice.changePassiveVoiceNumber(
+            this.passiveVoiceNumber + 1
+          );
+          this.passiveVoiceUserTable.find.push(
+            '• ' + compareString + ' ⟶ ' + this.passiveVoiceTable[fix]
+          );
           // this.passiveVoiceUserTable.suggestion.push(" ⟶ " + this.passiveVoiceTable[fix]);
-          this.passivevoice.changePassiveVoiceUserTable(this.passiveVoiceUserTable);
+          this.passivevoice.changePassiveVoiceUserTable(
+            this.passiveVoiceUserTable
+          );
         }
       }
     }
-    this.passiveVoiceScore = (this.passiveVoiceNumber / this.totalSentences) * 100;
+    this.passiveVoiceScore =
+      (this.passiveVoiceNumber / this.totalSentences) * 100;
     if (isNaN(this.passiveVoiceScore) || this.passiveVoiceScore === Infinity) {
       this.passiveVoiceScore = 0;
     }
     try {
       if (this.passiveVoiceScore > 10) {
-        this.passiveVoiceFeedback = "Generally, writing is clearer in active voice.";
-        this.passiveVoiceAlertColor = "red";
-      }
-      else {
-        this.passiveVoiceFeedback = "Your writing passed the criterion for passive sentences. Congrats!";
-        this.passiveVoiceAlertColor = "green";
+        this.passiveVoiceFeedback =
+          'Generally, writing is clearer in active voice.';
+        this.passiveVoiceAlertColor = 'red';
+      } else {
+        this.passiveVoiceFeedback =
+          'Your writing passed the criterion for passive sentences. Congrats!';
+        this.passiveVoiceAlertColor = 'green';
       }
       if (this.totalSentences === 0) {
-        throw new Error("");
+        throw new Error('');
       }
-    }
-    catch (e) {
-      this.passiveVoiceFeedback = "Make sure you enter at least one sentence.";
-      this.passiveVoiceAlertColor = "orange";
+    } catch (e) {
+      this.passiveVoiceFeedback = 'Make sure you enter at least one sentence.';
+      this.passiveVoiceAlertColor = 'orange';
       this.passiveVoiceScore = 0;
     }
     this.passivevoice.changePassiveVoiceFeedback(this.passiveVoiceFeedback);
-    this.passivevoice.changePassiveVoiceScore(Math.round(this.passiveVoiceScore * 10) / 10);
+    this.passivevoice.changePassiveVoiceScore(
+      Math.round(this.passiveVoiceScore * 10) / 10
+    );
     this.passivevoice.changePassiveVoiceAlertColor(this.passiveVoiceAlertColor);
   }
 
   passiveVoiceService() {
-    this.passivevoice.currentPassiveVoiceNumber.subscribe(passiveVoiceNumber => this.passiveVoiceNumber = passiveVoiceNumber);
-    this.passivevoice.currentPassiveVoiceTable.subscribe(passiveVoiceTable => this.passiveVoiceTable = passiveVoiceTable);
-    this.passivevoice.currentPassiveVoiceHelperTable.subscribe(passiveVoiceHelperTable => this.passiveVoiceHelperTable = passiveVoiceHelperTable);
-    this.passivevoice.currentPassiveVoiceUserTable.subscribe(passiveVoiceUserTable => this.passiveVoiceUserTable = passiveVoiceUserTable);
-    this.passivevoice.currentPassiveVoiceAlertColor.subscribe(passiveVoiceAlertColor => this.passiveVoiceAlertColor = passiveVoiceAlertColor);
-    this.passivevoice.currentPassiveVoiceFeedback.subscribe(passiveVoiceFeedback => this.passiveVoiceFeedback = passiveVoiceFeedback);
-    this.passivevoice.currentPassiveVoiceScore.subscribe(passiveVoiceScore => this.passiveVoiceScore = passiveVoiceScore);
+    this.passivevoice.currentPassiveVoiceNumber.subscribe(
+      (passiveVoiceNumber) => (this.passiveVoiceNumber = passiveVoiceNumber)
+    );
+    this.passivevoice.currentPassiveVoiceTable.subscribe(
+      (passiveVoiceTable) => (this.passiveVoiceTable = passiveVoiceTable)
+    );
+    this.passivevoice.currentPassiveVoiceHelperTable.subscribe(
+      (passiveVoiceHelperTable) =>
+        (this.passiveVoiceHelperTable = passiveVoiceHelperTable)
+    );
+    this.passivevoice.currentPassiveVoiceUserTable.subscribe(
+      (passiveVoiceUserTable) =>
+        (this.passiveVoiceUserTable = passiveVoiceUserTable)
+    );
+    this.passivevoice.currentPassiveVoiceAlertColor.subscribe(
+      (passiveVoiceAlertColor) =>
+        (this.passiveVoiceAlertColor = passiveVoiceAlertColor)
+    );
+    this.passivevoice.currentPassiveVoiceFeedback.subscribe(
+      (passiveVoiceFeedback) =>
+        (this.passiveVoiceFeedback = passiveVoiceFeedback)
+    );
+    this.passivevoice.currentPassiveVoiceScore.subscribe(
+      (passiveVoiceScore) => (this.passiveVoiceScore = passiveVoiceScore)
+    );
   }
 
   wordinessFix(userText: string) {
@@ -573,7 +714,9 @@ export class AcademicStyleFixComponent implements OnInit {
     for (const fix in this.wordinessTable) {
       if (userText.includes(fix)) {
         this.wordiness.changeWordinessNumber(this.wordinessNumber + 1);
-        this.wordinessUserTable.find.push("• " + fix + " ⟶ " + this.wordinessTable[fix]);
+        this.wordinessUserTable.find.push(
+          '• ' + fix + ' ⟶ ' + this.wordinessTable[fix]
+        );
         // this.wordinessUserTable.suggestion.push("→ " + this.wordinessTable[fix]);
         this.wordiness.changeWordinessUserTable(this.wordinessUserTable);
       }
@@ -584,34 +727,48 @@ export class AcademicStyleFixComponent implements OnInit {
     }
     try {
       if (this.wordinessScore > 2) {
-        this.wordinessFeedback = "Your writing seems too wordy. Why use 3 words when you can say it with 1?";
-        this.wordinessAlertColor = "red";
-      }
-      else {
-        this.wordinessFeedback = "Woohoo! Your writing seems concise, precise, and snappy. George Orwell would be proud.";
-        this.wordinessAlertColor = "green";
+        this.wordinessFeedback =
+          'Your writing seems too wordy. Why use 3 words when you can say it with 1?';
+        this.wordinessAlertColor = 'red';
+      } else {
+        this.wordinessFeedback =
+          'Woohoo! Your writing seems concise, precise, and snappy. George Orwell would be proud.';
+        this.wordinessAlertColor = 'green';
       }
       if (this.totalSentences === 0) {
-        throw new Error("");
+        throw new Error('');
       }
-    }
-    catch (e) {
-      this.wordinessFeedback = "Make sure you enter at least one sentence.";
-      this.wordinessAlertColor = "orange";
+    } catch (e) {
+      this.wordinessFeedback = 'Make sure you enter at least one sentence.';
+      this.wordinessAlertColor = 'orange';
       this.wordinessScore = 0;
     }
     this.wordiness.changeWordinessFeedback(this.wordinessFeedback);
-    this.wordiness.changeWordinessScore(Math.round(this.wordinessScore * 10) / 10);
+    this.wordiness.changeWordinessScore(
+      Math.round(this.wordinessScore * 10) / 10
+    );
     this.wordiness.changeWordinessAlertColor(this.wordinessAlertColor);
   }
 
   wordinessService() {
-    this.wordiness.currentWordinessNumber.subscribe(wordinessNumber => this.wordinessNumber = wordinessNumber);
-    this.wordiness.currentWordinessTable.subscribe(wordinessTable => this.wordinessTable = wordinessTable);
-    this.wordiness.currentWordinessUserTable.subscribe(wordinessUserTable => this.wordinessUserTable = wordinessUserTable);
-    this.wordiness.currentWordinessAlertColor.subscribe(wordinessAlertColor => this.wordinessAlertColor = wordinessAlertColor);
-    this.wordiness.currentWordinessFeedback.subscribe(wordinessFeedback => this.wordinessFeedback = wordinessFeedback);
-    this.wordiness.currentWordinessScore.subscribe(wordinessScore => this.wordinessScore = wordinessScore);
+    this.wordiness.currentWordinessNumber.subscribe(
+      (wordinessNumber) => (this.wordinessNumber = wordinessNumber)
+    );
+    this.wordiness.currentWordinessTable.subscribe(
+      (wordinessTable) => (this.wordinessTable = wordinessTable)
+    );
+    this.wordiness.currentWordinessUserTable.subscribe(
+      (wordinessUserTable) => (this.wordinessUserTable = wordinessUserTable)
+    );
+    this.wordiness.currentWordinessAlertColor.subscribe(
+      (wordinessAlertColor) => (this.wordinessAlertColor = wordinessAlertColor)
+    );
+    this.wordiness.currentWordinessFeedback.subscribe(
+      (wordinessFeedback) => (this.wordinessFeedback = wordinessFeedback)
+    );
+    this.wordiness.currentWordinessScore.subscribe(
+      (wordinessScore) => (this.wordinessScore = wordinessScore)
+    );
   }
 
   // tslint:disable-next-line: typedef
@@ -626,10 +783,13 @@ export class AcademicStyleFixComponent implements OnInit {
     let wordCounter = 0;
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < userText.length; i++) {
-      if (/[a-zA-Z]/.test(userText[i]) || userText[i] === '\’' || userText[i] === '\'') {
+      if (
+        /[a-zA-Z]/.test(userText[i]) ||
+        userText[i] === '’' ||
+        userText[i] === "'"
+      ) {
         word += userText[i];
-      }
-      else {
+      } else {
         for (const fix in this.sentencesTable) {
           if (word.includes(fix)) {
             sentence += word;
@@ -641,12 +801,18 @@ export class AcademicStyleFixComponent implements OnInit {
       }
       // Sentence Fragment
       if (errorFound === true) {
-        if (/[a-zA-Z]/.test(userText[i]) || userText[i] === '\’' || userText[i] === '\'' || userText[i] === ' ') {
+        if (
+          /[a-zA-Z]/.test(userText[i]) ||
+          userText[i] === '’' ||
+          userText[i] === "'" ||
+          userText[i] === ' '
+        ) {
           sentence += userText[i];
-        }
-        else {
+        } else {
           this.sentences.changeSentencesNumber(this.sentencesNumber + 1);
-          this.sentencesUserTable.find.push('• Potential Fragment ⟶ "' + sentence + '..."');
+          this.sentencesUserTable.find.push(
+            '• Potential Fragment ⟶ "' + sentence + '..."'
+          );
           this.sentences.changeSentencesUserTable(this.sentencesUserTable);
           errorFound = false;
           sentence = '';
@@ -656,13 +822,14 @@ export class AcademicStyleFixComponent implements OnInit {
       if (userText[i] === '!' || userText[i] === '?' || userText[i] === '.') {
         if (wordCounter > 50) {
           this.sentences.changeSentencesNumber(this.sentencesNumber + 1);
-          this.sentencesUserTable.find.push('• Long Sentence ⟶ "' + sentence2 + '..."');
+          this.sentencesUserTable.find.push(
+            '• Long Sentence ⟶ "' + sentence2 + '..."'
+          );
           this.sentences.changeSentencesUserTable(this.sentencesUserTable);
         }
         sentence2 = '';
         wordCounter = 0;
-      }
-      else {
+      } else {
         sentence2 += userText[i];
       }
     }
@@ -672,35 +839,49 @@ export class AcademicStyleFixComponent implements OnInit {
     }
     try {
       if (this.sentencesScore > 2) {
-        this.sentencesFeedback = 'Hmmm. Your writing may have some sentence-level issues. Check the list below for potential fragments or run-ons.';
+        this.sentencesFeedback =
+          'Hmmm. Your writing may have some sentence-level issues. Check the list below for potential fragments or run-ons.';
         this.sentencesAlertColor = 'red';
-      }
-      else {
-        this.sentencesFeedback = 'Bueno! Your sentences don\'t show any glaring errors.';
+      } else {
+        this.sentencesFeedback =
+          "Bueno! Your sentences don't show any glaring errors.";
         this.sentencesAlertColor = 'green';
       }
       if (this.totalSentences === 0) {
         throw new Error('');
       }
-    }
-    catch (e) {
+    } catch (e) {
       this.sentencesFeedback = 'Make sure you enter at least one sentence.';
       this.sentencesAlertColor = 'orange';
       this.sentencesScore = 0;
     }
     this.sentences.changeSentencesFeedback(this.sentencesFeedback);
-    this.sentences.changeSentencesScore(Math.round(this.sentencesScore * 10) / 10);
+    this.sentences.changeSentencesScore(
+      Math.round(this.sentencesScore * 10) / 10
+    );
     this.sentences.changeSentencesAlertColor(this.sentencesAlertColor);
   }
 
   // tslint:disable-next-line: typedef
   sentencesService() {
-    this.sentences.currentSentencesNumber.subscribe(sentencesNumber => this.sentencesNumber = sentencesNumber);
-    this.sentences.currentSentencesTable.subscribe(sentencesTable => this.sentencesTable = sentencesTable);
-    this.sentences.currentSentencesUserTable.subscribe(sentencesUserTable => this.sentencesUserTable = sentencesUserTable);
-    this.sentences.currentSentencesAlertColor.subscribe(sentencesAlertColor => this.sentencesAlertColor = sentencesAlertColor);
-    this.sentences.currentSentencesFeedback.subscribe(sentencesFeedback => this.sentencesFeedback = sentencesFeedback);
-    this.sentences.currentSentencesScore.subscribe(sentencesScore => this.sentencesScore = sentencesScore);
+    this.sentences.currentSentencesNumber.subscribe(
+      (sentencesNumber) => (this.sentencesNumber = sentencesNumber)
+    );
+    this.sentences.currentSentencesTable.subscribe(
+      (sentencesTable) => (this.sentencesTable = sentencesTable)
+    );
+    this.sentences.currentSentencesUserTable.subscribe(
+      (sentencesUserTable) => (this.sentencesUserTable = sentencesUserTable)
+    );
+    this.sentences.currentSentencesAlertColor.subscribe(
+      (sentencesAlertColor) => (this.sentencesAlertColor = sentencesAlertColor)
+    );
+    this.sentences.currentSentencesFeedback.subscribe(
+      (sentencesFeedback) => (this.sentencesFeedback = sentencesFeedback)
+    );
+    this.sentences.currentSentencesScore.subscribe(
+      (sentencesScore) => (this.sentencesScore = sentencesScore)
+    );
   }
 
   transitionsFix(userText: string) {
@@ -710,7 +891,9 @@ export class AcademicStyleFixComponent implements OnInit {
       if (userText.toLocaleLowerCase().includes(fix)) {
         this.transitions.changeTotalTransitions(this.totalTransitions + 1);
         // add transition in user text into an array
-        this.transitionsUserTable.find.push("• " + fix + " ⟶ " + this.transitionsTable[fix]);
+        this.transitionsUserTable.find.push(
+          '• ' + fix + ' ⟶ ' + this.transitionsTable[fix]
+        );
         this.transitions.changeTransitionsUserTable(this.transitionsUserTable);
         // this.transitionsUserTable.suggestion.push(" ⟶ " + this.transitionsTable[fix]);
       }
@@ -728,28 +911,28 @@ export class AcademicStyleFixComponent implements OnInit {
     }
     try {
       if (this.transitionsScore == 0) {
-        this.transitionsAlertColor = "red";
-        this.transitionsFeedback = "Your writing seems to have no transition word";
-      }
-      else if (this.transitionsScore <= 10) {
-        this.transitionsFeedback = "The number of transition words in your writing seems low";
-        this.transitionsAlertColor = "orange";
-      }
-      else if (this.transitionsScore <= 80) {
-        this.transitionsFeedback = "Woot! Your writing seems to have a good proportion of transitions";
-        this.transitionsAlertColor = "green";
-      }
-      else {
-        this.transitionsFeedback = "Woot! Your writing seems to have a lot of transitions. Make sure you\'re not overusing transition words";
-        this.transitionsAlertColor = "green";
+        this.transitionsAlertColor = 'red';
+        this.transitionsFeedback =
+          'Your writing seems to have no transition word';
+      } else if (this.transitionsScore <= 10) {
+        this.transitionsFeedback =
+          'The number of transition words in your writing seems low';
+        this.transitionsAlertColor = 'orange';
+      } else if (this.transitionsScore <= 80) {
+        this.transitionsFeedback =
+          'Woot! Your writing seems to have a good proportion of transitions';
+        this.transitionsAlertColor = 'green';
+      } else {
+        this.transitionsFeedback =
+          "Woot! Your writing seems to have a lot of transitions. Make sure you're not overusing transition words";
+        this.transitionsAlertColor = 'green';
       }
       if (this.totalSentences === 0) {
-        throw new Error("");
+        throw new Error('');
       }
-    }
-    catch (e) {
-      this.transitionsFeedback = "Make sure you enter at least one sentence.";
-      this.transitionsAlertColor = "orange";
+    } catch (e) {
+      this.transitionsFeedback = 'Make sure you enter at least one sentence.';
+      this.transitionsAlertColor = 'orange';
       this.transitionsScore = 0;
     }
     // if (this.transitionsScore == 0) {
@@ -765,38 +948,80 @@ export class AcademicStyleFixComponent implements OnInit {
     //  this.transitionsFeedback = "Woot! Your writing seems to have a lot of transitions. Make sure you\'re not overusing transition words";
     //  this.transitionsAlertColor = "green";
     //}
-    this.transitions.changeTransitionsScore(Math.round(this.transitionsScore * 10) / 10);
+    this.transitions.changeTransitionsScore(
+      Math.round(this.transitionsScore * 10) / 10
+    );
     this.transitions.changeTransitionsFeedback(this.transitionsFeedback);
     this.transitions.changeTransitionsAlertColor(this.transitionsAlertColor);
   }
 
   transitionsService() {
     //result color
-    this.transitions.currentTransitionsAlertColor.subscribe(transitionsAlertColor => this.transitionsAlertColor = transitionsAlertColor);
+    this.transitions.currentTransitionsAlertColor.subscribe(
+      (transitionsAlertColor) =>
+        (this.transitionsAlertColor = transitionsAlertColor)
+    );
     //Feedback
-    this.transitions.currentTransitionsFeedback.subscribe(transitionsFeedback => this.transitionsFeedback = transitionsFeedback);
+    this.transitions.currentTransitionsFeedback.subscribe(
+      (transitionsFeedback) => (this.transitionsFeedback = transitionsFeedback)
+    );
     // Total number of sentences in the user input
     // this.transitions.currentTotalSentences.subscribe(totalSentences => this.totalSentences = totalSentences);
     // Total number of transitions in the user input
-    this.transitions.currentTotalTransitions.subscribe(totalTransitions => this.totalTransitions = totalTransitions);
+    this.transitions.currentTotalTransitions.subscribe(
+      (totalTransitions) => (this.totalTransitions = totalTransitions)
+    );
     // Transition Table of all transitions
-    this.transitions.currentTransitionsTable.subscribe(transitionsTable => this.transitionsTable = transitionsTable);
+    this.transitions.currentTransitionsTable.subscribe(
+      (transitionsTable) => (this.transitionsTable = transitionsTable)
+    );
     // Transition Table of Current User Errors in Text
-    this.transitions.currentTransitionsUserTable.subscribe(transitionsUserTable => this.transitionsUserTable = transitionsUserTable);
+    this.transitions.currentTransitionsUserTable.subscribe(
+      (transitionsUserTable) =>
+        (this.transitionsUserTable = transitionsUserTable)
+    );
     // Transitions score
-    this.transitions.currentTransitionsScore.subscribe(transitionsScore => this.transitionsScore = transitionsScore);
-
-
+    this.transitions.currentTransitionsScore.subscribe(
+      (transitionsScore) => (this.transitionsScore = transitionsScore)
+    );
   }
 
-   highlight(text) {
-    var inputText = document.getElementById("userinput");
-    var innerHTML = inputText.innerHTML;
-    var index = innerHTML.indexOf(text);
-    if (index >= 0) { 
-     innerHTML = innerHTML.substring(0,index) + '<mark style="background-color: #97d948; padding: 0.1em, 0.2em ;font-family: Georgia; font-size: 34px;">' + innerHTML.substring(index,index+text.length) + '</mark>' + innerHTML.substring(index + text.length);
-     inputText.innerHTML = innerHTML;
-    }
+  /**
+   * 
+   * Old highlight feature function.. save just in case i need it  
+   */
+  // highlight(text) {
+  //   var inputText = document.getElementById('userinput');
+  //   var innerHTML = inputText.innerHTML;
+  //   var index = innerHTML.indexOf(text);
+  //   console.log(innerHTML.substring(index, index + text.length));
+
+  //   if (index >= 0) {
+  //     innerHTML =
+  //       innerHTML.substring(0, index) +
+  //       '<span style="background-color: #97d948; padding: 0.1em, 0.2em ;font-family: Georgia;">' +
+  //       innerHTML.substring(index, index + text.length) +
+  //       '</span>' +
+  //       innerHTML.substring(index + text.length);
+  //     inputText.innerHTML = innerHTML;
+  //   }
+  // }
+
+
+  //new hgihlight feature uses regex to replace the errors in the entire paragraph
+  willFind(text) {
+    //hold the message from the html textbox with id= userinput
+    var paragraph = document.getElementById('userinput');
+    
+    //dynamic/custom regex expression -> only way to use variable inside regex
+    let re = new RegExp(`\\b${text}\\b`, 'g');
+
+    //replace with -> span and highlight
+    paragraph.innerHTML = paragraph.innerHTML.replace(
+      re,
+      '<span style="background-color: #FF6363; padding: 0.1em, 0.2em ;font-family: Georgia;" >' +
+        text +
+        ' </span>'
+    );
   }
-  
 }
