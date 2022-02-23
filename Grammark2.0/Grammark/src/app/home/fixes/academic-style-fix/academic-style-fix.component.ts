@@ -106,9 +106,9 @@ export class AcademicStyleFixComponent implements OnInit {
   }
 
   //returns the element that is displayed in the html 
-   getContent() {
+  getContent() {
     return document.getElementById("userinput").innerHTML;
-}
+  }
 
   reHighlight(): void {
     // Reset every time you hit re-highlight
@@ -244,16 +244,34 @@ export class AcademicStyleFixComponent implements OnInit {
     this.data.changeGradeAlertColor(this.gradeAlertColor);
     this.data.changeGradeFeedback(this.gradeFeedback);
   }
-  
+
 
   academicStyleFix(userText: string) {
     //find non academic word in user text
     const errorHolder = new Map();
     for (const fix in this.academicStyleTable) {
       if (userText.includes(fix)) {
-        errorHolder.set(userText.indexOf(fix), "• " + fix + " ⟶ " + this.academicStyleTable[fix]);
-        this.highlight(fix)
+        let errorIndex = userText.indexOf(fix)
+        errorHolder.set(errorIndex, "• " + fix + " ⟶ " + this.academicStyleTable[fix]);
         this.academic.changeTotalNonAcademic(this.totalNonAcademic + 1);
+
+        while (userText.indexOf(fix, errorIndex + 1) > errorIndex) {
+          console.log(userText.indexOf(fix, errorIndex + 1) + " vs index: " + errorIndex);
+          // console.log(errorIndex, "• " + fix + " ⟶ " + this.academicStyleTable[fix])
+          errorIndex = userText.indexOf(fix, errorIndex + 1);
+          errorHolder.set(errorIndex, "• " + fix + " ⟶ " + this.academicStyleTable[fix]);
+          // console.log(errorIndex + " • " + fix + " ⟶ " + this.academicStyleTable[fix]);
+          this.highlight(fix)
+
+
+          this.academic.changeTotalNonAcademic(this.totalNonAcademic + 1);
+        }
+        console.log(fix + " | moving on to next error \n ---------")
+
+
+
+
+
         // this.academicStyleUserTable.push(errorHolder.get(47) + " testing" + userText.indexOf(fix));
         // this.academicStyleUserTable.suggestion.push("→ " + this.academicStyleTable[fix]);
       }
@@ -265,7 +283,7 @@ export class AcademicStyleFixComponent implements OnInit {
         .sort(([a], [b]) => a - b)
     );
     this.academicStyleUserTable = Array.from(sortedErrors.values());
-    
+
 
     // const userSentenceArray = userText.split(".");
     // for (const sentence in userSentenceArray) {
@@ -789,14 +807,14 @@ export class AcademicStyleFixComponent implements OnInit {
 
   }
 
-   highlight(text) {
+  highlight(text) {
     var inputText = document.getElementById("userinput");
     var innerHTML = inputText.innerHTML;
     var index = innerHTML.indexOf(text);
-    if (index >= 0) { 
-     innerHTML = innerHTML.substring(0,index) + '<mark style="background-color: #97d948; padding: 0.1em, 0.2em ;font-family: Georgia; font-size: 34px;">' + innerHTML.substring(index,index+text.length) + '</mark>' + innerHTML.substring(index + text.length);
-     inputText.innerHTML = innerHTML;
+    if (index >= 0) {
+      innerHTML = innerHTML.substring(0, index) + '<mark style="background-color: #97d948; padding: 0.1em, 0.2em ;font-family: Georgia; font-size: 34px;">' + innerHTML.substring(index, index + text.length) + '</mark>' + innerHTML.substring(index + text.length);
+      inputText.innerHTML = innerHTML;
     }
   }
-  
+
 }
