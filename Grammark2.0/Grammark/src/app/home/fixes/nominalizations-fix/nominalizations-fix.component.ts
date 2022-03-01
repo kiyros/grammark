@@ -433,7 +433,7 @@ export class NominalizationsFixComponent implements OnInit {
             this.nominalizationsUserTable.find.push('• ' + word + ' ⟶ ' + this.nominalizationsTable[fix]);
             this.nominalizations.changeNominalizationsNumber(this.nominalizationsNumber + 1);
             this.nominalizations.changeNominalizationsUserTable(this.nominalizationsUserTable);
-            this.willFind(word)
+            this.highlight(word)
           }
         }
         word = "";
@@ -754,7 +754,7 @@ export class NominalizationsFixComponent implements OnInit {
 
   }
 
-  willFind(text) {
+  highlight(text) {
     console.log(text)
     //hold the message from the html textbox with id= userinput
     var paragraph = document.getElementById('userinput');

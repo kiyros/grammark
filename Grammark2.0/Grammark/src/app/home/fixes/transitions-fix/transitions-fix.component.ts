@@ -681,7 +681,7 @@ export class TransitionsFixComponent implements OnInit {
         this.transitionsUserTable.find.push("• " + fix + " ⟶ " + this.transitionsTable[fix]);
         this.transitions.changeTransitionsUserTable(this.transitionsUserTable);
         // this.transitionsUserTable.suggestion.push(" ⟶ " + this.transitionsTable[fix]);
-        this.willFind(fix)
+        this.highlight(fix)
       }
       
     }
@@ -759,7 +759,7 @@ export class TransitionsFixComponent implements OnInit {
   }
 
     //new hgihlight feature uses regex to replace the errors in the entire paragraph
-    willFind(text) {
+    highlight(text) {
       //hold the message from the html textbox with id= userinput
       var paragraph = document.getElementById('userinput');
       
