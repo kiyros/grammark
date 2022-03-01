@@ -247,12 +247,15 @@ export class WordinessFixComponent implements OnInit {
   academicStyleFix(userText: string) {
     //find non academic word in user text
     for (const fix in this.academicStyleTable) {
-      if (userText.includes(fix)) {
-        this.academic.changeTotalNonAcademic(this.totalNonAcademic + 1);
-        //this.academicStyleUserTable.find.push("• " + fix + " ⟶ " + this.academicStyleTable[fix]);
-        this.academic.changeAcademicStyleUserTable(this.academicStyleUserTable);
-        // this.academicStyleUserTable.suggestion.push("→ " + this.academicStyleTable[fix]);
-      }
+
+      //COMMENTED BECAUSE IT CAUSES AN UNDEFINED ERROR
+
+      // if (userText.includes(fix)) {
+      //   this.academic.changeTotalNonAcademic(this.totalNonAcademic + 1);
+      //   this.academicStyleUserTable.find.push("• " + fix + " ⟶ " + this.academicStyleTable[fix]);
+      //   this.academic.changeAcademicStyleUserTable(this.academicStyleUserTable);
+      //   // this.academicStyleUserTable.suggestion.push("→ " + this.academicStyleTable[fix]);
+      // }
     }
     let word;
     word = "";
