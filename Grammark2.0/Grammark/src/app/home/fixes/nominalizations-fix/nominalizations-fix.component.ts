@@ -104,8 +104,13 @@ export class NominalizationsFixComponent implements OnInit {
     this.data.changeMessage('');
   }
 
+      //returns the element that is displayed in the html
+      getContent() {
+        return document.getElementById('userinput').innerHTML;
+      }
+
   reHighlight(): void {
-    // Reset
+    // Reset every time you hit re-highlight
     this.data.changeTotalSentences(0);
     this.data.changeGrade(0);
     this.passivevoice.changePassiveVoiceNumber(0);
@@ -123,13 +128,13 @@ export class NominalizationsFixComponent implements OnInit {
     this.transitionsUserTable = { find: [], suggestion: [] };
     this.grammarUserTable = { find: [], suggestion: [] };
     this.eggcornsUserTable = { find: [], suggestion: [] };
-    this.academicStyleUserTable = { find: [], suggestion: [] };
+    this.academicStyleUserTable = [];
     this.nominalizationsUserTable = { find: [], suggestion: [] };
     this.sentencesUserTable = { find: [], suggestion: [] };
 
     // variables
-    // tslint:disable-next-line: prefer-const
-    let userText = (document.getElementById('userinput') as HTMLTextAreaElement).value;
+    // user text = paragraph from the html file
+    let userText = this.getContent();
     let aLetter = false;
 
     // This function checks if there is at least one letter inputed
@@ -138,23 +143,24 @@ export class NominalizationsFixComponent implements OnInit {
         aLetter = true;
       }
     };
-
     // calling function - checker
     validateChar();
 
     // alters! or proceed to overview
     if (userText === '') {
       alert('Please fill out the text area');
-    }
-    else if (aLetter === false) {
+    } else if (aLetter === false) {
       alert('Please enter at least one letter');
-    }
-    else {
+    } else {
       this.data.changeMessage(userText);
 
       // Find total sentences in text
       for (let i = 0; i < userText.length; i++) {
-        if (userText.charAt(i) === '.' || userText.charAt(i) === '!' || userText.charAt(i) === '?') {
+        if (
+          userText.charAt(i) === '.' ||
+          userText.charAt(i) === '!' ||
+          userText.charAt(i) === '?'
+        ) {
           this.data.changeTotalSentences(this.totalSentences + 1);
         }
       }
@@ -240,12 +246,13 @@ export class NominalizationsFixComponent implements OnInit {
   academicStyleFix(userText: string) {
     //find non academic word in user text
     for (const fix in this.academicStyleTable) {
-      if (userText.includes(fix)) {
-        this.academic.changeTotalNonAcademic(this.totalNonAcademic + 1);
-        this.academicStyleUserTable.find.push("• " + fix + " ⟶ " + this.academicStyleTable[fix]);
-        this.academic.changeAcademicStyleUserTable(this.academicStyleUserTable);
-        // this.academicStyleUserTable.suggestion.push("→ " + this.academicStyleTable[fix]);
-      }
+        // CODE BELOW PRODUCES ERRORS
+      // if (userText.includes(fix)) {
+      //   this.academic.changeTotalNonAcademic(this.totalNonAcademic + 1);
+      //   //this.academicStyleUserTable.find.push("• " + fix + " ⟶ " + this.academicStyleTable[fix]);
+      //   this.academic.changeAcademicStyleUserTable(this.academicStyleUserTable);
+      //   // this.academicStyleUserTable.suggestion.push("→ " + this.academicStyleTable[fix]);
+      // }
     }
     let word;
     word = "";
@@ -427,6 +434,7 @@ export class NominalizationsFixComponent implements OnInit {
             this.nominalizationsUserTable.find.push('• ' + word + ' ⟶ ' + this.nominalizationsTable[fix]);
             this.nominalizations.changeNominalizationsNumber(this.nominalizationsNumber + 1);
             this.nominalizations.changeNominalizationsUserTable(this.nominalizationsUserTable);
+            this.highlight(word)
           }
         }
         word = "";
@@ -745,5 +753,21 @@ export class NominalizationsFixComponent implements OnInit {
     // Transitions score
     this.transitions.currentTransitionsScore.subscribe(transitionsScore => this.transitionsScore = transitionsScore);
 
+  }
+
+  highlight(text) {
+    //hold the message from the html textbox with id= userinput
+    var paragraph = document.getElementById('userinput');
+    
+    //dynamic/custom regex expression -> only way to use variable inside regex
+    let re = new RegExp(`\\b${text}\\b`, 'gi');
+
+    //replace with -> span and highlight
+    paragraph.innerHTML = paragraph.innerHTML.replace(
+      re,
+      '<span style="background-color: #FF6363; font-family: Georgia;" >' +
+        text +
+        ' </span>'
+    );
   }
 }

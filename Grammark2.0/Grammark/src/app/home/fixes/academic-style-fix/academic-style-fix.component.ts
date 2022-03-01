@@ -266,7 +266,7 @@ export class AcademicStyleFixComponent implements OnInit {
         this.academic.changeTotalNonAcademic(this.totalNonAcademic + 1);
 
         //highlights the error
-        this.willFind(fix);
+        this.highlight(fix);
 
         while (userText.indexOf(fix, errorIndex + 1) > errorIndex) {
           // console.log(errorIndex, "• " + fix + " ⟶ " + this.academicStyleTable[fix])
@@ -1009,12 +1009,12 @@ export class AcademicStyleFixComponent implements OnInit {
 
 
   //new hgihlight feature uses regex to replace the errors in the entire paragraph
-  willFind(text) {
+  highlight(text) {
     //hold the message from the html textbox with id= userinput
     var paragraph = document.getElementById('userinput');
     
     //dynamic/custom regex expression -> only way to use variable inside regex
-    let re = new RegExp(`\\b${text}\\b`, 'g');
+    let re = new RegExp(`\\b${text}\\b`, 'gi');
 
     //replace with -> span and highlight
     paragraph.innerHTML = paragraph.innerHTML.replace(
