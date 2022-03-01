@@ -755,7 +755,6 @@ export class NominalizationsFixComponent implements OnInit {
   }
 
   highlight(text) {
-    console.log(text)
     //hold the message from the html textbox with id= userinput
     var paragraph = document.getElementById('userinput');
     
