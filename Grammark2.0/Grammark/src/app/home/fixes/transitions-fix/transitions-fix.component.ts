@@ -760,7 +760,6 @@ export class TransitionsFixComponent implements OnInit {
 
     //new hgihlight feature uses regex to replace the errors in the entire paragraph
     willFind(text) {
-      console.log(text)
       //hold the message from the html textbox with id= userinput
       var paragraph = document.getElementById('userinput');
       
