@@ -8,7 +8,7 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 export class DataService {
 
   // Input text
-  private messageSource = new BehaviorSubject<string>('I love words! I have always loved words. After a career working with words, I have decided that how people use language directly relates to how intelligent they are perceived! Note that I am talking about perception, and not necessarily reality. People with multiple college degrees who speak or write improperly convey to the world that they are, in fact, not smart. Likewise, people who may not have a college degree but talk and write correctly convey to the world that they are extremely intelligent. It’s all in the words.');
+  private messageSource = new BehaviorSubject<string>('');
   currentMessage = this.messageSource.asObservable();
 
   // Grade
