@@ -146,7 +146,7 @@ export class HomeComponent implements OnInit {
     }
     else {
       this.data.changeMessage(userText);
-      this.router.navigate(['home/overview']);
+      this.router.navigate(['/home/overview']);
 
       // Find total sentences in text
       for (let i = 0; i < userText.length; i++) {
