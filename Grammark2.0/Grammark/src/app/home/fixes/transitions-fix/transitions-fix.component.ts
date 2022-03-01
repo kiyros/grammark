@@ -104,6 +104,11 @@ export class TransitionsFixComponent implements OnInit {
     this.data.changeMessage('');
   }
 
+    //returns the element that is displayed in the html
+    getContent() {
+      return document.getElementById('userinput').innerHTML;
+    }
+
   reHighlight(): void {
     // Reset every time you hit re-highlight
     this.data.changeTotalSentences(0);
@@ -116,21 +121,20 @@ export class TransitionsFixComponent implements OnInit {
     this.eggcorns.changeTotalEggcorns(0);
     this.nominalizations.changeNominalizationsNumber(0);
     this.sentences.changeSentencesNumber(0);
-    // this.transitions.resetTransitionFix();
 
     // Clear -- Reset
-    this.transitionsUserTable = { find: [], suggestion: [] };
     this.passiveVoiceUserTable = { find: [], suggestion: [] };
     this.wordinessUserTable = { find: [], suggestion: [] };
+    this.transitionsUserTable = { find: [], suggestion: [] };
     this.grammarUserTable = { find: [], suggestion: [] };
     this.eggcornsUserTable = { find: [], suggestion: [] };
-    this.academicStyleUserTable = { find: [], suggestion: [] };
+    this.academicStyleUserTable = [];
     this.nominalizationsUserTable = { find: [], suggestion: [] };
     this.sentencesUserTable = { find: [], suggestion: [] };
 
     // variables
-    // tslint:disable-next-line: prefer-const
-    let userText = (document.getElementById('userinput') as HTMLTextAreaElement).value;
+    // user text = paragraph from the html file
+    let userText = this.getContent();
     let aLetter = false;
 
     // This function checks if there is at least one letter inputed
@@ -138,34 +142,28 @@ export class TransitionsFixComponent implements OnInit {
       if (/[a-zA-Z]/.test(userText)) {
         aLetter = true;
       }
-    }
+    };
     // calling function - checker
     validateChar();
 
     // alters! or proceed to overview
     if (userText === '') {
       alert('Please fill out the text area');
-    }
-    else if (aLetter === false) {
+    } else if (aLetter === false) {
       alert('Please enter at least one letter');
-    }
-    else {
+    } else {
       this.data.changeMessage(userText);
 
       // Find total sentences in text
       for (let i = 0; i < userText.length; i++) {
-        if (userText.charAt(i) === "." || userText.charAt(i) === "!" || userText.charAt(i) === "?") {
+        if (
+          userText.charAt(i) === '.' ||
+          userText.charAt(i) === '!' ||
+          userText.charAt(i) === '?'
+        ) {
           this.data.changeTotalSentences(this.totalSentences + 1);
         }
       }
-      //calcutale score
-      this.transitionsScore = (this.totalTransitions / this.totalSentences) * 100;
-      if (isNaN(this.transitionsScore) || this.transitionsScore === Infinity) {
-        this.transitionsScore = 0;
-      }
-      // round to whole number
-      this.transitions.changeTransitionsScore(Math.round(this.transitionsScore));
-      // this.transitions.changeTransitionsScore(this.transitionsScore);
 
       // Fixes
       this.passiveVoiceFix(userText);
@@ -683,7 +681,9 @@ export class TransitionsFixComponent implements OnInit {
         this.transitionsUserTable.find.push("• " + fix + " ⟶ " + this.transitionsTable[fix]);
         this.transitions.changeTransitionsUserTable(this.transitionsUserTable);
         // this.transitionsUserTable.suggestion.push(" ⟶ " + this.transitionsTable[fix]);
+        this.willFind(fix)
       }
+      
     }
     //calcutale score
     this.transitionsScore = (this.totalTransitions / this.totalSentences) * 100;
@@ -757,4 +757,22 @@ export class TransitionsFixComponent implements OnInit {
     this.transitions.currentTransitionsScore.subscribe(transitionsScore => this.transitionsScore = transitionsScore);
 
   }
+
+    //new hgihlight feature uses regex to replace the errors in the entire paragraph
+    willFind(text) {
+      console.log(text)
+      //hold the message from the html textbox with id= userinput
+      var paragraph = document.getElementById('userinput');
+      
+      //dynamic/custom regex expression -> only way to use variable inside regex
+      let re = new RegExp(`\\b${text}\\b`, 'gi');
+  
+      //replace with -> span and highlight
+      paragraph.innerHTML = paragraph.innerHTML.replace(
+        re,
+        '<span style="background-color: #FF6363; padding: 0.1em, 0.2em ;font-family: Georgia;" >' +
+          text +
+          ' </span>'
+      );
+    }
 }

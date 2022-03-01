@@ -1014,7 +1014,7 @@ export class AcademicStyleFixComponent implements OnInit {
     var paragraph = document.getElementById('userinput');
     
     //dynamic/custom regex expression -> only way to use variable inside regex
-    let re = new RegExp(`\\b${text}\\b`, 'g');
+    let re = new RegExp(`\\b${text}\\b`, 'gi');
 
     //replace with -> span and highlight
     paragraph.innerHTML = paragraph.innerHTML.replace(
