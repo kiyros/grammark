@@ -290,7 +290,7 @@ export class GrammarService {
     'as a resulted': 'as a result',
     'as apposed to': 'as opposed to',
     'as back up': 'as backup',
-    'as been': 'as being, has been',
+    ' as been': 'as being, has been',
     'as followed': 'as follows',
     'as it\'s': ' as its [possessive]',
     'as oppose to': 'as opposed to',
