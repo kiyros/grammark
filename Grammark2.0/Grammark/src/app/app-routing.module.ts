@@ -5,7 +5,6 @@ import {HomeComponent} from './home/home.component';
 import {AboutComponent} from './about/about.component';
 import {DownloadComponent} from './download/download.component';
 import {ResourcesComponent} from './resources/resources.component';
-import {ContactComponent} from './contact/contact.component';
 
 import { WordinessComponent } from './resources/wordiness/wordiness.component';
 import { TransitionsComponent } from './resources/transitions/transitions.component';
@@ -33,7 +32,6 @@ const routes: Routes = [
 
   { path:'resources',component:ResourcesComponent},
 
-  { path:'contact', component:ContactComponent },
 
   { path:'resources/wordiness', component:WordinessComponent },
 

@@ -11,14 +11,12 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { DownloadComponent } from './download/download.component';
 import { ResourcesComponent } from './resources/resources.component';
-import { ContactComponent } from './contact/contact.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { WordinessComponent } from './resources/wordiness/wordiness.component';
 import { TransitionsComponent } from './resources/transitions/transitions.component';
 import { GrammarComponent } from './resources/grammar/grammar.component';
 import { EggcornsComponent } from './resources/eggcorns/eggcorns.component';
-
 import { OverviewComponent } from './home/overview/overview.component';
 
 import { PassiveVoiceFixComponent } from './home/fixes/passive-voice-fix/passive-voice-fix.component';
@@ -41,7 +39,6 @@ const material = [
     AboutComponent,
     DownloadComponent,
     ResourcesComponent,
-    ContactComponent,
     WordinessComponent,
     TransitionsComponent,
     GrammarComponent,
