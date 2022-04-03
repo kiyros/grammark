@@ -104,6 +104,12 @@ export class EggcornsFixComponent implements OnInit {
     this.data.changeMessage('');
   }
 
+           //returns the element that is displayed in the html
+           getContent() {
+            return document.getElementById('userinput').innerHTML;
+          }
+  
+
   reHighlight(): void {
     // Reset every time you hit re-highlight
     this.data.changeTotalSentences(0);
@@ -123,13 +129,14 @@ export class EggcornsFixComponent implements OnInit {
     this.wordinessUserTable = { find: [], suggestion: [] };
     this.transitionsUserTable = { find: [], suggestion: [] };
     this.grammarUserTable = { find: [], suggestion: [] };
-    this.academicStyleUserTable = { find: [], suggestion: [] };
+    this.academicStyleUserTable = [];
     this.nominalizationsUserTable = { find: [], suggestion: [] };
     this.sentencesUserTable = { find: [], suggestion: [] };
 
     // variables
     // tslint:disable-next-line: prefer-const
-    let userText = (document.getElementById('userinput') as HTMLTextAreaElement).value;
+        // user text = paragraph from the html file
+        let userText = this.getContent();
     let aLetter = false;
 
     // This function checks if there is at least one letter inputed
@@ -244,6 +251,7 @@ export class EggcornsFixComponent implements OnInit {
       if (userText.toLocaleLowerCase().includes(fix)) {
         this.eggcorns.changeTotalEggcorns(this.totalEggcorns + 1);
         this.eggcornsUserTable.find.push("• " + fix + " ⟶ " + this.eggcornsTable[fix]);
+        this.highlight(fix);
         // this.eggcornsUserTable.suggestion.push(" ⟶ " + this.eggcornsTable[fix]);
         this.eggcorns.changeEggcornsUserTable(this.eggcornsUserTable);
       }
@@ -294,7 +302,7 @@ export class EggcornsFixComponent implements OnInit {
     for (const fix in this.academicStyleTable) {
       if (userText.includes(fix)) {
         this.academic.changeTotalNonAcademic(this.totalNonAcademic + 1);
-        this.academicStyleUserTable.find.push("• " + fix + " ⟶ " + this.academicStyleTable[fix]);
+        // this.academicStyleUserTable.find.push("• " + fix + " ⟶ " + this.academicStyleTable[fix]);
         this.academic.changeAcademicStyleUserTable(this.academicStyleUserTable);
         // this.academicStyleUserTable.suggestion.push("→ " + this.academicStyleTable[fix]);
       }
@@ -744,6 +752,22 @@ export class EggcornsFixComponent implements OnInit {
     // Transitions score
     this.transitions.currentTransitionsScore.subscribe(transitionsScore => this.transitionsScore = transitionsScore);
 
+  }
+
+  highlight(text) {
+    //hold the message from the html textbox with id= userinput
+    var paragraph = document.getElementById('userinput');
+    
+    //dynamic/custom regex expression -> only way to use variable inside regex
+    let re = new RegExp(`\\b${text}\\b`, 'gi');
+
+    //replace with -> span and highlight
+    paragraph.innerHTML = paragraph.innerHTML.replace(
+      re,
+      '<span style="background-color: #FF6363; font-family: Georgia;" >' +
+        text +
+        ' </span>'
+    );
   }
 }
 
