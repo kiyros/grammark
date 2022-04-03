@@ -16,10 +16,6 @@ function pageController ($scope, $routeParams) {
             $scope.source = 'scripts/models/resources.html';
             $scope.data = [];
             break;
-        case 'contact':
-            $scope.title = 'Contact';
-            $scope.source = 'scripts/models/contact.html';
-            break;
     }
 }
 
