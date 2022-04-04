@@ -3,6 +3,12 @@
   "version": "0.0.0",
   "dependencies": {},
   "repository": {},
+  "scripts": {
+    "main": "server.js",
+    "ng": "ng",
+    "heroku-postbuild": "ng build --prod",
+    "start": "cd Grammark2.0/Grammark/ng serve;"
+  },
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-autoprefixer": "^2.0.0",
