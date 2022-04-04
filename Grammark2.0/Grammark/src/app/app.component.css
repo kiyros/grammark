@@ -1,15 +1,13 @@
+/*
+  sets the toolbar color and the title color
+*/
 .mat-toolbar.mat-primary {
     background: #00704a;
-    color: #fff;
-    border-left: black groove;
-    border-right: black groove;
+    color: #85C446;
   }
 
-  /*.mat-toolbar.mat-primary:hover {
-    background-color: lightblue;
-  
-    color: rgb(255, 255, 255);
-  }
+ /*
+    aligns the words on the top
 */
 .navbar {
     justify-content: space-between;
@@ -19,28 +17,33 @@
   background-color: #EEF43B;
 }
 
+/*
+  adds the black outline to the title and increases the font
+*/
 .grammark{
-    color: black;
-    text-decoration: none;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+  font-size: 38px;
+  font-weight: 1100;
 }
-.grammark:hover{
-  color: lightpink;
-  
-  }
 
+/*
+  makes the second part of the title smaller
+*/
+.grammarktitle{
+  -webkit-text-stroke-width: 1.3px;
+  -webkit-text-stroke-color: black;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+/*
+  sets the style for the links for better spacing
+*/
 .linkedpages {
-  color: black;
+  color: white;
   text-decoration: none;
-  border-left: black groove;
   display: inline-block;
-  width: 135px;
+  width: 155px;
   text-align: center;
-}
-.linkedpages:hover{
-  background-color: cyan;
-  border-radius: 10px;
-  color: rgb(255, 255, 255);
-}
-a:active {
-  color: blue;
 }
