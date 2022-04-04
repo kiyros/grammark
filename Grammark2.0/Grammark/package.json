@@ -2,6 +2,7 @@
   "name": "grammark",
   "version": "0.0.0",
   "scripts": {
+    "main": "server.js",
     "ng": "ng",
     "heroku-postbuild": "ng build --prod",
     "start": "node server.js",
