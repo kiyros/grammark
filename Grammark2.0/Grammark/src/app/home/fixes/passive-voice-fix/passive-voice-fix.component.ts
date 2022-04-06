@@ -110,7 +110,7 @@ export class PassiveVoiceFixComponent implements OnInit {
           return document.getElementById('userinput').innerHTML;
         }
 
-  reHighlight(): void {
+    reHighlight(): void {
     // Reset every time you hit re-highlight
     this.data.changeTotalSentences(0);
     this.data.changeGrade(0);
