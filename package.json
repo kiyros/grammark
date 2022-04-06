@@ -7,7 +7,7 @@
     "main": "server.js",
     "ng": "ng",
     "heroku-postbuild": "ng build --prod",
-    "start": "cd Grammark2.0/Grammark/; ng serve"
+    "start": "cd Grammark/; ng serve"
   },
   "devDependencies": {
     "grunt": "^0.4.5",

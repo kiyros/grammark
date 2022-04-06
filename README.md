@@ -27,8 +27,8 @@
     </ul>
  <li>  <b>Joseph Ongchangco</b></li>
   <ul type="square">
-    <li>Primary role: Testing Lead </li>
-    <li>Secondary role: Code Architecture </li>
+    <li>Primary role: Code Architecture </li>
+    <li>Secondary role: Testing Lead </li>
   </ul>
   <li> <b>Sydney Harrell</b></li>
   <ul type="square">
@@ -76,7 +76,7 @@ To facilitate easy development, install `yo`, `grunt-cli`, `bower`, `generator-a
 npm install -g grunt-cli bower yo generator-karma generator-angular
 ```
 You can then use the following for local development:
-open the terminal to the `Grammark2.0` -> `Grammark` to run `ng serve`
+open the terminal to the `Grammark` to run `ng serve`
 Serve the project locally
 ```
 ng serve
