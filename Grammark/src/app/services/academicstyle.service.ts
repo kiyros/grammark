@@ -98,7 +98,7 @@ export class AcademicStyleService {
     'always': 'Caution: extreme language—if this is part of a claim, qualify this or remove if the claim is unprovable.',
     'Always': 'Caution: extreme language—if this is part of a claim, qualify this or remove if the claim is unprovable.',
     'Everyone ': 'Caution: extreme language—if this is part of a claim, qualify this or remove if the claim is unprovable.',
-    ' everyone ': 'Caution: extreme language—if this is part of a claim, qualify this or remove if the claim is unprovable.',
+    'everyone ': 'Caution: extreme language—if this is part of a claim, qualify this or remove if the claim is unprovable.',
     ' everybody ': 'Caution: extreme language—if this is part of a claim, qualify this or remove if the claim is unprovable.',
     'Everybody ': 'Caution: extreme language—if this is part of a claim, qualify this or remove if the claim is unprovable.',
     'No one': 'Caution: extreme language—if this is part of a claim, qualify this or remove if the claim is unprovable.',
