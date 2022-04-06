@@ -1,0 +1,22 @@
+.resources {
+  padding-left: 22%;
+  padding-top: 30px;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+.description {
+  font-size: 20px;
+}
+
+p {
+  padding: 10px 0px;
+  font-size: 30px;
+}
+
+.linkedpages {
+  text-decoration: none;
+  color: blue;
+}
