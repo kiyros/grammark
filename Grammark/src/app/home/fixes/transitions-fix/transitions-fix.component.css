@@ -1,0 +1,105 @@
+.linkedpages {
+  text-decoration: none;
+  display: inline-block;
+  border-left: black groove;
+  border-right: black groove;
+  width: 10%;
+  text-align: center;
+  color: black;
+  font-size: 16px;
+}
+
+.navbar {
+  margin: 0px;
+  padding: 0px;
+}
+
+.category {
+  margin: 20px 0px;
+  padding: 10px 20px;
+}
+
+.title {
+  font-size: 36px;
+}
+
+.description {
+  font-size: 20px;
+}
+
+.column1 {
+  float: left;
+  width: 65%;
+  padding-left: 20px;
+}
+
+.column2 {
+  float: left;
+  width: 30.5%;
+  background-color: white;
+  padding: 20px;
+}
+
+#userinput {
+  height: 300px;
+  min-height: 100px;
+  width: 96.5%;
+  resize: none;
+  border-width: thick;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.rehighlight {
+    margin-top: 20px;
+    background-color: lightskyblue;
+    width: 300px;
+    height: 50px;
+    border-radius: 14px;
+    font-size: 17px;
+    font-weight: bold;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.rehighlight:hover {
+  background-color: cyan;
+  border-color: gray;
+  color: lightpink;
+}
+
+.feedback {
+  font-size: 30px;
+}
+.linkedpages {
+  color: black;
+  text-decoration: none;
+  border-left: black groove;
+  display: inline-block;
+  width: 135px;
+  text-align: center;
+  }
+  .linkedpages:hover{
+  background-color: cyan;
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  }
+  .alert-box{
+    background-color: rgb(231, 33, 33);
+    min-width: 300px;
+    margin-left: 850px;
+    text-align: left;
+    margin-bottom: -92px;
+    padding: 10px;
+    position: relative;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+
+  td {
+    padding-right: 10px;
+  }
+
+  .box {
+    font-size: 20px;
+  }
