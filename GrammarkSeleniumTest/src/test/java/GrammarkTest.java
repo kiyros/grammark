@@ -17,7 +17,7 @@ public class GrammarkTest {
 
     @BeforeClass
     public static void setUp(){
-        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "chromedriverV101.exe");
         driver = new ChromeDriver();
     }
 
