@@ -1,3 +1,7 @@
+html, p, h1{
+  cursor: default;
+}
+
 .title {
   font-size: 40px;
   padding: 10px 0px;
@@ -11,12 +15,13 @@
   
   display: flex;
   justify-content: center;
+  cursor: default;
 }
 
 .column1 {
   float: left;
   width: 60%;
-  padding-right: 20px;
+  padding: 20px;
   max-width: 750px;
   border: 2.5px dashed lightblue;
   border-radius: 8px;

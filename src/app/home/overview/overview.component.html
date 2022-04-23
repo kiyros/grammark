@@ -20,57 +20,47 @@
           <tr>
             <th class="tablehead">Category</th>
             <th class="tablehead">Results</th>
-            <th class="tablehead">Goal</th>
           </tr>
         </thead>
         <tbody>
           <tr class="odd" [style.background-color]="passiveVoiceAlertColor">
             <td><a class="tablerow" routerLink="../fixes/passive-voice-fix">Passive Voice</a></td>
             <td>{{ passiveVoiceNumber }}({{passiveVoiceScore}}%)</td>
-            <td>10% or fewer</td>
 
           </tr>
           <tr class="even" [style.background-color]="wordinessAlertColor">
             <td><a class="tablerow" routerLink="../fixes/wordiness-fix">Wordiness</a></td>
             <td>{{ wordinessNumber }}({{wordinessScore}}%)</td>
-            <td>2% or fewer</td>
 
           </tr>
           <tr class="odd" [style.background-color]="academicStyleAlertColor">
             <td><a class="tablerow" routerLink="../fixes/academic-style-fix">Academic Style</a></td>
             <td>{{ totalNonAcademic }}({{ academicStyleScore }}%)</td>
-            <td>1% or fewer</td>
 
           </tr>
           <tr class="even" [style.background-color]="grammarAlertColor">
             <td><a class="tablerow" routerLink="../fixes/grammar-fix">Grammar</a></td>
             <td>{{ totalGrammar }}({{grammarScore}}%)</td>
-            <td>0 errors</td>
 
           </tr>
           <tr class="odd" [style.background-color]="nominalizationsAlertColor">
             <td><a class="tablerow" routerLink="../fixes/nominalizations-fix">Nominalizations</a></td>
             <td>{{nominalizationsNumber}}({{nominalizationsScore}}%)</td>
-            <td>6% or fewer</td>
 
           </tr>
           <tr class="even" [style.background-color]="sentencesAlertColor">
             <td><a class="tablerow" routerLink="../fixes/sentences-fix">Sentences</a></td>
             <td>{{sentencesNumber}}({{sentencesScore}}%)</td>
-            <td>2% or fewer</td>
 
           </tr>
           <tr class="odd" [style.background-color]="eggcornsAlertColor">
             <td><a class="tablerow" routerLink="../fixes/eggcorns-fix">Eggcorns</a></td>
             <td>{{totalEggcorns}}({{eggcornsScore}}%)</td>
-            <td>0 errors</td>
 
           </tr>
           <tr class="even" [style.background-color]="transitionsAlertColor">
             <td><a class="tablerow" routerLink="../fixes/transitions-fix">Transitions</a></td>
             <td>{{ totalTransitions }}({{ transitionsScore }}%)</td>
-            <td>10% or more</td>
-
           </tr>
         </tbody>
       </table>
@@ -79,7 +69,7 @@
     <button class="startoverbutton" (click)="startOverClickButton()">Clear & Start Over</button>
   </div>
 
-  <div class="column2">
+  <!-- <div class="column2">
 
     <div class="gradeCircle"><a class="tablerow" routerLink="../fixes/nominalizations-fix">Overall Grade</a>
       <div class="circular">
@@ -257,5 +247,5 @@
     </div>
 
 
-  </div>
+  </div> -->
 </div>

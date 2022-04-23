@@ -1,21 +1,22 @@
-<div class="homecolumns">
-
-  <div class="column">
-    <textarea id="userinput" name="userinput" [(ngModel)]="message" placeholder="Type or paste your writing here. It will not be stored or reused in any way.">{{message}}</textarea>
-    <button id="submitbutton" (click)="submitClick()">Submit</button>
-    <!--input type="text" [(ngModel)]="message"-->
+<body>
+  <div id="textboxBackground">
+    <div class="column">
+      <textarea id="userinput" name="userinput" [(ngModel)]="message"
+        placeholder="Type or paste your writing here. It will not be stored or reused in any way.">{{message}}</textarea>
+      <br>
+      <button id="submitbutton" (click)="submitClick()">SUBMIT</button>
+      <!--input type="text" [(ngModel)]="message"-->
+    </div>
   </div>
+  <br><br><br>
+  <h1 id="attentionGrabber">HOW IS GRAMMARK HELPFUL?</h1>
 
   <div class="column1">
     <div class="homedescription">
-      <h3><b>15-30 minutes:</b> time a teacher takes to correct 1 paper</h3>
-      <h3><b>0.14 seconds:</b> time Grammark takes to search 6,239 errors</h3>
+      <h3>It takes a teacher <b>15-30 minutes</b> to correct 1 paper</h3>
+      <h3>It takes Grammark <b>0.14 seconds</b> to locate 6,239 errors</h3>
     </div>
-
     <br>
-
-    
-
   </div>
 
-</div>
+</body>
