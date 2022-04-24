@@ -1,0 +1,755 @@
+{
+	"transitions": [{
+			"wrong": "above all",
+			"fixed": ""
+		},
+		{
+			"wrong": "accordingly",
+			"fixed": ""
+		},
+		{
+			"wrong": "additionally",
+			"fixed": ""
+		},
+		{
+			"wrong": "after all",
+			"fixed": ""
+		},
+		{
+			"wrong": "afterward",
+			"fixed": ""
+		},
+		{
+			"wrong": "albeit",
+			"fixed": ""
+		},
+		{
+			"wrong": "all in all",
+			"fixed": ""
+		},
+		{
+			"wrong": "all of a sudden",
+			"fixed": ""
+		},
+		{
+			"wrong": "all things considered",
+			"fixed": ""
+		},
+		{
+			"wrong": "also",
+			"fixed": ""
+		},
+		{
+			"wrong": "although",
+			"fixed": ""
+		},
+		{
+			"wrong": "altogether",
+			"fixed": ""
+		},
+		{
+			"wrong": "another key point",
+			"fixed": ""
+		},
+		{
+			"wrong": "as a matter of fact",
+			"fixed": ""
+		},
+		{
+			"wrong": "as a result",
+			"fixed": ""
+		},
+		{
+			"wrong": "as an illustration",
+			"fixed": ""
+		},
+		{
+			"wrong": "as can be seen",
+			"fixed": ""
+		},
+		{
+			"wrong": "as has been noted",
+			"fixed": ""
+		},
+		{
+			"wrong": "as shown above",
+			"fixed": ""
+		},
+		{
+			"wrong": "as soon as",
+			"fixed": ""
+		},
+		{
+			"wrong": "as well as",
+			"fixed": ""
+		},
+		{
+			"wrong": "at the present time",
+			"fixed": ""
+		},
+		{
+			"wrong": "at the same time",
+			"fixed": ""
+		},
+		{
+			"wrong": "at this instant",
+			"fixed": ""
+		},
+		{
+			"wrong": "basically",
+			"fixed": ""
+		},
+		{
+			"wrong": "be that as it may",
+			"fixed": ""
+		},
+		{
+			"wrong": "because of",
+			"fixed": ""
+		},
+		{
+			"wrong": "besides",
+			"fixed": ""
+		},
+		{
+			"wrong": "by all means",
+			"fixed": ""
+		},
+		{
+			"wrong": "by and large",
+			"fixed": ""
+		},
+		{
+			"wrong": "by the same token",
+			"fixed": ""
+		},
+		{
+			"wrong": "certainly",
+			"fixed": ""
+		},
+		{
+			"wrong": "chiefly",
+			"fixed": ""
+		},
+		{
+			"wrong": "comparatively",
+			"fixed": ""
+		},
+		{
+			"wrong": "consequently",
+			"fixed": ""
+		},
+		{
+			"wrong": "conversely",
+			"fixed": ""
+		},
+		{
+			"wrong": "correspondingly",
+			"fixed": ""
+		},
+		{
+			"wrong": "despite",
+			"fixed": ""
+		},
+		{
+			"wrong": "different from",
+			"fixed": ""
+		},
+		{
+			"wrong": "due to",
+			"fixed": ""
+		},
+		{
+			"wrong": "equally",
+			"fixed": ""
+		},
+		{
+			"wrong": "equally important",
+			"fixed": ""
+		},
+		{
+			"wrong": "especially",
+			"fixed": ""
+		},
+		{
+			"wrong": "even so",
+			"fixed": ""
+		},
+		{
+			"wrong": "eventually",
+			"fixed": ""
+		},
+		{
+			"wrong": "expressively",
+			"fixed": ""
+		},
+		{
+			"wrong": "finally",
+			"fixed": ""
+		},
+		{
+			"wrong": "firstly",
+			"fixed": ""
+		},
+		{
+			"wrong": "first thing to remember",
+			"fixed": ""
+		},
+		{
+			"wrong": "following",
+			"fixed": ""
+		},
+		{
+			"wrong": "for example",
+			"fixed": ""
+		},
+		{
+			"wrong": "for fear that",
+			"fixed": ""
+		},
+		{
+			"wrong": "for instance",
+			"fixed": ""
+		},
+		{
+			"wrong": "for one thing",
+			"fixed": ""
+		},
+		{
+			"wrong": "for the most part",
+			"fixed": ""
+		},
+		{
+			"wrong": "for the purpose of",
+			"fixed": ""
+		},
+		{
+			"wrong": "for this reason",
+			"fixed": ""
+		},
+		{
+			"wrong": "formerly",
+			"fixed": ""
+		},
+		{
+			"wrong": "forthwith",
+			"fixed": ""
+		},
+		{
+			"wrong": "frequently",
+			"fixed": ""
+		},
+		{
+			"wrong": "from time to time",
+			"fixed": ""
+		},
+		{
+			"wrong": "further",
+			"fixed": ""
+		},
+		{
+			"wrong": "furthermore",
+			"fixed": ""
+		},
+		{
+			"wrong": "generally speaking",
+			"fixed": ""
+		},
+		{
+			"wrong": "given that",
+			"fixed": ""
+		},
+		{
+			"wrong": "given these points",
+			"fixed": ""
+		},
+		{
+			"wrong": "hence",
+			"fixed": ""
+		},
+		{
+			"wrong": "henceforth",
+			"fixed": ""
+		},
+		{
+			"wrong": "however",
+			"fixed": ""
+		},
+		{
+			"wrong": "identically",
+			"fixed": ""
+		},
+		{
+			"wrong": "immediately",
+			"fixed": ""
+		},
+		{
+			"wrong": "important to realize",
+			"fixed": ""
+		},
+		{
+			"wrong": "in a moment",
+			"fixed": ""
+		},
+		{
+			"wrong": "in a word",
+			"fixed": ""
+		},
+		{
+			"wrong": "in addition",
+			"fixed": ""
+		},
+		{
+			"wrong": "in any event",
+			"fixed": ""
+		},
+		{
+			"wrong": "in brief",
+			"fixed": ""
+		},
+		{
+			"wrong": "in case",
+			"fixed": ""
+		},
+		{
+			"wrong": "in conclusion",
+			"fixed": ""
+		},
+		{
+			"wrong": "in contrast",
+			"fixed": ""
+		},
+		{
+			"wrong": "in detail",
+			"fixed": ""
+		},
+		{
+			"wrong": "in due time",
+			"fixed": ""
+		},
+		{
+			"wrong": "in either case",
+			"fixed": ""
+		},
+		{
+			"wrong": "in essence",
+			"fixed": ""
+		},
+		{
+			"wrong": "in fact",
+			"fixed": ""
+		},
+		{
+			"wrong": "in general",
+			"fixed": ""
+		},
+		{
+			"wrong": "in light of",
+			"fixed": ""
+		},
+		{
+			"wrong": "in like manner",
+			"fixed": ""
+		},
+		{
+			"wrong": "in order to",
+			"fixed": ""
+		},
+		{
+			"wrong": "in other words",
+			"fixed": ""
+		},
+		{
+			"wrong": "in particular",
+			"fixed": ""
+		},
+		{
+			"wrong": "in reality",
+			"fixed": ""
+		},
+		{
+			"wrong": "in short",
+			"fixed": ""
+		},
+		{
+			"wrong": "in spite of",
+			"fixed": ""
+		},
+		{
+			"wrong": "in summary",
+			"fixed": ""
+		},
+		{
+			"wrong": "in that case",
+			"fixed": ""
+		},
+		{
+			"wrong": "in the event that",
+			"fixed": ""
+		},
+		{
+			"wrong": "in the final analysis",
+			"fixed": ""
+		},
+		{
+			"wrong": "in the first place",
+			"fixed": ""
+		},
+		{
+			"wrong": "in the hope that",
+			"fixed": ""
+		},
+		{
+			"wrong": "in the long run",
+			"fixed": ""
+		},
+		{
+			"wrong": "in the meantime",
+			"fixed": ""
+		},
+		{
+			"wrong": "in the same way",
+			"fixed": ""
+		},
+		{
+			"wrong": "in this case",
+			"fixed": ""
+		},
+		{
+			"wrong": "in time",
+			"fixed": ""
+		},
+		{
+			"wrong": "in view of",
+			"fixed": ""
+		},
+		{
+			"wrong": "inasmuch as",
+			"fixed": ""
+		},
+		{
+			"wrong": "indeed",
+			"fixed": ""
+		},
+		{
+			"wrong": " lest ",
+			"fixed": ""
+		},
+		{
+			"wrong": "likewise",
+			"fixed": ""
+		},
+		{
+			"wrong": "markedly",
+			"fixed": ""
+		},
+		{
+			"wrong": "meanwhile",
+			"fixed": ""
+		},
+		{
+			"wrong": "moreover",
+			"fixed": ""
+		},
+		{
+			"wrong": "most compelling evidence",
+			"fixed": ""
+		},
+		{
+			"wrong": "must be remembered",
+			"fixed": ""
+		},
+		{
+			"wrong": "namely",
+			"fixed": ""
+		},
+		{
+			"wrong": "nevertheless",
+			"fixed": ""
+		},
+		{
+			"wrong": "next",
+			"fixed": ""
+		},
+		{
+			"wrong": "not only",
+			"fixed": ""
+		},
+		{
+			"wrong": "not to mention",
+			"fixed": ""
+		},
+		{
+			"wrong": "notably",
+			"fixed": ""
+		},
+		{
+			"wrong": "notwithstanding",
+			"fixed": ""
+		},
+		{
+			"wrong": "of course",
+			"fixed": ""
+		},
+		{
+			"wrong": "on balance",
+			"fixed": ""
+		},
+		{
+			"wrong": "on the condition that",
+			"fixed": ""
+		},
+		{
+			"wrong": "on the contrary",
+			"fixed": ""
+		},
+		{
+			"wrong": "on the other hand",
+			"fixed": ""
+		},
+		{
+			"wrong": "on the positive / negative side",
+			"fixed": ""
+		},
+		{
+			"wrong": "on the whole",
+			"fixed": ""
+		},
+		{
+			"wrong": "ordinarily",
+			"fixed": ""
+		},
+		{
+			"wrong": "otherwise",
+			"fixed": ""
+		},
+		{
+			"wrong": "overall",
+			"fixed": ""
+		},
+		{
+			"wrong": "owing to",
+			"fixed": ""
+		},
+		{
+			"wrong": "point often overlooked",
+			"fixed": ""
+		},
+		{
+			"wrong": "prior to",
+			"fixed": ""
+		},
+		{
+			"wrong": "provided that",
+			"fixed": ""
+		},
+		{
+			"wrong": "quickly",
+			"fixed": ""
+		},
+		{
+			"wrong": "rather",
+			"fixed": ""
+		},
+		{
+			"wrong": "regardless",
+			"fixed": ""
+		},
+		{
+			"wrong": "secondly",
+			"fixed": ""
+		},
+		{
+			"wrong": "significantly",
+			"fixed": ""
+		},
+		{
+			"wrong": "similarly",
+			"fixed": ""
+		},
+		{
+			"wrong": "since",
+			"fixed": ""
+		},
+		{
+			"wrong": "so as to",
+			"fixed": ""
+		},
+		{
+			"wrong": "so long as",
+			"fixed": ""
+		},
+		{
+			"wrong": "so that",
+			"fixed": ""
+		},
+		{
+			"wrong": "sooner or later",
+			"fixed": ""
+		},
+		{
+			"wrong": "specifically",
+			"fixed": ""
+		},
+		{
+			"wrong": "straightaway",
+			"fixed": ""
+		},
+		{
+			"wrong": "subsequently",
+			"fixed": ""
+		},
+		{
+			"wrong": "such as",
+			"fixed": ""
+		},
+		{
+			"wrong": "surely",
+			"fixed": ""
+		},
+		{
+			"wrong": "surprisingly",
+			"fixed": ""
+		},
+		{
+			"wrong": "that is to say",
+			"fixed": ""
+		},
+		{
+			"wrong": "then again",
+			"fixed": ""
+		},
+		{
+			"wrong": "therefore",
+			"fixed": ""
+		},
+		{
+			"wrong": "thereupon",
+			"fixed": ""
+		},
+		{
+			"wrong": "thirdly",
+			"fixed": ""
+		},
+		{
+			"wrong": "thus",
+			"fixed": ""
+		},
+		{
+			"wrong": "to be sure",
+			"fixed": ""
+		},
+		{
+			"wrong": "to begin with",
+			"fixed": ""
+		},
+		{
+			"wrong": "to clarify",
+			"fixed": ""
+		},
+		{
+			"wrong": "to demonstrate",
+			"fixed": ""
+		},
+		{
+			"wrong": "to emphasize",
+			"fixed": ""
+		},
+		{
+			"wrong": "to enumerate",
+			"fixed": ""
+		},
+		{
+			"wrong": "to explain",
+			"fixed": ""
+		},
+		{
+			"wrong": "to point out",
+			"fixed": ""
+		},
+		{
+			"wrong": "to put it another way",
+			"fixed": ""
+		},
+		{
+			"wrong": "to put it differently",
+			"fixed": ""
+		},
+		{
+			"wrong": "to repeat",
+			"fixed": ""
+		},
+		{
+			"wrong": "to say nothing of",
+			"fixed": ""
+		},
+		{
+			"wrong": "to sum up",
+			"fixed": ""
+		},
+		{
+			"wrong": "to summarize",
+			"fixed": ""
+		},
+		{
+			"wrong": "to the end that",
+			"fixed": ""
+		},
+		{
+			"wrong": "together with",
+			"fixed": ""
+		},
+		{
+			"wrong": "truly",
+			"fixed": ""
+		},
+		{
+			"wrong": "under those circumstances",
+			"fixed": ""
+		},
+		{
+			"wrong": "uniquely",
+			"fixed": ""
+		},
+		{
+			"wrong": "unless",
+			"fixed": ""
+		},
+		{
+			"wrong": "until now",
+			"fixed": ""
+		},
+		{
+			"wrong": "up to the present time",
+			"fixed": ""
+		},
+		{
+			"wrong": "usually",
+			"fixed": ""
+		},
+		{
+			"wrong": "whenever",
+			"fixed": ""
+		},
+		{
+			"wrong": "whereas",
+			"fixed": ""
+		},
+		{
+			"wrong": "with attention to",
+			"fixed": ""
+		},
+		{
+			"wrong": "with this in mind",
+			"fixed": ""
+		},
+		{
+			"wrong": "with this intention",
+			"fixed": ""
+		},
+		{
+			"wrong": "without delay",
+			"fixed": ""
+		}
+	]
+}

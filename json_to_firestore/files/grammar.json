@@ -1,0 +1,5243 @@
+{
+	"grammar": [{
+			"wrong": "a 100",
+			"fixed": "100, a hundred, one hundred"
+		},
+		{
+			"wrong": "a 1000",
+			"fixed": "1000, a thousand, one thousand"
+		},
+		{
+			"wrong": "a 11",
+			"fixed": "an 11"
+		},
+		{
+			"wrong": "a 11th",
+			"fixed": "an 11th"
+		},
+		{
+			"wrong": "a 18",
+			"fixed": "an 18"
+		},
+		{
+			"wrong": "a 18th",
+			"fixed": "an 18th"
+		},
+		{
+			"wrong": "a 8",
+			"fixed": "an 8"
+		},
+		{
+			"wrong": "a 80",
+			"fixed": "an 80"
+		},
+		{
+			"wrong": "a 8th",
+			"fixed": "an 8th"
+		},
+		{
+			"wrong": "a absolute",
+			"fixed": "an absolute"
+		},
+		{
+			"wrong": "a accident",
+			"fixed": "an accident"
+		},
+		{
+			"wrong": "a acoustic",
+			"fixed": "an acoustic"
+		},
+		{
+			"wrong": "a acronym",
+			"fixed": "an acronym"
+		},
+		{
+			"wrong": "a action",
+			"fixed": "an action"
+		},
+		{
+			"wrong": "a actual",
+			"fixed": "an actual"
+		},
+		{
+			"wrong": "a additional",
+			"fixed": "an additional"
+		},
+		{
+			"wrong": "a affair",
+			"fixed": "an affair"
+		},
+		{
+			"wrong": "a African",
+			"fixed": "an African"
+		},
+		{
+			"wrong": "a album",
+			"fixed": "an album"
+		},
+		{
+			"wrong": "a Algerian",
+			"fixed": "an Algerian"
+		},
+		{
+			"wrong": "a alien",
+			"fixed": "an alien"
+		},
+		{
+			"wrong": "a alternative",
+			"fixed": "an alternative"
+		},
+		{
+			"wrong": "a AM",
+			"fixed": "an AM"
+		},
+		{
+			"wrong": "a amateur",
+			"fixed": "an amateur"
+		},
+		{
+			"wrong": "a American",
+			"fixed": "an American"
+		},
+		{
+			"wrong": "a amount",
+			"fixed": "an amount"
+		},
+		{
+			"wrong": "Although,",
+			"fixed": "However,"
+		},
+		{
+			"wrong": "a analog",
+			"fixed": "an analog"
+		},
+		{
+			"wrong": "a analogue",
+			"fixed": "an analogue"
+		},
+		{
+			"wrong": "a angle",
+			"fixed": "an angle"
+		},
+		{
+			"wrong": "a Angolan",
+			"fixed": "an Angolan"
+		},
+		{
+			"wrong": "a annual",
+			"fixed": "an annual"
+		},
+		{
+			"wrong": "a another",
+			"fixed": "another"
+		},
+		{
+			"wrong": "a antenna",
+			"fixed": "an antenna"
+		},
+		{
+			"wrong": "a anti",
+			"fixed": "an anti"
+		},
+		{
+			"wrong": "a Arabian",
+			"fixed": "an Arabian"
+		},
+		{
+			"wrong": "a Arabic",
+			"fixed": "an Arabic"
+		},
+		{
+			"wrong": "a Argentine",
+			"fixed": "an Argentine"
+		},
+		{
+			"wrong": "a Armenian",
+			"fixed": "an Armenian"
+		},
+		{
+			"wrong": "a Asian",
+			"fixed": "an Asian"
+		},
+		{
+			"wrong": "a assistant",
+			"fixed": "an assistant"
+		},
+		{
+			"wrong": "a associate",
+			"fixed": "an associate"
+		},
+		{
+			"wrong": "a Australian",
+			"fixed": "an Australian"
+		},
+		{
+			"wrong": "a Austrian",
+			"fixed": "an Austrian"
+		},
+		{
+			"wrong": "a average",
+			"fixed": "an average"
+		},
+		{
+			"wrong": "a back up",
+			"fixed": "a back-up, a backup"
+		},
+		{
+			"wrong": "a bacteria",
+			"fixed": "a bacterium [singular], bacteria [plural]"
+		},
+		{
+			"wrong": "a batsmen",
+			"fixed": "a batsman [singular]"
+		},
+		{
+			"wrong": "a businessmen",
+			"fixed": "a businessman [singular]"
+		},
+		{
+			"wrong": "a businesswomen",
+			"fixed": "a businesswoman"
+		},
+		{
+			"wrong": "a consortia",
+			"fixed": "a consortium [singular]"
+		},
+		{
+			"wrong": "a criteria",
+			"fixed": "a criterion [singular]"
+		},
+		{
+			"wrong": "a dominate",
+			"fixed": "a dominant"
+		},
+		{
+			"wrong": "a early",
+			"fixed": "an early"
+		},
+		{
+			"wrong": "a effective",
+			"fixed": "an effective"
+		},
+		{
+			"wrong": "a Egyptian",
+			"fixed": "an Egyptian"
+		},
+		{
+			"wrong": "a eight",
+			"fixed": "an eight"
+		},
+		{
+			"wrong": "a eighth",
+			"fixed": "an eighth"
+		},
+		{
+			"wrong": "a eighteen",
+			"fixed": "an eighteen"
+		},
+		{
+			"wrong": "a eighteenth",
+			"fixed": "an eighteenth"
+		},
+		{
+			"wrong": "a eighty",
+			"fixed": "an eighty"
+		},
+		{
+			"wrong": "a electric",
+			"fixed": "an electric"
+		},
+		{
+			"wrong": "a electronic",
+			"fixed": "an electronic"
+		},
+		{
+			"wrong": "a eleven",
+			"fixed": "an eleven"
+		},
+		{
+			"wrong": "a eleventh",
+			"fixed": "an eleventh"
+		},
+		{
+			"wrong": "a elite",
+			"fixed": "an elite"
+		},
+		{
+			"wrong": "a embedded",
+			"fixed": "an embedded"
+		},
+		{
+			"wrong": "a English",
+			"fixed": "an English"
+		},
+		{
+			"wrong": "a entire",
+			"fixed": "an entire"
+		},
+		{
+			"wrong": "a EP",
+			"fixed": "an EP"
+		},
+		{
+			"wrong": "a epic",
+			"fixed": "an epic"
+		},
+		{
+			"wrong": "a episode",
+			"fixed": "an episode"
+		},
+		{
+			"wrong": "a equal",
+			"fixed": "an equal"
+		},
+		{
+			"wrong": "a estimate",
+			"fixed": "an estimate"
+		},
+		{
+			"wrong": "a Ethiopian",
+			"fixed": "an Ethiopian"
+		},
+		{
+			"wrong": "a ethnic",
+			"fixed": "an ethnic"
+		},
+		{
+			"wrong": "a example",
+			"fixed": "an example"
+		},
+		{
+			"wrong": "a extra",
+			"fixed": "an extra"
+		},
+		{
+			"wrong": "a falling out",
+			"fixed": "a falling-out [though Wiktionary has both]"
+		},
+		{
+			"wrong": "a firemen",
+			"fixed": "a fireman [singular]"
+		},
+		{
+			"wrong": "a flagella",
+			"fixed": "a flagellum [singular]"
+		},
+		{
+			"wrong": "a FM",
+			"fixed": "an FM"
+		},
+		{
+			"wrong": "a freshmen",
+			"fixed": "a freshman [singular]"
+		},
+		{
+			"wrong": "a fungi",
+			"fixed": "a fungus [singular]"
+		},
+		{
+			"wrong": "a gunmen",
+			"fixed": "a gunman [singular]"
+		},
+		{
+			"wrong": "a impact",
+			"fixed": "an impact"
+		},
+		{
+			"wrong": "a independent",
+			"fixed": "an independent"
+		},
+		{
+			"wrong": "a Indian",
+			"fixed": "an Indian"
+		},
+		{
+			"wrong": "a individual",
+			"fixed": "an individual"
+		},
+		{
+			"wrong": "a Indonesian",
+			"fixed": "an Indonesian"
+		},
+		{
+			"wrong": "a indoor",
+			"fixed": "an indoor"
+		},
+		{
+			"wrong": "a information",
+			"fixed": "an information"
+		},
+		{
+			"wrong": "a initiative",
+			"fixed": "an initiative"
+		},
+		{
+			"wrong": "a intelligent",
+			"fixed": "an intelligent"
+		},
+		{
+			"wrong": "a interesting",
+			"fixed": "an interesting"
+		},
+		{
+			"wrong": "a interim",
+			"fixed": "an interim"
+		},
+		{
+			"wrong": "a interior",
+			"fixed": "an interior"
+		},
+		{
+			"wrong": "a intermediate",
+			"fixed": "an intermediate"
+		},
+		{
+			"wrong": "a international",
+			"fixed": "an international"
+		},
+		{
+			"wrong": "a Internet",
+			"fixed": "an Internet"
+		},
+		{
+			"wrong": "a intersection",
+			"fixed": "an intersection"
+		},
+		{
+			"wrong": "a interview",
+			"fixed": "an interview"
+		},
+		{
+			"wrong": "a introduction",
+			"fixed": "an introduction"
+		},
+		{
+			"wrong": "a Iranian",
+			"fixed": "an Iranian"
+		},
+		{
+			"wrong": "a Iraqi",
+			"fixed": "an Iraqi"
+		},
+		{
+			"wrong": "a Irish",
+			"fixed": "an Irish"
+		},
+		{
+			"wrong": "a iron",
+			"fixed": "an iron"
+		},
+		{
+			"wrong": "a island",
+			"fixed": "an island"
+		},
+		{
+			"wrong": "a Israeli",
+			"fixed": "an Israeli"
+		},
+		{
+			"wrong": "a issue",
+			"fixed": "an issue"
+		},
+		{
+			"wrong": "a Italian",
+			"fixed": "an Italian"
+		},
+		{
+			"wrong": "a larvae",
+			"fixed": "a larva [singular]"
+		},
+		{
+			"wrong": "a line up",
+			"fixed": "a line-up, a lineup"
+		},
+		{
+			"wrong": "a lock out",
+			"fixed": "a lockout"
+		},
+		{
+			"wrong": "a lose",
+			"fixed": "a loss"
+		},
+		{
+			"wrong": "a match up",
+			"fixed": "a match-up, a matchup"
+		},
+		{
+			"wrong": "a media for",
+			"fixed": "a medium for"
+		},
+		{
+			"wrong": "a nuclei",
+			"fixed": "a nucleus [singular]"
+		},
+		{
+			"wrong": "a ocean",
+			"fixed": "an ocean"
+		},
+		{
+			"wrong": "a official",
+			"fixed": "an official"
+		},
+		{
+			"wrong": "a Ohio",
+			"fixed": "an Ohio"
+		},
+		{
+			"wrong": "a oil",
+			"fixed": "an oil"
+		},
+		{
+			"wrong": "a old",
+			"fixed": "an old"
+		},
+		{
+			"wrong": "a one of the",
+			"fixed": "one of the"
+		},
+		{
+			"wrong": "a online",
+			"fixed": "an online"
+		},
+		{
+			"wrong": "a only",
+			"fixed": "an only, only a"
+		},
+		{
+			"wrong": "a only a",
+			"fixed": "only a"
+		},
+		{
+			"wrong": "a opinion",
+			"fixed": "an opinion"
+		},
+		{
+			"wrong": "a organization",
+			"fixed": "an organization"
+		},
+		{
+			"wrong": "a original",
+			"fixed": "an original"
+		},
+		{
+			"wrong": "a other",
+			"fixed": "an other"
+		},
+		{
+			"wrong": "a outbreak",
+			"fixed": "an outbreak"
+		},
+		{
+			"wrong": "a outdoor",
+			"fixed": "an outdoor"
+		},
+		{
+			"wrong": "a outside",
+			"fixed": "an outside"
+		},
+		{
+			"wrong": "a overtime",
+			"fixed": "an overtime"
+		},
+		{
+			"wrong": "a owner",
+			"fixed": "an owner"
+		},
+		{
+			"wrong": "a paparazzi",
+			"fixed": "a paparazzo [singular], paparazzi [plural]"
+		},
+		{
+			"wrong": "a parentheses",
+			"fixed": "a parenthesis [singular]"
+		},
+		{
+			"wrong": "a phenomena",
+			"fixed": "a phenomenon [singular], phenomena [plural]"
+		},
+		{
+			"wrong": "a protozoa",
+			"fixed": "a protozoon [singular], protozoa [plural]"
+		},
+		{
+			"wrong": "a pupae",
+			"fixed": "a pupa [singular]"
+		},
+		{
+			"wrong": "a radii",
+			"fixed": "a radius [singular]"
+		},
+		{
+			"wrong": "a run in",
+			"fixed": "a run-in"
+		},
+		{
+			"wrong": "a set back",
+			"fixed": "a set-back, a setback"
+		},
+		{
+			"wrong": "a set up",
+			"fixed": "a setup"
+		},
+		{
+			"wrong": "a simple as",
+			"fixed": "as simple as"
+		},
+		{
+			"wrong": "a spermatozoa",
+			"fixed": "a spermatozoon [singular]"
+		},
+		{
+			"wrong": "a statesmen",
+			"fixed": "a statesman [singular]"
+		},
+		{
+			"wrong": "a taxa",
+			"fixed": "a taxon [singular]"
+		},
+		{
+			"wrong": "a toss up",
+			"fixed": "a toss-up, a tossup"
+		},
+		{
+			"wrong": "a two months",
+			"fixed": "a two-month"
+		},
+		{
+			"wrong": "a ultimate",
+			"fixed": "an ultimate"
+		},
+		{
+			"wrong": "a undercover",
+			"fixed": "an undercover"
+		},
+		{
+			"wrong": "a underground",
+			"fixed": "an underground"
+		},
+		{
+			"wrong": "a unfortunate",
+			"fixed": "an unfortunate"
+		},
+		{
+			"wrong": "a unusual",
+			"fixed": "an unusual"
+		},
+		{
+			"wrong": "a upper",
+			"fixed": "an upper"
+		},
+		{
+			"wrong": "a urban",
+			"fixed": "an urban"
+		},
+		{
+			"wrong": "a vertebrae",
+			"fixed": "a vertebra [singular]"
+		},
+		{
+			"wrong": "a women",
+			"fixed": "a woman [singular]"
+		},
+		{
+			"wrong": "a work out",
+			"fixed": "a workout"
+		},
+		{
+			"wrong": "Aboriginal decent",
+			"fixed": "Aboriginal descent"
+		},
+		{
+			"wrong": "about it's",
+			"fixed": " about its [possessive]"
+		},
+		{
+			"wrong": "about they're",
+			"fixed": " about their [possessive]"
+		},
+		{
+			"wrong": "about who to",
+			"fixed": "about whom to"
+		},
+		{
+			"wrong": "about who's",
+			"fixed": " about whose [possessive]"
+		},
+		{
+			"wrong": "above it's",
+			"fixed": " above its [possessive]"
+		},
+		{
+			"wrong": "AC current",
+			"fixed": "AC, alternating current"
+		},
+		{
+			"wrong": "ACL ligament",
+			"fixed": "ACL, anterior cruciate ligament"
+		},
+		{
+			"wrong": "across it's",
+			"fixed": " across its [possessive]"
+		},
+		{
+			"wrong": "affect on",
+			"fixed": "effect on"
+		},
+		{
+			"wrong": "affect upon",
+			"fixed": "effect upon"
+		},
+		{
+			"wrong": "affects of",
+			"fixed": "effects of"
+		},
+		{
+			"wrong": "African decent",
+			"fixed": "African descent"
+		},
+		{
+			"wrong": "after along time",
+			"fixed": "after a long time"
+		},
+		{
+			"wrong": "after awhile",
+			"fixed": "after a while [noun]"
+		},
+		{
+			"wrong": "after been",
+			"fixed": "after being"
+		},
+		{
+			"wrong": "after it's",
+			"fixed": " after its [possessive]"
+		},
+		{
+			"wrong": "after quite awhile",
+			"fixed": "after quite a while"
+		},
+		{
+			"wrong": "against it's",
+			"fixed": " against its [possessive]"
+		},
+		{
+			"wrong": "against who",
+			"fixed": "against whom"
+		},
+		{
+			"wrong": "ago since",
+			"fixed": "since"
+		},
+		{
+			"wrong": "agree in principal",
+			"fixed": "agree in principle"
+		},
+		{
+			"wrong": "agreement in principal",
+			"fixed": "agreement in principle"
+		},
+		{
+			"wrong": "Air Canada Center",
+			"fixed": "Air Canada Centre"
+		},
+		{
+			"wrong": "airplane hanger",
+			"fixed": "airplane hangar"
+		},
+		{
+			"wrong": "Albanian decent",
+			"fixed": "Albanian descent"
+		},
+		{
+			"wrong": "all for not",
+			"fixed": "all for naught"
+		},
+		{
+			"wrong": "all it's",
+			"fixed": " all its"
+		},
+		{
+			"wrong": "all though",
+			"fixed": "although"
+		},
+		{
+			"wrong": "all tolled",
+			"fixed": "all told"
+		},
+		{
+			"wrong": "allot of",
+			"fixed": "a lot of"
+		},
+		{
+			"wrong": "alma matter",
+			"fixed": "alma mater"
+		},
+		{
+			"wrong": "along it's",
+			"fixed": " along its [possessive]"
+		},
+		{
+			"wrong": "along side",
+			"fixed": "alongside"
+		},
+		{
+			"wrong": "along time",
+			"fixed": "a long time"
+		},
+		{
+			"wrong": "alongside it's",
+			"fixed": " alongside its [possessive]"
+		},
+		{
+			"wrong": "alongside with",
+			"fixed": "along with, alongside"
+		},
+		{
+			"wrong": "also know as",
+			"fixed": "also known as"
+		},
+		{
+			"wrong": "also know by",
+			"fixed": "also known by"
+		},
+		{
+			"wrong": "also know for",
+			"fixed": "also known for"
+		},
+		{
+			"wrong": "alter boy",
+			"fixed": "altar boy"
+		},
+		{
+			"wrong": "alter server",
+			"fixed": "altar server"
+		},
+		{
+			"wrong": "AM in the morning",
+			"fixed": "AM, in the morning"
+		},
+		{
+			"wrong": "am loathe to",
+			"fixed": "am loath to [adjective]"
+		},
+		{
+			"wrong": "American decent",
+			"fixed": "American descent"
+		},
+		{
+			"wrong": "amid it's",
+			"fixed": " amid its [possessive]"
+		},
+		{
+			"wrong": "amidst it's",
+			"fixed": " amidst its [possessive]"
+		},
+		{
+			"wrong": "among it's",
+			"fixed": " among its [possessive]"
+		},
+		{
+			"wrong": "among others things",
+			"fixed": "among other things"
+		},
+		{
+			"wrong": "amongst it's",
+			"fixed": " amongst its [possessive]"
+		},
+		{
+			"wrong": "an affect",
+			"fixed": "an effect"
+		},
+		{
+			"wrong": "an alumnae of",
+			"fixed": "an alumna of [singular]"
+		},
+		{
+			"wrong": "an alumni of",
+			"fixed": "an alumnus of [singular]"
+		},
+		{
+			"wrong": "an another",
+			"fixed": "another"
+		},
+		{
+			"wrong": "an antennae",
+			"fixed": "an antenna [singular]"
+		},
+		{
+			"wrong": "an British",
+			"fixed": "a British"
+		},
+		{
+			"wrong": "an Canadian",
+			"fixed": "a Canadian"
+		},
+		{
+			"wrong": "an European",
+			"fixed": "a European"
+		},
+		{
+			"wrong": "an head",
+			"fixed": "a head"
+		},
+		{
+			"wrong": "an hero",
+			"fixed": "a hero"
+		},
+		{
+			"wrong": "an new",
+			"fixed": "a new"
+		},
+		{
+			"wrong": "an nine",
+			"fixed": "a nine"
+		},
+		{
+			"wrong": "an number",
+			"fixed": "a number"
+		},
+		{
+			"wrong": "an other",
+			"fixed": "another"
+		},
+		{
+			"wrong": "an Scottish",
+			"fixed": "a Scottish"
+		},
+		{
+			"wrong": "an seven",
+			"fixed": "a seven"
+		},
+		{
+			"wrong": "an six",
+			"fixed": "a six"
+		},
+		{
+			"wrong": "an ten",
+			"fixed": "a ten"
+		},
+		{
+			"wrong": "an unit",
+			"fixed": "a unit"
+		},
+		{
+			"wrong": "an Unix",
+			"fixed": "a Unix"
+		},
+		{
+			"wrong": "an USB",
+			"fixed": "a USB"
+		},
+		{
+			"wrong": "and etc",
+			"fixed": "etc"
+		},
+		{
+			"wrong": "and so fourth",
+			"fixed": "and so forth"
+		},
+		{
+			"wrong": "another criteria",
+			"fixed": "another criterion [singular]"
+		},
+		{
+			"wrong": "another wise",
+			"fixed": "an otherwise"
+		},
+		{
+			"wrong": "another words",
+			"fixed": "in other words, other words"
+		},
+		{
+			"wrong": "any where",
+			"fixed": "anywhere"
+		},
+		{
+			"wrong": "anyways",
+			"fixed": "anyway"
+		},
+		{
+			"wrong": "apart form",
+			"fixed": "apart from"
+		},
+		{
+			"wrong": "apart of",
+			"fixed": "a part of, apart from"
+		},
+		{
+			"wrong": "are aloud to",
+			"fixed": "are allowed to"
+		},
+		{
+			"wrong": "are been",
+			"fixed": "are being, have been"
+		},
+		{
+			"wrong": "are build",
+			"fixed": "are built"
+		},
+		{
+			"wrong": "are can",
+			"fixed": "can"
+		},
+		{
+			"wrong": "are have",
+			"fixed": "have"
+		},
+		{
+			"wrong": "are it's",
+			"fixed": " are its [possessive]"
+		},
+		{
+			"wrong": "are know as",
+			"fixed": "are known as"
+		},
+		{
+			"wrong": "are know by",
+			"fixed": "are known by"
+		},
+		{
+			"wrong": "are know for",
+			"fixed": "are known for"
+		},
+		{
+			"wrong": "are know to",
+			"fixed": "are known to"
+		},
+		{
+			"wrong": "are lain",
+			"fixed": "are laid"
+		},
+		{
+			"wrong": "are lead by",
+			"fixed": "are led by"
+		},
+		{
+			"wrong": "are loathe to",
+			"fixed": "are loath to [adjective]"
+		},
+		{
+			"wrong": "are ran by",
+			"fixed": "are run by"
+		},
+		{
+			"wrong": "are renown",
+			"fixed": "are renowned"
+		},
+		{
+			"wrong": "are set-up",
+			"fixed": "are set up"
+		},
+		{
+			"wrong": "are setup",
+			"fixed": "are set up"
+		},
+		{
+			"wrong": "are shutdown",
+			"fixed": "are shut down"
+		},
+		{
+			"wrong": "are shutout",
+			"fixed": "are shut out"
+		},
+		{
+			"wrong": "are suppose to",
+			"fixed": "are supposed to"
+		},
+		{
+			"wrong": "are the dominate",
+			"fixed": "are the dominant"
+		},
+		{
+			"wrong": "are use to",
+			"fixed": "are used to"
+		},
+		{
+			"wrong": "are were",
+			"fixed": "are, are where, were"
+		},
+		{
+			"wrong": "Armenian decent",
+			"fixed": "Armenian descent"
+		},
+		{
+			"wrong": "around it's",
+			"fixed": " around its [possessive]"
+		},
+		{
+			"wrong": "as a resulted",
+			"fixed": "as a result"
+		},
+		{
+			"wrong": "as apposed to",
+			"fixed": "as opposed to"
+		},
+		{
+			"wrong": "as back up",
+			"fixed": "as backup"
+		},
+		{
+			"wrong": "as been",
+			"fixed": "as being, has been"
+		},
+		{
+			"wrong": "as followed",
+			"fixed": "as follows"
+		},
+		{
+			"wrong": "as it's",
+			"fixed": " as its [possessive]"
+		},
+		{
+			"wrong": "as oppose to",
+			"fixed": "as opposed to"
+		},
+		{
+			"wrong": "Asian decent",
+			"fixed": "Asian descent"
+		},
+		{
+			"wrong": "aside it's",
+			"fixed": " aside its [possessive]"
+		},
+		{
+			"wrong": "assume the reigns",
+			"fixed": "assume the reins"
+		},
+		{
+			"wrong": "assume the roll",
+			"fixed": "assume the role"
+		},
+		{
+			"wrong": "at it's",
+			"fixed": " at its [possessive]"
+		},
+		{
+			"wrong": "at the alter",
+			"fixed": "at the altar"
+		},
+		{
+			"wrong": "at the reigns",
+			"fixed": "at the reins"
+		},
+		{
+			"wrong": "ATM machine",
+			"fixed": "ATM, automated teller machine"
+		},
+		{
+			"wrong": "away form",
+			"fixed": "away from"
+		},
+		{
+			"wrong": "back and fourth",
+			"fixed": "back and forth"
+		},
+		{
+			"wrong": "back drop",
+			"fixed": "backdrop"
+		},
+		{
+			"wrong": "back fire",
+			"fixed": "backfire [verb]"
+		},
+		{
+			"wrong": "back in forth",
+			"fixed": "back and forth"
+		},
+		{
+			"wrong": "back peddle",
+			"fixed": "backpedal"
+		},
+		{
+			"wrong": "back round",
+			"fixed": "background"
+		},
+		{
+			"wrong": "badly effected",
+			"fixed": "badly affected"
+		},
+		{
+			"wrong": "baited breath",
+			"fixed": "bated breath"
+		},
+		{
+			"wrong": "baled out",
+			"fixed": "bailed out [though Wiktionary and the COD allow both spellings]"
+		},
+		{
+			"wrong": "baling out",
+			"fixed": "bailing out [ditto]"
+		},
+		{
+			"wrong": "barb wire",
+			"fixed": "barbed wire"
+		},
+		{
+			"wrong": "bare in mind",
+			"fixed": "bear in mind"
+		},
+		{
+			"wrong": "based off",
+			"fixed": "based on"
+		},
+		{
+			"wrong": "based out of",
+			"fixed": "based in"
+		},
+		{
+			"wrong": "basic principal",
+			"fixed": "basic principle"
+		},
+		{
+			"wrong": "be build",
+			"fixed": "be built"
+		},
+		{
+			"wrong": "be cause",
+			"fixed": "because"
+		},
+		{
+			"wrong": "be drew",
+			"fixed": "be drawn"
+		},
+		{
+			"wrong": "be it's",
+			"fixed": " be its"
+		},
+		{
+			"wrong": "be know as",
+			"fixed": "be known as"
+		},
+		{
+			"wrong": "be lain",
+			"fixed": "be laid"
+		},
+		{
+			"wrong": "be lead by",
+			"fixed": "be led by"
+		},
+		{
+			"wrong": "be loathe to",
+			"fixed": "be loath to"
+		},
+		{
+			"wrong": "be ran",
+			"fixed": "be run"
+		},
+		{
+			"wrong": "be rode",
+			"fixed": "be ridden"
+		},
+		{
+			"wrong": "be set-up",
+			"fixed": "be set up"
+		},
+		{
+			"wrong": "be setup",
+			"fixed": "be set up"
+		},
+		{
+			"wrong": "be use to",
+			"fixed": "be used to"
+		},
+		{
+			"wrong": "be ware",
+			"fixed": "beware"
+		},
+		{
+			"wrong": "became know",
+			"fixed": "became known"
+		},
+		{
+			"wrong": "became to be",
+			"fixed": "became, came to be"
+		},
+		{
+			"wrong": "because of it's",
+			"fixed": " because of its"
+		},
+		{
+			"wrong": "because of the fact that",
+			"fixed": "because"
+		},
+		{
+			"wrong": "been a while",
+			"fixed": "been awhile"
+		},
+		{
+			"wrong": "been build",
+			"fixed": "been built"
+		},
+		{
+			"wrong": "been it's",
+			"fixed": " been its"
+		},
+		{
+			"wrong": "been know",
+			"fixed": "been known"
+		},
+		{
+			"wrong": "been lain",
+			"fixed": "been laid"
+		},
+		{
+			"wrong": "been lead by",
+			"fixed": "been led by"
+		},
+		{
+			"wrong": "been loathe to",
+			"fixed": "been loath to"
+		},
+		{
+			"wrong": "been ran",
+			"fixed": "been run"
+		},
+		{
+			"wrong": "been rode",
+			"fixed": "been ridden"
+		},
+		{
+			"wrong": "been set-up",
+			"fixed": "been set up [verb]"
+		},
+		{
+			"wrong": "been setup",
+			"fixed": "been set up"
+		},
+		{
+			"wrong": "been show on",
+			"fixed": "been shown on"
+		},
+		{
+			"wrong": "been use to",
+			"fixed": "been used to"
+		},
+		{
+			"wrong": "before hand",
+			"fixed": "beforehand"
+		},
+		{
+			"wrong": "before it's",
+			"fixed": " before its"
+		},
+		{
+			"wrong": "behind it's",
+			"fixed": " behind its"
+		},
+		{
+			"wrong": "being build",
+			"fixed": "being built"
+		},
+		{
+			"wrong": "being giving",
+			"fixed": "been giving, being given"
+		},
+		{
+			"wrong": "being it's",
+			"fixed": " being its"
+		},
+		{
+			"wrong": "being lain",
+			"fixed": "being laid"
+		},
+		{
+			"wrong": "being lead by",
+			"fixed": "being led by"
+		},
+		{
+			"wrong": "being loathe to",
+			"fixed": "being loath to"
+		},
+		{
+			"wrong": "being ran",
+			"fixed": "being run"
+		},
+		{
+			"wrong": "being rode",
+			"fixed": "being ridden"
+		},
+		{
+			"wrong": "being set-up",
+			"fixed": "being set up"
+		},
+		{
+			"wrong": "being setup",
+			"fixed": "being set up"
+		},
+		{
+			"wrong": "being show on",
+			"fixed": "being shown on"
+		},
+		{
+			"wrong": "being taking",
+			"fixed": "been taking, being taken"
+		},
+		{
+			"wrong": "below it's",
+			"fixed": " below its"
+		},
+		{
+			"wrong": "beneath it's",
+			"fixed": " beneath its"
+		},
+		{
+			"wrong": "beside it's",
+			"fixed": " beside its"
+		},
+		{
+			"wrong": "besides it's",
+			"fixed": " besides its"
+		},
+		{
+			"wrong": "better know as",
+			"fixed": "better known as"
+		},
+		{
+			"wrong": "better know for",
+			"fixed": "better known for"
+		},
+		{
+			"wrong": "better that",
+			"fixed": "better than"
+		},
+		{
+			"wrong": "better then",
+			"fixed": "better than"
+		},
+		{
+			"wrong": "between he and",
+			"fixed": "between him and"
+		},
+		{
+			"wrong": "between I and",
+			"fixed": "between me and"
+		},
+		{
+			"wrong": "between it's",
+			"fixed": " between its"
+		},
+		{
+			"wrong": "between she and",
+			"fixed": "between her and"
+		},
+		{
+			"wrong": "between they and",
+			"fixed": "between them and"
+		},
+		{
+			"wrong": "beyond it's",
+			"fixed": " beyond its"
+		},
+		{
+			"wrong": "Bogota, Columbia ",
+			"fixed": "Bogot"
+		},
+		{
+			"wrong": "both it's",
+			"fixed": " both its"
+		},
+		{
+			"wrong": "both of it's",
+			"fixed": " both of its"
+		},
+		{
+			"wrong": "both of them is",
+			"fixed": "both of them are"
+		},
+		{
+			"wrong": "brake away",
+			"fixed": "break away"
+		},
+		{
+			"wrong": "breath fire",
+			"fixed": "breathe fire"
+		},
+		{
+			"wrong": "breathe a sign of relief",
+			"fixed": "breathe a sigh of relief"
+		},
+		{
+			"wrong": "brew haha",
+			"fixed": "brouhaha"
+		},
+		{
+			"wrong": "Brinsley Schwartz",
+			"fixed": "Brinsley Schwarz"
+		},
+		{
+			"wrong": "by fisherman",
+			"fixed": "by fishermen"
+		},
+		{
+			"wrong": "by it's",
+			"fixed": " by its"
+		},
+		{
+			"wrong": "by who's",
+			"fixed": " by whose"
+		},
+		{
+			"wrong": "can backup",
+			"fixed": "can back up"
+		},
+		{
+			"wrong": "can been",
+			"fixed": "can be"
+		},
+		{
+			"wrong": "can blackout",
+			"fixed": "can black out"
+		},
+		{
+			"wrong": "can breath",
+			"fixed": "can breathe"
+		},
+		{
+			"wrong": "can checkout",
+			"fixed": "can check out"
+		},
+		{
+			"wrong": "can playback",
+			"fixed": "can play back"
+		},
+		{
+			"wrong": "can setup",
+			"fixed": "can set up"
+		},
+		{
+			"wrong": "can tryout",
+			"fixed": "can try out"
+		},
+		{
+			"wrong": "can workout",
+			"fixed": "can work out"
+		},
+		{
+			"wrong": "can't breath",
+			"fixed": " can't breathe"
+		},
+		{
+			"wrong": "card shark",
+			"fixed": "card sharp"
+		},
+		{
+			"wrong": "chalk full",
+			"fixed": "chock-full"
+		},
+		{
+			"wrong": "chocked full",
+			"fixed": "chock-full"
+		},
+		{
+			"wrong": "chomping at the bit",
+			"fixed": "champing at the bit"
+		},
+		{
+			"wrong": "close proximity",
+			"fixed": "closeness, proximity"
+		},
+		{
+			"wrong": "commonly know as",
+			"fixed": "commonly known as"
+		},
+		{
+			"wrong": "commonly know for",
+			"fixed": "commonly known for"
+		},
+		{
+			"wrong": "comprise of",
+			"fixed": "comprise, consist of"
+		},
+		{
+			"wrong": "comprised almost entirely of",
+			"fixed": "composed almost entirely of, consisting almost entirely of"
+		},
+		{
+			"wrong": "comprised chiefly of",
+			"fixed": "composed chiefly of, comprised chiefly, consisting chiefly of"
+		},
+		{
+			"wrong": "comprised entirely of",
+			"fixed": "composed entirely of, consisting entirely of"
+		},
+		{
+			"wrong": "comprised exclusively of",
+			"fixed": "composed exclusively of, consisting exclusively of"
+		},
+		{
+			"wrong": "comprised generally of",
+			"fixed": "composed generally of, comprised generally, consisting generally of"
+		},
+		{
+			"wrong": "comprised largely of",
+			"fixed": "composed largely of, consisting largely of"
+		},
+		{
+			"wrong": "comprised mainly of",
+			"fixed": "composed mainly of, comprised mainly, consisting mainly of"
+		},
+		{
+			"wrong": "comprised mostly of",
+			"fixed": "composed mostly of, consisting mostly of"
+		},
+		{
+			"wrong": "comprised of",
+			"fixed": "composed of, comprised, consisting of"
+		},
+		{
+			"wrong": "comprised only of",
+			"fixed": "composed only of, comprised only, consisting only of"
+		},
+		{
+			"wrong": "comprised primarily of",
+			"fixed": "composed primarily of"
+		},
+		{
+			"wrong": "comprised principally of",
+			"fixed": "composed principally of"
+		},
+		{
+			"wrong": "comprised totally of",
+			"fixed": "composed totally of, comprised totally, consisting totally of"
+		},
+		{
+			"wrong": "comprised wholly of",
+			"fixed": "composed wholly of, consisting wholly of"
+		},
+		{
+			"wrong": "comprises entirely of",
+			"fixed": "comprises entirely, consists entirely of"
+		},
+		{
+			"wrong": "comprises exclusively of",
+			"fixed": "comprises exclusively, composed exclusively of"
+		},
+		{
+			"wrong": "comprises mainly of",
+			"fixed": "comprises mainly, consists mainly of"
+		},
+		{
+			"wrong": "comprises mostly of",
+			"fixed": "comprises mostly, consists mostly of"
+		},
+		{
+			"wrong": "comprises of",
+			"fixed": "comprises, consists of"
+		},
+		{
+			"wrong": "comprises only of",
+			"fixed": "comprises only, composed only of, consists only of"
+		},
+		{
+			"wrong": "comprising chiefly of",
+			"fixed": "comprising chiefly, consisting chiefly of"
+		},
+		{
+			"wrong": "comprising entirely of",
+			"fixed": "comprising entirely, consisting entirely of"
+		},
+		{
+			"wrong": "comprising exclusively of",
+			"fixed": "comprising exclusively, consisting exclusively of"
+		},
+		{
+			"wrong": "comprising generally of",
+			"fixed": "comprising generally, consisting generally of"
+		},
+		{
+			"wrong": "comprising largely of",
+			"fixed": "comprising largely, consisting largely of"
+		},
+		{
+			"wrong": "comprising mainly of",
+			"fixed": "comprising mainly, consisting mainly of"
+		},
+		{
+			"wrong": "comprising mostly of",
+			"fixed": "comprising mostly, consisting mostly of"
+		},
+		{
+			"wrong": "comprising of",
+			"fixed": "comprising, consisting of"
+		},
+		{
+			"wrong": "comprising only of",
+			"fixed": "comprising only, consisting only of"
+		},
+		{
+			"wrong": "comprising primarily of",
+			"fixed": "comprising primarily, consisting primarily of"
+		},
+		{
+			"wrong": "comprising principally of",
+			"fixed": "comprising principally, consisting principally of"
+		},
+		{
+			"wrong": "comprising totally of",
+			"fixed": "comprising totally, consisting totally of"
+		},
+		{
+			"wrong": "comprising wholly of",
+			"fixed": "comprising wholly, consisting wholly of"
+		},
+		{
+			"wrong": "constellation prize",
+			"fixed": "consolation prize"
+		},
+		{
+			"wrong": "constitutes of",
+			"fixed": "consists of, constitutes"
+		},
+		{
+			"wrong": "construction sight",
+			"fixed": "construction site"
+		},
+		{
+			"wrong": "contains of",
+			"fixed": "consists of, contains"
+		},
+		{
+			"wrong": "could backup",
+			"fixed": "could back up"
+		},
+		{
+			"wrong": "could breath",
+			"fixed": "could breathe"
+		},
+		{
+			"wrong": "could care less",
+			"fixed": " couldn't care less"
+		},
+		{
+			"wrong": "could of",
+			"fixed": "could have"
+		},
+		{
+			"wrong": "couldn't breath",
+			"fixed": " couldn't breathe"
+		},
+		{
+			"wrong": "daily regiment",
+			"fixed": "daily regimen"
+		},
+		{
+			"wrong": "DC current",
+			"fixed": "DC, direct current"
+		},
+		{
+			"wrong": "de factor",
+			"fixed": "de facto"
+		},
+		{
+			"wrong": "different tact",
+			"fixed": "different tack"
+		},
+		{
+			"wrong": "diffuse the situation",
+			"fixed": "defuse the situation"
+		},
+		{
+			"wrong": "diffuse the tension",
+			"fixed": "defuse the tension"
+		},
+		{
+			"wrong": "disc break",
+			"fixed": "disc brake"
+		},
+		{
+			"wrong": "dominate player",
+			"fixed": "dominant player"
+		},
+		{
+			"wrong": "dominate role",
+			"fixed": "dominant role}"
+		},
+		{
+			"wrong": "door jam",
+			"fixed": "door jamb"
+		},
+		{
+			"wrong": "down side",
+			"fixed": "downside"
+		},
+		{
+			"wrong": "drum breaks",
+			"fixed": "drum brakes"
+		},
+		{
+			"wrong": "due to the fact",
+			"fixed": "because"
+		},
+		{
+			"wrong": "during in",
+			"fixed": "during"
+		},
+		{
+			"wrong": "during it's",
+			"fixed": " during its"
+		},
+		{
+			"wrong": "during they're",
+			"fixed": " during their"
+		},
+		{
+			"wrong": "each alumni",
+			"fixed": "each alumnus [singular]"
+		},
+		{
+			"wrong": "each are",
+			"fixed": "each is"
+		},
+		{
+			"wrong": "each criteria",
+			"fixed": "each criterion [singular]"
+		},
+		{
+			"wrong": "each has their",
+			"fixed": "each has its"
+		},
+		{
+			"wrong": "each phenomena",
+			"fixed": "each phenomenon [singular]"
+		},
+		{
+			"wrong": "each vertebrae",
+			"fixed": "each vertebra [singular]"
+		},
+		{
+			"wrong": "easier then",
+			"fixed": "easier than"
+		},
+		{
+			"wrong": "egg yoke",
+			"fixed": "egg yolk"
+		},
+		{
+			"wrong": "either criteria",
+			"fixed": "either criterion"
+		},
+		{
+			"wrong": "either phenomena",
+			"fixed": "either phenomenon"
+		},
+		{
+			"wrong": "electrical current",
+			"fixed": "electric current"
+		},
+		{
+			"wrong": "eluded to",
+			"fixed": "alluded to"
+		},
+		{
+			"wrong": "en mass",
+			"fixed": "en masse"
+		},
+		{
+			"wrong": "even thought",
+			"fixed": "even though"
+		},
+		{
+			"wrong": "even tough",
+			"fixed": "even though"
+		},
+		{
+			"wrong": "eye brow",
+			"fixed": "eyebrow"
+		},
+		{
+			"wrong": "eye lash",
+			"fixed": "eyelash"
+		},
+		{
+			"wrong": "eye lid",
+			"fixed": "eyelid"
+		},
+		{
+			"wrong": "eye sight",
+			"fixed": "eyesight"
+		},
+		{
+			"wrong": "eye sore",
+			"fixed": "eyesore"
+		},
+		{
+			"wrong": "faired as well",
+			"fixed": "fared as well"
+		},
+		{
+			"wrong": "faired badly",
+			"fixed": "fared badly"
+		},
+		{
+			"wrong": "faired better",
+			"fixed": "fared better"
+		},
+		{
+			"wrong": "faired far",
+			"fixed": "fared far"
+		},
+		{
+			"wrong": "faired less",
+			"fixed": "fared less"
+		},
+		{
+			"wrong": "faired little",
+			"fixed": "fared little"
+		},
+		{
+			"wrong": "faired much",
+			"fixed": "fared much"
+		},
+		{
+			"wrong": "faired no better",
+			"fixed": "fared no better"
+		},
+		{
+			"wrong": "faired poorly",
+			"fixed": "fared poorly"
+		},
+		{
+			"wrong": "faired quite",
+			"fixed": "fared quite"
+		},
+		{
+			"wrong": "faired rather",
+			"fixed": "fared rather"
+		},
+		{
+			"wrong": "faired slightly",
+			"fixed": "fared slightly"
+		},
+		{
+			"wrong": "faired somewhat",
+			"fixed": "fared somewhat"
+		},
+		{
+			"wrong": "faired well",
+			"fixed": "fared well"
+		},
+		{
+			"wrong": "faired worse",
+			"fixed": "fared worse"
+		},
+		{
+			"wrong": "farther then",
+			"fixed": "farther than"
+		},
+		{
+			"wrong": "faster then",
+			"fixed": "faster than"
+		},
+		{
+			"wrong": "figure head",
+			"fixed": "figurehead"
+		},
+		{
+			"wrong": "first and foremost",
+			"fixed": "first, foremost"
+		},
+		{
+			"wrong": "First Word War",
+			"fixed": "First World War"
+		},
+		{
+			"wrong": "flag ship",
+			"fixed": "flagship"
+		},
+		{
+			"wrong": "flow of current",
+			"fixed": "current, flow of charge"
+		},
+		{
+			"wrong": "flow of electric current",
+			"fixed": "electric current, flow of electric charge"
+		},
+		{
+			"wrong": "follow suite",
+			"fixed": "follow suit"
+		},
+		{
+			"wrong": "for all intensive purposes",
+			"fixed": "for all intents and purposes"
+		},
+		{
+			"wrong": "for along time",
+			"fixed": "for a long time"
+		},
+		{
+			"wrong": "for awhile",
+			"fixed": "for a while"
+		},
+		{
+			"wrong": "for it's",
+			"fixed": " for its"
+		},
+		{
+			"wrong": "for quite awhile",
+			"fixed": "for quite a while"
+		},
+		{
+			"wrong": "forgone conclusion",
+			"fixed": "foregone conclusion"
+		},
+		{
+			"wrong": "formally know as",
+			"fixed": "formerly known as - but only if the change can be verified"
+		},
+		{
+			"wrong": "formerly know as",
+			"fixed": "formerly known as"
+		},
+		{
+			"wrong": "forth place",
+			"fixed": "fourth place"
+		},
+		{
+			"wrong": "free reign",
+			"fixed": "free rein"
+		},
+		{
+			"wrong": "freshman are",
+			"fixed": "freshman is, freshmen are"
+		},
+		{
+			"wrong": "full compliment of",
+			"fixed": "full complement of"
+		},
+		{
+			"wrong": "get pass",
+			"fixed": "get past"
+		},
+		{
+			"wrong": "get setup",
+			"fixed": "get set up"
+		},
+		{
+			"wrong": "get use to",
+			"fixed": "get used to"
+		},
+		{
+			"wrong": "getting use to",
+			"fixed": "getting used to"
+		},
+		{
+			"wrong": "going threw",
+			"fixed": "going through"
+		},
+		{
+			"wrong": "got ran",
+			"fixed": "got run"
+		},
+		{
+			"wrong": "got setup",
+			"fixed": "got set up"
+		},
+		{
+			"wrong": "got shutdown",
+			"fixed": "got shut down"
+		},
+		{
+			"wrong": "got shutout",
+			"fixed": "got shut out"
+		},
+		{
+			"wrong": "ground work",
+			"fixed": "groundwork"
+		},
+		{
+			"wrong": "guest stared",
+			"fixed": "guest-starred"
+		},
+		{
+			"wrong": "had arose",
+			"fixed": "had arisen"
+		},
+		{
+			"wrong": "had aroke",
+			"fixed": "had awoken"
+		},
+		{
+			"wrong": "had became",
+			"fixed": "had become"
+		},
+		{
+			"wrong": "had began",
+			"fixed": "had begun"
+		},
+		{
+			"wrong": "had being",
+			"fixed": "had been"
+		},
+		{
+			"wrong": "had bore",
+			"fixed": "had borne"
+		},
+		{
+			"wrong": "had broke",
+			"fixed": "had broken"
+		},
+		{
+			"wrong": "had brung",
+			"fixed": "had brought"
+		},
+		{
+			"wrong": "had came",
+			"fixed": "had come"
+		},
+		{
+			"wrong": "had chose",
+			"fixed": "had chosen"
+		},
+		{
+			"wrong": "had comeback",
+			"fixed": "had come back"
+		},
+		{
+			"wrong": "had did",
+			"fixed": "had done"
+		},
+		{
+			"wrong": "had drank",
+			"fixed": "had drunk"
+		},
+		{
+			"wrong": "had drew",
+			"fixed": "had drawn"
+		},
+		{
+			"wrong": "had drove",
+			"fixed": "had driven"
+		},
+		{
+			"wrong": "had fell",
+			"fixed": "had fallen"
+		},
+		{
+			"wrong": "had flew",
+			"fixed": "had flown"
+		},
+		{
+			"wrong": "had forbad",
+			"fixed": "had forbidden"
+		},
+		{
+			"wrong": "had forbade",
+			"fixed": "had forbidden"
+		},
+		{
+			"wrong": "had gave",
+			"fixed": "had given"
+		},
+		{
+			"wrong": "had grew",
+			"fixed": "had grown"
+		},
+		{
+			"wrong": "had it's",
+			"fixed": " had its"
+		},
+		{
+			"wrong": "had lead to",
+			"fixed": "had led to"
+		},
+		{
+			"wrong": "had overtook",
+			"fixed": "had overtaken"
+		},
+		{
+			"wrong": "had plead",
+			"fixed": "had pleaded, had pled"
+		},
+		{
+			"wrong": "had ran",
+			"fixed": "had run"
+		},
+		{
+			"wrong": "had rang",
+			"fixed": "had rung"
+		},
+		{
+			"wrong": "had rode",
+			"fixed": "had ridden"
+		},
+		{
+			"wrong": "had rose",
+			"fixed": "had risen"
+		},
+		{
+			"wrong": "had sang",
+			"fixed": "had sung"
+		},
+		{
+			"wrong": "had saw",
+			"fixed": "had seen"
+		},
+		{
+			"wrong": "had set-up",
+			"fixed": "had set up"
+		},
+		{
+			"wrong": "had setup",
+			"fixed": "had set up"
+		},
+		{
+			"wrong": "had shook",
+			"fixed": "had shaken"
+		},
+		{
+			"wrong": "had sowed",
+			"fixed": "had sown"
+		},
+		{
+			"wrong": "had spoke",
+			"fixed": "had spoken"
+		},
+		{
+			"wrong": "had sprang",
+			"fixed": "had sprung"
+		},
+		{
+			"wrong": "had swam",
+			"fixed": "had swum"
+		},
+		{
+			"wrong": "had threw",
+			"fixed": "had thrown"
+		},
+		{
+			"wrong": "had throve",
+			"fixed": "had thriven, had thrived"
+		},
+		{
+			"wrong": "had thunk",
+			"fixed": "had thought"
+		},
+		{
+			"wrong": "had took",
+			"fixed": "had taken"
+		},
+		{
+			"wrong": "had trod",
+			"fixed": "had trodden"
+		},
+		{
+			"wrong": "had undertook",
+			"fixed": "had undertaken"
+		},
+		{
+			"wrong": "had underwent",
+			"fixed": "had undergone"
+		},
+		{
+			"wrong": "had went",
+			"fixed": "had gone"
+		},
+		{
+			"wrong": "had woke",
+			"fixed": "had woken"
+		},
+		{
+			"wrong": "had wrote",
+			"fixed": "had written"
+		},
+		{
+			"wrong": "hand the reigns",
+			"fixed": "hand the reins"
+		},
+		{
+			"wrong": "has arose",
+			"fixed": "has arisen"
+		},
+		{
+			"wrong": "has became",
+			"fixed": "has become"
+		},
+		{
+			"wrong": "has began",
+			"fixed": "began, has begun"
+		},
+		{
+			"wrong": "has build",
+			"fixed": "has built"
+		},
+		{
+			"wrong": "has drank",
+			"fixed": "has drunk"
+		},
+		{
+			"wrong": "has it's",
+			"fixed": " has its"
+		},
+		{
+			"wrong": "has lead to",
+			"fixed": "has led to"
+		},
+		{
+			"wrong": "has ran",
+			"fixed": "has run"
+		},
+		{
+			"wrong": "has sang",
+			"fixed": "has sung"
+		},
+		{
+			"wrong": "has setup",
+			"fixed": "has set up"
+		},
+		{
+			"wrong": "has shook",
+			"fixed": "has shaken"
+		},
+		{
+			"wrong": "has spoke",
+			"fixed": "has spoken"
+		},
+		{
+			"wrong": "has sprang",
+			"fixed": "has sprung"
+		},
+		{
+			"wrong": "has swam",
+			"fixed": "has swum"
+		},
+		{
+			"wrong": "has threw",
+			"fixed": "has thrown"
+		},
+		{
+			"wrong": "has throve",
+			"fixed": "has thriven, has thrived"
+		},
+		{
+			"wrong": "has thunk",
+			"fixed": "has thought"
+		},
+		{
+			"wrong": "has took",
+			"fixed": "has taken"
+		},
+		{
+			"wrong": "has trod",
+			"fixed": "has trodden"
+		},
+		{
+			"wrong": "has undertook",
+			"fixed": "has undertaken"
+		},
+		{
+			"wrong": "has underwent",
+			"fixed": "has undergone"
+		},
+		{
+			"wrong": "has was",
+			"fixed": "he was, was"
+		},
+		{
+			"wrong": "has went",
+			"fixed": "has gone"
+		},
+		{
+			"wrong": "has woke",
+			"fixed": "has woken"
+		},
+		{
+			"wrong": "has wrote",
+			"fixed": "has written"
+		},
+		{
+			"wrong": "have drank",
+			"fixed": "have drunken"
+		},
+		{
+			"wrong": "have it's",
+			"fixed": " have its"
+		},
+		{
+			"wrong": "have lead to",
+			"fixed": "have led to"
+		},
+		{
+			"wrong": "have ran",
+			"fixed": "have run"
+		},
+		{
+			"wrong": "have sang",
+			"fixed": "have sung"
+		},
+		{
+			"wrong": "have setup",
+			"fixed": "have set up"
+		},
+		{
+			"wrong": "have sprang",
+			"fixed": "have sprung"
+		},
+		{
+			"wrong": "have swam",
+			"fixed": "have swum"
+		},
+		{
+			"wrong": "have took",
+			"fixed": "have taken"
+		},
+		{
+			"wrong": "have underwent",
+			"fixed": "have undergone"
+		},
+		{
+			"wrong": "have went",
+			"fixed": "have gone"
+		},
+		{
+			"wrong": "having being",
+			"fixed": "having been"
+		},
+		{
+			"wrong": "having ran",
+			"fixed": "having run"
+		},
+		{
+			"wrong": "having sang",
+			"fixed": "having sung"
+		},
+		{
+			"wrong": "having setup",
+			"fixed": "having set up"
+		},
+		{
+			"wrong": "having swam",
+			"fixed": "having swum"
+		},
+		{
+			"wrong": "having took",
+			"fixed": "having taken"
+		},
+		{
+			"wrong": "having went",
+			"fixed": "having gone"
+		},
+		{
+			"wrong": "hay day",
+			"fixed": "heyday"
+		},
+		{
+			"wrong": "he begun",
+			"fixed": "he began"
+		},
+		{
+			"wrong": "he garnished",
+			"fixed": "he garnered"
+		},
+		{
+			"wrong": "he let's",
+			"fixed": " he lets"
+		},
+		{
+			"wrong": "he plead",
+			"fixed": "he pleaded, he pled"
+		},
+		{
+			"wrong": "he seen",
+			"fixed": "he saw"
+		},
+		{
+			"wrong": "he use to",
+			"fixed": "he used to"
+		},
+		{
+			"wrong": "he's drank",
+			"fixed": " he's drunk"
+		},
+		{
+			"wrong": "head gear",
+			"fixed": "headgear"
+		},
+		{
+			"wrong": "head quarters",
+			"fixed": "headquarters"
+		},
+		{
+			"wrong": "head stone",
+			"fixed": "headstone"
+		},
+		{
+			"wrong": "head wear",
+			"fixed": "headwear"
+		},
+		{
+			"wrong": "held the reigns",
+			"fixed": "held the reins"
+		},
+		{
+			"wrong": "help and make",
+			"fixed": "help to make"
+		},
+		{
+			"wrong": "higher then",
+			"fixed": "higher than"
+		},
+		{
+			"wrong": "hit the breaks",
+			"fixed": "hit the brakes"
+		},
+		{
+			"wrong": "hold onto",
+			"fixed": "hold on to"
+		},
+		{
+			"wrong": "hold the reigns",
+			"fixed": "hold the reins"
+		},
+		{
+			"wrong": "holding the reigns",
+			"fixed": "holding the reins"
+		},
+		{
+			"wrong": "holds the reigns",
+			"fixed": "holds the reins"
+		},
+		{
+			"wrong": "hone in on",
+			"fixed": "home in on"
+		},
+		{
+			"wrong": "how ever",
+			"fixed": "however"
+		},
+		{
+			"wrong": "imminent domain",
+			"fixed": "eminent domain"
+		},
+		{
+			"wrong": "in affect",
+			"fixed": "in effect"
+		},
+		{
+			"wrong": "in along time",
+			"fixed": "in a long time"
+		},
+		{
+			"wrong": "in anyway",
+			"fixed": "in any way"
+		},
+		{
+			"wrong": "in awhile",
+			"fixed": "in a while"
+		},
+		{
+			"wrong": "in close proximity to",
+			"fixed": "close to, in proximity to"
+		},
+		{
+			"wrong": "in edition to",
+			"fixed": "in addition to"
+		},
+		{
+			"wrong": "in it's",
+			"fixed": " in its"
+		},
+		{
+			"wrong": "in January 1",
+			"fixed": "on January 1, etc."
+		},
+		{
+			"wrong": "in masse",
+			"fixed": "en masse, in massam"
+		},
+		{
+			"wrong": "in parenthesis",
+			"fixed": "in parentheses"
+		},
+		{
+			"wrong": "in placed",
+			"fixed": "in place"
+		},
+		{
+			"wrong": "in principal",
+			"fixed": "in principle"
+		},
+		{
+			"wrong": "in quite awhile",
+			"fixed": "in quite a while"
+		},
+		{
+			"wrong": "in stead of",
+			"fixed": "instead of"
+		},
+		{
+			"wrong": "in tact",
+			"fixed": "intact"
+		},
+		{
+			"wrong": "in the long-term",
+			"fixed": "in the long term"
+		},
+		{
+			"wrong": "in the short-term",
+			"fixed": "in the short term"
+		},
+		{
+			"wrong": "in titled",
+			"fixed": "entitled"
+		},
+		{
+			"wrong": "in vein",
+			"fixed": "in vain"
+		},
+		{
+			"wrong": "incase of",
+			"fixed": "in case of"
+		},
+		{
+			"wrong": "inorder to",
+			"fixed": "in order to"
+		},
+		{
+			"wrong": "into affect",
+			"fixed": "into effect"
+		},
+		{
+			"wrong": "is also know",
+			"fixed": "is also known"
+		},
+		{
+			"wrong": "is be ",
+			"fixed": "is, is to be"
+		},
+		{
+			"wrong": "is been",
+			"fixed": "has been, is being"
+		},
+		{
+			"wrong": "is comprised from",
+			"fixed": "comprises"
+		},
+		{
+			"wrong": "is comprised with",
+			"fixed": "comprises"
+		},
+		{
+			"wrong": "is contained of",
+			"fixed": "contains"
+		},
+		{
+			"wrong": "is front of",
+			"fixed": "in front of, is in front of"
+		},
+		{
+			"wrong": "is has",
+			"fixed": "has, it has"
+		},
+		{
+			"wrong": "is know to be",
+			"fixed": "is known to be"
+		},
+		{
+			"wrong": "is lead by",
+			"fixed": "is led by"
+		},
+		{
+			"wrong": "is loathe to",
+			"fixed": "is loath to"
+		},
+		{
+			"wrong": "is ran by",
+			"fixed": "is run by"
+		},
+		{
+			"wrong": "is renown for",
+			"fixed": "is renowned for"
+		},
+		{
+			"wrong": "is setup",
+			"fixed": "is set up"
+		},
+		{
+			"wrong": "is use to",
+			"fixed": "is used to"
+		},
+		{
+			"wrong": "it begun",
+			"fixed": "it began"
+		},
+		{
+			"wrong": "it comprises of",
+			"fixed": "it comprises"
+		},
+		{
+			"wrong": "it lead to",
+			"fixed": "it led to"
+		},
+		{
+			"wrong": "it lied",
+			"fixed": "it lay"
+		},
+		{
+			"wrong": "it self",
+			"fixed": "itself"
+		},
+		{
+			"wrong": "it setup",
+			"fixed": "it set up"
+		},
+		{
+			"wrong": "it use to",
+			"fixed": "it used to"
+		},
+		{
+			"wrong": "it's 10th",
+			"fixed": " its 10th"
+		},
+		{
+			"wrong": "it's 4th",
+			"fixed": " its 4th"
+		},
+		{
+			"wrong": "it's 5th",
+			"fixed": " its 5th"
+		},
+		{
+			"wrong": "it's advantage",
+			"fixed": " its advantage"
+		},
+		{
+			"wrong": "it's aim",
+			"fixed": " its aim"
+		},
+		{
+			"wrong": "it's annual",
+			"fixed": " its annual"
+		},
+		{
+			"wrong": "it's best",
+			"fixed": " its best"
+		},
+		{
+			"wrong": "it's class",
+			"fixed": " its class"
+		},
+		{
+			"wrong": "it's color",
+			"fixed": " its color [Amer]"
+		},
+		{
+			"wrong": "it's colour",
+			"fixed": " its colour [Brit]"
+		},
+		{
+			"wrong": "it's contents",
+			"fixed": " its contents"
+		},
+		{
+			"wrong": "it's course",
+			"fixed": " its course"
+		},
+		{
+			"wrong": "it's current",
+			"fixed": " its current"
+		},
+		{
+			"wrong": "it's debut",
+			"fixed": " its debut"
+		},
+		{
+			"wrong": "it's doors",
+			"fixed": " its doors"
+		},
+		{
+			"wrong": "it's eastern",
+			"fixed": " its eastern"
+		},
+		{
+			"wrong": "it's end",
+			"fixed": " its end"
+		},
+		{
+			"wrong": "it's entire",
+			"fixed": " its entire"
+		},
+		{
+			"wrong": "it's final",
+			"fixed": " its final"
+		},
+		{
+			"wrong": "it's first",
+			"fixed": " its first"
+		},
+		{
+			"wrong": "it's former",
+			"fixed": " its former"
+		},
+		{
+			"wrong": "it's fourth",
+			"fixed": " its fourth"
+		},
+		{
+			"wrong": "it's goal",
+			"fixed": " its goal"
+		},
+		{
+			"wrong": "it's highest",
+			"fixed": " its highest"
+		},
+		{
+			"wrong": "it's history",
+			"fixed": " its history"
+		},
+		{
+			"wrong": "it's home",
+			"fixed": " its home"
+		},
+		{
+			"wrong": "it's inception",
+			"fixed": " its inception"
+		},
+		{
+			"wrong": "it's initial",
+			"fixed": " its initial"
+		},
+		{
+			"wrong": "it's junction",
+			"fixed": " its junction"
+		},
+		{
+			"wrong": "it's kind",
+			"fixed": " its kind"
+		},
+		{
+			"wrong": "it's lack",
+			"fixed": " its lack"
+		},
+		{
+			"wrong": "it's last",
+			"fixed": " its last"
+		},
+		{
+			"wrong": "it's latest",
+			"fixed": " its latest"
+		},
+		{
+			"wrong": "it's lead",
+			"fixed": " its lead"
+		},
+		{
+			"wrong": "it's leader",
+			"fixed": " its leader"
+		},
+		{
+			"wrong": "it's length",
+			"fixed": " its length"
+		},
+		{
+			"wrong": "it's lowest",
+			"fixed": " its lowest"
+		},
+		{
+			"wrong": "it's maximum",
+			"fixed": " its maximum"
+		},
+		{
+			"wrong": "it's minimum",
+			"fixed": " its minimum"
+		},
+		{
+			"wrong": "it's money",
+			"fixed": " its money"
+		},
+		{
+			"wrong": "it's name",
+			"fixed": " its name"
+		},
+		{
+			"wrong": "it's north",
+			"fixed": " its north"
+		},
+		{
+			"wrong": "it's northern",
+			"fixed": " its northern"
+		},
+		{
+			"wrong": "it's original",
+			"fixed": " its original"
+		},
+		{
+			"wrong": "it's own",
+			"fixed": " its own"
+		},
+		{
+			"wrong": "it's peak",
+			"fixed": " its peak"
+		},
+		{
+			"wrong": "it's period",
+			"fixed": " its period"
+		},
+		{
+			"wrong": "it's previous",
+			"fixed": " its previous"
+		},
+		{
+			"wrong": "it's price",
+			"fixed": " its price"
+		},
+		{
+			"wrong": "it's primary",
+			"fixed": " its primary"
+		},
+		{
+			"wrong": "it's prime",
+			"fixed": " its prime"
+		},
+		{
+			"wrong": "it's purpose",
+			"fixed": " its purpose"
+		},
+		{
+			"wrong": "it's release",
+			"fixed": " its release"
+		},
+		{
+			"wrong": "it's rival",
+			"fixed": " its rival"
+		},
+		{
+			"wrong": "it's second",
+			"fixed": " its second"
+		},
+		{
+			"wrong": "it's south",
+			"fixed": " its south"
+		},
+		{
+			"wrong": "it's southern",
+			"fixed": " its southern"
+		},
+		{
+			"wrong": "it's successor",
+			"fixed": " its successor"
+		},
+		{
+			"wrong": "it's tail",
+			"fixed": " its tail"
+		},
+		{
+			"wrong": "it's target",
+			"fixed": " its target"
+		},
+		{
+			"wrong": "it's tenth",
+			"fixed": " its tenth"
+		},
+		{
+			"wrong": "it's theme",
+			"fixed": " its theme"
+		},
+		{
+			"wrong": "it's third",
+			"fixed": " its third"
+		},
+		{
+			"wrong": "it's timeslot",
+			"fixed": " its timeslot"
+		},
+		{
+			"wrong": "it's toll",
+			"fixed": " its toll"
+		},
+		{
+			"wrong": "it's total",
+			"fixed": " its total"
+		},
+		{
+			"wrong": "it's type",
+			"fixed": " its type"
+		},
+		{
+			"wrong": "it's way",
+			"fixed": " its way"
+		},
+		{
+			"wrong": "it's western",
+			"fixed": " its western"
+		},
+		{
+			"wrong": "it's worst",
+			"fixed": " its worst"
+		},
+		{
+			"wrong": "its is",
+			"fixed": "it is"
+		},
+		{
+			"wrong": "Jimmy Buffet",
+			"fixed": "Jimmy Buffett"
+		},
+		{
+			"wrong": "Jimmy Hendrix",
+			"fixed": "Jimi Hendrix"
+		},
+		{
+			"wrong": "jive with",
+			"fixed": "jibe with"
+		},
+		{
+			"wrong": "key note",
+			"fixed": "keynote"
+		},
+		{
+			"wrong": "lack there of",
+			"fixed": "lack thereof"
+		},
+		{
+			"wrong": "laid ahead",
+			"fixed": "lay ahead"
+		},
+		{
+			"wrong": "laid dormant",
+			"fixed": "lay dormant"
+		},
+		{
+			"wrong": "laid empty",
+			"fixed": "lay empty"
+		},
+		{
+			"wrong": "laid fallow",
+			"fixed": "lay fallow"
+		},
+		{
+			"wrong": "laid in state",
+			"fixed": "lay in state"
+		},
+		{
+			"wrong": "larger that",
+			"fixed": "larger than"
+		},
+		{
+			"wrong": "larger then",
+			"fixed": "larger than"
+		},
+		{
+			"wrong": "laughing stock",
+			"fixed": "laughingstock"
+		},
+		{
+			"wrong": "law suite",
+			"fixed": "lawsuit"
+		},
+		{
+			"wrong": "lay around",
+			"fixed": "lie around"
+		},
+		{
+			"wrong": "lay low",
+			"fixed": "lie low"
+		},
+		{
+			"wrong": "laying around",
+			"fixed": "lying around"
+		},
+		{
+			"wrong": "laying awake",
+			"fixed": "lying awake"
+		},
+		{
+			"wrong": "laying low",
+			"fixed": "lying low"
+		},
+		{
+			"wrong": "lays atop",
+			"fixed": "lies atop"
+		},
+		{
+			"wrong": "lays beside",
+			"fixed": "lies beside"
+		},
+		{
+			"wrong": "lays in",
+			"fixed": "lies in"
+		},
+		{
+			"wrong": "lays low",
+			"fixed": "lies low"
+		},
+		{
+			"wrong": "lays near",
+			"fixed": "lies near"
+		},
+		{
+			"wrong": "lays on",
+			"fixed": "lies on"
+		},
+		{
+			"wrong": "lead by",
+			"fixed": "led by"
+		},
+		{
+			"wrong": "lead roll",
+			"fixed": "lead role"
+		},
+		{
+			"wrong": "leading roll",
+			"fixed": "leading role"
+		},
+		{
+			"wrong": "less dominate",
+			"fixed": "less dominant"
+		},
+		{
+			"wrong": "less that",
+			"fixed": "less than"
+		},
+		{
+			"wrong": "less then",
+			"fixed": "less than"
+		},
+		{
+			"wrong": "lesser then",
+			"fixed": "less than"
+		},
+		{
+			"wrong": "life time",
+			"fixed": "lifetime"
+		},
+		{
+			"wrong": "lighter then",
+			"fixed": "lighter than"
+		},
+		{
+			"wrong": "lions share",
+			"fixed": " lion's share"
+		},
+		{
+			"wrong": "loose to",
+			"fixed": "lose to"
+		},
+		{
+			"wrong": "loosing effort",
+			"fixed": "losing effort"
+		},
+		{
+			"wrong": "loosing record",
+			"fixed": "losing record"
+		},
+		{
+			"wrong": "loosing season",
+			"fixed": "losing season"
+		},
+		{
+			"wrong": "loosing streak",
+			"fixed": "losing streak"
+		},
+		{
+			"wrong": "loosing team",
+			"fixed": "losing team"
+		},
+		{
+			"wrong": "loosing the",
+			"fixed": "losing the"
+		},
+		{
+			"wrong": "loosing to",
+			"fixed": "losing to"
+		},
+		{
+			"wrong": "lot's of",
+			"fixed": "lots of, many, much"
+		},
+		{
+			"wrong": "lower that",
+			"fixed": "lower than"
+		},
+		{
+			"wrong": "lower then",
+			"fixed": "lower than"
+		},
+		{
+			"wrong": "made it's",
+			"fixed": " made its"
+		},
+		{
+			"wrong": "mainly know as",
+			"fixed": "mainly known as"
+		},
+		{
+			"wrong": "mainly know for",
+			"fixed": "mainly known for"
+		},
+		{
+			"wrong": "major roll",
+			"fixed": "major role"
+		},
+		{
+			"wrong": "make it's",
+			"fixed": " make its"
+		},
+		{
+			"wrong": "managerial reigns",
+			"fixed": "managerial reins"
+		},
+		{
+			"wrong": "mash potatoes",
+			"fixed": "mashed potatoes"
+		},
+		{
+			"wrong": "may been",
+			"fixed": "may be, may have been"
+		},
+		{
+			"wrong": "maybe be",
+			"fixed": "may be"
+		},
+		{
+			"wrong": "MCL ligament",
+			"fixed": "MCL, medial collateral ligament"
+		},
+		{
+			"wrong": "mean while",
+			"fixed": "meanwhile"
+		},
+		{
+			"wrong": "might of",
+			"fixed": "might have"
+		},
+		{
+			"wrong": "Milwaukee, Oregon ",
+			"fixed": "Milwaukie, Oregon"
+		},
+		{
+			"wrong": "minor roll",
+			"fixed": "minor role"
+		},
+		{
+			"wrong": "more dominate",
+			"fixed": "more dominant"
+		},
+		{
+			"wrong": "more often then",
+			"fixed": "more often than [comparative]"
+		},
+		{
+			"wrong": "more optimal",
+			"fixed": "better"
+		},
+		{
+			"wrong": "more that",
+			"fixed": "more than"
+		},
+		{
+			"wrong": "more then",
+			"fixed": "more than [comparative]"
+		},
+		{
+			"wrong": "most dominate",
+			"fixed": "most dominant"
+		},
+		{
+			"wrong": "most optimal",
+			"fixed": "best, optimal"
+		},
+		{
+			"wrong": "most populace",
+			"fixed": "most populous"
+		},
+		{
+			"wrong": "most well-known",
+			"fixed": "best-known"
+		},
+		{
+			"wrong": "mostly know as",
+			"fixed": "mostly known as"
+		},
+		{
+			"wrong": "mostly know for",
+			"fixed": "mostly known for"
+		},
+		{
+			"wrong": "must of",
+			"fixed": "must have"
+		},
+		{
+			"wrong": "mute point",
+			"fixed": "moot point"
+		},
+		{
+			"wrong": "nation wide",
+			"fixed": "nationwide"
+		},
+		{
+			"wrong": "near by",
+			"fixed": "nearby"
+		},
+		{
+			"wrong": "neither criteria",
+			"fixed": "neither criterion"
+		},
+		{
+			"wrong": "neither phenomena",
+			"fixed": "neither phenomenon"
+		},
+		{
+			"wrong": "Netherland Antilles",
+			"fixed": "Netherlands Antilles"
+		},
+		{
+			"wrong": "new comer",
+			"fixed": "newcomer"
+		},
+		{
+			"wrong": "next store",
+			"fixed": "next-door"
+		},
+		{
+			"wrong": "no where to",
+			"fixed": "nowhere to"
+		},
+		{
+			"wrong": "note worthy",
+			"fixed": "noteworthy"
+		},
+		{
+			"wrong": "now a days",
+			"fixed": "nowadays"
+		},
+		{
+			"wrong": "of been",
+			"fixed": "have been, of being"
+		},
+		{
+			"wrong": "of it's own",
+			"fixed": " of its own"
+		},
+		{
+			"wrong": "of who to",
+			"fixed": "of whom to"
+		},
+		{
+			"wrong": "oil barron",
+			"fixed": "oil baron"
+		},
+		{
+			"wrong": "on going",
+			"fixed": "ongoing"
+		},
+		{
+			"wrong": "on it's own",
+			"fixed": " on its own"
+		},
+		{
+			"wrong": "on-going",
+			"fixed": "ongoing"
+		},
+		{
+			"wrong": "one in the same",
+			"fixed": "one and the same"
+		},
+		{
+			"wrong": "one criteria",
+			"fixed": "one criterion"
+		},
+		{
+			"wrong": "one phenomena",
+			"fixed": "one phenomenon"
+		},
+		{
+			"wrong": "originally born in",
+			"fixed": "born in"
+		},
+		{
+			"wrong": "originally know as",
+			"fixed": "originally known as"
+		},
+		{
+			"wrong": "other then",
+			"fixed": "other than"
+		},
+		{
+			"wrong": "out grow",
+			"fixed": "outgrow"
+		},
+		{
+			"wrong": "out of sink",
+			"fixed": "out of sync"
+		},
+		{
+			"wrong": "out side",
+			"fixed": "outside"
+		},
+		{
+			"wrong": "over a 100",
+			"fixed": "over 100, over a hundred, over one hundred"
+		},
+		{
+			"wrong": "over a 1000",
+			"fixed": "over 1000, over a thousand, over one thousand"
+		},
+		{
+			"wrong": "over hear",
+			"fixed": "overhear"
+		},
+		{
+			"wrong": "over heard",
+			"fixed": "overheard"
+		},
+		{
+			"wrong": "over look",
+			"fixed": "overlook"
+		},
+		{
+			"wrong": "over looked",
+			"fixed": "overlooked"
+		},
+		{
+			"wrong": "over looking",
+			"fixed": "overlooking"
+		},
+		{
+			"wrong": "over rated",
+			"fixed": "overrated"
+		},
+		{
+			"wrong": "over seas",
+			"fixed": "overseas"
+		},
+		{
+			"wrong": "over see",
+			"fixed": "oversee"
+		},
+		{
+			"wrong": "over who to",
+			"fixed": "over whom to"
+		},
+		{
+			"wrong": "parent's house",
+			"fixed": " parents' house"
+		},
+		{
+			"wrong": "past away",
+			"fixed": "passed away, died"
+		},
+		{
+			"wrong": "past down",
+			"fixed": "passed down"
+		},
+		{
+			"wrong": "peak his interest",
+			"fixed": "pique his interest"
+		},
+		{
+			"wrong": "per say",
+			"fixed": "per se"
+		},
+		{
+			"wrong": "Phillips Arena",
+			"fixed": "Philips Arena"
+		},
+		{
+			"wrong": "player's union",
+			"fixed": " players' union"
+		},
+		{
+			"wrong": "playoff birth",
+			"fixed": "playoff berth"
+		},
+		{
+			"wrong": "Portland Trailblazers",
+			"fixed": "Portland Trail Blazers"
+		},
+		{
+			"wrong": "premier episode",
+			"fixed": "premiere episode"
+		},
+		{
+			"wrong": "principle action",
+			"fixed": "principal action"
+		},
+		{
+			"wrong": "principle activity",
+			"fixed": "principal activity"
+		},
+		{
+			"wrong": "principle actor",
+			"fixed": "principal actor"
+		},
+		{
+			"wrong": "principle advantage",
+			"fixed": "principal advantage"
+		},
+		{
+			"wrong": "principle advocate",
+			"fixed": "principal advocate"
+		},
+		{
+			"wrong": "principle agent",
+			"fixed": "principal agent"
+		},
+		{
+			"wrong": "principle aim",
+			"fixed": "principal aim"
+		},
+		{
+			"wrong": "principle area",
+			"fixed": "principal area"
+		},
+		{
+			"wrong": "principle artist",
+			"fixed": "principal artist"
+		},
+		{
+			"wrong": "principle assistant",
+			"fixed": "principal assistant"
+		},
+		{
+			"wrong": "principle attraction",
+			"fixed": "principal attraction"
+		},
+		{
+			"wrong": "principle author",
+			"fixed": "principal author"
+		},
+		{
+			"wrong": "principle branch",
+			"fixed": "principal branch"
+		},
+		{
+			"wrong": "principle cast",
+			"fixed": "principal cast"
+		},
+		{
+			"wrong": "principle caste",
+			"fixed": "principal caste"
+		},
+		{
+			"wrong": "principle cause",
+			"fixed": "principal cause"
+		},
+		{
+			"wrong": "principle character",
+			"fixed": "principal character"
+		},
+		{
+			"wrong": "principle church",
+			"fixed": "principal church"
+		},
+		{
+			"wrong": "principle city",
+			"fixed": "principal city"
+		},
+		{
+			"wrong": "principle component",
+			"fixed": "principal component"
+		},
+		{
+			"wrong": "principle composer",
+			"fixed": "principal composer"
+		},
+		{
+			"wrong": "principle goal",
+			"fixed": "principal goal"
+		},
+		{
+			"wrong": "principle group",
+			"fixed": "principal group"
+		},
+		{
+			"wrong": "principle method",
+			"fixed": "principal method"
+		},
+		{
+			"wrong": "principle office",
+			"fixed": "principal office"
+		},
+		{
+			"wrong": "principle officer",
+			"fixed": "principal officer"
+		},
+		{
+			"wrong": "principle owner",
+			"fixed": "principal owner"
+		},
+		{
+			"wrong": "principle photography",
+			"fixed": "principal photography"
+		},
+		{
+			"wrong": "principle source",
+			"fixed": "principal source"
+		},
+		{
+			"wrong": "principle student",
+			"fixed": "principal student"
+		},
+		{
+			"wrong": "principle town",
+			"fixed": "principal town"
+		},
+		{
+			"wrong": "put fourth",
+			"fixed": "put forth"
+		},
+		{
+			"wrong": "rather then",
+			"fixed": "rather than"
+		},
+		{
+			"wrong": "reek havoc",
+			"fixed": "wreak havoc"
+		},
+		{
+			"wrong": "reign in",
+			"fixed": "rein in"
+		},
+		{
+			"wrong": "reigned in",
+			"fixed": "reined in"
+		},
+		{
+			"wrong": "reigns of power",
+			"fixed": "reins of power"
+		},
+		{
+			"wrong": "reticence to",
+			"fixed": "reluctance to"
+		},
+		{
+			"wrong": "reticent to",
+			"fixed": "reluctant to"
+		},
+		{
+			"wrong": "role call",
+			"fixed": "roll call"
+		},
+		{
+			"wrong": "roll player",
+			"fixed": "role player"
+		},
+		{
+			"wrong": "runner up",
+			"fixed": "runner-up"
+		},
+		{
+			"wrong": "saddle up to",
+			"fixed": "sidle up to"
+		},
+		{
+			"wrong": "Second Word War",
+			"fixed": "Second World War"
+		},
+		{
+			"wrong": "set backs",
+			"fixed": "setbacks"
+		},
+		{
+			"wrong": "she begun",
+			"fixed": "she began"
+		},
+		{
+			"wrong": "she let's",
+			"fixed": " she lets"
+		},
+		{
+			"wrong": "she seen",
+			"fixed": "she saw"
+		},
+		{
+			"wrong": "she weighted",
+			"fixed": "she waited, she weighed"
+		},
+		{
+			"wrong": "short coming",
+			"fixed": "shortcoming"
+		},
+		{
+			"wrong": "shorter then",
+			"fixed": "shorter than"
+		},
+		{
+			"wrong": "shortly there after",
+			"fixed": "shortly thereafter"
+		},
+		{
+			"wrong": "should backup",
+			"fixed": "should back up"
+		},
+		{
+			"wrong": "should been",
+			"fixed": "should be, should have been"
+		},
+		{
+			"wrong": "should not of",
+			"fixed": "should not have"
+		},
+		{
+			"wrong": "should of",
+			"fixed": "should have"
+		},
+		{
+			"wrong": "should've went",
+			"fixed": " should have gone"
+		},
+		{
+			"wrong": "side affect",
+			"fixed": "side effect"
+		},
+		{
+			"wrong": "side kick",
+			"fixed": "sidekick [person]"
+		},
+		{
+			"wrong": "simply know as",
+			"fixed": "simply known as"
+		},
+		{
+			"wrong": "since it's",
+			"fixed": " since its"
+		},
+		{
+			"wrong": "since many years",
+			"fixed": "for many years"
+		},
+		{
+			"wrong": "since years",
+			"fixed": "for years"
+		},
+		{
+			"wrong": "single handily",
+			"fixed": "single-handedly"
+		},
+		{
+			"wrong": "site lines",
+			"fixed": "sight lines"
+		},
+		{
+			"wrong": "slight of hand",
+			"fixed": "sleight of hand"
+		},
+		{
+			"wrong": "slue of",
+			"fixed": "slew of"
+		},
+		{
+			"wrong": "smaller then",
+			"fixed": "smaller than"
+		},
+		{
+			"wrong": "smarter then",
+			"fixed": "smarter than"
+		},
+		{
+			"wrong": "sneak peak",
+			"fixed": "sneak peek"
+		},
+		{
+			"wrong": "some how",
+			"fixed": "somehow"
+		},
+		{
+			"wrong": "some one",
+			"fixed": "someone"
+		},
+		{
+			"wrong": "some what",
+			"fixed": "somewhat"
+		},
+		{
+			"wrong": "some where",
+			"fixed": "somewhere"
+		},
+		{
+			"wrong": "sometimes know as",
+			"fixed": "sometimes known as"
+		},
+		{
+			"wrong": "soon there after",
+			"fixed": "soon thereafter"
+		},
+		{
+			"wrong": "sooner then",
+			"fixed": "sooner than"
+		},
+		{
+			"wrong": "sophomore album",
+			"fixed": "second album"
+		},
+		{
+			"wrong": "sophomore single",
+			"fixed": "second single"
+		},
+		{
+			"wrong": "spilt among",
+			"fixed": "split among"
+		},
+		{
+			"wrong": "spilt between",
+			"fixed": "split between"
+		},
+		{
+			"wrong": "spilt into",
+			"fixed": "split into"
+		},
+		{
+			"wrong": "spilt up",
+			"fixed": "split up"
+		},
+		{
+			"wrong": "spinal chord",
+			"fixed": "spinal cord"
+		},
+		{
+			"wrong": "spitting image",
+			"fixed": "spit and image"
+		},
+		{
+			"wrong": "split in to",
+			"fixed": "split into"
+		},
+		{
+			"wrong": "sq ft",
+			"fixed": "ft"
+		},
+		{
+			"wrong": "sq in",
+			"fixed": "in"
+		},
+		{
+			"wrong": "sq km",
+			"fixed": "km"
+		},
+		{
+			"wrong": "sq mi",
+			"fixed": "mi"
+		},
+		{
+			"wrong": "squared feet",
+			"fixed": "square feet"
+		},
+		{
+			"wrong": "squared inches",
+			"fixed": "square inches"
+		},
+		{
+			"wrong": "squared kilometers",
+			"fixed": "square kilometers"
+		},
+		{
+			"wrong": "squared meters",
+			"fixed": "square meters"
+		},
+		{
+			"wrong": "squared miles",
+			"fixed": "square miles"
+		},
+		{
+			"wrong": "stale mate",
+			"fixed": "stalemate"
+		},
+		{
+			"wrong": "staring role",
+			"fixed": "starring role"
+		},
+		{
+			"wrong": "starring roll",
+			"fixed": "starring role"
+		},
+		{
+			"wrong": "stay a while",
+			"fixed": "stay awhile"
+		},
+		{
+			"wrong": "Stevie Ray Vaughn",
+			"fixed": "Stevie Ray Vaughan"
+		},
+		{
+			"wrong": "Straight of",
+			"fixed": "Strait of [geography]"
+		},
+		{
+			"wrong": "strike outs",
+			"fixed": "strikeouts"
+		},
+		{
+			"wrong": "stronger then",
+			"fixed": "stronger than"
+		},
+		{
+			"wrong": "suppose to",
+			"fixed": "supposed to"
+		},
+		{
+			"wrong": "take affect",
+			"fixed": "take effect"
+		},
+		{
+			"wrong": "take over the reigns",
+			"fixed": "take over the reins"
+		},
+		{
+			"wrong": "take the reigns",
+			"fixed": "take the reins"
+		},
+		{
+			"wrong": "taken the reigns",
+			"fixed": "taken the reins"
+		},
+		{
+			"wrong": "taking the reigns",
+			"fixed": "taking the reins"
+		},
+		{
+			"wrong": "teacher's union",
+			"fixed": " teachers' union"
+		},
+		{
+			"wrong": "ten times less than",
+			"fixed": "one tenth as much as"
+		},
+		{
+			"wrong": "than it's",
+			"fixed": " than its"
+		},
+		{
+			"wrong": "that maybe",
+			"fixed": "that may be"
+		},
+		{
+			"wrong": "the 1st of January",
+			"fixed": "1 January etc"
+		},
+		{
+			"wrong": "the are",
+			"fixed": "they are"
+		},
+		{
+			"wrong": "the break down",
+			"fixed": "the breakdown"
+		},
+		{
+			"wrong": "the break up",
+			"fixed": "the breakup"
+		},
+		{
+			"wrong": "the clamp down",
+			"fixed": "the clampdown"
+		},
+		{
+			"wrong": "the follow up",
+			"fixed": "they follow-up"
+		},
+		{
+			"wrong": "the had",
+			"fixed": "they had"
+		},
+		{
+			"wrong": "the much of the",
+			"fixed": "much of the"
+		},
+		{
+			"wrong": "the one of the",
+			"fixed": "one of the"
+		},
+		{
+			"wrong": "the were",
+			"fixed": "they were"
+		},
+		{
+			"wrong": "their are",
+			"fixed": "there are"
+		},
+		{
+			"wrong": "their had",
+			"fixed": "there had"
+		},
+		{
+			"wrong": "their has",
+			"fixed": "there has"
+		},
+		{
+			"wrong": "their have",
+			"fixed": "there have"
+		},
+		{
+			"wrong": "their is",
+			"fixed": "there is"
+		},
+		{
+			"wrong": "their was",
+			"fixed": "there was"
+		},
+		{
+			"wrong": "their were",
+			"fixed": "there were"
+		},
+		{
+			"wrong": "their would",
+			"fixed": "there would"
+		},
+		{
+			"wrong": "them selves",
+			"fixed": "themselves"
+		},
+		{
+			"wrong": "there after",
+			"fixed": "thereafter"
+		},
+		{
+			"wrong": "there by",
+			"fixed": "thereby"
+		},
+		{
+			"wrong": "there maybe",
+			"fixed": "there may be"
+		},
+		{
+			"wrong": "there of",
+			"fixed": "thereof"
+		},
+		{
+			"wrong": "there own",
+			"fixed": "their own"
+		},
+		{
+			"wrong": "there where",
+			"fixed": "there were"
+		},
+		{
+			"wrong": "these maybe",
+			"fixed": "these may be"
+		},
+		{
+			"wrong": "these where",
+			"fixed": "these were"
+		},
+		{
+			"wrong": "they garnished",
+			"fixed": "they garnered"
+		},
+		{
+			"wrong": "they maybe",
+			"fixed": "they may be"
+		},
+		{
+			"wrong": "they way",
+			"fixed": "the way"
+		},
+		{
+			"wrong": "they where",
+			"fixed": "they were"
+		},
+		{
+			"wrong": "this criteria",
+			"fixed": "these criteria [plural], this criterion [singular]"
+		},
+		{
+			"wrong": "this lead to",
+			"fixed": "this led to"
+		},
+		{
+			"wrong": "this maybe",
+			"fixed": "this may be"
+		},
+		{
+			"wrong": "this phenomena",
+			"fixed": "this phenomenon [singular]"
+		},
+		{
+			"wrong": "those maybe",
+			"fixed": "those may be"
+		},
+		{
+			"wrong": "through it's",
+			"fixed": " through its"
+		},
+		{
+			"wrong": "through out",
+			"fixed": "threw out, throughout"
+		},
+		{
+			"wrong": "through the ringer",
+			"fixed": "through the wringer"
+		},
+		{
+			"wrong": "throughout it's",
+			"fixed": " throughout its"
+		},
+		{
+			"wrong": "time outs",
+			"fixed": "timeouts"
+		},
+		{
+			"wrong": "to back fire",
+			"fixed": "to backfire"
+		},
+		{
+			"wrong": "to back-off",
+			"fixed": "to back off"
+		},
+		{
+			"wrong": "to back-up",
+			"fixed": "to back up [verb]"
+		},
+		{
+			"wrong": "to backoff",
+			"fixed": "to back off"
+		},
+		{
+			"wrong": "to backout",
+			"fixed": "to back out"
+		},
+		{
+			"wrong": "to backup",
+			"fixed": "to back up [verb]"
+		},
+		{
+			"wrong": "to bailout",
+			"fixed": "to bail out"
+		},
+		{
+			"wrong": "to bath",
+			"fixed": "to bathe"
+		},
+		{
+			"wrong": "to be build",
+			"fixed": "to be built"
+		},
+		{
+			"wrong": "to be setup",
+			"fixed": "to be set up"
+		},
+		{
+			"wrong": "to blackout",
+			"fixed": "to black out"
+		},
+		{
+			"wrong": "to blastoff",
+			"fixed": "to blast off [verb]"
+		},
+		{
+			"wrong": "to blowout",
+			"fixed": "to blow out [verb]"
+		},
+		{
+			"wrong": "to blowup",
+			"fixed": "to blow up [verb]"
+		},
+		{
+			"wrong": "to breakdown",
+			"fixed": "to break down [verb]"
+		},
+		{
+			"wrong": "to breath",
+			"fixed": "to breathe"
+		},
+		{
+			"wrong": "to buildup",
+			"fixed": "to build up"
+		},
+		{
+			"wrong": "to built",
+			"fixed": "to build"
+		},
+		{
+			"wrong": "to buyout",
+			"fixed": "to buy out [verb]"
+		},
+		{
+			"wrong": "to chose",
+			"fixed": "to choose"
+		},
+		{
+			"wrong": "to comeback",
+			"fixed": "to come back [verb]"
+		},
+		{
+			"wrong": "to crackdown",
+			"fixed": "to crack down [verb]"
+		},
+		{
+			"wrong": "to cutback",
+			"fixed": "to cut back [verb]"
+		},
+		{
+			"wrong": "to dropout",
+			"fixed": "to drop out [verb]"
+		},
+		{
+			"wrong": "to forego",
+			"fixed": "to forgo"
+		},
+		{
+			"wrong": "to grown",
+			"fixed": "to grow"
+		},
+		{
+			"wrong": "to have lead to",
+			"fixed": "to have led to"
+		},
+		{
+			"wrong": "to holdout",
+			"fixed": "to hold out [verb]"
+		},
+		{
+			"wrong": "to kickoff",
+			"fixed": "to kick off [verb]"
+		},
+		{
+			"wrong": "to lit",
+			"fixed": "to light"
+		},
+		{
+			"wrong": "to loath",
+			"fixed": "to loathe [verb]"
+		},
+		{
+			"wrong": "to lockout",
+			"fixed": "to lock out [verb]"
+		},
+		{
+			"wrong": "to markup",
+			"fixed": "to mark up [verb]"
+		},
+		{
+			"wrong": "to pickup",
+			"fixed": "to pick up [verb]"
+		},
+		{
+			"wrong": "to playback",
+			"fixed": "to play back [verb]"
+		},
+		{
+			"wrong": "to rollback",
+			"fixed": "to roll back [verb]"
+		},
+		{
+			"wrong": "to runaway",
+			"fixed": "to run away [verb]"
+		},
+		{
+			"wrong": "to setup",
+			"fixed": "to set up [verb]"
+		},
+		{
+			"wrong": "to shut-down",
+			"fixed": "to shut down"
+		},
+		{
+			"wrong": "to shutdown",
+			"fixed": "to shut down"
+		},
+		{
+			"wrong": "to spin-off",
+			"fixed": "to spin off"
+		},
+		{
+			"wrong": "to spinoff",
+			"fixed": "to spin off"
+		},
+		{
+			"wrong": "to takeover",
+			"fixed": "to take over [verb]"
+		},
+		{
+			"wrong": "to that affect",
+			"fixed": "to that effect"
+		},
+		{
+			"wrong": "to they're",
+			"fixed": " to their"
+		},
+		{
+			"wrong": "to together",
+			"fixed": "together"
+		},
+		{
+			"wrong": "to try and",
+			"fixed": "to try to"
+		},
+		{
+			"wrong": "to tryout",
+			"fixed": "to try out [verb]"
+		},
+		{
+			"wrong": "to turnaround",
+			"fixed": "to turn around"
+		},
+		{
+			"wrong": "to turnoff",
+			"fixed": "to turn off"
+		},
+		{
+			"wrong": "to turnout",
+			"fixed": "to turn out"
+		},
+		{
+			"wrong": "to turnover",
+			"fixed": "to turn over"
+		},
+		{
+			"wrong": "to wakeup",
+			"fixed": "to wake up"
+		},
+		{
+			"wrong": "to walkout",
+			"fixed": "to walk out"
+		},
+		{
+			"wrong": "to workaround",
+			"fixed": "to work around"
+		},
+		{
+			"wrong": "to workout",
+			"fixed": "to work out"
+		},
+		{
+			"wrong": "too also",
+			"fixed": "also, to also, too"
+		},
+		{
+			"wrong": "too be",
+			"fixed": "to be"
+		},
+		{
+			"wrong": "took affect",
+			"fixed": "took effect"
+		},
+		{
+			"wrong": "took and interest",
+			"fixed": "took an interest"
+		},
+		{
+			"wrong": "took over the reigns",
+			"fixed": "took over the reins"
+		},
+		{
+			"wrong": "took the reigns",
+			"fixed": "took the reins"
+		},
+		{
+			"wrong": "tot he",
+			"fixed": "to the"
+		},
+		{
+			"wrong": "tried to used",
+			"fixed": "tried to use"
+		},
+		{
+			"wrong": "try and achieve",
+			"fixed": "try to achieve"
+		},
+		{
+			"wrong": "try and add",
+			"fixed": "try to add"
+		},
+		{
+			"wrong": "try and answer",
+			"fixed": "try to answer"
+		},
+		{
+			"wrong": "try and attract",
+			"fixed": "try to attract"
+		},
+		{
+			"wrong": "try and avoid",
+			"fixed": "try to avoid"
+		},
+		{
+			"wrong": "try and be",
+			"fixed": "try to be"
+		},
+		{
+			"wrong": "try and beat",
+			"fixed": "try to beat"
+		},
+		{
+			"wrong": "try and become",
+			"fixed": "try to become"
+		},
+		{
+			"wrong": "try and bring",
+			"fixed": "try to bring"
+		},
+		{
+			"wrong": "try and build",
+			"fixed": "try to build"
+		},
+		{
+			"wrong": "try and catch",
+			"fixed": "try to catch"
+		},
+		{
+			"wrong": "try and change",
+			"fixed": "try to change"
+		},
+		{
+			"wrong": "try and come",
+			"fixed": "try to come"
+		},
+		{
+			"wrong": "try and decide",
+			"fixed": "try to decide"
+		},
+		{
+			"wrong": "try and do",
+			"fixed": "try to do"
+		},
+		{
+			"wrong": "try and eat",
+			"fixed": "try to eat"
+		},
+		{
+			"wrong": "try and escape",
+			"fixed": "try to escape"
+		},
+		{
+			"wrong": "try and figure",
+			"fixed": "try to figure"
+		},
+		{
+			"wrong": "try and find",
+			"fixed": "try to find"
+		},
+		{
+			"wrong": "try and fix",
+			"fixed": "try to fix"
+		},
+		{
+			"wrong": "try and gain",
+			"fixed": "try to gain"
+		},
+		{
+			"wrong": "try and get",
+			"fixed": "try to get"
+		},
+		{
+			"wrong": "try and give",
+			"fixed": "try to give"
+		},
+		{
+			"wrong": "try and go",
+			"fixed": "try to go"
+		},
+		{
+			"wrong": "try and help",
+			"fixed": "try to help"
+		},
+		{
+			"wrong": "try and hide",
+			"fixed": "try to hide"
+		},
+		{
+			"wrong": "try and hit",
+			"fixed": "try to hit"
+		},
+		{
+			"wrong": "try and hold",
+			"fixed": "try to hold"
+		},
+		{
+			"wrong": "try and keep",
+			"fixed": "try to keep"
+		},
+		{
+			"wrong": "try and locate",
+			"fixed": "try to locate"
+		},
+		{
+			"wrong": "try and make",
+			"fixed": "try to make"
+		},
+		{
+			"wrong": "try and move",
+			"fixed": "try to move"
+		},
+		{
+			"wrong": "try and obtain",
+			"fixed": "try to obtain"
+		},
+		{
+			"wrong": "try and play",
+			"fixed": "try to play"
+		},
+		{
+			"wrong": "try and prevent",
+			"fixed": "try to prevent"
+		},
+		{
+			"wrong": "try and protect",
+			"fixed": "try to prove"
+		},
+		{
+			"wrong": "try and prove",
+			"fixed": "try to prove"
+		},
+		{
+			"wrong": "try and see",
+			"fixed": "try to see"
+		},
+		{
+			"wrong": "try and show",
+			"fixed": "try to show"
+		},
+		{
+			"wrong": "try and slow",
+			"fixed": "try to slow"
+		},
+		{
+			"wrong": "try and solve",
+			"fixed": "try to solve"
+		},
+		{
+			"wrong": "try and spare",
+			"fixed": "try to spare"
+		},
+		{
+			"wrong": "try and start",
+			"fixed": "try to start"
+		},
+		{
+			"wrong": "try and stay",
+			"fixed": "try to stay"
+		},
+		{
+			"wrong": "try and stop",
+			"fixed": "try to stop"
+		},
+		{
+			"wrong": "try and support",
+			"fixed": "try to support"
+		},
+		{
+			"wrong": "try and take",
+			"fixed": "try to take"
+		},
+		{
+			"wrong": "try and talk",
+			"fixed": "try to talk"
+		},
+		{
+			"wrong": "try and tell",
+			"fixed": "try to tell"
+		},
+		{
+			"wrong": "try and understand",
+			"fixed": "try to understand"
+		},
+		{
+			"wrong": "try and use",
+			"fixed": "try to use"
+		},
+		{
+			"wrong": "try and win",
+			"fixed": "try to win"
+		},
+		{
+			"wrong": "turn for the worst",
+			"fixed": "turn for the worse"
+		},
+		{
+			"wrong": "twice as much than",
+			"fixed": "twice as much as"
+		},
+		{
+			"wrong": "two in a half",
+			"fixed": "two and a half"
+		},
+		{
+			"wrong": "two times less than",
+			"fixed": "half as much as"
+		},
+		{
+			"wrong": "under go",
+			"fixed": "undergo"
+		},
+		{
+			"wrong": "under going",
+			"fixed": "undergoing"
+		},
+		{
+			"wrong": "under gone",
+			"fixed": "undergone"
+		},
+		{
+			"wrong": "under it's",
+			"fixed": " under its"
+		},
+		{
+			"wrong": "under rated",
+			"fixed": "underrated"
+		},
+		{
+			"wrong": "under take",
+			"fixed": "undertake"
+		},
+		{
+			"wrong": "under wear",
+			"fixed": "underwear"
+		},
+		{
+			"wrong": "under went",
+			"fixed": "underwent"
+		},
+		{
+			"wrong": "underneath it's",
+			"fixed": " underneath its"
+		},
+		{
+			"wrong": "United State's",
+			"fixed": " United States'"
+		},
+		{
+			"wrong": "United Stats",
+			"fixed": "United States"
+		},
+		{
+			"wrong": "Unites States",
+			"fixed": "United States"
+		},
+		{
+			"wrong": "unlike it's",
+			"fixed": " unlike its"
+		},
+		{
+			"wrong": "until it's",
+			"fixed": " until its"
+		},
+		{
+			"wrong": "up field",
+			"fixed": "upfield"
+		},
+		{
+			"wrong": "up it's",
+			"fixed": " up its"
+		},
+		{
+			"wrong": "up side",
+			"fixed": "upside"
+		},
+		{
+			"wrong": "up until",
+			"fixed": "until"
+		},
+		{
+			"wrong": "upon it's",
+			"fixed": " upon its"
+		},
+		{
+			"wrong": "USD dollars",
+			"fixed": "US dollars, USD"
+		},
+		{
+			"wrong": "USD$",
+			"fixed": "US dollars, US$"
+		},
+		{
+			"wrong": "use to",
+			"fixed": "used to, commonly"
+		},
+		{
+			"wrong": "use to be",
+			"fixed": "used to be"
+		},
+		{
+			"wrong": "use to have",
+			"fixed": "used to have"
+		},
+		{
+			"wrong": "usually know as",
+			"fixed": "usually known as"
+		},
+		{
+			"wrong": "usually know by",
+			"fixed": "usually known by"
+		},
+		{
+			"wrong": "usually know for",
+			"fixed": "usually known for"
+		},
+		{
+			"wrong": "'very minimal",
+			"fixed": "minimal, very little, very small"
+		},
+		{
+			"wrong": "'very optimal",
+			"fixed": "optimal, very good"
+		},
+		{
+			"wrong": "'very unique",
+			"fixed": "unique, very unusual"
+		},
+		{
+			"wrong": "'via it's",
+			"fixed": " via its"
+		},
+		{
+			"wrong": "'VIN number",
+			"fixed": "vehicle identification number, VIN"
+		},
+		{
+			"wrong": "'vise versa",
+			"fixed": "vice versa"
+		},
+		{
+			"wrong": "'vocal chords",
+			"fixed": "vocal cords, vocal folds"
+		},
+		{
+			"wrong": "waived off",
+			"fixed": "waved off"
+		},
+		{
+			"wrong": "warn out",
+			"fixed": "worn out"
+		},
+		{
+			"wrong": "was aloud",
+			"fixed": "was allowed"
+		},
+		{
+			"wrong": "was be ",
+			"fixed": "was, was being, was to be"
+		},
+		{
+			"wrong": "was been",
+			"fixed": "has been, was being"
+		},
+		{
+			"wrong": "was began",
+			"fixed": "was begun"
+		},
+		{
+			"wrong": "was build",
+			"fixed": "was built"
+		},
+		{
+			"wrong": "was comprised from",
+			"fixed": "comprised, was composed from"
+		},
+		{
+			"wrong": "was comprised with",
+			"fixed": "comprised"
+		},
+		{
+			"wrong": "was do to",
+			"fixed": "was due to"
+		},
+		{
+			"wrong": "was drew",
+			"fixed": "was drawn"
+		},
+		{
+			"wrong": "was knew",
+			"fixed": "was known"
+		},
+		{
+			"wrong": "was lain",
+			"fixed": "was laid"
+		},
+		{
+			"wrong": "was laying on",
+			"fixed": "was lying on"
+		},
+		{
+			"wrong": "was lead by",
+			"fixed": "was led by"
+		},
+		{
+			"wrong": "was loathe to",
+			"fixed": "was loath to"
+		},
+		{
+			"wrong": "was meet by",
+			"fixed": "was met by"
+		},
+		{
+			"wrong": "was meet with",
+			"fixed": "was met with"
+		},
+		{
+			"wrong": "was ran",
+			"fixed": "was run"
+		},
+		{
+			"wrong": "was release",
+			"fixed": "was released"
+		},
+		{
+			"wrong": "was reran",
+			"fixed": "was rerun"
+		},
+		{
+			"wrong": "was rode",
+			"fixed": "was ridden"
+		},
+		{
+			"wrong": "was sang",
+			"fixed": "was sung"
+		},
+		{
+			"wrong": "was setup",
+			"fixed": "was set up"
+		},
+		{
+			"wrong": "was shook",
+			"fixed": "was shaken"
+		},
+		{
+			"wrong": "was show on",
+			"fixed": "was shown on"
+		},
+		{
+			"wrong": "was showed",
+			"fixed": "was shown"
+		},
+		{
+			"wrong": "was shutdown",
+			"fixed": "was shut down"
+		},
+		{
+			"wrong": "was shutout",
+			"fixed": "was shut out"
+		},
+		{
+			"wrong": "was sold-out",
+			"fixed": "was sold out"
+		},
+		{
+			"wrong": "was suppose to",
+			"fixed": "was supposed to"
+		},
+		{
+			"wrong": "was though that",
+			"fixed": "was thought that"
+		},
+		{
+			"wrong": "was took",
+			"fixed": "was taken"
+		},
+		{
+			"wrong": "was tore",
+			"fixed": "was torn"
+		},
+		{
+			"wrong": "was wrote",
+			"fixed": "was written"
+		},
+		{
+			"wrong": "was use to",
+			"fixed": "was used to"
+		},
+		{
+			"wrong": "way side",
+			"fixed": "wayside"
+		},
+		{
+			"wrong": "weather or not",
+			"fixed": "whether or not"
+		},
+		{
+			"wrong": "went threw",
+			"fixed": "went through"
+		},
+		{
+			"wrong": "were aloud",
+			"fixed": "were allowed"
+		},
+		{
+			"wrong": "were been",
+			"fixed": "have been, were being"
+		},
+		{
+			"wrong": "were began",
+			"fixed": "were begun"
+		},
+		{
+			"wrong": "were build",
+			"fixed": "were built"
+		},
+		{
+			"wrong": "were comprised with",
+			"fixed": "comprised"
+		},
+		{
+			"wrong": "were drew",
+			"fixed": "were drawn"
+		},
+		{
+			"wrong": "were lain",
+			"fixed": "were laid"
+		},
+		{
+			"wrong": "were lead by",
+			"fixed": "were led by"
+		},
+		{
+			"wrong": "were loathe to",
+			"fixed": "were loath to"
+		},
+		{
+			"wrong": "were meet by",
+			"fixed": "were met by"
+		},
+		{
+			"wrong": "were meet with",
+			"fixed": "were met with"
+		},
+		{
+			"wrong": "were ran",
+			"fixed": "were run"
+		},
+		{
+			"wrong": "were rode",
+			"fixed": "were ridden"
+		},
+		{
+			"wrong": "were sang",
+			"fixed": "were sung"
+		},
+		{
+			"wrong": "were setup",
+			"fixed": "were set up"
+		},
+		{
+			"wrong": "were showed",
+			"fixed": "were shown"
+		},
+		{
+			"wrong": "were shutdown",
+			"fixed": "were shut down"
+		},
+		{
+			"wrong": "were shutout",
+			"fixed": "were shut out"
+		},
+		{
+			"wrong": "were suppose to",
+			"fixed": "were supposed to"
+		},
+		{
+			"wrong": "were took",
+			"fixed": "were taken"
+		},
+		{
+			"wrong": "were tore",
+			"fixed": "were torn"
+		},
+		{
+			"wrong": "were use to",
+			"fixed": "were used to"
+		},
+		{
+			"wrong": "were wrote",
+			"fixed": "were written"
+		},
+		{
+			"wrong": "wether or not",
+			"fixed": "whether or not"
+		},
+		{
+			"wrong": "when into",
+			"fixed": "went into"
+		},
+		{
+			"wrong": "when on to",
+			"fixed": "went on to"
+		},
+		{
+			"wrong": "where abouts",
+			"fixed": "whereabouts"
+		},
+		{
+			"wrong": "where as",
+			"fixed": "whereas"
+		},
+		{
+			"wrong": "where being",
+			"fixed": "were being"
+		},
+		{
+			"wrong": "where by",
+			"fixed": "whereby"
+		},
+		{
+			"wrong": "where made",
+			"fixed": "were made"
+		},
+		{
+			"wrong": "where taken",
+			"fixed": "were taken"
+		},
+		{
+			"wrong": "where upon",
+			"fixed": "whereupon"
+		},
+		{
+			"wrong": "which breakdown",
+			"fixed": "which break down"
+		},
+		{
+			"wrong": "which had lead",
+			"fixed": "which had led"
+		},
+		{
+			"wrong": "which has lead",
+			"fixed": "which has led"
+		},
+		{
+			"wrong": "which have lead",
+			"fixed": "which have led"
+		},
+		{
+			"wrong": "which maybe",
+			"fixed": "which may be"
+		},
+		{
+			"wrong": "which where",
+			"fixed": "which were"
+		},
+		{
+			"wrong": "who had lead",
+			"fixed": "who had led"
+		},
+		{
+			"wrong": "who has lead",
+			"fixed": "who has led"
+		},
+		{
+			"wrong": "who have lead",
+			"fixed": "who have led"
+		},
+		{
+			"wrong": "who he led",
+			"fixed": "whom he led"
+		},
+		{
+			"wrong": "who he married",
+			"fixed": "whom he married"
+		},
+		{
+			"wrong": "who he met",
+			"fixed": "whom he met"
+		},
+		{
+			"wrong": "who he took",
+			"fixed": "whom he took"
+		},
+		{
+			"wrong": "who lead",
+			"fixed": "who led"
+		},
+		{
+			"wrong": "who maybe",
+			"fixed": "who may be"
+		},
+		{
+			"wrong": "who setup",
+			"fixed": "who set up"
+		},
+		{
+			"wrong": "who to believe",
+			"fixed": "whom to believe"
+		},
+		{
+			"wrong": "who to blame",
+			"fixed": "whom to blame"
+		},
+		{
+			"wrong": "who to call",
+			"fixed": "whom to call"
+		},
+		{
+			"wrong": "who to invite",
+			"fixed": "whom to invite"
+		},
+		{
+			"wrong": "who to send",
+			"fixed": "whom to send"
+		},
+		{
+			"wrong": "who use to",
+			"fixed": "who used to"
+		},
+		{
+			"wrong": "who where",
+			"fixed": "who were"
+		},
+		{
+			"wrong": "who's actual",
+			"fixed": " whose actual"
+		},
+		{
+			"wrong": "who's brother",
+			"fixed": " whose brother"
+		},
+		{
+			"wrong": "who's father",
+			"fixed": " whose father"
+		},
+		{
+			"wrong": "who's first",
+			"fixed": " whose first"
+		},
+		{
+			"wrong": "who's last",
+			"fixed": " whose last"
+		},
+		{
+			"wrong": "who's mother",
+			"fixed": " whose mother"
+		},
+		{
+			"wrong": "who's name",
+			"fixed": " whose name"
+		},
+		{
+			"wrong": "who's own",
+			"fixed": " whose own"
+		},
+		{
+			"wrong": "who's previous",
+			"fixed": " whose previous"
+		},
+		{
+			"wrong": "whom also",
+			"fixed": "who also"
+		},
+		{
+			"wrong": "whom is",
+			"fixed": "who is"
+		},
+		{
+			"wrong": "whom was",
+			"fixed": "who was"
+		},
+		{
+			"wrong": "will backup",
+			"fixed": "will back up"
+		},
+		{
+			"wrong": "will comprise of",
+			"fixed": "will be composed of, will comprise, will consist of"
+		},
+		{
+			"wrong": "will likely",
+			"fixed": "will probably"
+		},
+		{
+			"wrong": "will workout",
+			"fixed": "will work out"
+		},
+		{
+			"wrong": "with he",
+			"fixed": "with him, with the"
+		},
+		{
+			"wrong": "with in",
+			"fixed": "within"
+		},
+		{
+			"wrong": "with it's",
+			"fixed": " with its"
+		},
+		{
+			"wrong": "with out",
+			"fixed": "without"
+		},
+		{
+			"wrong": "with who",
+			"fixed": "with whom"
+		},
+		{
+			"wrong": "within it's",
+			"fixed": " within its"
+		},
+		{
+			"wrong": "within site of",
+			"fixed": "within sight of"
+		},
+		{
+			"wrong": "without it's",
+			"fixed": " without its"
+		},
+		{
+			"wrong": "Word War I",
+			"fixed": "World War I"
+		},
+		{
+			"wrong": "Word War II",
+			"fixed": "World War II"
+		},
+		{
+			"wrong": "working progress",
+			"fixed": "work in progress"
+		},
+		{
+			"wrong": "world wide",
+			"fixed": "worldwide"
+		},
+		{
+			"wrong": "worse that",
+			"fixed": "worse than"
+		},
+		{
+			"wrong": "worse then",
+			"fixed": "worse than"
+		},
+		{
+			"wrong": "worse-case scenario",
+			"fixed": "worst-case scenario"
+		},
+		{
+			"wrong": "worst comes to worst",
+			"fixed": "worse comes to worst"
+		},
+		{
+			"wrong": "worst than",
+			"fixed": "worse than"
+		},
+		{
+			"wrong": "worth while",
+			"fixed": "worthwhile"
+		},
+		{
+			"wrong": "would been",
+			"fixed": "would be, would have been"
+		},
+		{
+			"wrong": "would comeback",
+			"fixed": "would come back"
+		},
+		{
+			"wrong": "would comprise of",
+			"fixed": "would comprise, would consist of"
+		},
+		{
+			"wrong": "would of",
+			"fixed": "would have"
+		},
+		{
+			"wrong": "would workout",
+			"fixed": "would work out"
+		},
+		{
+			"wrong": "wreck havoc",
+			"fixed": "wreak havoc"
+		},
+		{
+			"wrong": "younger that",
+			"fixed": "younger than"
+		},
+		{
+			"wrong": "younger then",
+			"fixed": "younger than"
+		},
+		{
+			"wrong": "%er then",
+			"fixed": "than"
+		},
+		{
+			"wrong": "base on",
+			"fixed": "based on ('base on' may be acceptable, depending on context)"
+		},
+		{
+			"wrong": "its an",
+			"fixed": "it's an"
+		}
+	]
+}
