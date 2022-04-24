@@ -4,6 +4,8 @@ var serviceAccount = require("./service_key.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
+
+  //put database url here
   databaseURL: "https://gramulardatabase-default-rtdb.firebaseio.com"
 });
 
@@ -36,3 +38,6 @@ fs.readdir(directoryPath, function(err, files) {
     });
   });
 });
+
+
+//run "node uploader.js" to upload files to firestore database
