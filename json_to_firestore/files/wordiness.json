@@ -1,5 +1,4 @@
-{
-	"wordiness": [{
+[{
 			"wrong": "absolutely essential",
 			"fixed": "essential"
 		},
@@ -3736,4 +3735,3 @@
 			"fixed": "dislike"
 		}
 	]
-}

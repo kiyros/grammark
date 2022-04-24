@@ -1,5 +1,4 @@
-{
-	"eggcorns": [{
+[{
 			"wrong": "all intensive purposes",
 			"fixed": "all intents and purposes"
 		},
@@ -340,4 +339,3 @@
 			"fixed": "work ethic"
 		}
 	]
-}

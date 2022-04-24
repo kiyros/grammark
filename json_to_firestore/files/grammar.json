@@ -1,5 +1,4 @@
-{
-	"grammar": [{
+[{
 			"wrong": "a 100",
 			"fixed": "100, a hundred, one hundred"
 		},
@@ -5240,4 +5239,3 @@
 			"fixed": "it's an"
 		}
 	]
-}

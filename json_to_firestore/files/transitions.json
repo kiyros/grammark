@@ -1,5 +1,4 @@
-{
-	"transitions": [{
+[{
 			"wrong": "above all",
 			"fixed": ""
 		},
@@ -752,4 +751,3 @@
 			"fixed": ""
 		}
 	]
-}
