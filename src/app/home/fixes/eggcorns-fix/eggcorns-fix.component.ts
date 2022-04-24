@@ -42,7 +42,7 @@ export class EggcornsFixComponent implements OnInit {
     private wordiness: WordinessService,
     private sentences: SentencesService,
     private transitions: TransitionsService
-  ) {}
+  ) { }
 
   startOverClick(): void {
     this.data.changeMessage('');
@@ -201,8 +201,8 @@ export class EggcornsFixComponent implements OnInit {
     paragraph.innerHTML = paragraph.innerHTML.replace(
       re,
       '<span style="background-color: #FF6363; font-family: Georgia;" >' +
-        text +
-        ' </span>'
+      text +
+      ' </span>'
     );
   }
 }
