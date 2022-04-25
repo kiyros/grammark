@@ -3,6 +3,7 @@
     color: #fff;
     border-left: black groove;
     border-right: black groove;
+    height: 85px;
   }
 
   /*.mat-toolbar.mat-primary:hover {
@@ -20,13 +21,21 @@
 }
 
 .grammark{
-    color: black;
-    text-decoration: none;
+    font-size: 90px;
+    font-weight: 900;
+     color: #85C446;
+    -webkit-text-stroke-width: .25px;
+    -webkit-text-stroke-color: #000000;
+    
 }
+
 .grammark:hover{
-  color: lightpink;
-  
-  }
+  color: #409e7f;
+}
+
+.grammark:active {
+  text-decoration: none;
+}
 
 .linkedpages {
   color: black;
@@ -37,10 +46,17 @@
   text-align: center;
 }
 .linkedpages:hover{
-  background-color: cyan;
+  background-color: #409e7f;
   border-radius: 10px;
   color: rgb(255, 255, 255);
 }
+
+.linksHighlight {
+-webkit-text-stroke-width: .25px;
+-webkit-text-stroke-color: #ffffff;
+
+}
+
 a:active {
   color: blue;
 }
