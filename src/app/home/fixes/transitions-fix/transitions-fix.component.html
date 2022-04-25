@@ -12,31 +12,47 @@
 </mat-toolbar>
 
 <div class="alert-box" [style.background-color]="transitionsAlertColor">
-  <h5 class="box">{{ totalTransitions }} instances ({{ transitionsScore }}% of sentences)</h5>
+  <h5 class="box">
+    {{ totalTransitions }} instances ({{ transitionsScore }}% of sentences)
+  </h5>
   <b class="box">Goal: 10% or more </b>
 </div>
 
 <mat-toolbar color="white" class="category">
   <mat-toolbar-row class="title"><b>Transitions</b></mat-toolbar-row>
-  <mat-toolbar-row class="description">{{transitionsFeedback}}</mat-toolbar-row>
+  <mat-toolbar-row class="description">{{
+    transitionsFeedback
+  }}</mat-toolbar-row>
 </mat-toolbar>
 
 <div>
   <div class="column1">
+    <button (click)="reHighlight()" class="rehighlight">
+      Highlight Errors
+    </button>
     <p id="userinput" name="userinput">{{ message }}</p>
-    <br>
-    <button (click)="reHighlight()" class="rehighlight">Highlight Errors</button>
+    <br />
   </div>
 
   <div class="column2">
-    <h1 class="feedback"><b>Transitions Found - {{totalTransitions}} instance(s)</b></h1>
+    <h1 class="feedback">
+      <b>Transitions Found - {{ totalTransitions }} instance(s)</b>
+    </h1>
     <table>
-			<td>
-				<tr *ngFor="let tableData of transitionsUserTable.find ">{{tableData}}</tr>
+      <td>
+        <tr *ngFor="let tableData of transitionsUserTable.find">
+          {{
+            tableData
+          }}
+        </tr>
       </td>
       <td>
-        <tr *ngFor="let tableData of transitionsUserTable.suggestion">{{tableData}}</tr>
+        <tr *ngFor="let tableData of transitionsUserTable.suggestion">
+          {{
+            tableData
+          }}
+        </tr>
       </td>
-		</table>
+    </table>
   </div>
 </div>

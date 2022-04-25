@@ -11,31 +11,46 @@
   <a class="linkedpages" (click)="startOverClick()" routerLink="">Start Over</a>
 </mat-toolbar>
 <div class="alert-box" [style.background-color]="academicStyleAlertColor">
-  <h5 class="box">{{ totalNonAcademic }} instances ({{ academicStyleScore }}% of sentences)</h5>
+  <h5 class="box">
+    {{ totalNonAcademic }} instances ({{ academicStyleScore }}% of sentences)
+  </h5>
   <b class="box"> Goal: 1% or less </b>
 </div>
 
 <mat-toolbar color="white" class="category">
   <mat-toolbar-row class="title"><b>Academic Style</b></mat-toolbar-row>
-  <mat-toolbar-row class="description">{{academicStyleFeedback}}</mat-toolbar-row>
+  <mat-toolbar-row class="description">{{
+    academicStyleFeedback
+  }}</mat-toolbar-row>
 </mat-toolbar>
-
-<div >
-  <div class="column1" >
+<div>
+  <div class="column1">
+    <button (click)="reHighlight()" class="rehighlight">
+      Highlight Errors
+    </button>
     <p id="userinput" name="userinput">{{ message }}</p>
-    <br>
-    <button (click)="reHighlight();" class="rehighlight">Highlight Errors</button>
+    <br />
   </div>
 
   <div class="column2">
-    <h1 class="feedback"><b>Non Academic Style Found - {{ totalNonAcademic }} instance(s)</b></h1>
+    <h1 class="feedback">
+      <b>Non Academic Style Found - {{ totalNonAcademic }} instance(s)</b>
+    </h1>
     <table>
-			<td>
-				<tr *ngFor="let tableData of academicStyleUserTable.find">{{tableData}}</tr>
+      <td>
+        <tr *ngFor="let tableData of academicStyleUserTable.find">
+          {{
+            tableData
+          }}
+        </tr>
       </td>
       <td>
-        <tr  *ngFor="let tableData of academicStyleUserTable.suggestion">{{tableData}}</tr>
+        <tr *ngFor="let tableData of academicStyleUserTable.suggestion">
+          {{
+            tableData
+          }}
+        </tr>
       </td>
-		</table>
+    </table>
   </div>
 </div>
