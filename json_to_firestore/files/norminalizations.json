@@ -1,0 +1,22 @@
+[
+{"wrong": "ization", "fixed": 7},
+{"wrong": "izations", "fixed": 8},
+{"wrong": "ing", "fixed": 3},
+{"wrong": "ings", "fixed": 4},
+{"wrong": "ism", "fixed": 3},
+{"wrong": "isms", "fixed": 4},
+{"wrong": "ation", "fixed": 5},
+{"wrong": "ations", "fixed": 6},
+{"wrong": "ition", "fixed": 5},
+{"wrong": "itions", "fixed": 6},
+{"wrong": "ment", "fixed": 4},
+{"wrong": "ments", "fixed": 5},
+{"wrong": "ability", "fixed": 7},
+{"wrong": "abilities", "fixed": 9},
+{"wrong": "ness", "fixed": 4},
+{"wrong": "nesses", "fixed": 6},
+{"wrong": "ity", "fixed": 3},
+{"wrong": "ities", "fixed": 5},
+{"wrong": "ence", "fixed": 4},
+{"wrong": "ences", "fixed": 5}
+]
