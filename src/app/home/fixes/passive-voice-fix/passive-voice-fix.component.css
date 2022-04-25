@@ -51,24 +51,24 @@
 }
 
 .rehighlight {
-    margin-top: 20px;
-    margin-left: 50%;
-    background-color: lightskyblue;
-    width: 300px;
-    height: 50px;
-    border-radius: 14px;
-    font-size: 17px;
-    font-weight: bold;
-    display: table-cell;
-    vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #409e7f;
+  color: black;
+  width: 300px;
+  height: 50px;
+  border-radius: 14px;
+  font-size: 17px;
+  font-weight: bold;
+  display: table-cell;
 }
 
 .rehighlight:hover {
-  background-color: cyan;
-  border-color: gray;
-  color: lightpink;
+  background-color: #00704a;;
+  border-color: white;
+  color: white;
 }
-
 .feedback {
   font-size: 30px;
 }
