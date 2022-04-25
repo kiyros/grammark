@@ -83,7 +83,7 @@
   }
 
   .linkedpages:hover{
-  background-color: cyan;
+  background-color: rgb(156, 166, 166);
   border-radius: 10px;
   color: rgb(255, 255, 255);
   }
