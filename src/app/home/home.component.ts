@@ -11,9 +11,7 @@ import { AcademicStyleService } from '../services/academicstyle.service';
 import { NominalizationsService } from '../services/nominalizations.service';
 import { SentencesService } from '../services/sentences.service';
 // firebase
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDoc, query, where, getDocs } from 'firebase/firestore/lite';
-import "firebase/compat/firestore";
+import { FirebaseService } from 'src/firefireStore.service';
 
 @Component({
   selector: 'app-home',
@@ -106,33 +104,9 @@ export class HomeComponent implements OnInit {
 
   async submitClick(): Promise<void> {
     
-    // setup the firestore
-    const firebaseConfig = {
-      apiKey: "AIzaSyCSYHn4OMZfXeoW0TEFTqnwgwuS_I0FqCI",
-      authDomain: "gramulardatabase.firebaseapp.com",
-      databaseURL: "https://gramulardatabase-default-rtdb.firebaseio.com",
-      projectId: "gramulardatabase",
-      storageBucket: "gramulardatabase.appspot.com",
-      messagingSenderId: "765198495430",
-      appId: "1:765198495430:web:c54cd6006c9b84307031c7",
-      measurementId: "G-KGM1GEWG1T"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    // query 
-    const q = query(collection(db, "academicstyle"));
-    const querySnapshot = await getDocs(q);
-
-    console.log(querySnapshot);
-
-    // prints the firestore into the console
-    querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
-      console.log(doc.id, " => ", doc.data());
-    });
-    
+    // test firebase operations
+    const testFireBase = new FirebaseService;
+    await testFireBase.getAcademicStyles();
 
     // Reset every time you hit re-highlight
     this.data.changeTotalSentences(0);
