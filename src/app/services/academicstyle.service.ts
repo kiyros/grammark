@@ -1,6 +1,11 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 
+// firebase
+import { FirebaseService } from 'src/firefireStore.service';
+
+
+
 @Injectable({
   providedIn: 'root'
 })
