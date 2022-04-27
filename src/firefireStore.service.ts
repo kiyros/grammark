@@ -97,7 +97,7 @@ export class FirebaseService {
   });
 }
 
- // get transitions
+ // get wordiness
  async getWordiness() {
   const q = query(collection(this.db, "wordiness"));
   const querySnapshot = await getDocs(q);
