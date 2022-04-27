@@ -42,4 +42,76 @@ export class FirebaseService {
     });
   }
 
+ // get eggcorns
+ async getEggcorns() {
+  const q = query(collection(this.db, "eggcorns"));
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshot
+    // print the firestore values in the eggcorns
+    console.log(doc.id, " => ", doc.data());
+  });
+}
+
+ // get 
+ async getGrammar() {
+  const q = query(collection(this.db, "grammar"));
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshot
+    // print the firestore values in the grammar
+    console.log(doc.id, " => ", doc.data());
+  });
+}
+
+ // get norminlizations
+ async getNorminlizations() {
+  const q = query(collection(this.db, "norminlizations"));
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshot
+    // print the firestore values in the norminlizations
+    console.log(doc.id, " => ", doc.data());
+  });
+}
+
+ // get passive voice
+ async getPassiveVoice() {
+  const q = query(collection(this.db, "passivevoice"));
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshot
+    // print the firestore values in the passivevoice
+    console.log(doc.id, " => ", doc.data());
+  });
+}
+
+ // get transitions
+ async getTransitions() {
+  const q = query(collection(this.db, "transitions"));
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshot
+    // print the firestore values in the transitions
+    console.log(doc.id, " => ", doc.data());
+  });
+}
+
+ // get transitions
+ async getWordiness() {
+  const q = query(collection(this.db, "wordiness"));
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshot
+    // print the firestore values in the wordiness
+    console.log(doc.id, " => ", doc.data());
+  });
+}
+
+
+
+
+
+
+
 }
