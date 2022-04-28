@@ -33,13 +33,19 @@ export class FirebaseService {
 
   // get academic styling
   async getAcademicStyles() {
+    let getAcademicJson = {};
+
     const q = query(collection(this.db, "academicstyle"));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshot
       // print the firestore values in the academicstyle
-      console.log(doc.id, " => ", doc.data());
+
+      var wrong = doc.data().wrong;
+      var fixed = doc.data().fixed;
+      getAcademicJson[wrong] = fixed;
     });
+    console.log(getAcademicJson);
   }
 
  // get eggcorns

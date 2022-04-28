@@ -105,8 +105,8 @@ export class HomeComponent implements OnInit {
   async submitClick(): Promise<void> {
     
     // // test firebase operations
-    // const testFireBase = new FirebaseService;
-    // await testFireBase.getAcademicStyles();
+    const testFireBase = new FirebaseService;
+    await testFireBase.getAcademicStyles();
 
     // Reset every time you hit re-highlight
     this.data.changeTotalSentences(0);
