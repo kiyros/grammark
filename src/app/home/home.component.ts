@@ -10,8 +10,7 @@ import { EggcornService } from '../services/eggcorns.service';
 import { AcademicStyleService } from '../services/academicstyle.service';
 import { NominalizationsService } from '../services/nominalizations.service';
 import { SentencesService } from '../services/sentences.service';
-// firebase
-import { FirebaseService } from 'src/firefireStore.service';
+import { FirebaseService } from '../../firefireStore.service';
 
 @Component({
   selector: 'app-home',
@@ -92,6 +91,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private router: Router,
               private data: DataService,
+              private testFireBase : FirebaseService,
               private passivevoice: PassivevoiceService,
               private wordiness: WordinessService,
               private transitions: TransitionsService,
@@ -105,8 +105,9 @@ export class HomeComponent implements OnInit {
   async submitClick(): Promise<void> {
     
     // // test firebase operations
-    const testFireBase = new FirebaseService;
-    await testFireBase.getAcademicStyles();
+    // await this.testFireBase.getAcademicStyles();
+
+    // console.log(this.testFireBase.getAcademicStyles())
 
     // Reset every time you hit re-highlight
     this.data.changeTotalSentences(0);
@@ -164,6 +165,8 @@ export class HomeComponent implements OnInit {
       }
 
       // fixes
+      console.log("Fixes");
+
       this.passiveVoiceFix(userText);
       this.wordinessFix(userText);
       this.transitionsFix(userText);
@@ -484,7 +487,7 @@ export class HomeComponent implements OnInit {
     this.academic.currentAcademicStyleScore.subscribe(academicStyleScore => this.academicStyleScore = academicStyleScore);
     // this.academic.currentTotalSentences.subscribe(totalSentences => this.totalSentences = totalSentences);
     this.academic.currentTotalNonAcademic.subscribe(totalNonAcademic => this.totalNonAcademic = totalNonAcademic);
-    this.academic.currentAcademicStyleTable.subscribe(academicStyleTable => this.academicStyleTable = academicStyleTable);
+    this.academic.currentAcademicStyleTable.subscribe(academicStyleTable => {this.academicStyleTable = academicStyleTable.__zone_symbol__value; console.log("Arrived"); console.log(this.academicStyleTable)});
   }
 
   // This Function will Calculate the Total Grammar Traps

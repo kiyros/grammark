@@ -21,7 +21,7 @@ export class EggcornService {
   currentTotalEggcorns = this.totalEggcorns.asObservable();
 
   //this table contains all of the eggcorns
-  private eggcornsTable = new BehaviorSubject<any>({
+  public eggcornsTable = new BehaviorSubject<any>({
     'all intensive purposes': 'all intents and purposes',
     'per say': 'per se',
     'another thing coming': 'another think coming',

@@ -45,7 +45,11 @@ export class FirebaseService {
       var fixed = doc.data().fixed;
       getAcademicJson[wrong] = fixed;
     });
-    console.log(getAcademicJson);
+    // console.log("Academic Style table");
+    // console.log(getAcademicJson);
+    return getAcademicJson;
+    
+    // console.log(getAcademicJson);
   }
 
  // get eggcorns
