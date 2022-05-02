@@ -127,6 +127,8 @@ export class EggcornsFixComponent implements OnInit {
   }
 
   eggcornsFix(userText: string) {
+    console.log("eggcorns");
+    console.log(this.eggcornsTable);
     for (const fix in this.eggcornsTable) {
       if (userText.toLocaleLowerCase().includes(fix)) {
         this.eggcorns.changeTotalEggcorns(this.totalEggcorns + 1);

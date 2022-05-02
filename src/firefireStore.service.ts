@@ -45,22 +45,23 @@ export class FirebaseService {
       var fixed = doc.data().fixed;
       getAcademicJson[wrong] = fixed;
     });
-    // console.log("Academic Style table");
-    // console.log(getAcademicJson);
     return getAcademicJson;
-    
-    // console.log(getAcademicJson);
   }
 
  // get eggcorns
  async getEggcorns() {
+  let getEggcornsJson = {};
   const q = query(collection(this.db, "eggcorns"));
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
-    // doc.data() is never undefined for query doc snapshot
-    // print the firestore values in the eggcorns
-    console.log(doc.id, " => ", doc.data());
-  });
+      // doc.data() is never undefined for query doc snapshot
+      // print the firestore values in the academicstyle
+
+      var wrong = doc.data().wrong;
+      var fixed = doc.data().fixed;
+      getEggcornsJson[wrong] = fixed;
+    });
+    return getEggcornsJson;
 }
 
  // get 
@@ -109,13 +110,18 @@ export class FirebaseService {
 
  // get wordiness
  async getWordiness() {
+  let getWordinessJson = {};
   const q = query(collection(this.db, "wordiness"));
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshot
-    // print the firestore values in the wordiness
-    console.log(doc.id, " => ", doc.data());
+    // print the firestore values in the academicstyle
+
+    var wrong = doc.data().wrong;
+    var fixed = doc.data().fixed;
+    getWordinessJson[wrong] = fixed;
   });
+  return getWordinessJson;
 }
 
 

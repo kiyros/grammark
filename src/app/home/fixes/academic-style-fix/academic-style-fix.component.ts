@@ -105,7 +105,7 @@ export class AcademicStyleFixComponent implements OnInit {
       }
 
       // Fixes
-
+      console.log("Fixing academic style")
       this.academicStyleFix(userText);
     }
   }
@@ -132,15 +132,17 @@ export class AcademicStyleFixComponent implements OnInit {
   academicStyleFix(userText: string) {
     //find non academic word in user text
     const errorHolder = new Map();
-    for (const fix in this.academicStyleTable) {
+
+    for (const fix in this.academicStyleTable.__zone_symbol__value) {
       if (userText.includes(fix)) {
         let errorIndex = userText.indexOf(fix);
         errorHolder.set(
           errorIndex,
-          '• ' + fix + ' ⟶ ' + this.academicStyleTable[fix]
+          '• ' + fix + ' ⟶ ' + this.academicStyleTable.__zone_symbol__value[fix]
         );
-        this.academic.changeTotalNonAcademic(this.totalNonAcademic + 1);
 
+
+        this.academic.changeTotalNonAcademic(this.totalNonAcademic + 1);
         //highlights the error
         this.highlight(fix);
 
@@ -149,9 +151,8 @@ export class AcademicStyleFixComponent implements OnInit {
           errorIndex = userText.indexOf(fix, errorIndex + 1);
           errorHolder.set(
             errorIndex,
-            '• ' + fix + ' ⟶ ' + this.academicStyleTable[fix]
+            '• ' + fix + ' ⟶ ' + this.academicStyleTable.__zone_symbol__value[fix]
           );
-          // console.log(errorIndex + " • " + fix + " ⟶ " + this.academicStyleTable[fix]);
 
           this.academic.changeTotalNonAcademic(this.totalNonAcademic + 1);
         }
@@ -278,6 +279,7 @@ export class AcademicStyleFixComponent implements OnInit {
   highlight(text) {
     //hold the message from the html textbox with id= userinput
     var paragraph = document.getElementById('userinput');
+    console.log("Highighting now")
 
     //dynamic/custom regex expression -> only way to use variable inside regex
     let re = new RegExp(`\\b${text}\\b`, 'gi');

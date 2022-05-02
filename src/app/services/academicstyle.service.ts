@@ -28,7 +28,7 @@ export class AcademicStyleService {
 
 
   // Non Academic Style Error List
-  private academicStyleTableSource = new BehaviorSubject<any>( this.testFireBase.getAcademicStyles()
+  private academicStyleTableSource = new BehaviorSubject<any>(this.testFireBase.getAcademicStyles()
     // casual language & feedback
   );
   currentAcademicStyleTable = this.academicStyleTableSource.asObservable();
@@ -36,7 +36,7 @@ export class AcademicStyleService {
   // nonAcademic Style Current User Errors
   private academicStyleUserTableSource = new BehaviorSubject<any>({});
   currentAcademicStyleUserTable = this.academicStyleUserTableSource.asObservable();
-
+  
   constructor(
     private testFireBase : FirebaseService
   ) { }

@@ -104,10 +104,7 @@ export class HomeComponent implements OnInit {
 
   async submitClick(): Promise<void> {
     
-    // // test firebase operations
-    // await this.testFireBase.getAcademicStyles();
 
-    // console.log(this.testFireBase.getAcademicStyles())
 
     // Reset every time you hit re-highlight
     this.data.changeTotalSentences(0);
@@ -487,7 +484,7 @@ export class HomeComponent implements OnInit {
     this.academic.currentAcademicStyleScore.subscribe(academicStyleScore => this.academicStyleScore = academicStyleScore);
     // this.academic.currentTotalSentences.subscribe(totalSentences => this.totalSentences = totalSentences);
     this.academic.currentTotalNonAcademic.subscribe(totalNonAcademic => this.totalNonAcademic = totalNonAcademic);
-    this.academic.currentAcademicStyleTable.subscribe(academicStyleTable => {this.academicStyleTable = academicStyleTable.__zone_symbol__value; console.log("Arrived"); console.log(this.academicStyleTable)});
+    this.academic.currentAcademicStyleTable.subscribe(academicStyleTable => {this.academicStyleTable = academicStyleTable.__zone_symbol__value; console.log("Arrived")});
   }
 
   // This Function will Calculate the Total Grammar Traps
