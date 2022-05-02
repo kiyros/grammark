@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
+import { FirebaseService } from 'src/firefireStore.service';
 
 @Injectable({
   providedIn: 'root'
@@ -1338,7 +1339,7 @@ export class GrammarService {
   private grammarUserTable = new BehaviorSubject<any>({});
   currentGrammarUserTable = this.grammarUserTable.asObservable();
 
-  constructor() { }
+  constructor(private testFireBase : FirebaseService) { }
 
   changeTotalGrammar(totalGrammar: number) {
     this.totalGrammar.next(totalGrammar);

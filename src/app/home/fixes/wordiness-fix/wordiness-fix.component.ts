@@ -117,12 +117,13 @@ export class WordinessFixComponent implements OnInit {
     this.wordinessService();
   }
   wordinessFix(userText: string) {
+    console.log(this.wordinessTable.__zone_symbol__value);
     // tslint:disable-next-line: forin
-    for (const fix in this.wordinessTable) {
+    for (const fix in this.wordinessTable.__zone_symbol__value) {
       if (userText.includes(fix)) {
         this.wordiness.changeWordinessNumber(this.wordinessNumber + 1);
         this.wordinessUserTable.find.push(
-          '• ' + fix + ' ⟶ ' + this.wordinessTable[fix]
+          '• ' + fix + ' ⟶ ' + this.wordinessTable.__zone_symbol__value[fix]
         );
         // this.wordinessUserTable.suggestion.push("→ " + this.wordinessTable[fix]);
         this.wordiness.changeWordinessUserTable(this.wordinessUserTable);

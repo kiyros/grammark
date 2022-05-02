@@ -42,7 +42,7 @@ export class EggcornsFixComponent implements OnInit {
     private wordiness: WordinessService,
     private sentences: SentencesService,
     private transitions: TransitionsService
-  ) {}
+  ) { }
 
   startOverClick(): void {
     this.data.changeMessage('');
@@ -127,6 +127,8 @@ export class EggcornsFixComponent implements OnInit {
   }
 
   eggcornsFix(userText: string) {
+    console.log("eggcorns");
+    console.log(this.eggcornsTable);
     for (const fix in this.eggcornsTable) {
       if (userText.toLocaleLowerCase().includes(fix)) {
         this.eggcorns.changeTotalEggcorns(this.totalEggcorns + 1);
@@ -201,8 +203,8 @@ export class EggcornsFixComponent implements OnInit {
     paragraph.innerHTML = paragraph.innerHTML.replace(
       re,
       '<span style="background-color: #FF6363; font-family: Georgia;" >' +
-        text +
-        ' </span>'
+      text +
+      ' </span>'
     );
   }
 }

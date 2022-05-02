@@ -17,7 +17,7 @@ public class GrammarkTest {
 
     @BeforeClass
     public static void setUp(){
-        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "chromedriverV101.exe");
         driver = new ChromeDriver();
     }
 
@@ -131,12 +131,12 @@ public class GrammarkTest {
         driver.get(LOCAL_URL);
         WebElement userInput = driver.findElement(By.cssSelector("#userinput"));
         userInput.clear();
-        userInput.sendKeys( "A movie is going to be watched by them tonight.");
+        userInput.sendKeys( "I have always fed my dog the dog food that comes in the big green bag.");
         WebElement submitButton = driver.findElement(By.cssSelector("#submitbutton"));
         submitButton.click();
 
         WebElement acaStyle = driver.findElement(By.cssSelector("body > app-root > app-overview > div > div.column1 > div > table > tbody > tr:nth-child(3) > td:nth-child(2)"));
-        Assert.assertEquals("1(100%)",acaStyle.getAttribute("innerHTML").toString());
+        Assert.assertEquals("4(25%)",acaStyle.getAttribute("innerHTML").toString());
     }
 
     @Test
