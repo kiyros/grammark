@@ -42,7 +42,7 @@ export class TransitionsFixComponent implements OnInit {
     private passivevoice: PassivevoiceService,
     private wordiness: WordinessService,
     private sentences: SentencesService
-  ) {}
+  ) { }
 
   startOverClick(): void {
     this.data.changeMessage('');
@@ -71,7 +71,7 @@ export class TransitionsFixComponent implements OnInit {
 
     // variables
     // user text = paragraph from the html file
-    let userText = this.getContent();
+    let userText = this.message.replace(/<\/?span[^>]*>/g, "");
     let aLetter = false;
 
     // This function checks if there is at least one letter inputed
@@ -128,13 +128,13 @@ export class TransitionsFixComponent implements OnInit {
 
   transitionsFix(userText: string) {
     //find transition in user text
-    for (const fix in this.transitionsTable) {
+    for (const fix in this.transitionsTable.__zone_symbol__value) {
       // changing user text to lower Case to match with transitionsTable
       if (userText.toLocaleLowerCase().includes(fix)) {
         this.transitions.changeTotalTransitions(this.totalTransitions + 1);
         // add transition in user text into an array
         this.transitionsUserTable.find.push(
-          '• ' + fix + ' ⟶ ' + this.transitionsTable[fix]
+          '• ' + fix + ' ⟶ ' + this.transitionsTable.__zone_symbol__value[fix]
         );
         this.transitions.changeTransitionsUserTable(this.transitionsUserTable);
         // this.transitionsUserTable.suggestion.push(" ⟶ " + this.transitionsTable[fix]);
@@ -241,8 +241,8 @@ export class TransitionsFixComponent implements OnInit {
     paragraph.innerHTML = paragraph.innerHTML.replace(
       re,
       '<span style="background-color: #FF6363; padding: 0.1em, 0.2em ;font-family: Georgia;" >' +
-        text +
-        ' </span>'
+      text +
+      ' </span>'
     );
   }
 }

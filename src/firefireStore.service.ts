@@ -48,12 +48,12 @@ export class FirebaseService {
     return getAcademicJson;
   }
 
- // get eggcorns
- async getEggcorns() {
-  let getEggcornsJson = {};
-  const q = query(collection(this.db, "eggcorns"));
-  const querySnapshot = await getDocs(q);
-  querySnapshot.forEach((doc) => {
+  // get eggcorns
+  async getEggcorns() {
+    let getEggcornsJson = {};
+    const q = query(collection(this.db, "eggcorns"));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshot
       // print the firestore values in the academicstyle
 
@@ -62,67 +62,72 @@ export class FirebaseService {
       getEggcornsJson[wrong] = fixed;
     });
     return getEggcornsJson;
-}
+  }
 
- // get 
- async getGrammar() {
-  const q = query(collection(this.db, "grammar"));
-  const querySnapshot = await getDocs(q);
-  querySnapshot.forEach((doc) => {
-    // doc.data() is never undefined for query doc snapshot
-    // print the firestore values in the grammar
-    console.log(doc.id, " => ", doc.data());
-  });
-}
+  // get 
+  async getGrammar() {
+    const q = query(collection(this.db, "grammar"));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshot
+      // print the firestore values in the grammar
+      console.log(doc.id, " => ", doc.data());
+    });
+  }
 
- // get norminlizations
- async getNorminlizations() {
-  const q = query(collection(this.db, "norminlizations"));
-  const querySnapshot = await getDocs(q);
-  querySnapshot.forEach((doc) => {
-    // doc.data() is never undefined for query doc snapshot
-    // print the firestore values in the norminlizations
-    console.log(doc.id, " => ", doc.data());
-  });
-}
+  // get norminlizations
+  async getNorminlizations() {
+    const q = query(collection(this.db, "norminlizations"));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshot
+      // print the firestore values in the norminlizations
+      console.log(doc.id, " => ", doc.data());
+    });
+  }
 
- // get passive voice
- async getPassiveVoice() {
-  const q = query(collection(this.db, "passivevoice"));
-  const querySnapshot = await getDocs(q);
-  querySnapshot.forEach((doc) => {
-    // doc.data() is never undefined for query doc snapshot
-    // print the firestore values in the passivevoice
-    console.log(doc.id, " => ", doc.data());
-  });
-}
+  // get passive voice
+  async getPassiveVoice() {
+    const q = query(collection(this.db, "passivevoice"));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshot
+      // print the firestore values in the passivevoice
+      console.log(doc.id, " => ", doc.data());
+    });
+  }
 
- // get transitions
- async getTransitions() {
-  const q = query(collection(this.db, "transitions"));
-  const querySnapshot = await getDocs(q);
-  querySnapshot.forEach((doc) => {
-    // doc.data() is never undefined for query doc snapshot
-    // print the firestore values in the transitions
-    console.log(doc.id, " => ", doc.data());
-  });
-}
+  // get transitions
+  async getTransitions() {
+    let getTransitonsJson = {};
+    const q = query(collection(this.db, "transitions"));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshot
+      // print the firestore values in the academicstyle
 
- // get wordiness
- async getWordiness() {
-  let getWordinessJson = {};
-  const q = query(collection(this.db, "wordiness"));
-  const querySnapshot = await getDocs(q);
-  querySnapshot.forEach((doc) => {
-    // doc.data() is never undefined for query doc snapshot
-    // print the firestore values in the academicstyle
+      var wrong = doc.data().wrong;
+      var fixed = doc.data().fixed;
+      getTransitonsJson[wrong] = fixed;
+    });
+    return getTransitonsJson;
+  }
 
-    var wrong = doc.data().wrong;
-    var fixed = doc.data().fixed;
-    getWordinessJson[wrong] = fixed;
-  });
-  return getWordinessJson;
-}
+  // get wordiness
+  async getWordiness() {
+    let getWordinessJson = {};
+    const q = query(collection(this.db, "wordiness"));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshot
+      // print the firestore values in the academicstyle
+
+      var wrong = doc.data().wrong;
+      var fixed = doc.data().fixed;
+      getWordinessJson[wrong] = fixed;
+    });
+    return getWordinessJson;
+  }
 
 
 
